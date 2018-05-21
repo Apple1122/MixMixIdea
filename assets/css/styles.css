@@ -1,0 +1,84 @@
+/*@media (min-width: 400px) and (max-width: 1000px) {
+	html, body {
+		position: fixed;
+	}
+	
+	html, body {
+		position: relative;
+		overflow: hidden;
+	}
+	
+	body {
+		position: fixed;
+		overflow: hidden;
+	}
+	
+	body {
+		position: fixed;
+		height: 100%;
+		overflow: hidden;
+		width: 100%;
+		font-size: 1.0em;
+	}
+}*/
+
+body {
+	font-size: 1.0em;
+}
+
+.header {
+	height: 4em;
+	width: 100%;
+	display: flex;
+	background-color: #f4f6f9;
+	box-shadow: 4px 4px 20px 1px rgba(182, 182, 206, 0.5);
+	justify-content: space-between;
+	align-items: center;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+}
+
+.vl {
+	border-left: 6px solid #d4d4d6;
+	height: 80%;
+	width: 0.5em;
+}
+
+.card-style {
+	background-color: #f4f6f9;
+	box-shadow: 4px 4px 20px 1px rgba(182, 182, 206, 0.5);
+	margin: 1em;
+	padding: 0.5em;
+}
+
+.left-item {
+	margin-left: 2em;
+}
+
+.right-item {
+	margin-right: 2em;
+}
+
+.textbutton {
+	font-size: 1.8em;
+	padding: 0.2em;
+}
+
+.textbutton-blue {
+	font-size: 1.8em;
+	color: #16b0ff;
+	padding: 0.2em;
+}
+
+.tiny-img {
+	height: 2em;
+	width: 2em;
+}
+
+.small-img {
+	height: 5em;
+	width: 5em;
+}
