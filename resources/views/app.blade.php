@@ -20,6 +20,7 @@
     <script src="/js/hello.js"></script>
 </body>
 </html>
+
 <style>
     @media (min-width: 400px) and (max-width: 1000px) {
 	html, body {

@@ -7,7 +7,7 @@
 
     <div class="login-body animated fadeIn" >
       <div class="col-choose-bar">
-        <div @click="isTeacherSelected = false" :id="isTeacherSelected? '':'selected'" class="bar student">魚尾尾嗨嗨</div>
+        <div @click="isTeacherSelected = false" :id="isTeacherSelected? '':'selected'" class="bar student">學生</div>
       <div @click="isTeacherSelected = true" :id="isTeacherSelected? 'selected':''" class="bar teacher">老師</div>
   </div>
 
@@ -30,7 +30,8 @@
   </div >
 </template >
 
-  <script>
+
+<script>
 export default {
   props: ["swapComponent"],
   data() {

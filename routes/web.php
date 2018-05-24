@@ -12,5 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('app');
+    return view('app', $data);
 });
+
+Route::get('/login', 'LoginController@test');
