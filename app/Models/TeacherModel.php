@@ -12,12 +12,11 @@ class TeacherModel extends Model
         return self::where('teacher_id', $id)->first();
     }
 
-    public static function isAccountCorrect($account, $password){
+    public static function getAccount($account, $password){
         $user = self::where('account', 'yuweiwei')->first();
         
         if(!$user) return null;
-        if (password_verify('1234', $user->password)) {
-
+        if (password_verify($password, $user->password)) {
             return $user;
         } else{
             return null;

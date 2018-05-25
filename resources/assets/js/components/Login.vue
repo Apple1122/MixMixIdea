@@ -17,7 +17,7 @@
       </div>
 
   <div class="input">
-    <input class="col effect-2" id="pw" v-model="inputPassword" type="text" placeholder="請輸入密碼" />
+    <input class="col effect-2" id="pw" v-model="inputPassword" type="password" placeholder="請輸入密碼" />
     <span class="focus-border"></span>
   </div>
     </div>
@@ -26,33 +26,49 @@
     <div class="login-button">
       <button @click="button_login_clicked()"  class="button-login">登入</button>
   </div>
-    </div>
-  </div>
-</template>
+    </div >
+  </div >
+</template >
 
 
 <script>
 export default {
   data() {
     return {
-      loginType: 'student',
-      inputAccount: '',
-      inputPassword: ''
+      loginType: "student",
+      inputAccount: "",
+      inputPassword: ""
     };
   },
+  beforeMount: function() {
+      // if user already login, then go to courselist
+      let isLogin = localStorage.getItem("loginAs");
+    if (isLogin) this.$emit("swap", "courselist");
+  },
   methods: {
-    button_login_clicked: function() {
+      button_login_clicked: function() {
       let vm = this;
       let data = {
-        'loginType': vm.loginType,
-        'account': vm.inputAccount,
-        'password': vm.inputPassword
-      }
-      axios.post('/login', data)
-      .then(function(rtn){
-        console.log(rtn);
-      });
-      this.$emit("swap", "courselist");
+      loginType: vm.loginType,
+        account: vm.inputAccount,
+        password: vm.inputPassword
+      };
+      axios
+        .post("/login", data)
+        .then(function(rtn) {
+      console.log(rtn);
+
+    if (!rtn.errmsg) {
+      localStorage.setItem("loginAs", rtn.data.result.loginAs);
+    localStorage.setItem("username", rtn.data.result.username);
+            vm.$emit("swap", "courselist");
+          } else {
+      console.log(rtn.errmsg);
+    }
+        })
+        .catch(function(err) {
+      console.log(err);
+    });
     }
   }
 };
@@ -94,22 +110,22 @@ export default {
 
 
 
-<style>
-html,
+  <style>
+    html,
 body,
 .container,
 #app {
-  width: 100%;
+      width: 100%;
   height: 100%;
 }
 
 .container {
-  background: transparent url("/img/bg-img.png") no-repeat center;
+      background: transparent url("/img/bg-img.png") no-repeat center;
   background-size: 90%;
 }
 
 .login-header {
-  display: flex;
+      display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -117,17 +133,17 @@ body,
 }
 
 .login-body {
-  width: 100%;
+      width: 100%;
   height: 37%;
 }
 
 .login-bottom {
-  width: 100%;
+      width: 100%;
   height: 30%;
 }
 
 .login-button {
-  display: flex;
+      display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -135,11 +151,11 @@ body,
 }
 
 .logo {
-  height: 90%;
+      height: 90%;
 }
 
 .button-login {
-  font: bold;
+      font: bold;
   border-radius: 99em;
   width: 78%;
   height: 70%;
@@ -185,7 +201,7 @@ body,
 }
 
 .col-choose-bar {
-  display: flex;
+      display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -193,7 +209,7 @@ body,
 }
 
 .input {
-  display: flex;
+      display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -201,24 +217,24 @@ body,
 }
 
 .col {
-  width: 75%;
+      width: 75%;
   height: 60%;
   font-size: 3.5em;
   text-indent: 3em;
 }
 
 #ac {
-  background: transparent url(/img/account.png) no-repeat 5%;
+      background: transparent url(/img/account.png) no-repeat 5%;
   background-size: 9%;
 }
 
 #pw {
-  background: transparent url(/img/password.png) no-repeat 4%;
+      background: transparent url(/img/password.png) no-repeat 4%;
   background-size: 10%;
 }
 
 .bar {
-  font: bold;
+      font: bold;
   width: 30%;
   border-bottom: 8px solid #d9e1d8;
   height: 80%;
@@ -229,18 +245,18 @@ body,
 }
 
 #selected {
-  color: #ff5f2e;
+      color: #ff5f2e;
   border-bottom: 8px solid #ff5f2e;
 }
 
 .effect-2 {
-  border: 0;
+      border: 0;
   padding: 7px 0;
   border-bottom: 5px solid #ccc;
 }
 
 .effect-2 ~ .focus-border {
-  position: absolute;
+      position: absolute;
   bottom: 0;
   left: 50%;
   width: 0;
@@ -250,7 +266,7 @@ body,
 }
 
 .effect-2:focus ~ .focus-border {
-  width: 100%;
+      width: 100%;
   transition: 0.4s;
   left: 0;
 }
