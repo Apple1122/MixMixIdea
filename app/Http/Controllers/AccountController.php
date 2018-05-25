@@ -3,47 +3,33 @@
 namespace App\Http\Controllers;
 
 use Session;
-use App\Models\TeacherModel;
 use Illuminate\Http\Request;
+use App\Models\TeacherModel;
 
 class AccountController extends Controller
 {
-    function test()
-    {
-        $rtn = array(
-            'errcode' => '',
-            'errmsg' => '',
-            'result' => 'ok',
-        );
-        return $rtn;
-    }
-
-
     function login(Request $request)
-    {
-        $rtn = array(
-            'errcode' => '',
-            'errmsg' => '',
-            'result' => '',
-        );
-
+    {     
+        $data = null;
+        $rtn = array();
         $user = $request->all();
-        $isLogin = false;
 
        if($user['loginType'] === "teacher"){
-            $teacher = TeacherModel::isAccountCorrect($user['account'], $user['password']);
+            $teacher = TeacherModel::getAccount($user['account'], $user['password']);
+
             if($teacher){
                 Session::put('loginAs', "teacher");
                 Session::put('uid', $teacher->teacher_id);
                 Session::put('name', $teacher->name);
-                $isLogin = true;
+
+                $data['loginAs'] = 'teacher';
+                $data['username'] = $teacher->name;
+            } else{
+                $rtn['errmsg'] = "User not found!";
             }
-        }
+        }  
 
-        $rtn['result'] = $isLogin
-            ? 'login OK!'       
-            : 'login failed!';
-
+        $rtn['result'] = $data;
         return $rtn;
     }
 }

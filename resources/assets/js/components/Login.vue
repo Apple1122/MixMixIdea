@@ -17,7 +17,7 @@
       </div>
 
   <div class="input">
-    <input class="col effect-2" id="pw" v-model="inputPassword" type="text" placeholder="請輸入密碼" />
+    <input class="col effect-2" id="pw" v-model="inputPassword" type="password" placeholder="請輸入密碼" />
     <span class="focus-border"></span>
   </div>
     </div>
@@ -35,24 +35,40 @@
 export default {
   data() {
     return {
-      loginType: 'student',
-      inputAccount: '',
-      inputPassword: ''
+      loginType: "student",
+      inputAccount: "",
+      inputPassword: ""
     };
+  },
+  beforeMount: function() {
+    // if user already login, then go to courselist
+    let isLogin = localStorage.getItem("loginAs");
+    if (isLogin) this.$emit("swap", "courselist");
   },
   methods: {
     button_login_clicked: function() {
       let vm = this;
       let data = {
-        'loginType': vm.loginType,
-        'account': vm.inputAccount,
-        'password': vm.inputPassword
-      }
-      axios.post('/login', data)
-      .then(function(rtn){
-        console.log(rtn);
-      });
-      //this.$emit("swap", "courselist");
+        loginType: vm.loginType,
+        account: vm.inputAccount,
+        password: vm.inputPassword
+      };
+      axios
+        .post("/login", data)
+        .then(function(rtn) {
+          console.log(rtn);
+
+          if (!rtn.errmsg) {
+            localStorage.setItem("loginAs", rtn.data.result.loginAs);
+            localStorage.setItem("username", rtn.data.result.username);
+            vm.$emit("swap", "courselist");
+          } else {
+            console.log(rtn.errmsg);
+          }
+        })
+        .catch(function(err) {
+          console.log(err);
+        });
     }
   }
 };

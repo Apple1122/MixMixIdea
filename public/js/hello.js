@@ -47741,24 +47741,38 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      loginType: 'student',
-      inputAccount: '',
-      inputPassword: ''
+      loginType: "student",
+      inputAccount: "",
+      inputPassword: ""
     };
   },
 
+  beforeMount: function beforeMount() {
+    // if user already login, then go to courselist
+    var isLogin = localStorage.getItem("loginAs");
+    if (isLogin) this.$emit("swap", "courselist");
+  },
   methods: {
     button_login_clicked: function button_login_clicked() {
       var vm = this;
       var data = {
-        'loginType': vm.loginType,
-        'account': vm.inputAccount,
-        'password': vm.inputPassword
+        loginType: vm.loginType,
+        account: vm.inputAccount,
+        password: vm.inputPassword
       };
-      axios.post('/login', data).then(function (rtn) {
+      axios.post("/login", data).then(function (rtn) {
         console.log(rtn);
+
+        if (!rtn.errmsg) {
+          localStorage.setItem("loginAs", rtn.data.result.loginAs);
+          localStorage.setItem("username", rtn.data.result.username);
+          vm.$emit("swap", "courselist");
+        } else {
+          console.log(rtn.errmsg);
+        }
+      }).catch(function (err) {
+        console.log(err);
       });
-      //this.$emit("swap", "courselist");
     }
   }
 });
@@ -47874,7 +47888,7 @@ var render = function() {
             }
           ],
           staticClass: "col effect-2",
-          attrs: { id: "pw", type: "text", placeholder: "請輸入密碼" },
+          attrs: { id: "pw", type: "password", placeholder: "請輸入密碼" },
           domProps: { value: _vm.inputPassword },
           on: {
             input: function($event) {
@@ -48016,7 +48030,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\n.cl-header{\n  width:100%;\n  height: 30%;\n}\n.cl-body{\n  width:100%;\n  height: 70%;\n}\n.ch-LR{\n  float:left;\n  width:26%;\n  height:100%;\n}\n.ch-center{\n  float:left;\n  width:44%;\n  height:100%;\n}\n.infro-img{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align:center;\n      -ms-flex-align:center;\n          align-items:center;\n  -webkit-box-pack:center;\n      -ms-flex-pack:center;\n          justify-content:center;\n  width:100%;\n  height:80%;\n}\n.infro-name{\n  color: #34314c;\n  font-weight: bold;\n  text-align: center;\n  font-size: 4em;\n  width:100%;\n  height:20%;\n  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),\n             0px 8px 13px rgba(0,0,0,0.1),\n             0px 18px 23px rgba(0,0,0,0.1);\n}\n.circle{\n  width:76%;\n  height:80%;\n  border-radius:99em;\n  -webkit-box-shadow: 0px 4px 3px rgba(0,0,0,0.3),\n             0px 8px 13px rgba(0,0,0,0.1),\n             0px 18px 23px rgba(0,0,0,0.1);\n          box-shadow: 0px 4px 3px rgba(0,0,0,0.3),\n             0px 8px 13px rgba(0,0,0,0.1),\n             0px 18px 23px rgba(0,0,0,0.1);\n}\n.LR-top{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding:3%;\n  padding-top:30%;\n  width:100%;\n  height:50%;\n}\n.LR-bottom{\n  width:100%;\n  height:50%;\n}\n.before-text{\n    width:100%;\n    font-size: 2.5em;\n    float: left;\n    text-align:center;\n    margin: 3%;\n    text-shadow: 2px 2px 1px #ccc;\n}\n.top-button{\n  width:100%;\n  height:100%;\n}\n.setting{\n    background: transparent url(/img/setting.png) no-repeat top center;\n    background-size: 50%;\n    position: relative;\n    left: 20%;\n    top: 5%;\n}\n.shop{\n    background: transparent url(/img/shop.png) no-repeat top center;\n    background-size: 52%;\n    position: relative;\n    left: -10%;\n    top: 5%;\n}\n.choose-text{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align:center;\n      -ms-flex-align:center;\n          align-items:center;\n  -webkit-box-pack:center;\n      -ms-flex-pack:center;\n          justify-content:center;\n  font-weight: bold;\n  width: 100%;\n  height:12%;\n  color: #ff7473;\n  font-size: 4.5em;\n}\n.courselist{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 8%;\n  padding-top: 4%;\n  width: 100%;\n  height: 88%;\n  overflow-y: scroll;\n}\n.course{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  width:100%;\n  height: 16%;\n  background-color:#ffc952;\n  border-radius:40px;\n  -webkit-box-shadow: 3px 3px 3px 2px #ccc;\n          box-shadow: 3px 3px 3px 2px #ccc;\n  margin-bottom: 5%;\n}\n.subject{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align:center;\n      -ms-flex-align:center;\n          align-items:center;\n  -webkit-box-pack:center;\n      -ms-flex-pack:center;\n          justify-content:center;\n  font-size:2.7em;\n  float: left;\n  width:20%;\n  height:100%;\n}\n.class-name{\n  font-weight:bold;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align:center;\n      -ms-flex-align:center;\n          align-items:center;\n  -webkit-box-pack:center;\n      -ms-flex-pack:center;\n          justify-content:center;\n  font-size:3em;\n  float: left;\n  width:60%;\n  height:100%;\n}\n.class-time{\n  font-size:2.3em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align:center;\n      -ms-flex-align:center;\n          align-items:center;\n  -webkit-box-pack:center;\n      -ms-flex-pack:center;\n          justify-content:center;\n  float: left;\n  width:20%;\n  height:100%;\n}\n.logo-time{\n  width:40%;\n  margin: 3%;\n}\n.time-text{\n  text-align:center;\n  line-height:130%;\n}\n\n", ""]);
+exports.push([module.i, "\n.cl-header {\n  width: 100%;\n  height: 30%;\n}\n.cl-body {\n  width: 100%;\n  height: 70%;\n}\n.ch-LR {\n  float: left;\n  width: 26%;\n  height: 100%;\n}\n.ch-center {\n  float: left;\n  width: 44%;\n  height: 100%;\n}\n.infro-img {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  height: 80%;\n}\n.infro-name {\n  color: #34314c;\n  font-weight: bold;\n  text-align: center;\n  font-size: 4em;\n  width: 100%;\n  height: 20%;\n  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),\n    0px 18px 23px rgba(0, 0, 0, 0.1);\n}\n.circle {\n  width: 76%;\n  height: 80%;\n  border-radius: 99em;\n  -webkit-box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.3), 0px 8px 13px rgba(0, 0, 0, 0.1),\n    0px 18px 23px rgba(0, 0, 0, 0.1);\n          box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.3), 0px 8px 13px rgba(0, 0, 0, 0.1),\n    0px 18px 23px rgba(0, 0, 0, 0.1);\n}\n.LR-top {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  padding-top: 30%;\n  width: 100%;\n  height: 50%;\n}\n.LR-bottom {\n  width: 100%;\n  height: 50%;\n}\n.before-text {\n  width: 100%;\n  font-size: 2.5em;\n  float: left;\n  text-align: center;\n  margin: 3%;\n  text-shadow: 2px 2px 1px #ccc;\n}\n.top-button {\n  width: 100%;\n  height: 100%;\n}\n.setting {\n  background: transparent url(/img/setting.png) no-repeat top center;\n  background-size: 50%;\n  position: relative;\n  left: 20%;\n  top: 5%;\n}\n.shop {\n  background: transparent url(/img/shop.png) no-repeat top center;\n  background-size: 52%;\n  position: relative;\n  left: -10%;\n  top: 5%;\n}\n.choose-text {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  font-weight: bold;\n  width: 100%;\n  height: 12%;\n  color: #ff7473;\n  font-size: 4.5em;\n}\n.courselist {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 8%;\n  padding-top: 4%;\n  width: 100%;\n  height: 88%;\n  overflow-y: scroll;\n}\n.course {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  width: 100%;\n  height: 16%;\n  background-color: #ffc952;\n  border-radius: 40px;\n  -webkit-box-shadow: 3px 3px 3px 2px #ccc;\n          box-shadow: 3px 3px 3px 2px #ccc;\n  margin-bottom: 5%;\n}\n.subject {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  font-size: 2.7em;\n  float: left;\n  width: 25%;\n  height: 100%;\n}\n.class-name {\n  font-weight: bold;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  font-size: 3em;\n  float: left;\n  width: 60%;\n  height: 100%;\n}\n.class-time {\n  font-size: 2.3em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  float: left;\n  width: 15%;\n  height: 100%;\n}\n.logo-time {\n  width: 40%;\n  margin: 3%;\n}\n.time-text {\n  text-align: center;\n  line-height: 130%;\n}\n", ""]);
 
 // exports
 
@@ -48075,55 +48089,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    return {};
+    return {
+      username: localStorage.getItem('username'),
+      courses: ""
+    };
+  },
+
+  mounted: function mounted() {
+    var self = this;
+    self.$nextTick(function () {
+      axios.post("/courselist/getCourses").then(function (rtn) {
+        if (!rtn.errmsg) {
+          console.log(1);
+          self.courses = rtn.data.result;
+        }
+      }).catch(function (err) {
+        console.log(err);
+      });
+    });
   }
 });
 
@@ -48135,147 +48121,89 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "cl-header" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "ch-center" }, [
+        _vm._m(1),
+        _vm._v(" "),
+        _c("div", { staticClass: "infro-name animated fadeIn" }, [
+          _vm._v(_vm._s(_vm.username))
+        ])
+      ]),
+      _vm._v(" "),
+      _vm._m(2)
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "cl-body" }, [
+      _c("div", { staticClass: "choose-text" }, [_vm._v("請選擇課程")]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "courselist" },
+        _vm._l(_vm.courses, function(c) {
+          return _c("div", { staticClass: "course animated fadeInUp" }, [
+            _c("div", { staticClass: "subject" }, [
+              _vm._v(_vm._s(c.department))
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "class-name" }, [_vm._v(_vm._s(c.name))]),
+            _vm._v(" "),
+            _c("div", { staticClass: "class-time" }, [
+              _c("img", {
+                staticClass: "logo-time",
+                attrs: { src: "/img/time.png" }
+              }),
+              _vm._v(" "),
+              _c("span", { staticClass: "time-text" }, [
+                _vm._v(_vm._s(c.class_time))
+              ])
+            ])
+          ])
+        })
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "cl-header" }, [
-        _c("div", { staticClass: "ch-LR" }, [
-          _c("div", { staticClass: "LR-top" }, [
-            _c("span", { staticClass: "before-text" }, [_vm._v("現在時間")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "before-text" }, [_vm._v("5/24 18:00")])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "LR-bottom" }, [
-            _c("button", { staticClass: "top-button setting" })
-          ])
-        ]),
+    return _c("div", { staticClass: "ch-LR" }, [
+      _c("div", { staticClass: "LR-top" }, [
+        _c("span", { staticClass: "before-text" }, [_vm._v("現在時間")]),
         _vm._v(" "),
-        _c("div", { staticClass: "ch-center" }, [
-          _c("div", { staticClass: "infro-img animated flipInX" }, [
-            _c("img", {
-              staticClass: "circle",
-              attrs: { src: "/img/test_img.jpg" }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "infro-name animated fadeIn" }, [
-            _vm._v("李老師")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "ch-LR" }, [
-          _c("div", { staticClass: "LR-top" }, [
-            _c("span", { staticClass: "before-text" }, [_vm._v("上次登入")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "before-text" }, [_vm._v("5/24 18:00")])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "LR-bottom" }, [
-            _c("button", { staticClass: "top-button shop" })
-          ])
-        ])
+        _c("span", { staticClass: "before-text" }, [_vm._v("5/24 18:00")])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "cl-body" }, [
-        _c("div", { staticClass: "choose-text" }, [_vm._v("請選擇課程")]),
+      _c("div", { staticClass: "LR-bottom" }, [
+        _c("button", { staticClass: "top-button setting" })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "infro-img animated flipInX" }, [
+      _c("img", { staticClass: "circle", attrs: { src: "/img/test_img.jpg" } })
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "ch-LR" }, [
+      _c("div", { staticClass: "LR-top" }, [
+        _c("span", { staticClass: "before-text" }, [_vm._v("上次登入")]),
         _vm._v(" "),
-        _c("div", { staticClass: "courselist" }, [
-          _c("div", { staticClass: "course animated fadeInUp" }, [
-            _c("div", { staticClass: "subject" }, [_vm._v("資管系")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "class-name" }, [_vm._v("企業資源管理")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "class-time" }, [
-              _c("img", {
-                staticClass: "logo-time",
-                attrs: { src: "/img/time.png" }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "time-text" }, [_vm._v("三 5,6")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "course animated fadeInUp" }, [
-            _c("div", { staticClass: "subject" }, [_vm._v("資管系")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "class-name" }, [_vm._v("企業資源管理")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "class-time" }, [
-              _c("img", {
-                staticClass: "logo-time",
-                attrs: { src: "/img/time.png" }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "time-text" }, [_vm._v("三 5,6")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "course animated fadeInUp" }, [
-            _c("div", { staticClass: "subject" }, [_vm._v("資管系")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "class-name" }, [_vm._v("企業資源管理")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "class-time" }, [
-              _c("img", {
-                staticClass: "logo-time",
-                attrs: { src: "/img/time.png" }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "time-text" }, [_vm._v("三 5,6")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "course animated fadeInUp" }, [
-            _c("div", { staticClass: "subject" }, [_vm._v("資管系")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "class-name" }, [_vm._v("企業資源管理")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "class-time" }, [
-              _c("img", {
-                staticClass: "logo-time",
-                attrs: { src: "/img/time.png" }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "time-text" }, [_vm._v("三 5,6")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "course animated fadeInUp" }, [
-            _c("div", { staticClass: "subject" }, [_vm._v("資管系")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "class-name" }, [_vm._v("企業資源管理")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "class-time" }, [
-              _c("img", {
-                staticClass: "logo-time",
-                attrs: { src: "/img/time.png" }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "time-text" }, [_vm._v("三 5,6")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "course animated fadeInUp" }, [
-            _c("div", { staticClass: "subject" }, [_vm._v("資管系")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "class-name" }, [_vm._v("企業資源管理")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "class-time" }, [
-              _c("img", {
-                staticClass: "logo-time",
-                attrs: { src: "/img/time.png" }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "time-text" }, [_vm._v("三 5,6")])
-            ])
-          ])
-        ])
+        _c("span", { staticClass: "before-text" }, [_vm._v("5/24 18:00")])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "LR-bottom" }, [
+        _c("button", { staticClass: "top-button shop" })
       ])
     ])
   }
