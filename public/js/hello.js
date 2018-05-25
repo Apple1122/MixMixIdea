@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 14);
+/******/ 	return __webpack_require__(__webpack_require__.s = 13);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -71,7 +71,7 @@
 
 
 var bind = __webpack_require__(6);
-var isBuffer = __webpack_require__(25);
+var isBuffer = __webpack_require__(24);
 
 /*global toString:true*/
 
@@ -408,7 +408,7 @@ module.exports = g;
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(0);
-var normalizeHeaderName = __webpack_require__(27);
+var normalizeHeaderName = __webpack_require__(26);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -13620,12 +13620,12 @@ module.exports = function bind(fn, thisArg) {
 
 
 var utils = __webpack_require__(0);
-var settle = __webpack_require__(28);
-var buildURL = __webpack_require__(30);
-var parseHeaders = __webpack_require__(31);
-var isURLSameOrigin = __webpack_require__(32);
+var settle = __webpack_require__(27);
+var buildURL = __webpack_require__(29);
+var parseHeaders = __webpack_require__(30);
+var isURLSameOrigin = __webpack_require__(31);
 var createError = __webpack_require__(8);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(33);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(32);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -13722,7 +13722,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(34);
+      var cookies = __webpack_require__(33);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -13806,7 +13806,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(29);
+var enhanceError = __webpack_require__(28);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -13864,88 +13864,6 @@ module.exports = Cancel;
 
 /***/ }),
 /* 11 */
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		return this.map(function (item) {
-			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
-				return "@media " + item[2] + "{" + content + "}";
-			} else {
-				return content;
-			}
-		}).join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-	var content = item[1] || '';
-	var cssMapping = item[3];
-	if (!cssMapping) {
-		return content;
-	}
-
-	if (useSourceMap && typeof btoa === 'function') {
-		var sourceMapping = toComment(cssMapping);
-		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
-		});
-
-		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-	}
-
-	return [content].join('\n');
-}
-
-// Adapted from convert-source-map (MIT)
-function toComment(sourceMap) {
-	// eslint-disable-next-line no-undef
-	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-	return '/*# ' + data + ' */';
-}
-
-
-/***/ }),
-/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -14173,7 +14091,7 @@ function applyToTag (styleElement, obj) {
 
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -14282,35 +14200,32 @@ module.exports = function normalizeComponent (
 
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(15);
+__webpack_require__(14);
 module.exports = __webpack_require__(53);
 
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Login__ = __webpack_require__(42);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Login__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Login___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Login__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_CourseList__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_CourseList___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_CourseList__);
-__webpack_require__(16);
-// 匯入 Hello.vue 檔，不需加副檔名
+__webpack_require__(15);
 
 
 
 var vm = new Vue({
-  // 找到 hello.blade.php 中指定的掛載點元素
   el: '#app',
   data: {
     currentComponent: 'login'
   },
-  // 使用我們建立的 Hello(.vue) 元件
   components: {
     'login': __WEBPACK_IMPORTED_MODULE_0__components_Login___default.a,
     'courselist': __WEBPACK_IMPORTED_MODULE_1__components_CourseList___default.a
@@ -14323,11 +14238,11 @@ var vm = new Vue({
 });
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
-window.Vue = __webpack_require__(17);
-window._ = __webpack_require__(20);
+window.Vue = __webpack_require__(16);
+window._ = __webpack_require__(19);
 window.Popper = __webpack_require__(4).default;
 
 /**
@@ -14339,7 +14254,7 @@ window.Popper = __webpack_require__(4).default;
 try {
   window.$ = window.jQuery = __webpack_require__(5);
 
-  __webpack_require__(22);
+  __webpack_require__(21);
 } catch (e) {}
 
 /**
@@ -14348,7 +14263,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(23);
+window.axios = __webpack_require__(22);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -14384,7 +14299,7 @@ if (token) {
 // });
 
 /***/ }),
-/* 17 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -25347,10 +25262,10 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(18).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(17).setImmediate))
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -25406,7 +25321,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(19);
+__webpack_require__(18);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -25420,7 +25335,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
-/* 19 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -25613,7 +25528,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(3)))
 
 /***/ }),
-/* 20 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -42723,10 +42638,10 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
   }
 }.call(this));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(21)(module)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1), __webpack_require__(20)(module)))
 
 /***/ }),
-/* 21 */
+/* 20 */
 /***/ (function(module, exports) {
 
 module.exports = function(module) {
@@ -42754,7 +42669,7 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 22 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -46687,13 +46602,13 @@ module.exports = function(module) {
 
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(24);
+module.exports = __webpack_require__(23);
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46701,7 +46616,7 @@ module.exports = __webpack_require__(24);
 
 var utils = __webpack_require__(0);
 var bind = __webpack_require__(6);
-var Axios = __webpack_require__(26);
+var Axios = __webpack_require__(25);
 var defaults = __webpack_require__(2);
 
 /**
@@ -46736,14 +46651,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(10);
-axios.CancelToken = __webpack_require__(40);
+axios.CancelToken = __webpack_require__(39);
 axios.isCancel = __webpack_require__(9);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(41);
+axios.spread = __webpack_require__(40);
 
 module.exports = axios;
 
@@ -46752,7 +46667,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, exports) {
 
 /*!
@@ -46779,7 +46694,7 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46787,8 +46702,8 @@ function isSlowBuffer (obj) {
 
 var defaults = __webpack_require__(2);
 var utils = __webpack_require__(0);
-var InterceptorManager = __webpack_require__(35);
-var dispatchRequest = __webpack_require__(36);
+var InterceptorManager = __webpack_require__(34);
+var dispatchRequest = __webpack_require__(35);
 
 /**
  * Create a new instance of Axios
@@ -46865,7 +46780,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 27 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46884,7 +46799,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 28 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46917,7 +46832,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 29 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -46945,7 +46860,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 30 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47018,7 +46933,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 31 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47078,7 +46993,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 32 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47153,7 +47068,7 @@ module.exports = (
 
 
 /***/ }),
-/* 33 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47196,7 +47111,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 34 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47256,7 +47171,7 @@ module.exports = (
 
 
 /***/ }),
-/* 35 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47315,18 +47230,18 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 36 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(0);
-var transformData = __webpack_require__(37);
+var transformData = __webpack_require__(36);
 var isCancel = __webpack_require__(9);
 var defaults = __webpack_require__(2);
-var isAbsoluteURL = __webpack_require__(38);
-var combineURLs = __webpack_require__(39);
+var isAbsoluteURL = __webpack_require__(37);
+var combineURLs = __webpack_require__(38);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -47408,7 +47323,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 37 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47435,7 +47350,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 38 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47456,7 +47371,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 39 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47477,7 +47392,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 40 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47541,7 +47456,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 41 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47575,15 +47490,15 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 42 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(43)
+  __webpack_require__(42)
 }
-var normalizeComponent = __webpack_require__(13)
+var normalizeComponent = __webpack_require__(12)
 /* script */
 var __vue_script__ = __webpack_require__(46)
 /* template */
@@ -47626,17 +47541,17 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 43 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(44);
+var content = __webpack_require__(43);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(12)("535adf1c", content, false, {});
+var update = __webpack_require__(11)("535adf1c", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -47652,17 +47567,99 @@ if(false) {
 }
 
 /***/ }),
-/* 44 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(11)(false);
+exports = module.exports = __webpack_require__(44)(false);
 // imports
 
 
 // module
-exports.push([module.i, "\nhtml,\nbody,\n.container,\n#app {\n  width: 100%;\n  height: 100%;\n}\n.container {\n  background: transparent url(\"/img/bg-img.png\") no-repeat center;\n  background-size: 90%;\n}\n.login-header {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  height: 35%;\n}\n.login-body {\n  width: 100%;\n  height: 37%;\n}\n.login-bottom {\n  width: 100%;\n  height: 30%;\n}\n.login-button {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  height: 35%;\n}\n.logo {\n  height: 90%;\n}\n.button-login {\n  font: bold;\n  border-radius: 99em;\n  width: 78%;\n  height: 70%;\n  color: #383838;\n  font-size: 4.3em;\n  font-family: Microsoft JhengHei;\n  -webkit-transition: opacity 2s;\n  transition: opacity 2s;\n  -webkit-box-shadow: 6px 7px 20px 1px #a4a4a4;\n          box-shadow: 6px 7px 20px 1px #a4a4a4;\n  background: rgb(248, 80, 50);\n  /* Old browsers */\n  background: rgb(252, 234, 187);\n  /* Old browsers */\n  /* FF3.6-15 */\n  /* Chrome10-25,Safari5.1-6 */\n  background: linear-gradient(\n    135deg,\n    rgba(252, 234, 187, 1) 0%,\n    rgba(252, 205, 77, 1) 50%,\n    rgba(248, 181, 0, 1) 51%,\n    rgba(251, 223, 147, 1) 100%\n  );\n  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\n  filter: progid:DXImageTransform.Microsoft.gradient(\n      startColorstr=\"#fceabb\",\n      endColorstr=\"#fbdf93\",\n      GradientType=1\n    );\n  /* IE6-9 fallback on horizontal gradient */\n}\n.col-choose-bar {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  height: 25%;\n}\n.input {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  height: 35%;\n}\n.col {\n  width: 75%;\n  height: 60%;\n  font-size: 3.5em;\n  text-indent: 3em;\n}\n#ac {\n  background: transparent url(/img/account.png) no-repeat 5%;\n  background-size: 9%;\n}\n#pw {\n  background: transparent url(/img/password.png) no-repeat 4%;\n  background-size: 10%;\n}\n.bar {\n  font: bold;\n  width: 30%;\n  border-bottom: 8px solid #d9e1d8;\n  height: 80%;\n  text-align: center;\n  font-size: 3.5em;\n  line-height: 115px;\n  color: #a3a1a1;\n}\n#selected {\n  color: #ff5f2e;\n  border-bottom: 8px solid #ff5f2e;\n}\n.effect-2 {\n  border: 0;\n  padding: 7px 0;\n  border-bottom: 5px solid #ccc;\n}\n.effect-2 ~ .focus-border {\n  position: absolute;\n  bottom: 0;\n  left: 50%;\n  width: 0;\n  height: 2px;\n  background-color: #3399ff;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n.effect-2:focus ~ .focus-border {\n  width: 100%;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n  left: 0;\n}\n", ""]);
+exports.push([module.i, "\nhtml,\r\nbody,\r\n.container,\r\n#app {\r\n  width: 100%;\r\n  height: 100%;\n}\n.container {\r\n  background: transparent url(\"/img/bg-img.png\") no-repeat center;\r\n  background-size: 90%;\n}\n.login-header {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  width: 100%;\r\n  height: 35%;\n}\n.login-body {\r\n  width: 100%;\r\n  height: 37%;\n}\n.login-bottom {\r\n  width: 100%;\r\n  height: 30%;\n}\n.login-button {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  width: 100%;\r\n  height: 35%;\n}\n.logo {\r\n  height: 90%;\n}\n.button-login {\r\n  font: bold;\r\n  border-radius: 99em;\r\n  width: 78%;\r\n  height: 70%;\r\n  color: #383838;\r\n  font-size: 4.3em;\r\n  font-family: Microsoft JhengHei;\r\n  -webkit-transition: opacity 2s;\r\n  transition: opacity 2s;\r\n  -webkit-box-shadow: 6px 7px 20px 1px #a4a4a4;\r\n          box-shadow: 6px 7px 20px 1px #a4a4a4;\r\n  background: rgb(248, 80, 50);\r\n  /* Old browsers */\r\n  background: rgb(252, 234, 187);\r\n  /* Old browsers */\r\n  /* FF3.6-15 */\r\n  /* Chrome10-25,Safari5.1-6 */\r\n  background: linear-gradient(\r\n    135deg,\r\n    rgba(252, 234, 187, 1) 0%,\r\n    rgba(252, 205, 77, 1) 50%,\r\n    rgba(248, 181, 0, 1) 51%,\r\n    rgba(251, 223, 147, 1) 100%\r\n  );\r\n  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\r\n  filter: progid:DXImageTransform.Microsoft.gradient(\r\n      startColorstr=\"#fceabb\",\r\n      endColorstr=\"#fbdf93\",\r\n      GradientType=1\r\n    );\r\n  /* IE6-9 fallback on horizontal gradient */\n}\n.col-choose-bar {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  width: 100%;\r\n  height: 25%;\n}\n.input {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  width: 100%;\r\n  height: 35%;\n}\n.col {\r\n  width: 75%;\r\n  height: 60%;\r\n  font-size: 3.5em;\r\n  text-indent: 3em;\n}\n#ac {\r\n  background: transparent url(/img/account.png) no-repeat 5%;\r\n  background-size: 9%;\n}\n#pw {\r\n  background: transparent url(/img/password.png) no-repeat 4%;\r\n  background-size: 10%;\n}\n.bar {\r\n  font: bold;\r\n  width: 30%;\r\n  border-bottom: 8px solid #d9e1d8;\r\n  height: 80%;\r\n  text-align: center;\r\n  font-size: 3.5em;\r\n  line-height: 115px;\r\n  color: #a3a1a1;\n}\n#selected {\r\n  color: #ff5f2e;\r\n  border-bottom: 8px solid #ff5f2e;\n}\n.effect-2 {\r\n  border: 0;\r\n  padding: 7px 0;\r\n  border-bottom: 5px solid #ccc;\n}\n.effect-2 ~ .focus-border {\r\n  position: absolute;\r\n  bottom: 0;\r\n  left: 50%;\r\n  width: 0;\r\n  height: 2px;\r\n  background-color: #3399ff;\r\n  -webkit-transition: 0.4s;\r\n  transition: 0.4s;\n}\n.effect-2:focus ~ .focus-border {\r\n  width: 100%;\r\n  -webkit-transition: 0.4s;\r\n  transition: 0.4s;\r\n  left: 0;\n}\r\n", ""]);
 
 // exports
+
+
+/***/ }),
+/* 44 */
+/***/ (function(module, exports) {
+
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
+
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
+
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
+
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
 
 
 /***/ }),
@@ -47758,7 +47755,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       axios.post('/login', data).then(function (rtn) {
         console.log(rtn);
       });
-      //this.$emit("swap", "courselist");
+      this.$emit("swap", "courselist");
     }
   }
 });
@@ -47890,7 +47887,7 @@ var render = function() {
       ])
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "login-bottom  animated fadeIn" }, [
+    _c("div", { staticClass: "login-bottom animated fadeIn" }, [
       _c("div", { staticClass: "login-button" }, [
         _c(
           "button",
@@ -47939,7 +47936,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(49)
 }
-var normalizeComponent = __webpack_require__(13)
+var normalizeComponent = __webpack_require__(12)
 /* script */
 var __vue_script__ = __webpack_require__(51)
 /* template */
@@ -47992,7 +47989,7 @@ var content = __webpack_require__(50);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(12)("73d7be54", content, false, {});
+var update = __webpack_require__(11)("73d7be54", content, false, {});
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
@@ -48011,12 +48008,12 @@ if(false) {
 /* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(11)(false);
+exports = module.exports = __webpack_require__(44)(false);
 // imports
 
 
 // module
-exports.push([module.i, "\n.cl-header{\n  width:100%;\n  height: 30%;\n}\n.cl-body{\n  width:100%;\n  height: 70%;\n}\n.ch-LR{\n  float:left;\n  width:26%;\n  height:100%;\n}\n.ch-center{\n  float:left;\n  width:44%;\n  height:100%;\n}\n.infro-img{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align:center;\n      -ms-flex-align:center;\n          align-items:center;\n  -webkit-box-pack:center;\n      -ms-flex-pack:center;\n          justify-content:center;\n  width:100%;\n  height:80%;\n}\n.infro-name{\n  color: #34314c;\n  font-weight: bold;\n  text-align: center;\n  font-size: 4em;\n  width:100%;\n  height:20%;\n  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),\n             0px 8px 13px rgba(0,0,0,0.1),\n             0px 18px 23px rgba(0,0,0,0.1);\n}\n.circle{\n  width:76%;\n  height:80%;\n  border-radius:99em;\n  -webkit-box-shadow: 0px 4px 3px rgba(0,0,0,0.3),\n             0px 8px 13px rgba(0,0,0,0.1),\n             0px 18px 23px rgba(0,0,0,0.1);\n          box-shadow: 0px 4px 3px rgba(0,0,0,0.3),\n             0px 8px 13px rgba(0,0,0,0.1),\n             0px 18px 23px rgba(0,0,0,0.1);\n}\n.LR-top{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding:3%;\n  padding-top:30%;\n  width:100%;\n  height:50%;\n}\n.LR-bottom{\n  width:100%;\n  height:50%;\n}\n.before-text{\n    width:100%;\n    font-size: 2.5em;\n    float: left;\n    text-align:center;\n    margin: 3%;\n    text-shadow: 2px 2px 1px #ccc;\n}\n.top-button{\n  width:100%;\n  height:100%;\n}\n.setting{\n    background: transparent url(/img/setting.png) no-repeat top center;\n    background-size: 50%;\n    position: relative;\n    left: 20%;\n    top: 5%;\n}\n.shop{\n    background: transparent url(/img/shop.png) no-repeat top center;\n    background-size: 52%;\n    position: relative;\n    left: -10%;\n    top: 5%;\n}\n.choose-text{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align:center;\n      -ms-flex-align:center;\n          align-items:center;\n  -webkit-box-pack:center;\n      -ms-flex-pack:center;\n          justify-content:center;\n  font-weight: bold;\n  width: 100%;\n  height:12%;\n  color: #ff7473;\n  font-size: 4.5em;\n}\n.courselist{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 8%;\n  padding-top: 4%;\n  width: 100%;\n  height: 88%;\n  overflow-y: scroll;\n}\n.course{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  width:100%;\n  height: 16%;\n  background-color:#ffc952;\n  border-radius:40px;\n  -webkit-box-shadow: 3px 3px 3px 2px #ccc;\n          box-shadow: 3px 3px 3px 2px #ccc;\n  margin-bottom: 5%;\n}\n.subject{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align:center;\n      -ms-flex-align:center;\n          align-items:center;\n  -webkit-box-pack:center;\n      -ms-flex-pack:center;\n          justify-content:center;\n  font-size:2.7em;\n  float: left;\n  width:20%;\n  height:100%;\n}\n.class-name{\n  font-weight:bold;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align:center;\n      -ms-flex-align:center;\n          align-items:center;\n  -webkit-box-pack:center;\n      -ms-flex-pack:center;\n          justify-content:center;\n  font-size:3em;\n  float: left;\n  width:60%;\n  height:100%;\n}\n.class-time{\n  font-size:2.3em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align:center;\n      -ms-flex-align:center;\n          align-items:center;\n  -webkit-box-pack:center;\n      -ms-flex-pack:center;\n          justify-content:center;\n  float: left;\n  width:20%;\n  height:100%;\n}\n.logo-time{\n  width:40%;\n  margin: 3%;\n}\n.time-text{\n  text-align:center;\n  line-height:130%;\n}\n\n", ""]);
+exports.push([module.i, "\n.f-c{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align:center;\r\n      -ms-flex-align:center;\r\n          align-items:center;\r\n  -webkit-box-pack:center;\r\n      -ms-flex-pack:center;\r\n          justify-content:center;\n}\n.cl-header{\r\n  width:100%;\r\n  height: 30%;\n}\n.cl-body{\r\n  width:100%;\r\n  height: 70%;\n}\n.ch-LR{\r\n  float:left;\r\n  width:26%;\r\n  height:100%;\n}\n.ch-center{\r\n  float:left;\r\n  width:44%;\r\n  height:100%;\n}\n.infro-img{\r\n  width:100%;\r\n  height:80%;\n}\n.infro-name{\r\n  color: #34314c;\r\n  font-weight: bold;\r\n  text-align: center;\r\n  font-size: 4em;\r\n  width:100%;\r\n  height:20%;\r\n  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),\r\n             0px 8px 13px rgba(0,0,0,0.1),\r\n             0px 18px 23px rgba(0,0,0,0.1);\n}\n.circle{\r\n  width:18.5em;\r\n  height:18.5em;\r\n  border-radius:99em;\r\n  -webkit-box-shadow: 0px 4px 3px rgba(0,0,0,0.3),\r\n             0px 8px 13px rgba(0,0,0,0.1),\r\n             0px 18px 23px rgba(0,0,0,0.1);\r\n          box-shadow: 0px 4px 3px rgba(0,0,0,0.3),\r\n             0px 8px 13px rgba(0,0,0,0.1),\r\n             0px 18px 23px rgba(0,0,0,0.1);\n}\n.LR-top{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding:3%;\r\n  padding-top:30%;\r\n  width:100%;\r\n  height:50%;\n}\n.LR-bottom{\r\n  width:100%;\r\n  height:50%;\n}\n.before-text{\r\n    width:100%;\r\n    font-size: 2.5em;\r\n    float: left;\r\n    text-align:center;\r\n    margin: 3%;\r\n    text-shadow: 2px 2px 1px #ccc;\n}\n.top-button{\r\n  width:100%;\r\n  height:100%;\n}\n.setting{\r\n    background: transparent url(/img/setting.png) no-repeat top center;\r\n    background-size: 50%;\r\n    position: relative;\r\n    left: 20%;\r\n    top: 5%;\n}\n.shop{\r\n    background: transparent url(/img/shop.png) no-repeat top center;\r\n    background-size: 52%;\r\n    position: relative;\r\n    left: -10%;\r\n    top: 5%;\n}\n.choose-text{\r\n  font-weight: bold;\r\n  width: 100%;\r\n  height:12%;\r\n  color: #ff7473;\r\n  font-size: 4.5em;\n}\n.courselist{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 8%;\r\n  padding-top: 4%;\r\n  width: 100%;\r\n  height: 88%;\r\n  overflow-y: scroll;\n}\n.course{\r\n  width: 100%;\r\n  height: 17%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 1%;\r\n  margin-bottom: 5%;\r\n  -webkit-transition: margin-bottom 1.5s;\r\n  transition: margin-bottom 1.5s;\n}\n.course.open{\r\n  margin-bottom:20%;\n}\n.class-infro{\r\n  position: relative;\r\n  z-index: 2;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width:100%;\r\n  height: 100%;\r\n  background-color:#ffc952;\r\n  border-radius:40px;\r\n  -webkit-box-shadow: 3px 3px 3px 2px #ccc;\r\n          box-shadow: 3px 3px 3px 2px #ccc;\n}\n.subject{\r\n  font-size:2.7em;\r\n  float: left;\r\n  width:20%;\r\n  height:100%;\n}\n.class-name{\r\n  font-weight:bold;\r\n  font-size:3em;\r\n  float: left;\r\n  width:60%;\r\n  height:100%;\n}\n.class-time{\r\n  font-size:2.3em;\r\n  float: left;\r\n  width:20%;\r\n  height:100%;\n}\n.logo-time{\r\n  width:40%;\r\n  margin: 3%;\n}\n.time-text{\r\n  text-align: center;\r\n  line-height: 130%;\n}\n.class-detail{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  position: -webkit-sticky;\r\n  position: sticky;\r\n  z-index: 1;\r\n  margin-top: -2%;\r\n  width: 100%;\r\n  height: 115%;\r\n  background-color: #FBFFB9;\r\n  border-radius: 10px;\n}\n.col-d{\r\n  float: left;\r\n  width: 50%;\r\n  height: 100%;\r\n  font-size: 2.5em;\n}\n.add-room{\r\n  float: left;\r\n  width: 40%;\r\n  height: 100%;\r\n  background: transparent url('/img/addroom.png') no-repeat center 70%;\r\n  background-size: 45%;\n}\n.join-room{\r\n  float: left;\r\n  width: 40%;\r\n  height: 100%;\r\n  background: transparent url('/img/joinroom.png') no-repeat center 75%;\r\n  background-size: 40%;\n}\n.history{\r\n  float: left;\r\n  width: 40%;\r\n  height: 100%;\r\n  background: transparent url('/img/history.png') no-repeat center 75%;\r\n  background-size: 50%;\n}\n.room-text{\r\n  float: left;\r\n  width: 50%;\r\n  height: 100%;\r\n  font-size: 1.1em;\r\n  padding-top: 5%;\n}\n.hide{\r\n  display: none;\n}\r\n", ""]);
 
 // exports
 
@@ -48093,37 +48090,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    return {};
+    return {
+      isTeacher: true,
+      isOpen: true,
+      //ANDY FOR TEST
+      cousrelist: [{ className: '程式設計', subject: '資管系', classTime: '三 5,6' }, { className: '企業資源管理', subject: '資管系', classTime: '三 5,6' }, { className: '嗚嗚嗚嗚嗚', subject: '資管系', classTime: '三 5,6' }]
+    };
   }
 });
 
@@ -48135,148 +48110,141 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", { staticClass: "container" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "cl-body" }, [
+      _c("div", { staticClass: "choose-text f-c" }, [_vm._v("請選擇課程")]),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "courselist" },
+        _vm._l(_vm.cousrelist, function(item) {
+          return _c(
+            "div",
+            { staticClass: "course", class: { open: _vm.isOpen } },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "class-infro animated fadeInUp",
+                  on: {
+                    click: function($event) {
+                      _vm.isOpen = !_vm.isOpen
+                    }
+                  }
+                },
+                [
+                  _c("div", { staticClass: "subject f-c" }, [
+                    _vm._v(" " + _vm._s(item.subject) + " ")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "class-name f-c" }, [
+                    _vm._v(" " + _vm._s(item.className) + " ")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "class-time f-c" }, [
+                    _c("img", {
+                      staticClass: "logo-time",
+                      attrs: { src: "/img/time.png" }
+                    }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "time-text" }, [
+                      _vm._v(" " + _vm._s(item.classTime) + " ")
+                    ])
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "class-detail animated fadeInDown",
+                  class: { hide: !_vm.isOpen }
+                },
+                [
+                  _vm.isTeacher
+                    ? _c("div", { staticClass: "col-d" }, [
+                        _c("span", { staticClass: "add-room" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "room-text f-c" }, [
+                          _vm._v("創立房間")
+                        ])
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  !_vm.isTeacher
+                    ? _c("div", { staticClass: "col-d" }, [
+                        _c("span", { staticClass: "join-room" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "room-text f-c" }, [
+                          _vm._v("加入房間")
+                        ])
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm._m(1, true)
+                ]
+              )
+            ]
+          )
+        })
+      )
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "cl-header" }, [
-        _c("div", { staticClass: "ch-LR" }, [
-          _c("div", { staticClass: "LR-top" }, [
-            _c("span", { staticClass: "before-text" }, [_vm._v("現在時間")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "before-text" }, [_vm._v("5/24 18:00")])
-          ]),
+    return _c("div", { staticClass: "cl-header" }, [
+      _c("div", { staticClass: "ch-LR" }, [
+        _c("div", { staticClass: "LR-top" }, [
+          _c("span", { staticClass: "before-text" }, [_vm._v("現在時間")]),
           _vm._v(" "),
-          _c("div", { staticClass: "LR-bottom" }, [
-            _c("button", { staticClass: "top-button setting" })
-          ])
+          _c("span", { staticClass: "before-text" }, [_vm._v("5/24 18:00")])
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "ch-center" }, [
-          _c("div", { staticClass: "infro-img animated flipInX" }, [
-            _c("img", {
-              staticClass: "circle",
-              attrs: { src: "/img/test_img.jpg" }
-            })
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "infro-name animated fadeIn" }, [
-            _vm._v("李老師")
-          ])
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "ch-LR" }, [
-          _c("div", { staticClass: "LR-top" }, [
-            _c("span", { staticClass: "before-text" }, [_vm._v("上次登入")]),
-            _vm._v(" "),
-            _c("span", { staticClass: "before-text" }, [_vm._v("5/24 18:00")])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "LR-bottom" }, [
-            _c("button", { staticClass: "top-button shop" })
-          ])
+        _c("div", { staticClass: "LR-bottom" }, [
+          _c("button", { staticClass: "top-button setting" })
         ])
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "cl-body" }, [
-        _c("div", { staticClass: "choose-text" }, [_vm._v("請選擇課程")]),
+      _c("div", { staticClass: "ch-center" }, [
+        _c("div", { staticClass: "infro-img f-c animated flipInX" }, [
+          _c("img", {
+            staticClass: "circle",
+            attrs: { src: "/img/test_img.jpg" }
+          })
+        ]),
         _vm._v(" "),
-        _c("div", { staticClass: "courselist" }, [
-          _c("div", { staticClass: "course animated fadeInUp" }, [
-            _c("div", { staticClass: "subject" }, [_vm._v("資管系")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "class-name" }, [_vm._v("企業資源管理")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "class-time" }, [
-              _c("img", {
-                staticClass: "logo-time",
-                attrs: { src: "/img/time.png" }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "time-text" }, [_vm._v("三 5,6")])
-            ])
-          ]),
+        _c("div", { staticClass: "infro-name animated fadeIn" }, [
+          _vm._v("李老師")
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "ch-LR" }, [
+        _c("div", { staticClass: "LR-top" }, [
+          _c("span", { staticClass: "before-text" }, [_vm._v("上次登入")]),
           _vm._v(" "),
-          _c("div", { staticClass: "course animated fadeInUp" }, [
-            _c("div", { staticClass: "subject" }, [_vm._v("資管系")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "class-name" }, [_vm._v("企業資源管理")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "class-time" }, [
-              _c("img", {
-                staticClass: "logo-time",
-                attrs: { src: "/img/time.png" }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "time-text" }, [_vm._v("三 5,6")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "course animated fadeInUp" }, [
-            _c("div", { staticClass: "subject" }, [_vm._v("資管系")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "class-name" }, [_vm._v("企業資源管理")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "class-time" }, [
-              _c("img", {
-                staticClass: "logo-time",
-                attrs: { src: "/img/time.png" }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "time-text" }, [_vm._v("三 5,6")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "course animated fadeInUp" }, [
-            _c("div", { staticClass: "subject" }, [_vm._v("資管系")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "class-name" }, [_vm._v("企業資源管理")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "class-time" }, [
-              _c("img", {
-                staticClass: "logo-time",
-                attrs: { src: "/img/time.png" }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "time-text" }, [_vm._v("三 5,6")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "course animated fadeInUp" }, [
-            _c("div", { staticClass: "subject" }, [_vm._v("資管系")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "class-name" }, [_vm._v("企業資源管理")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "class-time" }, [
-              _c("img", {
-                staticClass: "logo-time",
-                attrs: { src: "/img/time.png" }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "time-text" }, [_vm._v("三 5,6")])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "course animated fadeInUp" }, [
-            _c("div", { staticClass: "subject" }, [_vm._v("資管系")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "class-name" }, [_vm._v("企業資源管理")]),
-            _vm._v(" "),
-            _c("div", { staticClass: "class-time" }, [
-              _c("img", {
-                staticClass: "logo-time",
-                attrs: { src: "/img/time.png" }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "time-text" }, [_vm._v("三 5,6")])
-            ])
-          ])
+          _c("span", { staticClass: "before-text" }, [_vm._v("5/24 18:00")])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "LR-bottom" }, [
+          _c("button", { staticClass: "top-button shop" })
         ])
       ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-d" }, [
+      _c("span", { staticClass: "history" }),
+      _vm._v(" "),
+      _c("span", { staticClass: "room-text f-c" }, [_vm._v("歷史紀錄")])
     ])
   }
 ]

@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="ch-center">
-        <div class="infro-img animated flipInX">
+        <div class="infro-img f-c animated flipInX">
             <img class="circle" src="/img/test_img.jpg"/>
         </div>
         <div class="infro-name animated fadeIn">李老師</div>
@@ -29,64 +29,37 @@
     </div>
     
     <div class="cl-body">
-      <div class="choose-text">請選擇課程</div>
+      <div class="choose-text f-c">請選擇課程</div>
       <div class="courselist">
-      <!-- 這裡開始會用到for -->
-        <div class="course animated fadeInUp">
-          <div class="subject">資管系</div>
-          <div class="class-name">企業資源管理</div>
-          <div class="class-time">
-            <img  class="logo-time" src="/img/time.png" />
-            <span class="time-text">三 5,6</span>
+      <!-- 這裡開始會用到v-for -->
+        <div v-for="item in cousrelist" class="course" :class="{ open: isOpen }">
+          <div class="class-infro animated fadeInUp" @click="isOpen=!isOpen">
+            <div class="subject f-c"> {{ item.subject }} </div>
+            <div class="class-name f-c"> {{ item.className }} </div>
+            <div class="class-time f-c">
+              <img  class="logo-time" src="/img/time.png" />
+              <span class="time-text"> {{ item.classTime }} </span>
+            </div>
+          </div>
+          <div class="class-detail animated fadeInDown" :class="{hide : !isOpen}">
+            <div v-if="isTeacher" class="col-d">
+              <span class="add-room"></span>
+              <span class="room-text f-c">創立房間</span>
+              </div>
+            <div v-if="!isTeacher" class="col-d">
+              <span class="join-room"></span>
+              <span class="room-text f-c">加入房間</span>
+            </div>
+            <div class="col-d">
+              <span class="history"></span>
+              <span class="room-text f-c">歷史紀錄</span>
+            </div>
           </div>
         </div>
-
-        <div class="course animated fadeInUp">
-          <div class="subject">資管系</div>
-          <div class="class-name">企業資源管理</div>
-          <div class="class-time">
-            <img  class="logo-time" src="/img/time.png" />
-            <span class="time-text">三 5,6</span>
-          </div>
-        </div>
-
-        <div class="course animated fadeInUp">
-          <div class="subject">資管系</div>
-          <div class="class-name">企業資源管理</div>
-          <div class="class-time">
-            <img  class="logo-time" src="/img/time.png" />
-            <span class="time-text">三 5,6</span>
-          </div>
-        </div>
-
-        <div class="course animated fadeInUp">
-          <div class="subject">資管系</div>
-          <div class="class-name">企業資源管理</div>
-          <div class="class-time">
-            <img  class="logo-time" src="/img/time.png" />
-            <span class="time-text">三 5,6</span>
-          </div>
-        </div>
-
-        <div class="course animated fadeInUp">
-          <div class="subject">資管系</div>
-          <div class="class-name">企業資源管理</div>
-          <div class="class-time">
-            <img  class="logo-time" src="/img/time.png" />
-            <span class="time-text">三 5,6</span>
-          </div>
-        </div>
-
-        <div class="course animated fadeInUp">
-          <div class="subject">資管系</div>
-          <div class="class-name">企業資源管理</div>
-          <div class="class-time">
-            <img  class="logo-time" src="/img/time.png" />
-            <span class="time-text">三 5,6</span>
-          </div>
-        </div>
+      <!-- 這裡開始會用到v-for -->
 
       </div>
+
     </div>
   </div >
 </template>
@@ -95,12 +68,26 @@
   export default {
     data () {
       return {
+        isTeacher: true,
+        isOpen: true,
+        //ANDY FOR TEST
+        cousrelist: [
+          { className: '程式設計', subject: '資管系', classTime: '三 5,6'  },
+          { className: '企業資源管理', subject: '資管系', classTime: '三 5,6'  },
+          { className: '嗚嗚嗚嗚嗚', subject: '資管系', classTime: '三 5,6'  },
+        ],
       }
     }
   }
 </script>
 
 <style>
+.f-c{
+  display: flex;
+  align-items:center;
+  justify-content:center;
+}
+
 .cl-header{
   width:100%;
   height: 30%;
@@ -124,9 +111,6 @@
 }
 
 .infro-img{
-  display: flex;
-  align-items:center;
-  justify-content:center;
   width:100%;
   height:80%;
 }
@@ -144,8 +128,8 @@
 }
 
 .circle{
-  width:76%;
-  height:80%;
+  width:18.5em;
+  height:18.5em;
   border-radius:99em;
   box-shadow: 0px 4px 3px rgba(0,0,0,0.3),
              0px 8px 13px rgba(0,0,0,0.1),
@@ -197,9 +181,6 @@
 }
 
 .choose-text{
-  display: flex;
-  align-items:center;
-  justify-content:center;
   font-weight: bold;
   width: 100%;
   height:12%;
@@ -217,20 +198,31 @@
 }
 
 .course{
+  width: 100%;
+  height: 17%;
+  box-sizing: border-box;
+  padding: 1%;
+  margin-bottom: 5%;
+  transition: margin-bottom 1.5s;
+}
+
+.course.open{
+  margin-bottom:20%;
+}
+
+.class-infro{
+  position: relative;
+  z-index: 2;
   box-sizing: border-box;
   padding: 3%;
   width:100%;
-  height: 16%;
+  height: 100%;
   background-color:#ffc952;
   border-radius:40px;
   box-shadow: 3px 3px 3px 2px #ccc;
-  margin-bottom: 5%;
 }
 
 .subject{
-  display: flex;
-  align-items:center;
-  justify-content:center;
   font-size:2.7em;
   float: left;
   width:20%;
@@ -239,9 +231,6 @@
 
 .class-name{
   font-weight:bold;
-  display: flex;
-  align-items:center;
-  justify-content:center;
   font-size:3em;
   float: left;
   width:60%;
@@ -250,9 +239,6 @@
 
 .class-time{
   font-size:2.3em;
-  display: flex;
-  align-items:center;
-  justify-content:center;
   float: left;
   width:20%;
   height:100%;
@@ -264,8 +250,62 @@
 }
 
 .time-text{
-  text-align:center;
-  line-height:130%;
+  text-align: center;
+  line-height: 130%;
 }
 
+.class-detail{
+  box-sizing: border-box;
+  padding: 2%;
+  position: sticky;
+  z-index: 1;
+  margin-top: -2%;
+  width: 100%;
+  height: 115%;
+  background-color: #FBFFB9;
+  border-radius: 10px;
+}
+
+.col-d{
+  float: left;
+  width: 50%;
+  height: 100%;
+  font-size: 2.5em;
+}
+
+.add-room{
+  float: left;
+  width: 40%;
+  height: 100%;
+  background: transparent url('/img/addroom.png') no-repeat center 70%;
+  background-size: 45%; 
+}
+
+.join-room{
+  float: left;
+  width: 40%;
+  height: 100%;
+  background: transparent url('/img/joinroom.png') no-repeat center 75%;
+  background-size: 40%; 
+}
+
+.history{
+  float: left;
+  width: 40%;
+  height: 100%;
+  background: transparent url('/img/history.png') no-repeat center 75%;
+  background-size: 50%; 
+}
+
+.room-text{
+  float: left;
+  width: 50%;
+  height: 100%;
+  font-size: 1.1em;
+  padding-top: 5%;
+}
+
+.hide{
+  display: none;
+}
 </style>

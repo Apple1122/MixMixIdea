@@ -22,7 +22,7 @@
   </div>
     </div>
 
-  <div class="login-bottom  animated fadeIn">
+  <div class="login-bottom animated fadeIn">
     <div class="login-button">
       <button @click="button_login_clicked()"  class="button-login">登入</button>
   </div>
@@ -52,7 +52,7 @@ export default {
       .then(function(rtn){
         console.log(rtn);
       });
-      //this.$emit("swap", "courselist");
+      this.$emit("swap", "courselist");
     }
   }
 };
