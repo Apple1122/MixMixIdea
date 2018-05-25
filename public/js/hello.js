@@ -14304,7 +14304,7 @@ __webpack_require__(16);
 
 
 
-new Vue({
+var vm = new Vue({
   // 找到 hello.blade.php 中指定的掛載點元素
   el: '#app',
   data: {
@@ -47660,7 +47660,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\nhtml,\r\nbody,\r\n.container,\r\n#app {\r\n  width: 100%;\r\n  height: 100%;\n}\n.container {\r\n  background: transparent url(\"/img/bg-img.png\") no-repeat center;\r\n  background-size: 90%;\n}\n.login-header {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  width: 100%;\r\n  height: 35%;\n}\n.login-body {\r\n  width: 100%;\r\n  height: 37%;\n}\n.login-bottom {\r\n  width: 100%;\r\n  height: 30%;\n}\n.login-button {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  width: 100%;\r\n  height: 35%;\n}\n.logo {\r\n  height: 90%;\n}\n.button-login {\r\n  font: bold;\r\n  border-radius: 99em;\r\n  width: 78%;\r\n  height: 70%;\r\n  color: #383838;\r\n  font-size: 4.3em;\r\n  font-family: Microsoft JhengHei;\r\n  -webkit-transition: opacity 2s;\r\n  transition: opacity 2s;\r\n  -webkit-box-shadow: 6px 7px 20px 1px #a4a4a4;\r\n          box-shadow: 6px 7px 20px 1px #a4a4a4;\r\n  background: rgb(248, 80, 50); /* Old browsers */\r\n  background: rgb(252, 234, 187); /* Old browsers */ /* FF3.6-15 */ /* Chrome10-25,Safari5.1-6 */\r\n  background: linear-gradient(\r\n    135deg,\r\n    rgba(252, 234, 187, 1) 0%,\r\n    rgba(252, 205, 77, 1) 50%,\r\n    rgba(248, 181, 0, 1) 51%,\r\n    rgba(251, 223, 147, 1) 100%\r\n  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\r\n  filter: progid:DXImageTransform.Microsoft.gradient(\r\n      startColorstr=\"#fceabb\",\r\n      endColorstr=\"#fbdf93\",\r\n      GradientType=1\r\n    ); /* IE6-9 fallback on horizontal gradient */\n}\n.col-choose-bar {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  width: 100%;\r\n  height: 25%;\n}\n.input {\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align: center;\r\n      -ms-flex-align: center;\r\n          align-items: center;\r\n  -webkit-box-pack: center;\r\n      -ms-flex-pack: center;\r\n          justify-content: center;\r\n  width: 100%;\r\n  height: 35%;\n}\n.col {\r\n  width: 75%;\r\n  height: 60%;\r\n  font-size: 3.5em;\r\n  text-indent: 3em;\n}\n#ac {\r\n  background: transparent url(/img/account.png) no-repeat 5%;\r\n  background-size: 9%;\n}\n#pw {\r\n  background: transparent url(/img/password.png) no-repeat 4%;\r\n  background-size: 10%;\n}\n.bar {\r\n  font: bold;\r\n  width: 30%;\r\n  border-bottom: 8px solid #d9e1d8;\r\n  height: 80%;\r\n  text-align: center;\r\n  font-size: 3.5em;\r\n  line-height: 115px;\r\n  color: #a3a1a1;\n}\n#selected {\r\n  color: #ff5f2e;\r\n  border-bottom: 8px solid #ff5f2e;\n}\n.effect-2 {\r\n  border: 0;\r\n  padding: 7px 0;\r\n  border-bottom: 5px solid #ccc;\n}\n.effect-2 ~ .focus-border {\r\n  position: absolute;\r\n  bottom: 0;\r\n  left: 50%;\r\n  width: 0;\r\n  height: 2px;\r\n  background-color: #3399ff;\r\n  -webkit-transition: 0.4s;\r\n  transition: 0.4s;\n}\n.effect-2:focus ~ .focus-border {\r\n  width: 100%;\r\n  -webkit-transition: 0.4s;\r\n  transition: 0.4s;\r\n  left: 0;\n}\r\n", ""]);
+exports.push([module.i, "\nhtml,\nbody,\n.container,\n#app {\n  width: 100%;\n  height: 100%;\n}\n.container {\n  background: transparent url(\"/img/bg-img.png\") no-repeat center;\n  background-size: 90%;\n}\n.login-header {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  height: 35%;\n}\n.login-body {\n  width: 100%;\n  height: 37%;\n}\n.login-bottom {\n  width: 100%;\n  height: 30%;\n}\n.login-button {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  height: 35%;\n}\n.logo {\n  height: 90%;\n}\n.button-login {\n  font: bold;\n  border-radius: 99em;\n  width: 78%;\n  height: 70%;\n  color: #383838;\n  font-size: 4.3em;\n  font-family: Microsoft JhengHei;\n  -webkit-transition: opacity 2s;\n  transition: opacity 2s;\n  -webkit-box-shadow: 6px 7px 20px 1px #a4a4a4;\n          box-shadow: 6px 7px 20px 1px #a4a4a4;\n  background: rgb(248, 80, 50);\n  /* Old browsers */\n  background: rgb(252, 234, 187);\n  /* Old browsers */\n  /* FF3.6-15 */\n  /* Chrome10-25,Safari5.1-6 */\n  background: linear-gradient(\n    135deg,\n    rgba(252, 234, 187, 1) 0%,\n    rgba(252, 205, 77, 1) 50%,\n    rgba(248, 181, 0, 1) 51%,\n    rgba(251, 223, 147, 1) 100%\n  );\n  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\n  filter: progid:DXImageTransform.Microsoft.gradient(\n      startColorstr=\"#fceabb\",\n      endColorstr=\"#fbdf93\",\n      GradientType=1\n    );\n  /* IE6-9 fallback on horizontal gradient */\n}\n.col-choose-bar {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  height: 25%;\n}\n.input {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  height: 35%;\n}\n.col {\n  width: 75%;\n  height: 60%;\n  font-size: 3.5em;\n  text-indent: 3em;\n}\n#ac {\n  background: transparent url(/img/account.png) no-repeat 5%;\n  background-size: 9%;\n}\n#pw {\n  background: transparent url(/img/password.png) no-repeat 4%;\n  background-size: 10%;\n}\n.bar {\n  font: bold;\n  width: 30%;\n  border-bottom: 8px solid #d9e1d8;\n  height: 80%;\n  text-align: center;\n  font-size: 3.5em;\n  line-height: 115px;\n  color: #a3a1a1;\n}\n#selected {\n  color: #ff5f2e;\n  border-bottom: 8px solid #ff5f2e;\n}\n.effect-2 {\n  border: 0;\n  padding: 7px 0;\n  border-bottom: 5px solid #ccc;\n}\n.effect-2 ~ .focus-border {\n  position: absolute;\n  bottom: 0;\n  left: 50%;\n  width: 0;\n  height: 2px;\n  background-color: #3399ff;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n.effect-2:focus ~ .focus-border {\n  width: 100%;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n  left: 0;\n}\n", ""]);
 
 // exports
 
@@ -47739,13 +47739,63 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["swapComponent"],
   data: function data() {
     return {
-      isTeacherSelected: false
+      loginType: 'student',
+      inputAccount: '',
+      inputPassword: ''
     };
+  },
+
+  methods: {
+    button_login_clicked: function button_login_clicked() {
+      var vm = this;
+      var data = {
+        'loginType': vm.loginType,
+        'account': vm.inputAccount,
+        'password': vm.inputPassword
+      };
+      axios.post('/login', data).then(function (rtn) {
+        console.log(rtn);
+      });
+      //this.$emit("swap", "courselist");
+    }
   }
 });
+
+/* 魚尾尾參考用
+      beforeCreate: function() {
+      //vue instance 被 constructor 建立前
+      console.log('beforeCreate');
+    },
+    created: function() {
+      //vue instance 被 constructor 建立後，在這裡完成 data binding
+      console.log('created');
+    },
+    beforeMount: function() {
+      //綁定 DOM 之前
+      console.log('beforeMount');
+    },
+    mounted: function() {
+      //綁定 DOM 之後
+      console.log('mounted');
+    },
+    beforeUpdate: function() {
+      //資料更新，但尚未更新 DOM
+      console.log('beforeUpdate');
+    },
+    updated: function() {
+      //因資料更新，而更新 DOM
+      console.log('updated');
+    },
+    beforeDestroy: function() {
+      //移除 vue instance 之前
+      console.log('beforeDestroy');
+    },
+    destroyed: function() {
+      //移除 vue instance 之後
+      console.log('destroyed');
+    }*/
 
 /***/ }),
 /* 47 */
@@ -47755,7 +47805,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
+  return _c("div", { staticClass: "container", attrs: { id: "login" } }, [
     _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "login-body animated fadeIn" }, [
@@ -47764,10 +47814,10 @@ var render = function() {
           "div",
           {
             staticClass: "bar student",
-            attrs: { id: _vm.isTeacherSelected ? "" : "selected" },
+            attrs: { id: _vm.loginType == "student" ? "selected" : "" },
             on: {
               click: function($event) {
-                _vm.isTeacherSelected = false
+                _vm.loginType = "student"
               }
             }
           },
@@ -47778,10 +47828,10 @@ var render = function() {
           "div",
           {
             staticClass: "bar teacher",
-            attrs: { id: _vm.isTeacherSelected ? "selected" : "" },
+            attrs: { id: _vm.loginType == "teacher" ? "selected" : "" },
             on: {
               click: function($event) {
-                _vm.isTeacherSelected = true
+                _vm.loginType = "teacher"
               }
             }
           },
@@ -47789,9 +47839,55 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _vm._m(1),
+      _c("div", { staticClass: "input" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.inputAccount,
+              expression: "inputAccount"
+            }
+          ],
+          staticClass: "col effect-2",
+          attrs: { id: "ac", type: "text", placeholder: "請輸入帳號" },
+          domProps: { value: _vm.inputAccount },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.inputAccount = $event.target.value
+            }
+          }
+        })
+      ]),
       _vm._v(" "),
-      _vm._m(2)
+      _c("div", { staticClass: "input" }, [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.inputPassword,
+              expression: "inputPassword"
+            }
+          ],
+          staticClass: "col effect-2",
+          attrs: { id: "pw", type: "text", placeholder: "請輸入密碼" },
+          domProps: { value: _vm.inputPassword },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.inputPassword = $event.target.value
+            }
+          }
+        }),
+        _vm._v(" "),
+        _c("span", { staticClass: "focus-border" })
+      ])
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "login-bottom  animated fadeIn" }, [
@@ -47802,7 +47898,7 @@ var render = function() {
             staticClass: "button-login",
             on: {
               click: function($event) {
-                _vm.swapComponent("courselist")
+                _vm.button_login_clicked()
               }
             }
           },
@@ -47822,30 +47918,6 @@ var staticRenderFns = [
         staticClass: "logo animated bounceInDown",
         attrs: { src: "/img/logo.png" }
       })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "input" }, [
-      _c("input", {
-        staticClass: "col effect-2",
-        attrs: { id: "ac", type: "text", placeholder: "請輸入帳號" }
-      })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "input" }, [
-      _c("input", {
-        staticClass: "col effect-2",
-        attrs: { id: "pw", type: "text", placeholder: "請輸入密碼" }
-      }),
-      _vm._v(" "),
-      _c("span", { staticClass: "focus-border" })
     ])
   }
 ]
@@ -47944,7 +48016,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\n.cl-header{\r\n  width:100%;\r\n  height: 30%;\n}\n.cl-body{\r\n  width:100%;\r\n  height: 70%;\n}\n.ch-LR{\r\n  float:left;\r\n  width:26%;\r\n  height:100%;\n}\n.ch-center{\r\n  float:left;\r\n  width:44%;\r\n  height:100%;\n}\n.infro-img{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align:center;\r\n      -ms-flex-align:center;\r\n          align-items:center;\r\n  -webkit-box-pack:center;\r\n      -ms-flex-pack:center;\r\n          justify-content:center;\r\n  width:100%;\r\n  height:80%;\n}\n.infro-name{\r\n  color: #34314c;\r\n  font-weight: bold;\r\n  text-align: center;\r\n  font-size: 4em;\r\n  width:100%;\r\n  height:20%;\r\n  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),\r\n             0px 8px 13px rgba(0,0,0,0.1),\r\n             0px 18px 23px rgba(0,0,0,0.1);\n}\n.circle{\r\n  width:76%;\r\n  height:80%;\r\n  border-radius:99em;\r\n  -webkit-box-shadow: 0px 4px 3px rgba(0,0,0,0.3),\r\n             0px 8px 13px rgba(0,0,0,0.1),\r\n             0px 18px 23px rgba(0,0,0,0.1);\r\n          box-shadow: 0px 4px 3px rgba(0,0,0,0.3),\r\n             0px 8px 13px rgba(0,0,0,0.1),\r\n             0px 18px 23px rgba(0,0,0,0.1);\n}\n.LR-top{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding:3%;\r\n  padding-top:30%;\r\n  width:100%;\r\n  height:50%;\n}\n.LR-bottom{\r\n  width:100%;\r\n  height:50%;\n}\n.before-text{\r\n    width:100%;\r\n    font-size: 2.5em;\r\n    float: left;\r\n    text-align:center;\r\n    margin: 3%;\r\n    text-shadow: 2px 2px 1px #ccc;\n}\n.top-button{\r\n  width:100%;\r\n  height:100%;\n}\n.setting{\r\n    background: transparent url(/img/setting.png) no-repeat top center;\r\n    background-size: 50%;\r\n    position: relative;\r\n    left: 20%;\r\n    top: 5%;\n}\n.shop{\r\n    background: transparent url(/img/shop.png) no-repeat top center;\r\n    background-size: 52%;\r\n    position: relative;\r\n    left: -10%;\r\n    top: 5%;\n}\n.choose-text{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align:center;\r\n      -ms-flex-align:center;\r\n          align-items:center;\r\n  -webkit-box-pack:center;\r\n      -ms-flex-pack:center;\r\n          justify-content:center;\r\n  font-weight: bold;\r\n  width: 100%;\r\n  height:12%;\r\n  color: #ff7473;\r\n  font-size: 4.5em;\n}\n.courselist{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 8%;\r\n  padding-top: 4%;\r\n  width: 100%;\r\n  height: 88%;\r\n  overflow-y: scroll;\n}\n.course{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width:100%;\r\n  height: 16%;\r\n  background-color:#ffc952;\r\n  border-radius:40px;\r\n  -webkit-box-shadow: 3px 3px 3px 2px #ccc;\r\n          box-shadow: 3px 3px 3px 2px #ccc;\r\n  margin-bottom: 5%;\n}\n.subject{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align:center;\r\n      -ms-flex-align:center;\r\n          align-items:center;\r\n  -webkit-box-pack:center;\r\n      -ms-flex-pack:center;\r\n          justify-content:center;\r\n  font-size:2.7em;\r\n  float: left;\r\n  width:20%;\r\n  height:100%;\n}\n.class-name{\r\n  font-weight:bold;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align:center;\r\n      -ms-flex-align:center;\r\n          align-items:center;\r\n  -webkit-box-pack:center;\r\n      -ms-flex-pack:center;\r\n          justify-content:center;\r\n  font-size:3em;\r\n  float: left;\r\n  width:60%;\r\n  height:100%;\n}\n.class-time{\r\n  font-size:2.3em;\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align:center;\r\n      -ms-flex-align:center;\r\n          align-items:center;\r\n  -webkit-box-pack:center;\r\n      -ms-flex-pack:center;\r\n          justify-content:center;\r\n  float: left;\r\n  width:20%;\r\n  height:100%;\n}\n.logo-time{\r\n  width:40%;\r\n  margin: 3%;\n}\n.time-text{\r\n  text-align:center;\r\n  line-height:130%;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.cl-header{\n  width:100%;\n  height: 30%;\n}\n.cl-body{\n  width:100%;\n  height: 70%;\n}\n.ch-LR{\n  float:left;\n  width:26%;\n  height:100%;\n}\n.ch-center{\n  float:left;\n  width:44%;\n  height:100%;\n}\n.infro-img{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align:center;\n      -ms-flex-align:center;\n          align-items:center;\n  -webkit-box-pack:center;\n      -ms-flex-pack:center;\n          justify-content:center;\n  width:100%;\n  height:80%;\n}\n.infro-name{\n  color: #34314c;\n  font-weight: bold;\n  text-align: center;\n  font-size: 4em;\n  width:100%;\n  height:20%;\n  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),\n             0px 8px 13px rgba(0,0,0,0.1),\n             0px 18px 23px rgba(0,0,0,0.1);\n}\n.circle{\n  width:76%;\n  height:80%;\n  border-radius:99em;\n  -webkit-box-shadow: 0px 4px 3px rgba(0,0,0,0.3),\n             0px 8px 13px rgba(0,0,0,0.1),\n             0px 18px 23px rgba(0,0,0,0.1);\n          box-shadow: 0px 4px 3px rgba(0,0,0,0.3),\n             0px 8px 13px rgba(0,0,0,0.1),\n             0px 18px 23px rgba(0,0,0,0.1);\n}\n.LR-top{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding:3%;\n  padding-top:30%;\n  width:100%;\n  height:50%;\n}\n.LR-bottom{\n  width:100%;\n  height:50%;\n}\n.before-text{\n    width:100%;\n    font-size: 2.5em;\n    float: left;\n    text-align:center;\n    margin: 3%;\n    text-shadow: 2px 2px 1px #ccc;\n}\n.top-button{\n  width:100%;\n  height:100%;\n}\n.setting{\n    background: transparent url(/img/setting.png) no-repeat top center;\n    background-size: 50%;\n    position: relative;\n    left: 20%;\n    top: 5%;\n}\n.shop{\n    background: transparent url(/img/shop.png) no-repeat top center;\n    background-size: 52%;\n    position: relative;\n    left: -10%;\n    top: 5%;\n}\n.choose-text{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align:center;\n      -ms-flex-align:center;\n          align-items:center;\n  -webkit-box-pack:center;\n      -ms-flex-pack:center;\n          justify-content:center;\n  font-weight: bold;\n  width: 100%;\n  height:12%;\n  color: #ff7473;\n  font-size: 4.5em;\n}\n.courselist{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 8%;\n  padding-top: 4%;\n  width: 100%;\n  height: 88%;\n  overflow-y: scroll;\n}\n.course{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  width:100%;\n  height: 16%;\n  background-color:#ffc952;\n  border-radius:40px;\n  -webkit-box-shadow: 3px 3px 3px 2px #ccc;\n          box-shadow: 3px 3px 3px 2px #ccc;\n  margin-bottom: 5%;\n}\n.subject{\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align:center;\n      -ms-flex-align:center;\n          align-items:center;\n  -webkit-box-pack:center;\n      -ms-flex-pack:center;\n          justify-content:center;\n  font-size:2.7em;\n  float: left;\n  width:20%;\n  height:100%;\n}\n.class-name{\n  font-weight:bold;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align:center;\n      -ms-flex-align:center;\n          align-items:center;\n  -webkit-box-pack:center;\n      -ms-flex-pack:center;\n          justify-content:center;\n  font-size:3em;\n  float: left;\n  width:60%;\n  height:100%;\n}\n.class-time{\n  font-size:2.3em;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align:center;\n      -ms-flex-align:center;\n          align-items:center;\n  -webkit-box-pack:center;\n      -ms-flex-pack:center;\n          justify-content:center;\n  float: left;\n  width:20%;\n  height:100%;\n}\n.logo-time{\n  width:40%;\n  margin: 3%;\n}\n.time-text{\n  text-align:center;\n  line-height:130%;\n}\n\n", ""]);
 
 // exports
 

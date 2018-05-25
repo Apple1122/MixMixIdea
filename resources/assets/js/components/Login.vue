@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div id="login" class="container">
 
     <div class="login-header">
       <img class="logo animated bounceInDown" src="/img/logo.png" />
@@ -7,40 +7,91 @@
 
     <div class="login-body animated fadeIn" >
       <div class="col-choose-bar">
-        <div @click="isTeacherSelected = false" :id="isTeacherSelected? '':'selected'" class="bar student">學生</div>
-      <div @click="isTeacherSelected = true" :id="isTeacherSelected? 'selected':''" class="bar teacher">老師</div>
+        <div @click="loginType = 'student'" :id="loginType=='student'? 'selected':''" class="bar student">學生</div>
+      <div @click="loginType = 'teacher'" :id="loginType=='teacher'? 'selected':''" class="bar teacher">老師</div>
   </div>
 
   <div class="input">
-    <input class="col effect-2" id="ac" type="text" placeholder="請輸入帳號" />
+    <input class="col effect-2" id="ac" v-model="inputAccount" type="text" placeholder="請輸入帳號" />
     <span class="focus-border"</span>
       </div>
 
   <div class="input">
-    <input class="col effect-2" id="pw" type="text" placeholder="請輸入密碼" />
+    <input class="col effect-2" id="pw" v-model="inputPassword" type="text" placeholder="請輸入密碼" />
     <span class="focus-border"></span>
   </div>
     </div>
 
   <div class="login-bottom  animated fadeIn">
     <div class="login-button">
-      <button  @click="swapComponent('courselist')"  class="button-login">登入</button>
+      <button @click="button_login_clicked()"  class="button-login">登入</button>
   </div>
-    </div >
-  </div >
-</template >
+    </div>
+  </div>
+</template>
 
 
 <script>
 export default {
-  props: ["swapComponent"],
   data() {
     return {
-      isTeacherSelected: false
+      loginType: 'student',
+      inputAccount: '',
+      inputPassword: ''
     };
+  },
+  methods: {
+    button_login_clicked: function() {
+      let vm = this;
+      let data = {
+        'loginType': vm.loginType,
+        'account': vm.inputAccount,
+        'password': vm.inputPassword
+      }
+      axios.post('/login', data)
+      .then(function(rtn){
+        console.log(rtn);
+      });
+      //this.$emit("swap", "courselist");
+    }
   }
 };
+
+/* 魚尾尾參考用
+      beforeCreate: function() {
+      //vue instance 被 constructor 建立前
+      console.log('beforeCreate');
+    },
+    created: function() {
+      //vue instance 被 constructor 建立後，在這裡完成 data binding
+      console.log('created');
+    },
+    beforeMount: function() {
+      //綁定 DOM 之前
+      console.log('beforeMount');
+    },
+    mounted: function() {
+      //綁定 DOM 之後
+      console.log('mounted');
+    },
+    beforeUpdate: function() {
+      //資料更新，但尚未更新 DOM
+      console.log('beforeUpdate');
+    },
+    updated: function() {
+      //因資料更新，而更新 DOM
+      console.log('updated');
+    },
+    beforeDestroy: function() {
+      //移除 vue instance 之前
+      console.log('beforeDestroy');
+    },
+    destroyed: function() {
+      //移除 vue instance 之後
+      console.log('destroyed');
+    }*/
 </script>
+
 
 
 <style>
@@ -64,10 +115,12 @@ body,
   width: 100%;
   height: 35%;
 }
+
 .login-body {
   width: 100%;
   height: 37%;
 }
+
 .login-bottom {
   width: 100%;
   height: 30%;
@@ -95,34 +148,40 @@ body,
   font-family: Microsoft JhengHei;
   transition: opacity 2s;
   box-shadow: 6px 7px 20px 1px #a4a4a4;
-  background: rgb(248, 80, 50); /* Old browsers */
-  background: rgb(252, 234, 187); /* Old browsers */
+  background: rgb(248, 80, 50);
+  /* Old browsers */
+  background: rgb(252, 234, 187);
+  /* Old browsers */
   background: -moz-linear-gradient(
     -45deg,
     rgba(252, 234, 187, 1) 0%,
     rgba(252, 205, 77, 1) 50%,
     rgba(248, 181, 0, 1) 51%,
     rgba(251, 223, 147, 1) 100%
-  ); /* FF3.6-15 */
+  );
+  /* FF3.6-15 */
   background: -webkit-linear-gradient(
     -45deg,
     rgba(252, 234, 187, 1) 0%,
     rgba(252, 205, 77, 1) 50%,
     rgba(248, 181, 0, 1) 51%,
     rgba(251, 223, 147, 1) 100%
-  ); /* Chrome10-25,Safari5.1-6 */
+  );
+  /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(
     135deg,
     rgba(252, 234, 187, 1) 0%,
     rgba(252, 205, 77, 1) 50%,
     rgba(248, 181, 0, 1) 51%,
     rgba(251, 223, 147, 1) 100%
-  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  );
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient(
       startColorstr="#fceabb",
       endColorstr="#fbdf93",
       GradientType=1
-    ); /* IE6-9 fallback on horizontal gradient */
+    );
+  /* IE6-9 fallback on horizontal gradient */
 }
 
 .col-choose-bar {
@@ -173,6 +232,7 @@ body,
   color: #ff5f2e;
   border-bottom: 8px solid #ff5f2e;
 }
+
 .effect-2 {
   border: 0;
   padding: 7px 0;
@@ -188,6 +248,7 @@ body,
   background-color: #3399ff;
   transition: 0.4s;
 }
+
 .effect-2:focus ~ .focus-border {
   width: 100%;
   transition: 0.4s;

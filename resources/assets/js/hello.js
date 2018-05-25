@@ -3,7 +3,7 @@ require('./bootstrap');
 import Login from './components/Login'
 import CourseList from './components/CourseList'
 
-new Vue({
+var vm = new Vue({
   // 找到 hello.blade.php 中指定的掛載點元素
   el: '#app',
   data: {
@@ -18,5 +18,5 @@ new Vue({
     swapComponent: function (component) {
       this.currentComponent = component;
     }
-  },
-})
+  }
+});

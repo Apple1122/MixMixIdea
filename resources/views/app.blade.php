@@ -8,19 +8,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" type="text/css" href="/css/reset.css" />
-    <link rel="stylesheet" type="text/css" href="/css/animate.css" />
+	<link rel="stylesheet" type="text/css" href="/css/animate.css" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
     <title>Mix2Ideas攪攪腦－攪動你的想法吧！</title>
 </head>
 <body>
     <!-- 準備給 Vue 的掛載點 -->
     <div id="app">
-        <div :is="currentComponent" :swap-component="swapComponent"></div>
+        <div :is="currentComponent" :swap-component="swapComponent" v-on:swap="swapComponent"></div>
     </div>
     <!-- 載入打包後的 js 檔 -->
-    <script src="/js/hello.js"></script>
+	<script src="/js/hello.js"></script>
+	
 </body>
 </html>
-
+<script>
+	$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+</script>
 <style>
     @media (min-width: 400px) and (max-width: 1000px) {
 	html, body {
