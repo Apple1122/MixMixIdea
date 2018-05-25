@@ -31,7 +31,6 @@
     <div class="cl-body">
       <div class="choose-text f-c">請選擇課程</div>
       <div class="courselist">
-<<<<<<< HEAD
       <!-- 這裡開始會用到v-for -->
         <div v-for="c in courses" class="course" :class="{ open: isOpen }">
           <div class="class-infro animated fadeInUp" @click="isOpen=!isOpen">

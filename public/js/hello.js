@@ -48104,7 +48104,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -48163,81 +48162,76 @@ var render = function() {
       _c(
         "div",
         { staticClass: "courselist" },
-        [
-          _vm._v("\n<<<<<<< HEAD\n      "),
-          _vm._v(" "),
-          _vm._l(_vm.courses, function(c) {
-            return _c(
-              "div",
-              { staticClass: "course", class: { open: _vm.isOpen } },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "class-infro animated fadeInUp",
-                    on: {
-                      click: function($event) {
-                        _vm.isOpen = !_vm.isOpen
-                      }
+        _vm._l(_vm.courses, function(c) {
+          return _c(
+            "div",
+            { staticClass: "course", class: { open: _vm.isOpen } },
+            [
+              _c(
+                "div",
+                {
+                  staticClass: "class-infro animated fadeInUp",
+                  on: {
+                    click: function($event) {
+                      _vm.isOpen = !_vm.isOpen
                     }
-                  },
-                  [
-                    _c("div", { staticClass: "subject f-c" }, [
-                      _vm._v(" " + _vm._s(c.department) + " ")
-                    ]),
+                  }
+                },
+                [
+                  _c("div", { staticClass: "subject f-c" }, [
+                    _vm._v(" " + _vm._s(c.department) + " ")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "class-name f-c" }, [
+                    _vm._v(" " + _vm._s(c.name) + " ")
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "class-time f-c" }, [
+                    _c("img", {
+                      staticClass: "logo-time",
+                      attrs: { src: "/img/time.png" }
+                    }),
                     _vm._v(" "),
-                    _c("div", { staticClass: "class-name f-c" }, [
-                      _vm._v(" " + _vm._s(c.name) + " ")
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "class-time f-c" }, [
-                      _c("img", {
-                        staticClass: "logo-time",
-                        attrs: { src: "/img/time.png" }
-                      }),
-                      _vm._v(" "),
-                      _c("span", { staticClass: "time-text" }, [
-                        _vm._v(" " + _vm._s(c.class_time) + " ")
-                      ])
+                    _c("span", { staticClass: "time-text" }, [
+                      _vm._v(" " + _vm._s(c.class_time) + " ")
                     ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "div",
-                  {
-                    staticClass: "class-detail animated fadeInDown",
-                    class: { hide: !_vm.isOpen }
-                  },
-                  [
-                    _vm.isTeacher
-                      ? _c("div", { staticClass: "col-d" }, [
-                          _c("span", { staticClass: "add-room" }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "room-text f-c" }, [
-                            _vm._v("創立房間")
-                          ])
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticClass: "class-detail animated fadeInDown",
+                  class: { hide: !_vm.isOpen }
+                },
+                [
+                  _vm.isTeacher
+                    ? _c("div", { staticClass: "col-d" }, [
+                        _c("span", { staticClass: "add-room" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "room-text f-c" }, [
+                          _vm._v("創立房間")
                         ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    !_vm.isTeacher
-                      ? _c("div", { staticClass: "col-d" }, [
-                          _c("span", { staticClass: "join-room" }),
-                          _vm._v(" "),
-                          _c("span", { staticClass: "room-text f-c" }, [
-                            _vm._v("加入房間")
-                          ])
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  !_vm.isTeacher
+                    ? _c("div", { staticClass: "col-d" }, [
+                        _c("span", { staticClass: "join-room" }),
+                        _vm._v(" "),
+                        _c("span", { staticClass: "room-text f-c" }, [
+                          _vm._v("加入房間")
                         ])
-                      : _vm._e(),
-                    _vm._v(" "),
-                    _vm._m(3, true)
-                  ]
-                )
-              ]
-            )
-          })
-        ],
-        2
+                      ])
+                    : _vm._e(),
+                  _vm._v(" "),
+                  _vm._m(3, true)
+                ]
+              )
+            ]
+          )
+        })
       )
     ])
   ])
