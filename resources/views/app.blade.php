@@ -45,12 +45,22 @@
 		overflow: hidden;
 	}
 	
-	body {
+	body,#app {
 		position: fixed;
 		height: 100%;
 		overflow: hidden;
 		width: 100%;
 		font-size: 1.0em;
 	}
+
+	.container{
+		box-sizing: border-box;
+		padding: 3%;
+		width: 100%;
+		height: 100%;
+		background: transparent url("/img/bg-img.png") no-repeat center;
+		background-size: 90%;
+	}
+
 }
 </style>

@@ -63,3 +63,13 @@ button, input{
 textarea,input{
 	font-family: Microsoft JhengHei;
 }
+
+.f-c{
+  display: flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.b-x{
+	box-sizing: border-box;
+}

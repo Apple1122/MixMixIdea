@@ -1,29 +1,29 @@
 <template>
   <div id="login" class="container">
 
-    <div class="login-header">
+    <div class="login-header f-c">
       <img class="logo animated bounceInDown" src="/img/logo.png" />
     </div>
 
     <div class="login-body animated fadeIn" >
-      <div class="col-choose-bar">
+      <div class="col-choose-bar f-c">
         <div @click="loginType = 'student'" :id="loginType=='student'? 'selected':''" class="bar student">學生</div>
       <div @click="loginType = 'teacher'" :id="loginType=='teacher'? 'selected':''" class="bar teacher">老師</div>
   </div>
 
-  <div class="input">
+  <div class="input f-c">
     <input class="col effect-2" id="ac" v-model="inputAccount" type="text" placeholder="請輸入帳號" />
     <span class="focus-border"</span>
       </div>
 
-  <div class="input">
+  <div class="input f-c">
     <input class="col effect-2" id="pw" v-model="inputPassword" type="password" placeholder="請輸入密碼" />
     <span class="focus-border"></span>
   </div>
     </div>
 
   <div class="login-bottom animated fadeIn">
-    <div class="login-button">
+    <div class="login-button f-c">
       <button @click="button_login_clicked()"  class="button-login">登入</button>
   </div>
     </div >
@@ -31,9 +31,9 @@
 </template >
 
 
-<script>
-export default {
-  data() {
+  <script>
+    export default {
+      data() {
     return {
       loginType: "student",
       inputAccount: "",
@@ -110,52 +110,35 @@ export default {
 
 
 
-  <style>
-    html,
-body,
-.container,
-#app {
-      width: 100%;
-  height: 100%;
-}
-
-.container {
-      background: transparent url("/img/bg-img.png") no-repeat center;
-  background-size: 90%;
-}
+<style>
 
 .login-header {
-      display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   height: 35%;
 }
 
 .login-body {
-      width: 100%;
+  width: 100%;
   height: 37%;
 }
 
 .login-bottom {
-      width: 100%;
+  width: 100%;
   height: 30%;
 }
 
 .login-button {
-      display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   height: 35%;
 }
 
 .logo {
-      height: 90%;
+  height: 30em;
+  width: 30em;
 }
 
 .button-login {
-      font: bold;
+  font: bold;
   border-radius: 99em;
   width: 78%;
   height: 70%;
@@ -201,40 +184,34 @@ body,
 }
 
 .col-choose-bar {
-      display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   height: 25%;
 }
 
 .input {
-      display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   height: 35%;
 }
 
 .col {
-      width: 75%;
+width: 75%;
   height: 60%;
   font-size: 3.5em;
   text-indent: 3em;
 }
 
 #ac {
-      background: transparent url(/img/account.png) no-repeat 5%;
+  background: transparent url(/img/account.png) no-repeat 5%;
   background-size: 9%;
 }
 
 #pw {
-      background: transparent url(/img/password.png) no-repeat 4%;
+  background: transparent url(/img/password.png) no-repeat 4%;
   background-size: 10%;
 }
 
 .bar {
-      font: bold;
+  font: bold;
   width: 30%;
   border-bottom: 8px solid #d9e1d8;
   height: 80%;
@@ -245,18 +222,18 @@ body,
 }
 
 #selected {
-      color: #ff5f2e;
+  color: #ff5f2e;
   border-bottom: 8px solid #ff5f2e;
 }
 
 .effect-2 {
-      border: 0;
+  border: 0;
   padding: 7px 0;
   border-bottom: 5px solid #ccc;
 }
 
 .effect-2 ~ .focus-border {
-      position: absolute;
+  position: absolute;
   bottom: 0;
   left: 50%;
   width: 0;
@@ -266,7 +243,7 @@ body,
 }
 
 .effect-2:focus ~ .focus-border {
-      width: 100%;
+  width: 100%;
   transition: 0.4s;
   left: 0;
 }

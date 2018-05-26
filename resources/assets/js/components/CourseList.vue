@@ -102,11 +102,7 @@ export default {
 </script>
 
 <style>
-.f-c{
-  display: flex;
-  align-items:center;
-  justify-content:center;
-}
+
 
 .cl-header{
   width:100%;

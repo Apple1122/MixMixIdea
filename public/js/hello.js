@@ -14299,18 +14299,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Login___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Login__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_CourseList__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_CourseList___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_CourseList__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_TWaiting__ = __webpack_require__(57);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_TWaiting___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_TWaiting__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_SWaiting__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_SWaiting___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_SWaiting__);
 __webpack_require__(16);
+
+
 
 
 
 var vm = new Vue({
   el: '#app',
   data: {
-    currentComponent: 'login'
+    currentComponent: 't_w'
   },
   components: {
     'login': __WEBPACK_IMPORTED_MODULE_0__components_Login___default.a,
-    'courselist': __WEBPACK_IMPORTED_MODULE_1__components_CourseList___default.a
+    'courselist': __WEBPACK_IMPORTED_MODULE_1__components_CourseList___default.a,
+    't_w': __WEBPACK_IMPORTED_MODULE_2__components_TWaiting___default.a,
+    's_w': __WEBPACK_IMPORTED_MODULE_3__components_SWaiting___default.a
   },
   methods: {
     swapComponent: function swapComponent(component) {
@@ -47657,7 +47665,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\nhtml,\nbody,\n.container,\n#app {\n      width: 100%;\n  height: 100%;\n}\n.container {\n      background: transparent url(\"/img/bg-img.png\") no-repeat center;\n  background-size: 90%;\n}\n.login-header {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  height: 35%;\n}\n.login-body {\n      width: 100%;\n  height: 37%;\n}\n.login-bottom {\n      width: 100%;\n  height: 30%;\n}\n.login-button {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  height: 35%;\n}\n.logo {\n      height: 90%;\n}\n.button-login {\n      font: bold;\n  border-radius: 99em;\n  width: 78%;\n  height: 70%;\n  color: #383838;\n  font-size: 4.3em;\n  font-family: Microsoft JhengHei;\n  -webkit-transition: opacity 2s;\n  transition: opacity 2s;\n  -webkit-box-shadow: 6px 7px 20px 1px #a4a4a4;\n          box-shadow: 6px 7px 20px 1px #a4a4a4;\n  background: rgb(248, 80, 50);\n  /* Old browsers */\n  background: rgb(252, 234, 187);\n  /* Old browsers */\n  /* FF3.6-15 */\n  /* Chrome10-25,Safari5.1-6 */\n  background: linear-gradient(\n    135deg,\n    rgba(252, 234, 187, 1) 0%,\n    rgba(252, 205, 77, 1) 50%,\n    rgba(248, 181, 0, 1) 51%,\n    rgba(251, 223, 147, 1) 100%\n  );\n  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\n  filter: progid:DXImageTransform.Microsoft.gradient(\n      startColorstr=\"#fceabb\",\n      endColorstr=\"#fbdf93\",\n      GradientType=1\n    );\n  /* IE6-9 fallback on horizontal gradient */\n}\n.col-choose-bar {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  height: 25%;\n}\n.input {\n      display: -webkit-box;\n      display: -ms-flexbox;\n      display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center;\n  width: 100%;\n  height: 35%;\n}\n.col {\n      width: 75%;\n  height: 60%;\n  font-size: 3.5em;\n  text-indent: 3em;\n}\n#ac {\n      background: transparent url(/img/account.png) no-repeat 5%;\n  background-size: 9%;\n}\n#pw {\n      background: transparent url(/img/password.png) no-repeat 4%;\n  background-size: 10%;\n}\n.bar {\n      font: bold;\n  width: 30%;\n  border-bottom: 8px solid #d9e1d8;\n  height: 80%;\n  text-align: center;\n  font-size: 3.5em;\n  line-height: 115px;\n  color: #a3a1a1;\n}\n#selected {\n      color: #ff5f2e;\n  border-bottom: 8px solid #ff5f2e;\n}\n.effect-2 {\n      border: 0;\n  padding: 7px 0;\n  border-bottom: 5px solid #ccc;\n}\n.effect-2 ~ .focus-border {\n      position: absolute;\n  bottom: 0;\n  left: 50%;\n  width: 0;\n  height: 2px;\n  background-color: #3399ff;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n.effect-2:focus ~ .focus-border {\n      width: 100%;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n  left: 0;\n}\n", ""]);
+exports.push([module.i, "\n.login-header {\r\n  width: 100%;\r\n  height: 35%;\n}\n.login-body {\r\n  width: 100%;\r\n  height: 37%;\n}\n.login-bottom {\r\n  width: 100%;\r\n  height: 30%;\n}\n.login-button {\r\n  width: 100%;\r\n  height: 35%;\n}\n.logo {\r\n  height: 30em;\r\n  width: 30em;\n}\n.button-login {\r\n  font: bold;\r\n  border-radius: 99em;\r\n  width: 78%;\r\n  height: 70%;\r\n  color: #383838;\r\n  font-size: 4.3em;\r\n  font-family: Microsoft JhengHei;\r\n  -webkit-transition: opacity 2s;\r\n  transition: opacity 2s;\r\n  -webkit-box-shadow: 6px 7px 20px 1px #a4a4a4;\r\n          box-shadow: 6px 7px 20px 1px #a4a4a4;\r\n  background: rgb(248, 80, 50);\r\n  /* Old browsers */\r\n  background: rgb(252, 234, 187);\r\n  /* Old browsers */\r\n  /* FF3.6-15 */\r\n  /* Chrome10-25,Safari5.1-6 */\r\n  background: linear-gradient(\r\n    135deg,\r\n    rgba(252, 234, 187, 1) 0%,\r\n    rgba(252, 205, 77, 1) 50%,\r\n    rgba(248, 181, 0, 1) 51%,\r\n    rgba(251, 223, 147, 1) 100%\r\n  );\r\n  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\r\n  filter: progid:DXImageTransform.Microsoft.gradient(\r\n      startColorstr=\"#fceabb\",\r\n      endColorstr=\"#fbdf93\",\r\n      GradientType=1\r\n    );\r\n  /* IE6-9 fallback on horizontal gradient */\n}\n.col-choose-bar {\r\n  width: 100%;\r\n  height: 25%;\n}\n.input {\r\n  width: 100%;\r\n  height: 35%;\n}\n.col {\r\nwidth: 75%;\r\n  height: 60%;\r\n  font-size: 3.5em;\r\n  text-indent: 3em;\n}\n#ac {\r\n  background: transparent url(/img/account.png) no-repeat 5%;\r\n  background-size: 9%;\n}\n#pw {\r\n  background: transparent url(/img/password.png) no-repeat 4%;\r\n  background-size: 10%;\n}\n.bar {\r\n  font: bold;\r\n  width: 30%;\r\n  border-bottom: 8px solid #d9e1d8;\r\n  height: 80%;\r\n  text-align: center;\r\n  font-size: 3.5em;\r\n  line-height: 115px;\r\n  color: #a3a1a1;\n}\n#selected {\r\n  color: #ff5f2e;\r\n  border-bottom: 8px solid #ff5f2e;\n}\n.effect-2 {\r\n  border: 0;\r\n  padding: 7px 0;\r\n  border-bottom: 5px solid #ccc;\n}\n.effect-2 ~ .focus-border {\r\n  position: absolute;\r\n  bottom: 0;\r\n  left: 50%;\r\n  width: 0;\r\n  height: 2px;\r\n  background-color: #3399ff;\r\n  -webkit-transition: 0.4s;\r\n  transition: 0.4s;\n}\n.effect-2:focus ~ .focus-border {\r\n  width: 100%;\r\n  -webkit-transition: 0.4s;\r\n  transition: 0.4s;\r\n  left: 0;\n}\r\n", ""]);
 
 // exports
 
@@ -47820,7 +47828,7 @@ var render = function() {
     _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "login-body animated fadeIn" }, [
-      _c("div", { staticClass: "col-choose-bar" }, [
+      _c("div", { staticClass: "col-choose-bar f-c" }, [
         _c(
           "div",
           {
@@ -47850,7 +47858,7 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "input" }, [
+      _c("div", { staticClass: "input f-c" }, [
         _c("input", {
           directives: [
             {
@@ -47874,7 +47882,7 @@ var render = function() {
         })
       ]),
       _vm._v(" "),
-      _c("div", { staticClass: "input" }, [
+      _c("div", { staticClass: "input f-c" }, [
         _c("input", {
           directives: [
             {
@@ -47902,7 +47910,7 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "login-bottom animated fadeIn" }, [
-      _c("div", { staticClass: "login-button" }, [
+      _c("div", { staticClass: "login-button f-c" }, [
         _c(
           "button",
           {
@@ -47924,7 +47932,7 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "login-header" }, [
+    return _c("div", { staticClass: "login-header f-c" }, [
       _c("img", {
         staticClass: "logo animated bounceInDown",
         attrs: { src: "/img/logo.png" }
@@ -48027,7 +48035,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\n.f-c{\r\n  display: -webkit-box;\r\n  display: -ms-flexbox;\r\n  display: flex;\r\n  -webkit-box-align:center;\r\n      -ms-flex-align:center;\r\n          align-items:center;\r\n  -webkit-box-pack:center;\r\n      -ms-flex-pack:center;\r\n          justify-content:center;\n}\n.cl-header{\r\n  width:100%;\r\n  height: 30%;\n}\n.cl-body {\r\n  width: 100%;\r\n  height: 70%;\n}\n.ch-LR {\r\n  float: left;\r\n  width: 26%;\r\n  height: 100%;\n}\n.ch-center {\r\n  float: left;\r\n  width: 44%;\r\n  height: 100%;\n}\n.infro-img{\r\n  width:100%;\r\n  height:80%;\n}\n.infro-name {\r\n  color: #34314c;\r\n  font-weight: bold;\r\n  text-align: center;\r\n  font-size: 4em;\r\n  width: 100%;\r\n  height: 20%;\r\n  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),\r\n    0px 18px 23px rgba(0, 0, 0, 0.1);\n}\n.circle{\r\n  width:18.5em;\r\n  height:18.5em;\r\n  border-radius:99em;\r\n  -webkit-box-shadow: 0px 4px 3px rgba(0,0,0,0.3),\r\n             0px 8px 13px rgba(0,0,0,0.1),\r\n             0px 18px 23px rgba(0,0,0,0.1);\r\n          box-shadow: 0px 4px 3px rgba(0,0,0,0.3),\r\n             0px 8px 13px rgba(0,0,0,0.1),\r\n             0px 18px 23px rgba(0,0,0,0.1);\n}\n.LR-top {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  padding-top: 30%;\r\n  width: 100%;\r\n  height: 50%;\n}\n.LR-bottom {\r\n  width: 100%;\r\n  height: 50%;\n}\n.before-text {\r\n  width: 100%;\r\n  font-size: 2.5em;\r\n  float: left;\r\n  text-align: center;\r\n  margin: 3%;\r\n  text-shadow: 2px 2px 1px #ccc;\n}\n.top-button {\r\n  width: 100%;\r\n  height: 100%;\n}\n.setting {\r\n  background: transparent url(/img/setting.png) no-repeat top center;\r\n  background-size: 50%;\r\n  position: relative;\r\n  left: 20%;\r\n  top: 5%;\n}\n.shop {\r\n  background: transparent url(/img/shop.png) no-repeat top center;\r\n  background-size: 52%;\r\n  position: relative;\r\n  left: -10%;\r\n  top: 5%;\n}\n.choose-text{\r\n  font-weight: bold;\r\n  width: 100%;\r\n  height: 12%;\r\n  color: #ff7473;\r\n  font-size: 4.5em;\n}\n.courselist {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 8%;\r\n  padding-top: 4%;\r\n  width: 100%;\r\n  height: 88%;\r\n  overflow-y: scroll;\n}\n.course{\r\n  width: 100%;\r\n  height: 17%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 1%;\r\n  margin-bottom: 5%;\r\n  -webkit-transition: margin-bottom 1.5s;\r\n  transition: margin-bottom 1.5s;\n}\n.course.open{\r\n  margin-bottom:20%;\n}\n.class-infro{\r\n  position: relative;\r\n  z-index: 2;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width:100%;\r\n  height: 100%;\r\n  background-color:#ffc952;\r\n  border-radius:40px;\r\n  -webkit-box-shadow: 3px 3px 3px 2px #ccc;\r\n          box-shadow: 3px 3px 3px 2px #ccc;\n}\n.subject{\r\n  font-size:2.7em;\r\n  float: left;\r\n  width: 25%;\r\n  height: 100%;\n}\n.class-name{\r\n  font-weight:bold;\r\n  font-size:3em;\r\n  float: left;\r\n  width: 60%;\r\n  height: 100%;\n}\n.class-time{\r\n  font-size:2.3em;\r\n  float: left;\r\n  width: 15%;\r\n  height: 100%;\n}\n.logo-time {\r\n  width: 40%;\r\n  margin: 3%;\n}\n.time-text{\r\n  text-align: center;\r\n  line-height: 130%;\n}\n.class-detail{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  position: -webkit-sticky;\r\n  position: sticky;\r\n  z-index: 1;\r\n  margin-top: -2%;\r\n  width: 100%;\r\n  height: 115%;\r\n  background-color: #FBFFB9;\r\n  border-radius: 10px;\n}\n.col-d{\r\n  float: left;\r\n  width: 50%;\r\n  height: 100%;\r\n  font-size: 2.5em;\n}\n.add-room{\r\n  float: left;\r\n  width: 40%;\r\n  height: 100%;\r\n  background: transparent url('/img/addroom.png') no-repeat center 70%;\r\n  background-size: 45%;\n}\n.join-room{\r\n  float: left;\r\n  width: 40%;\r\n  height: 100%;\r\n  background: transparent url('/img/joinroom.png') no-repeat center 75%;\r\n  background-size: 40%;\n}\n.history{\r\n  float: left;\r\n  width: 40%;\r\n  height: 100%;\r\n  background: transparent url('/img/history.png') no-repeat center 75%;\r\n  background-size: 50%;\n}\n.room-text{\r\n  float: left;\r\n  width: 50%;\r\n  height: 100%;\r\n  font-size: 1.1em;\r\n  padding-top: 5%;\n}\n.hide{\r\n  display: none;\n}\r\n", ""]);
+exports.push([module.i, "\n.cl-header{\r\n  width:100%;\r\n  height: 30%;\n}\n.cl-body {\r\n  width: 100%;\r\n  height: 70%;\n}\n.ch-LR {\r\n  float: left;\r\n  width: 26%;\r\n  height: 100%;\n}\n.ch-center {\r\n  float: left;\r\n  width: 44%;\r\n  height: 100%;\n}\n.infro-img{\r\n  width:100%;\r\n  height:80%;\n}\n.infro-name {\r\n  color: #34314c;\r\n  font-weight: bold;\r\n  text-align: center;\r\n  font-size: 4em;\r\n  width: 100%;\r\n  height: 20%;\r\n  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),\r\n    0px 18px 23px rgba(0, 0, 0, 0.1);\n}\n.circle{\r\n  width:18.5em;\r\n  height:18.5em;\r\n  border-radius:99em;\r\n  -webkit-box-shadow: 0px 4px 3px rgba(0,0,0,0.3),\r\n             0px 8px 13px rgba(0,0,0,0.1),\r\n             0px 18px 23px rgba(0,0,0,0.1);\r\n          box-shadow: 0px 4px 3px rgba(0,0,0,0.3),\r\n             0px 8px 13px rgba(0,0,0,0.1),\r\n             0px 18px 23px rgba(0,0,0,0.1);\n}\n.LR-top {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  padding-top: 30%;\r\n  width: 100%;\r\n  height: 50%;\n}\n.LR-bottom {\r\n  width: 100%;\r\n  height: 50%;\n}\n.before-text {\r\n  width: 100%;\r\n  font-size: 2.5em;\r\n  float: left;\r\n  text-align: center;\r\n  margin: 3%;\r\n  text-shadow: 2px 2px 1px #ccc;\n}\n.top-button {\r\n  width: 100%;\r\n  height: 100%;\n}\n.setting {\r\n  background: transparent url(/img/setting.png) no-repeat top center;\r\n  background-size: 50%;\r\n  position: relative;\r\n  left: 20%;\r\n  top: 5%;\n}\n.shop {\r\n  background: transparent url(/img/shop.png) no-repeat top center;\r\n  background-size: 52%;\r\n  position: relative;\r\n  left: -10%;\r\n  top: 5%;\n}\n.choose-text{\r\n  font-weight: bold;\r\n  width: 100%;\r\n  height: 12%;\r\n  color: #ff7473;\r\n  font-size: 4.5em;\n}\n.courselist {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 8%;\r\n  padding-top: 4%;\r\n  width: 100%;\r\n  height: 88%;\r\n  overflow-y: scroll;\n}\n.course{\r\n  width: 100%;\r\n  height: 17%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 1%;\r\n  margin-bottom: 5%;\r\n  -webkit-transition: margin-bottom 1.5s;\r\n  transition: margin-bottom 1.5s;\n}\n.course.open{\r\n  margin-bottom:20%;\n}\n.class-infro{\r\n  position: relative;\r\n  z-index: 2;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width:100%;\r\n  height: 100%;\r\n  background-color:#ffc952;\r\n  border-radius:40px;\r\n  -webkit-box-shadow: 3px 3px 3px 2px #ccc;\r\n          box-shadow: 3px 3px 3px 2px #ccc;\n}\n.subject{\r\n  font-size:2.7em;\r\n  float: left;\r\n  width: 25%;\r\n  height: 100%;\n}\n.class-name{\r\n  font-weight:bold;\r\n  font-size:3em;\r\n  float: left;\r\n  width: 60%;\r\n  height: 100%;\n}\n.class-time{\r\n  font-size:2.3em;\r\n  float: left;\r\n  width: 15%;\r\n  height: 100%;\n}\n.logo-time {\r\n  width: 40%;\r\n  margin: 3%;\n}\n.time-text{\r\n  text-align: center;\r\n  line-height: 130%;\n}\n.class-detail{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  position: -webkit-sticky;\r\n  position: sticky;\r\n  z-index: 1;\r\n  margin-top: -2%;\r\n  width: 100%;\r\n  height: 115%;\r\n  background-color: #FBFFB9;\r\n  border-radius: 10px;\n}\n.col-d{\r\n  float: left;\r\n  width: 50%;\r\n  height: 100%;\r\n  font-size: 2.5em;\n}\n.add-room{\r\n  float: left;\r\n  width: 40%;\r\n  height: 100%;\r\n  background: transparent url('/img/addroom.png') no-repeat center 70%;\r\n  background-size: 45%;\n}\n.join-room{\r\n  float: left;\r\n  width: 40%;\r\n  height: 100%;\r\n  background: transparent url('/img/joinroom.png') no-repeat center 75%;\r\n  background-size: 40%;\n}\n.history{\r\n  float: left;\r\n  width: 40%;\r\n  height: 100%;\r\n  background: transparent url('/img/history.png') no-repeat center 75%;\r\n  background-size: 50%;\n}\n.room-text{\r\n  float: left;\r\n  width: 50%;\r\n  height: 100%;\r\n  font-size: 1.1em;\r\n  padding-top: 5%;\n}\n.hide{\r\n  display: none;\n}\r\n", ""]);
 
 // exports
 
@@ -48302,6 +48310,329 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 54 */,
+/* 55 */,
+/* 56 */,
+/* 57 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(58)
+}
+var normalizeComponent = __webpack_require__(13)
+/* script */
+var __vue_script__ = __webpack_require__(60)
+/* template */
+var __vue_template__ = __webpack_require__(61)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\TWaiting.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1e7735a0", Component.options)
+  } else {
+    hotAPI.reload("data-v-1e7735a0", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 58 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(59);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(12)("b0da7eb8", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1e7735a0\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./TWaiting.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-1e7735a0\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./TWaiting.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 59 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(11)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.waiting-header{\r\n  width: 100%;\r\n  height: 15%;\r\n  font-size: 7em;\r\n  font-weight: bold;\r\n  color: #ff7473;\r\n  text-shadow: 2px 3px 9px #c03546;\n}\n.waiting-body{\r\n  padding: 5%;\r\n  width: 100%;\r\n  height: 60%;\n}\n.waiting-bottom{\r\n  padding: 5%;\r\n  width: 100%;\r\n  height: 25%;\n}\n.infro-people{\r\n  padding: 3%;\r\n  width: 100%;\r\n  height: 20%;\r\n  margin-bottom: 5%;\r\n  font-size: 5.5em;\r\n  border-radius: 50px;\r\n  background-color: rgba(255,201,82,.7);\n}\n.infro-setting{\r\n  padding: 5%;\r\n  width: 100%;\r\n  height: 35%;\r\n  margin-bottom: 5%;\r\n  border-radius: 50px;\r\n  background-color: rgba(236,115,87,.7)\n}\n.infro-chatting{\r\n  padding: 5%;\r\n  width: 100%;\r\n  height: 35%;\r\n  border-radius: 50px;\r\n  background-color: rgba(117,79,68,.7);\n}\n.go-button{\r\n  background: transparent url(/img/go.png) no-repeat top center;\r\n  background-size: 75%;\r\n  width:100%;\r\n  height:100%;\n}\r\n\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 60 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      isSettingOpen: true
+    };
+  }
+});
+
+/***/ }),
+/* 61 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _vm.isSettingOpen ? _c("div", { staticClass: "setting" }) : _vm._e(),
+    _vm._v(" "),
+    _c("div", { staticClass: "waiting-header f-c" }, [_vm._v("等待遊戲者...")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "waiting-body b-x" }, [
+      _c("div", { staticClass: "infro-people b-x f-c" }, [
+        _vm._v("\n      人數 10人 / 5人\n    ")
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "infro-setting b-x",
+          on: {
+            click: function($event) {
+              !_vm.isSettingOpen
+            }
+          }
+        },
+        [_vm._v("\n      遊戲狀態\n    ")]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "infro-chatting b-x" }, [
+        _vm._v("\n      聊天室\n    ")
+      ])
+    ]),
+    _vm._v(" "),
+    _vm._m(0)
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "waiting-bottom b-x" }, [
+      _c("button", { staticClass: "go-button" })
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-1e7735a0", module.exports)
+  }
+}
+
+/***/ }),
+/* 62 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(63)
+}
+var normalizeComponent = __webpack_require__(13)
+/* script */
+var __vue_script__ = __webpack_require__(65)
+/* template */
+var __vue_template__ = __webpack_require__(66)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\SWaiting.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2dda805e", Component.options)
+  } else {
+    hotAPI.reload("data-v-2dda805e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(64);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(12)("38c160d8", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2dda805e\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SWaiting.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2dda805e\",\"scoped\":false,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./SWaiting.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 64 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(11)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 65 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {};
+  }
+});
+
+/***/ }),
+/* 66 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" })
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-2dda805e", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);
