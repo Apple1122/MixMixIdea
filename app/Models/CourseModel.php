@@ -8,7 +8,11 @@ class CourseModel extends Model
 {
     protected $table = 'courses';
     
-    public static function getCoursesByUserId($id){
+    public static function getCoursesByTeacherId($id){
         return self::where('teacher_id', $id)->get();
+    }
+
+    public static function getCourseById($id){
+        return self::where('id', $id)->first();
     }
 }

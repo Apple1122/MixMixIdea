@@ -18,3 +18,5 @@ Route::get('/', function () {
 Route::post('/login', 'AccountController@login');
 
 Route::post('/courselist/getCourses', 'CourseController@getUserCourses');
+
+Route::get('/getAllSession', 'Controller@getAllSession');

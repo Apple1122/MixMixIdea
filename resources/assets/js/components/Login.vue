@@ -28,12 +28,11 @@
   </div>
     </div >
   </div >
-</template >
+</template>
 
-
-  <script>
-    export default {
-      data() {
+<script>
+export default {
+  data() {
     return {
       loginType: "student",
       inputAccount: "",
@@ -41,34 +40,34 @@
     };
   },
   beforeMount: function() {
-      // if user already login, then go to courselist
-      let isLogin = localStorage.getItem("loginAs");
+    // if user already login, then go to courselist
+    let isLogin = localStorage.getItem("loginAs");
     if (isLogin) this.$emit("swap", "courselist");
   },
   methods: {
-      button_login_clicked: function() {
+    button_login_clicked: function() {
       let vm = this;
       let data = {
-      loginType: vm.loginType,
+        loginType: vm.loginType,
         account: vm.inputAccount,
         password: vm.inputPassword
       };
       axios
         .post("/login", data)
         .then(function(rtn) {
-      console.log(rtn);
+          console.log(rtn);
 
-    if (!rtn.errmsg) {
-      localStorage.setItem("loginAs", rtn.data.result.loginAs);
-    localStorage.setItem("username", rtn.data.result.username);
+          if (!rtn.errmsg) {
+            localStorage.setItem("loginAs", rtn.data.result.loginAs);
+            localStorage.setItem("username", rtn.data.result.username);
             vm.$emit("swap", "courselist");
           } else {
-      console.log(rtn.errmsg);
-    }
+            console.log(rtn.errmsg);
+          }
         })
         .catch(function(err) {
-      console.log(err);
-    });
+          console.log(err);
+        });
     }
   }
 };
@@ -111,7 +110,6 @@
 
 
 <style>
-
 .login-header {
   width: 100%;
   height: 35%;
@@ -194,7 +192,7 @@
 }
 
 .col {
-width: 75%;
+  width: 75%;
   height: 60%;
   font-size: 3.5em;
   text-indent: 3em;

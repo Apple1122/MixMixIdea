@@ -88,7 +88,6 @@ export default {
         .post("/courselist/getCourses")
         .then(function(rtn) {
           if (!rtn.errmsg) {
-            console.log(1);
             self.courses = rtn.data.result;
             
           }
