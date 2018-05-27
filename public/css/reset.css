@@ -73,3 +73,7 @@ textarea,input{
 .b-x{
 	box-sizing: border-box;
 }
+
+.h-100{
+	height: 100%;
+}

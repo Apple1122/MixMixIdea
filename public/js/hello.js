@@ -14312,7 +14312,7 @@ __webpack_require__(16);
 var vm = new Vue({
   el: '#app',
   data: {
-    currentComponent: 'login'
+    currentComponent: 't_w'
   },
   components: {
     'login': __WEBPACK_IMPORTED_MODULE_0__components_Login___default.a,
@@ -47665,7 +47665,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.login-header {\n  width: 100%;\n  height: 35%;\n}\n.login-body {\n  width: 100%;\n  height: 37%;\n}\n.login-bottom {\n  width: 100%;\n  height: 30%;\n}\n.login-button {\n  width: 100%;\n  height: 35%;\n}\n.logo {\n  height: 30em;\n  width: 30em;\n}\n.button-login {\n  font: bold;\n  border-radius: 99em;\n  width: 78%;\n  height: 70%;\n  color: #383838;\n  font-size: 4.3em;\n  font-family: Microsoft JhengHei;\n  -webkit-transition: opacity 2s;\n  transition: opacity 2s;\n  -webkit-box-shadow: 6px 7px 20px 1px #a4a4a4;\n          box-shadow: 6px 7px 20px 1px #a4a4a4;\n  background: rgb(248, 80, 50);\n  /* Old browsers */\n  background: rgb(252, 234, 187);\n  /* Old browsers */\n  /* FF3.6-15 */\n  /* Chrome10-25,Safari5.1-6 */\n  background: linear-gradient(\n    135deg,\n    rgba(252, 234, 187, 1) 0%,\n    rgba(252, 205, 77, 1) 50%,\n    rgba(248, 181, 0, 1) 51%,\n    rgba(251, 223, 147, 1) 100%\n  );\n  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\n  filter: progid:DXImageTransform.Microsoft.gradient(\n      startColorstr=\"#fceabb\",\n      endColorstr=\"#fbdf93\",\n      GradientType=1\n    );\n  /* IE6-9 fallback on horizontal gradient */\n}\n.col-choose-bar {\n  width: 100%;\n  height: 25%;\n}\n.input {\n  width: 100%;\n  height: 35%;\n}\n.col {\n  width: 75%;\n  height: 60%;\n  font-size: 3.5em;\n  text-indent: 3em;\n}\n#ac {\n  background: transparent url(/img/account.png) no-repeat 5%;\n  background-size: 9%;\n}\n#pw {\n  background: transparent url(/img/password.png) no-repeat 4%;\n  background-size: 10%;\n}\n.bar {\n  font: bold;\n  width: 30%;\n  border-bottom: 8px solid #d9e1d8;\n  height: 80%;\n  text-align: center;\n  font-size: 3.5em;\n  line-height: 115px;\n  color: #a3a1a1;\n}\n#selected {\n  color: #ff5f2e;\n  border-bottom: 8px solid #ff5f2e;\n}\n.effect-2 {\n  border: 0;\n  padding: 7px 0;\n  border-bottom: 5px solid #ccc;\n}\n.effect-2 ~ .focus-border {\n  position: absolute;\n  bottom: 0;\n  left: 50%;\n  width: 0;\n  height: 2px;\n  background-color: #3399ff;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n.effect-2:focus ~ .focus-border {\n  width: 100%;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n  left: 0;\n}\n", ""]);
+exports.push([module.i, "\n.login-header {\r\n  width: 100%;\r\n  height: 35%;\n}\n.login-body {\r\n  width: 100%;\r\n  height: 37%;\n}\n.login-bottom {\r\n  width: 100%;\r\n  height: 30%;\n}\n.login-button {\r\n  width: 100%;\r\n  height: 35%;\n}\n.logo {\r\n  height: 30em;\r\n  width: 30em;\n}\n.button-login {\r\n  font: bold;\r\n  border-radius: 99em;\r\n  width: 78%;\r\n  height: 70%;\r\n  color: #383838;\r\n  font-size: 4.3em;\r\n  font-family: Microsoft JhengHei;\r\n  -webkit-transition: opacity 2s;\r\n  transition: opacity 2s;\r\n  -webkit-box-shadow: 6px 7px 20px 1px #a4a4a4;\r\n          box-shadow: 6px 7px 20px 1px #a4a4a4;\r\n  background: rgb(248, 80, 50);\r\n  /* Old browsers */\r\n  background: rgb(252, 234, 187);\r\n  /* Old browsers */\r\n  /* FF3.6-15 */\r\n  /* Chrome10-25,Safari5.1-6 */\r\n  background: linear-gradient(\r\n    135deg,\r\n    rgba(252, 234, 187, 1) 0%,\r\n    rgba(252, 205, 77, 1) 50%,\r\n    rgba(248, 181, 0, 1) 51%,\r\n    rgba(251, 223, 147, 1) 100%\r\n  );\r\n  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\r\n  filter: progid:DXImageTransform.Microsoft.gradient(\r\n      startColorstr=\"#fceabb\",\r\n      endColorstr=\"#fbdf93\",\r\n      GradientType=1\r\n    );\r\n  /* IE6-9 fallback on horizontal gradient */\n}\n.col-choose-bar {\r\n  width: 100%;\r\n  height: 25%;\n}\n.input {\r\n  width: 100%;\r\n  height: 35%;\n}\n.col {\r\n  width: 75%;\r\n  height: 60%;\r\n  font-size: 3.5em;\r\n  text-indent: 3em;\n}\n#ac {\r\n  background: transparent url(/img/account.png) no-repeat 5%;\r\n  background-size: 9%;\n}\n#pw {\r\n  background: transparent url(/img/password.png) no-repeat 4%;\r\n  background-size: 10%;\n}\n.bar {\r\n  font: bold;\r\n  width: 30%;\r\n  border-bottom: 8px solid #d9e1d8;\r\n  height: 80%;\r\n  text-align: center;\r\n  font-size: 3.5em;\r\n  line-height: 115px;\r\n  color: #a3a1a1;\n}\n#selected {\r\n  color: #ff5f2e;\r\n  border-bottom: 8px solid #ff5f2e;\n}\n.effect-2 {\r\n  border: 0;\r\n  padding: 7px 0;\r\n  border-bottom: 5px solid #ccc;\n}\n.effect-2 ~ .focus-border {\r\n  position: absolute;\r\n  bottom: 0;\r\n  left: 50%;\r\n  width: 0;\r\n  height: 2px;\r\n  background-color: #3399ff;\r\n  -webkit-transition: 0.4s;\r\n  transition: 0.4s;\n}\n.effect-2:focus ~ .focus-border {\r\n  width: 100%;\r\n  -webkit-transition: 0.4s;\r\n  transition: 0.4s;\r\n  left: 0;\n}\r\n", ""]);
 
 // exports
 
@@ -48034,7 +48034,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.cl-header{\n  width:100%;\n  height: 30%;\n}\n.cl-body {\n  width: 100%;\n  height: 70%;\n}\n.ch-LR {\n  float: left;\n  width: 26%;\n  height: 100%;\n}\n.ch-center {\n  float: left;\n  width: 44%;\n  height: 100%;\n}\n.infro-img{\n  width:100%;\n  height:80%;\n}\n.infro-name {\n  color: #34314c;\n  font-weight: bold;\n  text-align: center;\n  font-size: 4em;\n  width: 100%;\n  height: 20%;\n  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),\n    0px 18px 23px rgba(0, 0, 0, 0.1);\n}\n.circle{\n  width:18.5em;\n  height:18.5em;\n  border-radius:99em;\n  -webkit-box-shadow: 0px 4px 3px rgba(0,0,0,0.3),\n             0px 8px 13px rgba(0,0,0,0.1),\n             0px 18px 23px rgba(0,0,0,0.1);\n          box-shadow: 0px 4px 3px rgba(0,0,0,0.3),\n             0px 8px 13px rgba(0,0,0,0.1),\n             0px 18px 23px rgba(0,0,0,0.1);\n}\n.LR-top {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  padding-top: 30%;\n  width: 100%;\n  height: 50%;\n}\n.LR-bottom {\n  width: 100%;\n  height: 50%;\n}\n.before-text {\n  width: 100%;\n  font-size: 2.5em;\n  float: left;\n  text-align: center;\n  margin: 3%;\n  text-shadow: 2px 2px 1px #ccc;\n}\n.top-button {\n  width: 100%;\n  height: 100%;\n}\n.setting {\n  background: transparent url(/img/setting.png) no-repeat top center;\n  background-size: 50%;\n  position: relative;\n  left: 20%;\n  top: 5%;\n}\n.shop {\n  background: transparent url(/img/shop.png) no-repeat top center;\n  background-size: 52%;\n  position: relative;\n  left: -10%;\n  top: 5%;\n}\n.choose-text{\n  font-weight: bold;\n  width: 100%;\n  height: 12%;\n  color: #ff7473;\n  font-size: 4.5em;\n}\n.courselist {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 8%;\n  padding-top: 4%;\n  width: 100%;\n  height: 88%;\n  overflow-y: scroll;\n}\n.course{\n  width: 100%;\n  height: 17%;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 1%;\n  margin-bottom: 5%;\n  -webkit-transition: margin-bottom 1.5s;\n  transition: margin-bottom 1.5s;\n}\n.course.open{\n  margin-bottom:20%;\n}\n.class-infro{\n  position: relative;\n  z-index: 2;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  width:100%;\n  height: 100%;\n  background-color:#ffc952;\n  border-radius:40px;\n  -webkit-box-shadow: 3px 3px 3px 2px #ccc;\n          box-shadow: 3px 3px 3px 2px #ccc;\n}\n.subject{\n  font-size:2.7em;\n  float: left;\n  width: 25%;\n  height: 100%;\n}\n.class-name{\n  font-weight:bold;\n  font-size:3em;\n  float: left;\n  width: 60%;\n  height: 100%;\n}\n.class-time{\n  font-size:2.3em;\n  float: left;\n  width: 15%;\n  height: 100%;\n}\n.logo-time {\n  width: 40%;\n  margin: 3%;\n}\n.time-text{\n  text-align: center;\n  line-height: 130%;\n}\n.class-detail{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 2%;\n  position: -webkit-sticky;\n  position: sticky;\n  z-index: 1;\n  margin-top: -2%;\n  width: 100%;\n  height: 115%;\n  background-color: #FBFFB9;\n  border-radius: 10px;\n}\n.col-d{\n  float: left;\n  width: 50%;\n  height: 100%;\n  font-size: 2.5em;\n}\n.add-room{\n  float: left;\n  width: 40%;\n  height: 100%;\n  background: transparent url('/img/addroom.png') no-repeat center 70%;\n  background-size: 45%;\n}\n.join-room{\n  float: left;\n  width: 40%;\n  height: 100%;\n  background: transparent url('/img/joinroom.png') no-repeat center 75%;\n  background-size: 40%;\n}\n.history{\n  float: left;\n  width: 40%;\n  height: 100%;\n  background: transparent url('/img/history.png') no-repeat center 75%;\n  background-size: 50%;\n}\n.room-text{\n  float: left;\n  width: 50%;\n  height: 100%;\n  font-size: 1.1em;\n  padding-top: 5%;\n}\n.hide{\n  display: none;\n}\n", ""]);
+exports.push([module.i, "\n.cl-header{\r\n  width:100%;\r\n  height: 30%;\n}\n.cl-body {\r\n  width: 100%;\r\n  height: 70%;\n}\n.ch-LR {\r\n  float: left;\r\n  width: 26%;\r\n  height: 100%;\n}\n.ch-center {\r\n  float: left;\r\n  width: 44%;\r\n  height: 100%;\n}\n.infro-img{\r\n  width:100%;\r\n  height:80%;\n}\n.infro-name {\r\n  color: #34314c;\r\n  font-weight: bold;\r\n  text-align: center;\r\n  font-size: 4em;\r\n  width: 100%;\r\n  height: 20%;\r\n  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),\r\n    0px 18px 23px rgba(0, 0, 0, 0.1);\n}\n.circle{\r\n  width:18.5em;\r\n  height:18.5em;\r\n  border-radius:99em;\r\n  -webkit-box-shadow: 0px 4px 3px rgba(0,0,0,0.3),\r\n             0px 8px 13px rgba(0,0,0,0.1),\r\n             0px 18px 23px rgba(0,0,0,0.1);\r\n          box-shadow: 0px 4px 3px rgba(0,0,0,0.3),\r\n             0px 8px 13px rgba(0,0,0,0.1),\r\n             0px 18px 23px rgba(0,0,0,0.1);\n}\n.LR-top {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  padding-top: 30%;\r\n  width: 100%;\r\n  height: 50%;\n}\n.LR-bottom {\r\n  width: 100%;\r\n  height: 50%;\n}\n.before-text {\r\n  width: 100%;\r\n  font-size: 2.5em;\r\n  float: left;\r\n  text-align: center;\r\n  margin: 3%;\r\n  text-shadow: 2px 2px 1px #ccc;\n}\n.top-button {\r\n  width: 100%;\r\n  height: 100%;\n}\n.setting {\r\n  background: transparent url(/img/setting.png) no-repeat top center;\r\n  background-size: 50%;\r\n  position: relative;\r\n  left: 20%;\r\n  top: 5%;\n}\n.shop {\r\n  background: transparent url(/img/shop.png) no-repeat top center;\r\n  background-size: 52%;\r\n  position: relative;\r\n  left: -10%;\r\n  top: 5%;\n}\n.choose-text{\r\n  font-weight: bold;\r\n  width: 100%;\r\n  height: 12%;\r\n  color: #ff7473;\r\n  font-size: 4.5em;\n}\n.courselist {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 8%;\r\n  padding-top: 4%;\r\n  width: 100%;\r\n  height: 88%;\r\n  overflow-y: scroll;\n}\n.course{\r\n  width: 100%;\r\n  height: 17%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 1%;\r\n  margin-bottom: 5%;\r\n  -webkit-transition: margin-bottom 1.5s;\r\n  transition: margin-bottom 1.5s;\n}\n.course.open{\r\n  margin-bottom:20%;\n}\n.class-infro{\r\n  position: relative;\r\n  z-index: 2;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width:100%;\r\n  height: 100%;\r\n  background-color:#ffc952;\r\n  border-radius:40px;\r\n  -webkit-box-shadow: 3px 3px 3px 2px #ccc;\r\n          box-shadow: 3px 3px 3px 2px #ccc;\n}\n.subject{\r\n  font-size:2.7em;\r\n  float: left;\r\n  width: 25%;\r\n  height: 100%;\n}\n.class-name{\r\n  font-weight:bold;\r\n  font-size:3em;\r\n  float: left;\r\n  width: 60%;\r\n  height: 100%;\n}\n.class-time{\r\n  font-size:2.3em;\r\n  float: left;\r\n  width: 15%;\r\n  height: 100%;\n}\n.logo-time {\r\n  width: 40%;\r\n  margin: 3%;\n}\n.time-text{\r\n  text-align: center;\r\n  line-height: 130%;\n}\n.class-detail{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  position: -webkit-sticky;\r\n  position: sticky;\r\n  z-index: 1;\r\n  margin-top: -2%;\r\n  width: 100%;\r\n  height: 115%;\r\n  background-color: #FBFFB9;\r\n  border-radius: 10px;\n}\n.col-d{\r\n  float: left;\r\n  width: 50%;\r\n  height: 100%;\r\n  font-size: 2.5em;\n}\n.add-room{\r\n  float: left;\r\n  width: 40%;\r\n  height: 100%;\r\n  background: transparent url('/img/addroom.png') no-repeat center 70%;\r\n  background-size: 45%;\n}\n.join-room{\r\n  float: left;\r\n  width: 40%;\r\n  height: 100%;\r\n  background: transparent url('/img/joinroom.png') no-repeat center 75%;\r\n  background-size: 40%;\n}\n.history{\r\n  float: left;\r\n  width: 40%;\r\n  height: 100%;\r\n  background: transparent url('/img/history.png') no-repeat center 75%;\r\n  background-size: 50%;\n}\n.room-text{\r\n  float: left;\r\n  width: 50%;\r\n  height: 100%;\r\n  font-size: 1.1em;\r\n  padding-top: 5%;\n}\n.hide{\r\n  display: none;\n}\r\n", ""]);
 
 // exports
 
@@ -48116,15 +48116,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   data: function data() {
     return {
       username: localStorage.getItem('username'),
-      courses: "",
-      isTeacher: true,
-      isOpen: true,
-
-      //ANDY FOR TEST
-      cousrelist: [{ className: '程式設計', department: '資管系', classTime: '三 5,6' }, { className: '企業資源管理', department: '資管系', classTime: '三 5,6' }, { className: '嗚嗚嗚嗚嗚', department: '資管系', classTime: '三 5,6' }]
+      courses: [],
+      isTeacher: true
     };
   },
 
+  methods: {
+    clickCourseItem: function clickCourseItem(item) {
+      this.$set(this.courses[item], 'isOpen', !this.courses[item].isOpen);
+    },
+
+    swapToTW: function swapToTW() {
+      this.$emit("swap", "t_w");
+    },
+
+    swapToSW: function swapToSW() {
+      this.$emit("swap", "s_w");
+    }
+
+  },
   mounted: function mounted() {
     var self = this;
     self.$nextTick(function () {
@@ -48136,7 +48146,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         console.log(err);
       });
     });
+  },
+  updated: function updated() {
+    // Andy Test For Update
+    console.log('view updated');
   }
+
 });
 
 /***/ }),
@@ -48168,10 +48183,10 @@ var render = function() {
       _c(
         "div",
         { staticClass: "courselist" },
-        _vm._l(_vm.courses, function(c) {
+        _vm._l(_vm.courses, function(c, index) {
           return _c(
             "div",
-            { staticClass: "course", class: { open: _vm.isOpen } },
+            { staticClass: "course", class: { open: c.isOpen } },
             [
               _c(
                 "div",
@@ -48179,7 +48194,7 @@ var render = function() {
                   staticClass: "class-infro animated fadeInUp",
                   on: {
                     click: function($event) {
-                      _vm.isOpen = !_vm.isOpen
+                      _vm.clickCourseItem(index)
                     }
                   }
                 },
@@ -48209,27 +48224,49 @@ var render = function() {
                 "div",
                 {
                   staticClass: "class-detail animated fadeInDown",
-                  class: { hide: !_vm.isOpen }
+                  class: { hide: !c.isOpen }
                 },
                 [
                   _vm.isTeacher
-                    ? _c("div", { staticClass: "col-d" }, [
-                        _c("span", { staticClass: "add-room" }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "room-text f-c" }, [
-                          _vm._v("創立房間")
-                        ])
-                      ])
+                    ? _c(
+                        "div",
+                        {
+                          staticClass: "col-d",
+                          on: {
+                            click: function($event) {
+                              _vm.swapToTW()
+                            }
+                          }
+                        },
+                        [
+                          _c("span", { staticClass: "add-room" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "room-text f-c" }, [
+                            _vm._v("創立房間")
+                          ])
+                        ]
+                      )
                     : _vm._e(),
                   _vm._v(" "),
                   !_vm.isTeacher
-                    ? _c("div", { staticClass: "col-d" }, [
-                        _c("span", { staticClass: "join-room" }),
-                        _vm._v(" "),
-                        _c("span", { staticClass: "room-text f-c" }, [
-                          _vm._v("加入房間")
-                        ])
-                      ])
+                    ? _c(
+                        "div",
+                        {
+                          staticClass: "col-d",
+                          on: {
+                            click: function($event) {
+                              _vm.swapToSW()
+                            }
+                          }
+                        },
+                        [
+                          _c("span", { staticClass: "join-room" }),
+                          _vm._v(" "),
+                          _c("span", { staticClass: "room-text f-c" }, [
+                            _vm._v("加入房間")
+                          ])
+                        ]
+                      )
                     : _vm._e(),
                   _vm._v(" "),
                   _vm._m(3, true)
@@ -48389,7 +48426,7 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, "\n.waiting-header{\n  width: 100%;\n  height: 15%;\n  font-size: 7em;\n  font-weight: bold;\n  color: #ff7473;\n  text-shadow: 2px 3px 9px #c03546;\n}\n.waiting-body{\n  padding: 5%;\n  width: 100%;\n  height: 60%;\n}\n.waiting-bottom{\n  padding: 5%;\n  width: 100%;\n  height: 25%;\n}\n.infro-people{\n  padding: 3%;\n  width: 100%;\n  height: 20%;\n  margin-bottom: 5%;\n  font-size: 5.5em;\n  border-radius: 50px;\n  background-color: rgba(255,201,82,.7);\n}\n.infro-setting{\n  padding: 5%;\n  width: 100%;\n  height: 35%;\n  margin-bottom: 5%;\n  border-radius: 50px;\n  background-color: rgba(236,115,87,.7)\n}\n.infro-chatting{\n  padding: 5%;\n  width: 100%;\n  height: 35%;\n  border-radius: 50px;\n  background-color: rgba(117,79,68,.7);\n}\n.go-button{\n  background: transparent url(/img/go.png) no-repeat top center;\n  background-size: 75%;\n  width:100%;\n  height:100%;\n}\n\n", ""]);
+exports.push([module.i, "\n.waiting-class{\r\n  width: 100%;\r\n  height: 7%;\r\n  font-size: 3em;\n}\n.waiting-header{\r\n  width: 100%;\r\n  height: 8%;\r\n  font-size: 7em;\r\n  font-weight: bold;\r\n  color: #ff7473;\r\n  text-shadow: 2px 3px 9px #c03546;\n}\n.waiting-body{\r\n  padding: 3.5% 5%;\r\n  width: 100%;\r\n  height: 70%;\n}\n.waiting-bottom{\r\n  width: 100%;\r\n  height: 15%;\n}\n.col{\r\n  width: 100%;\r\n  border-radius: 30px;\r\n  -webkit-box-shadow:\r\n    2px 2px 2px rgba(20%,20%,40%,0.6),\r\n    4px 4px 6px rgba(20%,20%,40%,0.4),\r\n    6px 6px 12px rgba(20%,20%,40%,0.4);\r\n          box-shadow:\r\n    2px 2px 2px rgba(20%,20%,40%,0.6),\r\n    4px 4px 6px rgba(20%,20%,40%,0.4),\r\n    6px 6px 12px rgba(20%,20%,40%,0.4);\n}\n.chat-ul{\r\n  width:100%;\r\n  height: 100%;\r\n  overflow-y: scroll;\n}\n.chat-li{\r\n  width:100%;\r\n  font-size:3em;\r\n  margin-bottom: 1%;\r\n  line-height: 135%;\r\n  font-weight: bold;\r\n  color: white;\r\n  text-shadow:\r\n    1px 1px 5px #000,\r\n    2px 2px 5px #000;\n}\n.set-li{\r\n  list-style: none;\r\n  width:100%;\r\n  font-size:2.5em;\r\n  margin-bottom: 1%;\r\n  line-height: 135%;\r\n  font-weight: bold;\r\n  color: white;\r\n  text-shadow:\r\n    1px 1px 5px #000,\r\n    2px 2px 5px #000;\n}\n.infro-people{\r\n  height: 20%;\r\n  margin-bottom: 3%;\r\n  background: rgba(255,201,82,.8) url(/img/room_people.png) no-repeat 5% 100%;\r\n  background-size: 47%;\n}\n.infro-setting{\r\n  padding: 3%;\r\n  height: 35%;\r\n  margin-bottom: 3%;\r\n  background: rgba(236,115,87,.8) url(/img/setting_1.png) no-repeat 94% -5%;\r\n  background-size: 45%;\n}\n.infro-chatting{\r\n  padding: 3%;\r\n  height: 40%;\r\n  background: rgba(117,79,68,.8) url(/img/chat.png) no-repeat 5% 120%;\r\n  background-size: 53%;\n}\n.go-button{\r\n  background: transparent url(/img/go.png) no-repeat center 16%;\r\n  background-size: 70%;\r\n  width:100%;\r\n  height:100%;\n}\n.people{\r\n  text-align: right;\r\n  font-size: 4em;\r\n  float:left;\r\n  width:40%;\n}\n.current{\r\n  font-weight: bold;\r\n  font-size: 7em;\r\n  float:left;\r\n  width:25%;\n}\n.total{\r\n  font-size: 3.5em;\r\n  float: right;\r\n  width: 20%;\n}\n.gametype{\r\n  float:left;\r\n  width:25%;\r\n  height: 90%;\r\n  margin-top: 3%;\r\n  border-radius: 30px 0px 0px 30px;\r\n  background-color:  rgba(253,153,154,.7);\n}\n.brain-method{\r\n  float:left;\r\n  width:25%;\r\n  height: 90%;\r\n  margin-top: 3%;\r\n  border-radius: 0px 30px 30px 0px;\r\n  background-color: rgba(103,213,181,.7);\n}\n.other-setting{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  float:left;\r\n  width:50%;\n}\n.infro-img{\r\n  width:100%;\r\n  height:60%;\n}\n.infro-text{\r\n  width:100%;\r\n  height:40%;\r\n  font-size: 4em;\r\n  font-weight: bold;\r\n  text-align: center;\n}\n#toolong{\r\n  font-size: 3.2em;\r\n  font-weight: bold;\n}\n#pass{\r\n    background: transparent url(/img/pass.png) no-repeat center center;\r\n    background-size: 80%;\n}\n#sixhat{\r\n    background: transparent url(/img/hat.png) no-repeat center center;\r\n    background-size: 80%;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -48426,11 +48463,41 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      isSettingOpen: true
+      isSettingOpen: true,
+      chatting: []
+    };
+  },
+
+  mounted: function mounted() {
+
+    //For Test
+    var self = this;
+    var repeat = "測試";
+    for (var i = 0; i <= 5; i++) {
+      var text = "Andy: hihi,for test" + repeat;
+      repeat += repeat;
+      self.chatting.push(text);
     };
   }
 });
@@ -48446,35 +48513,97 @@ var render = function() {
   return _c("div", { staticClass: "container" }, [
     _vm.isSettingOpen ? _c("div", { staticClass: "setting" }) : _vm._e(),
     _vm._v(" "),
-    _c("div", { staticClass: "waiting-header f-c" }, [_vm._v("等待遊戲者...")]),
+    _c("div", { staticClass: "waiting-class f-c" }, [
+      _vm._v("〈課程名稱〉(還不知道怎排版)")
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "waiting-header f-c animated bounceInDown" }, [
+      _vm._v("等待遊戲者...")
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "waiting-body b-x" }, [
-      _c("div", { staticClass: "infro-people b-x f-c" }, [
-        _vm._v("\n      人數 10人 / 5人\n    ")
-      ]),
+      _vm._m(0),
       _vm._v(" "),
       _c(
         "div",
         {
-          staticClass: "infro-setting b-x",
+          staticClass: "col infro-setting b-x animated fadeInUp",
           on: {
             click: function($event) {
               !_vm.isSettingOpen
             }
           }
         },
-        [_vm._v("\n      遊戲狀態\n    ")]
+        [_vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3)]
       ),
       _vm._v(" "),
-      _c("div", { staticClass: "infro-chatting b-x" }, [
-        _vm._v("\n      聊天室\n    ")
+      _c("div", { staticClass: "col infro-chatting b-x animated fadeInUp" }, [
+        _c(
+          "ul",
+          { staticClass: "chat-ul" },
+          _vm._l(_vm.chatting, function(t) {
+            return _c("li", { staticClass: "chat-li" }, [_vm._v(_vm._s(t))])
+          })
+        )
       ])
     ]),
     _vm._v(" "),
-    _vm._m(0)
+    _vm._m(4)
   ])
 }
 var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "col infro-people b-x f-c animated fadeInUp" },
+      [
+        _c("span", { staticClass: "people f-c h-100" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "current f-c h-100" }, [_vm._v("10")]),
+        _vm._v(" "),
+        _c("span", { staticClass: "total f-c h-100" }, [_vm._v("/ 15人")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "gametype h-100" }, [
+      _c("div", { staticClass: "infro-img", attrs: { id: "pass" } }),
+      _vm._v(" "),
+      _c("div", { staticClass: "infro-text f-c" }, [_vm._v("闖關")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "brain-method h-100" }, [
+      _c("div", { staticClass: "infro-img", attrs: { id: "sixhat" } }),
+      _vm._v(" "),
+      _c("div", { staticClass: "infro-text f-c", attrs: { id: "toolong" } }, [
+        _vm._v("六頂思考帽法")
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "other-setting h-100" }, [
+      _c("li", { staticClass: "set-li" }, [_vm._v("各種遊戲設定rrrrrr")]),
+      _vm._v(" "),
+      _c("li", { staticClass: "set-li" }, [_vm._v("懶得排版惹")]),
+      _vm._v(" "),
+      _c("li", { staticClass: "set-li" }, [_vm._v("QQQQQQQQ")]),
+      _vm._v(" "),
+      _c("li", { staticClass: "set-li" }, [_vm._v("GGGGGGGG")])
+    ])
+  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

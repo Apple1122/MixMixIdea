@@ -7,7 +7,7 @@ import SWaiting from './components/SWaiting'
 var vm = new Vue({
   el: '#app',
   data: {
-    currentComponent: 'login'
+    currentComponent: 't_w'
   },
   components: {
     'login': Login,

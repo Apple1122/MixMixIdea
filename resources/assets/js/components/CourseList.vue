@@ -32,8 +32,8 @@
       <div class="choose-text f-c">請選擇課程</div>
       <div class="courselist">
       <!-- 這裡開始會用到v-for -->
-        <div v-for="c in courses" class="course" :class="{ open: isOpen }">
-          <div class="class-infro animated fadeInUp" @click="isOpen=!isOpen">
+        <div v-for="(c,index) in courses" class="course" :class="{ open: c.isOpen }">
+          <div class="class-infro animated fadeInUp" @click="clickCourseItem(index)">
             <div class="subject f-c"> {{c.department}} </div>
             <div class="class-name f-c"> {{c.name}} </div>
             <div class="class-time f-c">
@@ -41,12 +41,12 @@
               <span class="time-text"> {{c.class_time}} </span>
             </div>
           </div>
-          <div class="class-detail animated fadeInDown" :class="{hide : !isOpen}">
-            <div v-if="isTeacher" class="col-d">
+          <div class="class-detail animated fadeInDown" :class="{hide : !c.isOpen}">
+            <div v-if="isTeacher" @click="swapToTW()" class="col-d">
               <span class="add-room"></span>
               <span class="room-text f-c">創立房間</span>
               </div>
-            <div v-if="!isTeacher" class="col-d">
+            <div v-if="!isTeacher" @click="swapToSW()" class="col-d">
               <span class="join-room"></span>
               <span class="room-text f-c">加入房間</span>
             </div>
@@ -69,17 +69,26 @@ export default {
   data() {
     return {
       username: localStorage.getItem('username'),
-      courses: "",
-      isTeacher: true,
-      isOpen: true,
-
-      //ANDY FOR TEST
-      cousrelist: [
-        { className: '程式設計', department: '資管系', classTime: '三 5,6'  },
-        { className: '企業資源管理', department: '資管系', classTime: '三 5,6'  },
-        { className: '嗚嗚嗚嗚嗚', department: '資管系', classTime: '三 5,6'  },
-      ],
+      courses: [],
+      isTeacher: true
     };
+  },
+  methods: {
+    clickCourseItem : function(item) {
+      this.$set(
+        this.courses[item],
+        'isOpen',
+        !this.courses[item].isOpen
+    )},
+
+    swapToTW : function() {
+      this.$emit("swap", "t_w");
+    },
+
+    swapToSW : function() {
+      this.$emit("swap","s_w");
+    }
+
   },
   mounted: function() {
     let self = this;
@@ -89,14 +98,18 @@ export default {
         .then(function(rtn) {
           if (!rtn.errmsg) {
             self.courses = rtn.data.result;
-            
           }
         })
         .catch(function(err) {
           console.log(err);
         });
     });
+  },
+  updated: function() {
+    // Andy Test For Update
+    console.log('view updated')
   }
+  
 };
 </script>
 
