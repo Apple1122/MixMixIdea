@@ -9,7 +9,7 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', function () {
     return view('app');
@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Route::post('/login', 'AccountController@login');
 
-Route::post('/courselist/getCourses', 'CourseController@getUserCourses');
+Route::prefix('/courselist')->group(function () {
+    Route::post('/getCourses', 'CourseController@getUserCourses');
+});
 
 Route::get('/getAllSession', 'Controller@getAllSession');

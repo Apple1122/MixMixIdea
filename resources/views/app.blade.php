@@ -28,6 +28,7 @@
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
+
 </script>
 <style>
     @media (min-width: 400px) and (max-width: 1000px) {

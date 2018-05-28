@@ -58,8 +58,8 @@ export default {
           console.log(rtn);
 
           if (!rtn.errmsg) {
-            localStorage.setItem("loginAs", rtn.data.result.loginAs);
-            localStorage.setItem("username", rtn.data.result.username);
+            sessionStorage.setItem("loginAs", rtn.data.result.loginAs);
+            sessionStorage.setItem("username", rtn.data.result.username);
             vm.$emit("swap", "courselist");
           } else {
             console.log(rtn.errmsg);
