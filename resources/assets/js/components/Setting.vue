@@ -27,7 +27,7 @@
   }
 </script>
 
-<style>
+<style scoped>
 .setting-page{
   position: absolute;
   top: 15%;

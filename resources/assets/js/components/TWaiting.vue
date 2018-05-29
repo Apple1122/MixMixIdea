@@ -67,7 +67,8 @@
   }
 </script>
 
-<style>
+
+<style scoped>
 
 .waiting-class{
   width: 100%;

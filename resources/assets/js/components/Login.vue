@@ -109,7 +109,7 @@ export default {
 
 
 
-<style>
+<style scoped>
 .login-header {
   width: 100%;
   height: 35%;

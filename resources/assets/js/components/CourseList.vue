@@ -113,8 +113,8 @@ export default {
 };
 </script>
 
-<style>
 
+<style scoped>
 
 .cl-header{
   width:100%;

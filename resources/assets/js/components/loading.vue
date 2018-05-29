@@ -34,7 +34,8 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
 .loading-mask{
   position: absolute;
   z-index: 10000;
