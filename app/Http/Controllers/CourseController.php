@@ -49,4 +49,34 @@ class CourseController extends Controller
 
         return $rtn;
     }
+
+    public function getCourse(Request $request)
+    {
+        $rtn = array();
+        $course_id = $request->input('course_id');
+        $course = CourseModel::getCourseById($course_id);
+        
+        if (!$course) {
+            $rtn['errmsg'] = 'course not found!';
+        } else {
+            $rtn['result'] = $course;
+        }
+
+        return $rtn;
+    }
+
+    public function findRoom(Request $request)
+    {
+        $rtn = array();
+        $course_id = $request->input('course_id');
+        $room = RoomModel::getRoom($course_id);
+        
+        if (!$room) {
+            $rtn['errmsg'] = 'no room available';
+        } else {
+            $rtn['result'] = $room;
+        }
+
+        return $rtn;
+    }
 }

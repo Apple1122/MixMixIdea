@@ -17,10 +17,28 @@ server.listen(6379, function () {
     console.log('Listening on Port 6379');
 });
 
-
 io.on('connection', (socket) => {
-    socket.on("got", (data, fn) => {
+
+    socket.on("createRoom", (data) => {
+        socket.join(data)
+        console.log(io.nsps['/'].adapter.rooms);
+
+    });
+
+    socket.on("joinRoom", (data) => {
+        socket.join(data)
+
+        console.log(io.nsps['/'].adapter.rooms);
+
+    });
+
+    socket.on("got", (data) => {
         console.log(socket.id);
         socket.send("got");
     });
+
 });
+
+function getRoomPeopleCount(roomId) {
+    return io.nsps['/'].adapter.rooms[roomId].length;
+}

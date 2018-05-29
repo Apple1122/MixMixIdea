@@ -42,7 +42,7 @@ export default {
   beforeMount: function() {
     // if user already login, then go to courselist
     let isLogin = sessionStorage.getItem("loginAs");
-    if (isLogin) this.$router.push({ path: '/courselist' });
+    if (isLogin) this.$router.push({ path: "/courselist" });
   },
   methods: {
     button_login_clicked: function() {
@@ -57,12 +57,12 @@ export default {
         .then(function(rtn) {
           console.log(rtn);
 
-          if (!rtn.errmsg) {
+          if (!rtn.data.errmsg) {
             sessionStorage.setItem("loginAs", rtn.data.result.loginAs);
             sessionStorage.setItem("username", rtn.data.result.username);
-            vm.$router.push({ path: '/courselist' });
+            vm.$router.push({ path: "/courselist" });
           } else {
-            console.log(rtn.errmsg);
+            console.log(rtn.data.errmsg);
           }
         })
         .catch(function(err) {

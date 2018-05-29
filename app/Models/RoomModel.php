@@ -14,7 +14,7 @@ class RoomModel extends Model
         $queueRoom = self::where('course_id', $course_id)
         ->where('status', "waiting")
         ->first();
-        
+
         if ($queueRoom == null) {
             $room = new RoomModel();
             $room->course_id = $course_id;
@@ -24,5 +24,14 @@ class RoomModel extends Model
             $room->save();
         }
         return $queueRoom;
+    }
+
+    public static function getRoom($course_id)
+    {
+        $room = self::where('course_id', $course_id)
+        ->where('status', "waiting")
+        ->first();
+
+        return $room;
     }
 }

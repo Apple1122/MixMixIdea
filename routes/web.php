@@ -14,7 +14,8 @@
 Route::combine([
     '/',
     '/courselist',
-    '/waiting'
+    '/s_waiting',
+    '/t_waiting'
 ], function () {
     return view('app');
 });
@@ -24,6 +25,10 @@ Route::post('/login', 'AccountController@login');
 Route::prefix('/courselist')->group(function () {
     Route::post('/getCourses', 'CourseController@getUserCourses');
     Route::post('/createroom', 'CourseController@createRoom');
+    Route::post('/findroom', 'CourseController@findRoom');
 });
+
+Route::post('/getcourse', 'CourseController@getCourse');
+
 
 Route::get('/getAllSession', 'Controller@getAllSession');

@@ -42,11 +42,11 @@
             </div>
           </div>
           <div class="class-detail animated fadeInDown" :class="{hide : !c.isOpen}">
-            <div v-if="isTeacher" @click="swapToTW(c.id)" class="col-d">
+            <div v-if="loginAs=='teacher'" @click="swapToTW(c.id)" class="col-d">
               <span class="add-room"></span>
               <span class="room-text f-c">創立房間</span>
               </div>
-            <div v-if="!isTeacher" @click="swapToSW()" class="col-d">
+            <div v-if="loginAs=='student'" @click="swapToSW(c.id)" class="col-d">
               <span class="join-room"></span>
               <span class="room-text f-c">加入房間</span>
             </div>
@@ -70,7 +70,7 @@ export default {
     return {
       username: sessionStorage.getItem("username"),
       courses: [],
-      isTeacher: true
+      loginAs: sessionStorage.getItem("loginAs")
     };
   },
   methods: {
@@ -79,33 +79,60 @@ export default {
     },
 
     swapToTW: function(id) {
+      // if no room for this course then create and enter else just enter
+      if (sessionStorage.getItem("room_course_id") == null) {
+        let self = this;
+        self.$nextTick(function() {
+          axios
+            .post("/courselist/createroom", { course_id: id })
+            .then(function(rtn) {
+              if (!rtn.data.errmsg) {
+                sessionStorage.setItem("room_course_id", id);
+                self.$router.push({ path: "/t_waiting" });
+              } else {
+                console.log(rtn.data.errmsg);
+              }
+            })
+            .catch(function(err) {
+              console.log(err);
+            });
+        });
+      } else {
+        this.$router.push({ path: "/waiting" });
+      }
+    },
+
+    swapToSW: function(id) {
       let self = this;
       self.$nextTick(function() {
         axios
-          .post("/courselist/createroom", { course_id: id })
+          .post("/courselist/findroom", { course_id: id })
           .then(function(rtn) {
-            if (!rtn.errmsg) {
-              self.$router.push({ path: "/waiting" });
+            if (!rtn.data.errmsg) {
+              console.log(rtn.data.result);
+              sessionStorage.setItem("room_course_id", id);
+              self.$router.push({ path: "/s_waiting" });
+            } else {
+              console.log(rtn.data.errmsg);
             }
           })
           .catch(function(err) {
             console.log(err);
           });
       });
-    },
-
-    swapToSW: function() {
-      this.$router.push({ path: "/waiting" });
     }
   },
+
   mounted: function() {
     let self = this;
     self.$nextTick(function() {
       axios
         .post("/courselist/getCourses")
         .then(function(rtn) {
-          if (!rtn.errmsg) {
+          if (!rtn.data.errmsg) {
             self.courses = rtn.data.result;
+          } else {
+            console.log(rtn.data.errmsg);
           }
         })
         .catch(function(err) {
@@ -118,16 +145,6 @@ export default {
     console.log("view updated");
   }
 };
-
-var socket = require("socket.io-client")("http://localhost:6379");
-socket.on("connect", function() {
-  console.log(socket.id);
-  socket.emit("got");
-});
-socket.on("message", function(data) {
-  console.log(data);
-});
-socket.on("disconnect", function() {});
 </script>
 
 
