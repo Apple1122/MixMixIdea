@@ -10,14 +10,14 @@
 
     <div class="nav-bar f-c">
     <div class="nav-btn h-100" id="return" @click="return_to_pre"></div>
-    <div class="class-name h-100 f-c">〈課程名稱〉</div>
+    <div class="class-name h-100 f-c">〈{{courseName}}〉</div>
     <div class="nav-btn h-100" @click="return_to_pre"></div>
     </div>
     <div class="waiting-header f-c animated bounceInDown">等待遊戲者...</div>
     <div class="waiting-body b-x">
       <div class="col infro-people b-x f-c animated fadeInUp">
         <span class="people f-c h-100"></span>
-        <span class="current f-c h-100">10</span>
+        <span class="current f-c h-100">{{currentPeople}}</span>
         <span class="total f-c h-100">/ 15人</span>
       </div>
 
@@ -57,6 +57,9 @@
       return {
         chatting:[],
         isSettingOpen: true,
+        currentPeople: 1,
+        course_id: sessionStorage.getItem("room_course_id"),
+        courseName: "",
         setting: {
           gameName: '遊戲模式',
           gameID: 'no-r',
@@ -85,18 +88,40 @@
         this.isSettingOpen = true;
       }
     },
-    mounted: function(){
-
-      //For Test
+    mounted: function() {
       let self = this;
-      let repeat = "測試";
-      for(let i=0; i<=5 ; i++){
-        let text="Andy: hihi,for test"+repeat;
-        repeat += repeat;
-        self.chatting.push(text);
-      };
+      self.$nextTick(function() {
+        axios
+          .post("/getcourse", {
+            course_id: self.course_id
+          })
+          .then(function(rtn) {
+            if (!rtn.data.errmsg) {
+              self.courseName = rtn.data.result.name;
+            } else {
+              console.log(rtn.data.errmsg);
+            }
+          })
+          .catch(function(err) {
+            console.log(err);
+          });
+      });
+
+      var socket = require("socket.io-client")("http://localhost:6379");
+      socket.on("connect", function() {
+        console.log(socket.id);
+        socket.emit("createRoom", self.course_id);
+      });
+      socket.on("message", function(data) {
+        console.log(data);
+      });
+      socket.on("disconnect", function() {});
+      
+    },
+    destroyed: function() {
+        sessionStorage.removeItem("room_course_id");
     }
-  }
+  };
 </script>
 
 
@@ -110,7 +135,7 @@
   font-size: 3em;
 }
 
-.waiting-header{
+.waiting-header {
   width: 100%;
   height: 12%;
   font-size: 7em;
@@ -125,52 +150,46 @@
   height: 63%;
 }
 
-.waiting-bottom{
+.waiting-bottom {
   width: 100%;
   height: 18%;
 }
 
-.col{
+.col {
   width: 100%;
   border-radius: 30px;
-  box-shadow:
-    2px 2px 2px rgba(20%,20%,40%,0.6),
-    4px 4px 6px rgba(20%,20%,40%,0.4),
-    6px 6px 12px rgba(20%,20%,40%,0.4);
+  box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6),
+    4px 4px 6px rgba(20%, 20%, 40%, 0.4), 6px 6px 12px rgba(20%, 20%, 40%, 0.4);
 }
 
-.chat-ul{
-  width:100%;
+.chat-ul {
+  width: 100%;
   height: 100%;
   overflow-y: scroll;
 }
 
-.chat-li{
-  width:100%;
-  font-size:3em;
+.chat-li {
+  width: 100%;
+  font-size: 3em;
   margin-bottom: 1%;
   line-height: 135%;
   font-weight: bold;
   color: white;
-  text-shadow:
-    1px 1px 5px #000,
-    2px 2px 5px #000;
+  text-shadow: 1px 1px 5px #000, 2px 2px 5px #000;
 }
 
-.set-li{
+.set-li {
   list-style: none;
-  width:100%;
-  font-size:2.5em;
+  width: 100%;
+  font-size: 2.5em;
   margin-bottom: 1%;
   line-height: 135%;
   font-weight: bold;
   color: white;
-  text-shadow:
-    1px 1px 5px #000,
-    2px 2px 5px #000;
+  text-shadow: 1px 1px 5px #000, 2px 2px 5px #000;
 }
 
-.infro-people{
+.infro-people {
   height: 20%;
   margin-bottom: 2%;
   background: rgba(255,201,82,.8) url(/img/room_people.png) no-repeat 5% 100%;
@@ -190,15 +209,15 @@
   box-sizing: border-box;
   padding: 3%;
   height: 40%;
-  background: rgba(117,79,68,.8) url(/img/chat.png) no-repeat 5% 120%;
+  background: rgba(117, 79, 68, 0.8) url(/img/chat.png) no-repeat 5% 120%;
   background-size: 53%;
 }
 
-.go-button{
+.go-button {
   background: transparent url(/img/go.png) no-repeat center 15%;
   background-size: 50%;
-  width:100%;
-  height:100%;
+  width: 100%;
+  height: 100%;
 }
 
 .people{
@@ -206,47 +225,47 @@
   width:40%;
 }
 
-.current{
+.current {
   font-weight: bold;
   font-size: 7em;
   float:right;
   width:25%;
 }
 
-.total{
+.total {
   font-size: 3.5em;
   float: right;
   width: 20%;
 }
 
-.gametype{
-  float:left;
-  width:25%;
+.gametype {
+  float: left;
+  width: 25%;
   height: 90%;
   margin-top: 3%;
   border-radius: 30px 0px 0px 30px;
-  background-color:  rgba(253,153,154,.7);
+  background-color: rgba(253, 153, 154, 0.7);
 }
 
-.brain-method{
-  float:left;
-  width:25%;
+.brain-method {
+  float: left;
+  width: 25%;
   height: 90%;
   margin-top: 3%;
   border-radius: 0px 30px 30px 0px;
-  background-color: rgba(103,213,181,.7);
+  background-color: rgba(103, 213, 181, 0.7);
 }
 
-.other-setting{
+.other-setting {
   box-sizing: border-box;
   padding: 2%;
-  float:left;
-  width:50%;
+  float: left;
+  width: 50%;
 }
 
-.infro-img{
-  width:100%;
-  height:60%;
+.infro-img {
+  width: 100%;
+  height: 60%;
 }
 
 .infro-text{
@@ -302,12 +321,12 @@
   background-size: 80%;
 }
 
-.white-bg{
+.white-bg {
   position: absolute;
   z-index: 1;
   width: 100%;
   height: 100%;
-  background-color: rgba(255,255,255,.7);
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 .nav-btn{

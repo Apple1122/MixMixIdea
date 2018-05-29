@@ -42,11 +42,11 @@
             </div>
           </div>
           <div class="class-detail animated fadeInDown" :class="{hide : !c.isOpen}">
-            <div v-if="isTeacher" @click="swapToTW()" class="col-d">
+            <div v-if="loginAs=='teacher'" @click="swapToTW(c.id)" class="col-d">
               <span class="add-room"></span>
               <span class="room-text f-c">創立房間</span>
               </div>
-            <div v-if="!isTeacher" @click="swapToSW()" class="col-d">
+            <div v-if="loginAs=='student'" @click="swapToSW(c.id)" class="col-d">
               <span class="join-room"></span>
               <span class="room-text f-c">加入房間</span>
             </div>
@@ -68,36 +68,71 @@
 export default {
   data() {
     return {
-      username: localStorage.getItem('username'),
+      username: sessionStorage.getItem("username"),
       courses: [],
-      isTeacher: true
+      loginAs: sessionStorage.getItem("loginAs")
     };
   },
   methods: {
-    clickCourseItem : function(item) {
-      this.$set(
-        this.courses[item],
-        'isOpen',
-        !this.courses[item].isOpen
-    )},
-
-    swapToTW : function() {
-      this.$router.push({ path: '/waiting' });
+    clickCourseItem: function(item) {
+      this.$set(this.courses[item], "isOpen", !this.courses[item].isOpen);
     },
 
-    swapToSW : function() {
-      this.$router.push({ path: '/waiting' });
-    }
+    swapToTW: function(id) {
+      // if no room for this course then create and enter else just enter
+      if (sessionStorage.getItem("room_course_id") == null) {
+        let self = this;
+        self.$nextTick(function() {
+          axios
+            .post("/courselist/createroom", { course_id: id })
+            .then(function(rtn) {
+              if (!rtn.data.errmsg) {
+                sessionStorage.setItem("room_course_id", id);
+                self.$router.push({ path: "/t_waiting" });
+              } else {
+                console.log(rtn.data.errmsg);
+              }
+            })
+            .catch(function(err) {
+              console.log(err);
+            });
+        });
+      } else {
+        this.$router.push({ path: "/waiting" });
+      }
+    },
 
+    swapToSW: function(id) {
+      let self = this;
+      self.$nextTick(function() {
+        axios
+          .post("/courselist/findroom", { course_id: id })
+          .then(function(rtn) {
+            if (!rtn.data.errmsg) {
+              console.log(rtn.data.result);
+              sessionStorage.setItem("room_course_id", id);
+              self.$router.push({ path: "/s_waiting" });
+            } else {
+              console.log(rtn.data.errmsg);
+            }
+          })
+          .catch(function(err) {
+            console.log(err);
+          });
+      });
+    }
   },
+
   mounted: function() {
     let self = this;
     self.$nextTick(function() {
       axios
         .post("/courselist/getCourses")
         .then(function(rtn) {
-          if (!rtn.errmsg) {
+          if (!rtn.data.errmsg) {
             self.courses = rtn.data.result;
+          } else {
+            console.log(rtn.data.errmsg);
           }
         })
         .catch(function(err) {
@@ -107,17 +142,15 @@ export default {
   },
   updated: function() {
     // Andy Test For Update
-    console.log('view updated')
+    console.log("view updated");
   }
-  
 };
 </script>
 
 
 <style scoped>
-
-.cl-header{
-  width:100%;
+.cl-header {
+  width: 100%;
   height: 30%;
 }
 
@@ -138,9 +171,9 @@ export default {
   height: 100%;
 }
 
-.infro-img{
-  width:100%;
-  height:80%;
+.infro-img {
+  width: 100%;
+  height: 80%;
 }
 
 .infro-name {
@@ -154,14 +187,12 @@ export default {
     0px 18px 23px rgba(0, 0, 0, 0.1);
 }
 
-.circle{
-  width:18.5em;
-  height:18.5em;
-  border-radius:99em;
-  box-shadow: 0px 4px 3px rgba(0,0,0,0.3),
-             0px 8px 13px rgba(0,0,0,0.1),
-             0px 18px 23px rgba(0,0,0,0.1);
-
+.circle {
+  width: 18.5em;
+  height: 18.5em;
+  border-radius: 99em;
+  box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.3), 0px 8px 13px rgba(0, 0, 0, 0.1),
+    0px 18px 23px rgba(0, 0, 0, 0.1);
 }
 
 .LR-top {
@@ -207,7 +238,7 @@ export default {
   top: 5%;
 }
 
-.choose-text{
+.choose-text {
   font-weight: bold;
   width: 100%;
   height: 12%;
@@ -224,7 +255,7 @@ export default {
   overflow-y: scroll;
 }
 
-.course{
+.course {
   width: 100%;
   height: 17%;
   box-sizing: border-box;
@@ -233,39 +264,39 @@ export default {
   transition: margin-bottom 1.5s;
 }
 
-.course.open{
-  margin-bottom:20%;
+.course.open {
+  margin-bottom: 20%;
 }
 
-.class-infro{
+.class-infro {
   position: relative;
   z-index: 2;
   box-sizing: border-box;
   padding: 3%;
-  width:100%;
+  width: 100%;
   height: 100%;
-  background-color:#ffc952;
-  border-radius:40px;
+  background-color: #ffc952;
+  border-radius: 40px;
   box-shadow: 3px 3px 3px 2px #ccc;
 }
 
-.subject{
-  font-size:2.7em;
+.subject {
+  font-size: 2.7em;
   float: left;
   width: 25%;
   height: 100%;
 }
 
-.class-name{
-  font-weight:bold;
-  font-size:3em;
+.class-name {
+  font-weight: bold;
+  font-size: 3em;
   float: left;
   width: 60%;
   height: 100%;
 }
 
-.class-time{
-  font-size:2.3em;
+.class-time {
+  font-size: 2.3em;
   float: left;
   width: 15%;
   height: 100%;
@@ -276,12 +307,12 @@ export default {
   margin: 3%;
 }
 
-.time-text{
+.time-text {
   text-align: center;
   line-height: 130%;
 }
 
-.class-detail{
+.class-detail {
   box-sizing: border-box;
   padding: 2%;
   position: sticky;
@@ -289,42 +320,42 @@ export default {
   margin-top: -2%;
   width: 100%;
   height: 115%;
-  background-color: #FBFFB9;
+  background-color: #fbffb9;
   border-radius: 10px;
 }
 
-.col-d{
+.col-d {
   float: left;
   width: 50%;
   height: 100%;
   font-size: 2.5em;
 }
 
-.add-room{
+.add-room {
   float: left;
   width: 40%;
   height: 100%;
-  background: transparent url('/img/addroom.png') no-repeat center 70%;
-  background-size: 45%; 
+  background: transparent url("/img/addroom.png") no-repeat center 70%;
+  background-size: 45%;
 }
 
-.join-room{
+.join-room {
   float: left;
   width: 40%;
   height: 100%;
-  background: transparent url('/img/joinroom.png') no-repeat center 75%;
-  background-size: 40%; 
+  background: transparent url("/img/joinroom.png") no-repeat center 75%;
+  background-size: 40%;
 }
 
-.history{
+.history {
   float: left;
   width: 40%;
   height: 100%;
-  background: transparent url('/img/history.png') no-repeat center 75%;
-  background-size: 50%; 
+  background: transparent url("/img/history.png") no-repeat center 75%;
+  background-size: 50%;
 }
 
-.room-text{
+.room-text {
   float: left;
   width: 50%;
   height: 100%;
@@ -332,7 +363,7 @@ export default {
   padding-top: 5%;
 }
 
-.hide{
+.hide {
   display: none;
 }
 </style>

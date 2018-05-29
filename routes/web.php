@@ -9,18 +9,26 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::combine([
     '/',
     '/courselist',
-    '/waiting'
+    '/s_waiting',
+    '/t_waiting'
 ], function () {
     return view('app');
 });
 
 Route::post('/login', 'AccountController@login');
 
-Route::post('/courselist/getCourses', 'CourseController@getUserCourses');
+Route::prefix('/courselist')->group(function () {
+    Route::post('/getCourses', 'CourseController@getUserCourses');
+    Route::post('/createroom', 'CourseController@createRoom');
+    Route::post('/findroom', 'CourseController@findRoom');
+});
+
+Route::post('/getcourse', 'CourseController@getCourse');
+
 
 Route::get('/getAllSession', 'Controller@getAllSession');

@@ -4,8 +4,7 @@ import TWaiting from './components/TWaiting'
 import SWaiting from './components/SWaiting'
 import Loading from './components/loading'
 
-const routes = [
-  {
+const routes = [{
     path: '/',
     component: Login
   },
@@ -14,7 +13,11 @@ const routes = [
     component: CourseList
   },
   {
-    path: '/waiting',
+    path: '/s_waiting',
+    component: SWaiting
+  },
+  {
+    path: '/t_waiting',
     component: TWaiting
   }
 ]
