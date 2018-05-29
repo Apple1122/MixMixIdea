@@ -82,11 +82,11 @@ export default {
     )},
 
     swapToTW : function() {
-      this.$emit("swap", "t_w");
+      this.$router.push({ path: '/waiting' });
     },
 
     swapToSW : function() {
-      this.$emit("swap","s_w");
+      this.$router.push({ path: '/waiting' });
     }
 
   },
