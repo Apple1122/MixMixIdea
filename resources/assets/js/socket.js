@@ -21,13 +21,14 @@ io.on('connection', (socket) => {
 
     socket.on("createRoom", (data) => {
         socket.join(data)
+        console.log(socket.id);
         console.log(io.nsps['/'].adapter.rooms);
 
     });
 
     socket.on("joinRoom", (data) => {
         socket.join(data)
-
+        console.log(socket.id);
         console.log(io.nsps['/'].adapter.rooms);
 
     });
