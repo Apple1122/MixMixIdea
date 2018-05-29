@@ -41,7 +41,7 @@ export default {
   },
   beforeMount: function() {
     // if user already login, then go to courselist
-    let isLogin = localStorage.getItem("loginAs");
+    let isLogin = sessionStorage.getItem("loginAs");
     if (isLogin) this.$emit("swap", "courselist");
   },
   methods: {

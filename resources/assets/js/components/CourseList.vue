@@ -106,6 +106,16 @@ export default {
     console.log("view updated");
   }
 };
+
+var socket = require("socket.io-client")("http://localhost:6379");
+socket.on("connect", function() {
+  console.log(socket.id);
+  socket.emit("got");
+});
+socket.on("message", function(data) {
+  console.log(data);
+});
+socket.on("disconnect", function() {});
 </script>
 
 <style>

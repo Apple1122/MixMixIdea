@@ -19,9 +19,8 @@ server.listen(6379, function () {
 
 
 io.on('connection', (socket) => {
-    socket.on('got', () => {
-        console.log('yes');
-        socket.emit('got2', '123');
+    socket.on("got", (data, fn) => {
+        console.log(socket.id);
+        socket.send("got");
     });
-    
-});  
+});
