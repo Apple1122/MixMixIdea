@@ -23,6 +23,7 @@ Route::post('/login', 'AccountController@login');
 
 Route::prefix('/courselist')->group(function () {
     Route::post('/getCourses', 'CourseController@getUserCourses');
+    Route::post('/createroom', 'CourseController@createRoom');
 });
 
 Route::get('/getAllSession', 'Controller@getAllSession');

@@ -42,7 +42,7 @@
             </div>
           </div>
           <div class="class-detail animated fadeInDown" :class="{hide : !c.isOpen}">
-            <div v-if="isTeacher" @click="swapToTW()" class="col-d">
+            <div v-if="isTeacher" @click="swapToTW(c.id)" class="col-d">
               <span class="add-room"></span>
               <span class="room-text f-c">創立房間</span>
               </div>
@@ -74,19 +74,28 @@ export default {
     };
   },
   methods: {
-    clickCourseItem : function(item) {
-      this.$set(
-        this.courses[item],
-        'isOpen',
-        !this.courses[item].isOpen
-    )},
-
-    swapToTW : function() {
-      this.$router.push({ path: '/waiting' });
+    clickCourseItem: function(item) {
+      this.$set(this.courses[item], "isOpen", !this.courses[item].isOpen);
     },
 
-    swapToSW : function() {
-      this.$router.push({ path: '/waiting' });
+    swapToTW: function(id) {
+      let self = this;
+      self.$nextTick(function() {
+        axios
+          .post("/courselist/createroom", { course_id: id })
+          .then(function(rtn) {
+            if (!rtn.errmsg) {
+              self.$router.push({ path: "/waiting" });
+            }
+          })
+          .catch(function(err) {
+            console.log(err);
+          });
+      });
+    },
+
+    swapToSW: function() {
+      this.$router.push({ path: "/waiting" });
     }
   },
   mounted: function() {
@@ -123,9 +132,8 @@ socket.on("disconnect", function() {});
 
 
 <style scoped>
-
-.cl-header{
-  width:100%;
+.cl-header {
+  width: 100%;
   height: 30%;
 }
 
