@@ -1,12 +1,12 @@
 <template>
   <div class="container">
-    <div v-if="isSettingOpen" class="setting">
-    </div>
+    <set v-if="isSettingOpen"></set>
+    <div v-if="isSettingOpen" class="white-bg"></div>
+
     <div class="waiting-class f-c">〈課程名稱〉(還不知道怎排版)</div>
     <div class="waiting-header f-c animated bounceInDown">等待遊戲者...</div>
     <div class="waiting-body b-x">
       <div class="col infro-people b-x f-c animated fadeInUp">
-        <span class="people f-c h-100"></span>
         <span class="current f-c h-100">10</span>
         <span class="total f-c h-100">/ 15人</span>
       </div>
@@ -42,12 +42,16 @@
 </template>
 
 <script>
+  import Setting from './Setting'
   export default {
     data() {
       return {
-        isSettingOpen: true,
+        isSettingOpen: false,
         chatting:[]
       }
+    },
+    components:{
+      'set': Setting
     },
     mounted: function(){
 
@@ -63,7 +67,8 @@
   }
 </script>
 
-<style>
+
+<style scoped>
 
 .waiting-class{
   width: 100%;
@@ -135,7 +140,7 @@
   height: 20%;
   margin-bottom: 3%;
   background: rgba(255,201,82,.8) url(/img/room_people.png) no-repeat 5% 100%;
-  background-size: 47%;
+  background-size: 40%;
 }
 
 .infro-setting{
@@ -154,8 +159,8 @@
 }
 
 .go-button{
-  background: transparent url(/img/go.png) no-repeat center 16%;
-  background-size: 70%;
+  background: transparent url(/img/go.png) no-repeat center 15%;
+  background-size: 50%;
   width:100%;
   height:100%;
 }
@@ -219,18 +224,26 @@
 }
 
 #toolong{
-  font-size: 3.2em;
+  font-size: 2.5em;
   font-weight: bold;
 }
 
 #pass{
     background: transparent url(/img/pass.png) no-repeat center center;
-    background-size: 80%;
+    background-size: 70%;
 }
 
 #sixhat{
     background: transparent url(/img/hat.png) no-repeat center center;
     background-size: 80%;
+}
+
+.white-bg{
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,255,255,.7);
 }
 
 </style>

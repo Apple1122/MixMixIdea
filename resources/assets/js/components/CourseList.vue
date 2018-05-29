@@ -74,16 +74,19 @@ export default {
     };
   },
   methods: {
-    clickCourseItem: function(item) {
-      this.$set(this.courses[item], "isOpen", !this.courses[item].isOpen);
+    clickCourseItem : function(item) {
+      this.$set(
+        this.courses[item],
+        'isOpen',
+        !this.courses[item].isOpen
+    )},
+
+    swapToTW : function() {
+      this.$router.push({ path: '/waiting' });
     },
 
-    swapToTW: function() {
-      this.$emit("swap", "t_w");
-    },
-
-    swapToSW: function() {
-      this.$emit("swap", "s_w");
+    swapToSW : function() {
+      this.$router.push({ path: '/waiting' });
     }
   },
   mounted: function() {
@@ -118,9 +121,11 @@ socket.on("message", function(data) {
 socket.on("disconnect", function() {});
 </script>
 
-<style>
-.cl-header {
-  width: 100%;
+
+<style scoped>
+
+.cl-header{
+  width:100%;
   height: 30%;
 }
 

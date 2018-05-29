@@ -11,7 +11,11 @@
 |
  */
 
-Route::get('/', function () {
+Route::combine([
+    '/',
+    '/courselist',
+    '/waiting'
+], function () {
     return view('app');
 });
 

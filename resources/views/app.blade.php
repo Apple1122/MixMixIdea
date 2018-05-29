@@ -15,7 +15,7 @@
 <body>
     <!-- 準備給 Vue 的掛載點 -->
     <div id="app">
-        <div :is="currentComponent" :swap-component="swapComponent" v-on:swap="swapComponent"></div>
+		<router-view></router-view>
     </div>
     <!-- 載入打包後的 js 檔 -->
 	<script src="/js/hello.js"></script>
@@ -56,7 +56,7 @@
 
 	.container{
 		box-sizing: border-box;
-		padding: 3%;
+		padding: 0% 3%;
 		width: 100%;
 		height: 100%;
 		background: transparent url("/img/bg-img.png") no-repeat center;
