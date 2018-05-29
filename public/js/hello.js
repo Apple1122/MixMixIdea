@@ -50703,18 +50703,50 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      isSettingOpen: false,
-      chatting: []
+      chatting: [],
+      isSettingOpen: true,
+      setting: {
+        gameName: '遊戲模式',
+        gameID: 'no-r',
+        brainName: '腦力激盪技法',
+        brainID: 'no-g',
+        time: '30分',
+        group: '平均分配',
+        topic: '題目未定'
+      }
     };
   },
 
   components: {
     'set': __WEBPACK_IMPORTED_MODULE_0__Setting___default.a
+  },
+  methods: {
+    return_to_pre: function return_to_pre() {
+      this.$router.push({ path: '/courselist' });
+    },
+    changePage: function changePage(data) {
+      this.isSettingOpen = data;
+    },
+    changeSetting: function changeSetting(data) {
+      this.isSettingOpen = data;
+    },
+    OpenSettingPage: function OpenSettingPage() {
+      this.isSettingOpen = true;
+    }
   },
   mounted: function mounted() {
 
@@ -50807,10 +50839,115 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['isSettingOpen', 'setting'],
   data: function data() {
-    return {};
+    return {
+      currentPage: 'default',
+      BrainList: [{
+        ID: "role-play",
+        name: "角色扮演",
+        rule: "親自體驗所扮演角色的情意與行為特徵",
+        situ: "有許多不同角色"
+      }, {
+        ID: "talking",
+        name: "辯論",
+        rule: "學會接收他人意見，不要盲目追隨自己的想法",
+        situ: "有正反方的立場"
+      }, {
+        ID: "sixhat",
+        name: "六頂思考帽法",
+        rule: "容許思考者一次處理一件事",
+        situ: "從不同面向的進行充分考量，更能使得思考效果全面"
+      }, {
+        ID: "stf",
+        name: "六三五法",
+        rule: "先討論主題一分鐘，30分鐘一個循環寫出3個簡明扼要的構想，每隔5分鐘把紙張傳給隔鄰",
+        situ: "事情需要集思廣益，發散思考"
+      }],
+      GameList: [{
+        name: "闖關",
+        ID: "passgate",
+        situ: "一關一關破"
+      }, {
+        name: "團體對抗",
+        ID: "groupfight",
+        situ: "多方勢力，一起戰鬥"
+      }, {
+        name: "一般模式",
+        ID: "normal",
+        situ: "個人對抗"
+      }]
+    };
+  },
+
+  methods: {
+    change_page: function change_page(page) {
+      this.currentPage = page;
+    },
+    sendOkToParent: function sendOkToParent() {
+      this.$emit('click-okay', false);
+    },
+    sendCancelToParent: function sendCancelToParent() {
+      this.$emit('click-okay', false);
+    },
+    select_method: function select_method(ID, name) {
+      this.setting.brainID = ID;
+      this.setting.brainName = name;
+      this.currentPage = 'default';
+    },
+    select_game: function select_game(ID, name) {
+      this.setting.gameID = ID;
+      this.setting.gameName = name;
+      this.currentPage = 'default';
+    }
   }
 });
 
@@ -51202,7 +51339,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.setting-page[data-v-110f2d29]{\r\n  position: absolute;\r\n  top: 15%;\r\n  left: 7%;\r\n  z-index: 99;\r\n  width: 86%;\r\n  height: 70%;\r\n  background: #FBFFB9;\r\n  -webkit-box-shadow: 8px 8px 1px #EC7357;\r\n          box-shadow: 8px 8px 1px #EC7357;\r\n  border-radius: 60px;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\n}\n.title[data-v-110f2d29]{\r\n  width: 100%;\r\n  height: 15%;\r\n  font-size: 9em;\r\n  text-align: center;\r\n  font-weight: bold;\r\n  color: #60c5ba;\r\n  text-shadow: 2px 2px 1px #34314c;\n}\n.choose-bar[data-v-110f2d29]{\r\n  width: 100%;\r\n  height: 20%;\n}\n.content[data-v-110f2d29]{\r\n  width: 100%;\r\n  height: 50%;\n}\n.bottom[data-v-110f2d29]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 100%;\r\n  height: 15%;\n}\n.btn[data-v-110f2d29]{\r\n  float: left;\r\n  margin-right: 4%;\r\n  width: 40%;\r\n  height: 100%;\r\n  background: #cb253e;\r\n  border-radius: 15em;\r\n  -webkit-box-shadow: 1px 2px 1px #a31d31;\r\n          box-shadow: 1px 2px 1px #a31d31;\r\n  outline: none;\r\n  border-style: none;\r\n  margin-left: 1%;\r\n  margin-right: 5%;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.setting-page[data-v-110f2d29]{\r\n  position: absolute;\r\n  top: 7%;\r\n  left: 0%;\r\n  z-index: 99;\r\n  width: 100%;\r\n  height: 93%;\r\n  padding: 0% 5%;\r\n  background: rgba(255,255,255,.9);\n}\n.setting-title[data-v-110f2d29]{\r\n  width: 100%;\r\n  height: 15%;\r\n  font-size: 6em;\r\n  text-align: center;\r\n  font-weight: bold;\r\n  color: #754F44;\r\n  background: transparent url('/img/setting_title.png') no-repeat center center;\r\n  background-size: 70%;\r\n  text-shadow: 2px 2px 1px #34314c;\n}\n.choose-bar[data-v-110f2d29]{\r\n  width: 100%;\r\n  height: 13%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 0% 4%;\n}\n.content[data-v-110f2d29]{\r\n  width: 100%;\r\n  height: 60%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3% 5% 0% 5%;\n}\n.bottom[data-v-110f2d29]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 100%;\r\n  height: 12%;\r\n  padding: 0% 5% 3% 5%;\n}\n.btn[data-v-110f2d29]{\r\n  float: left;\r\n  width: 12em;\r\n  height: 12em;\r\n  border-radius: 99em;\r\n  margin-right: 10%;\r\n  margin-left: 10%;\n}\n.btn.ok[data-v-110f2d29]{\r\n  background: #8CD790 url('/img/tick.png') no-repeat center center;\r\n  background-size: 60%;\n}\n.btn.cancel[data-v-110f2d29]{\r\n  background: #E53A40 url('/img/cross.png') no-repeat center center;\r\n  background-size: 50%;\n}\n.choose-game[data-v-110f2d29]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  float: left;\r\n  width: 50%;\r\n  height: 90%;\r\n  margin-top: 3%;\r\n  border-radius: 30px 0px 0px 30px;\r\n  background-color:  rgba(253,153,154,.7);\n}\n.choose-method[data-v-110f2d29]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  float: left;\r\n  width: 50%;\r\n  height: 90%;\r\n  margin-top: 3%;\r\n  border-radius: 0px 30px 30px 0px;\r\n  background-color: rgba(103,213,181,.7);\n}\n.bar-img[data-v-110f2d29]{\r\n  width: 40%;\n}\n.bar-text[data-v-110f2d29]{\r\n  text-align: center;\r\n  width: 60%;\r\n  font-size: 3.5em;\n}\n.special[data-v-110f2d29]{\r\n  width: 100%;\r\n  height: 100%;\r\n  overflow-y: scroll;\n}\n.choose-li[data-v-110f2d29]{\r\n  width: 99%;\r\n  height: 33%;\r\n  border-radius: 15px;\r\n  background: #fffff5;\r\n  -webkit-box-shadow: 4px 4px 5px #7f9eb2;\r\n          box-shadow: 4px 4px 5px #7f9eb2;\r\n  margin-bottom: 3%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 1%;\n}\n.logo[data-v-110f2d29]{\r\n  width: 30%;\n}\n.logo1[data-v-110f2d29]{\r\n  width: 40%;\n}\n.describe[data-v-110f2d29]{\r\n  width: 70%;\n}\n.describe1[data-v-110f2d29]{\r\n  width: 60%;\n}\n#no-r[data-v-110f2d29]{\r\n  background: transparent url('/img/no-r.png') no-repeat center center;\r\n  background-size: 70%;\n}\n#no-g[data-v-110f2d29]{\r\n  background: transparent url('/img/no-g.png') no-repeat center center;\r\n  background-size: 70%;\n}\n#pass[data-v-110f2d29]{\r\n  background: transparent url('/img/pass.png') no-repeat center center;\r\n  background-size: 70%;\n}\n#sixhat[data-v-110f2d29]{\r\n  background: transparent url('/img/hat.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#stf[data-v-110f2d29]{\r\n  background: transparent url('/img/stf.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#role-play[data-v-110f2d29]{\r\n  background: transparent url('/img/role-play.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#talking[data-v-110f2d29]{\r\n  background: transparent url('/img/talking.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#passgate[data-v-110f2d29]{\r\n  background: transparent url('/img/passgate.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#groupfight[data-v-110f2d29]{\r\n  background: transparent url('/img/groupfight.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#normal[data-v-110f2d29]{\r\n  background: transparent url('/img/normal.png') no-repeat center center;\r\n  background-size: 80%;\n}\n.m-name[data-v-110f2d29]{\r\n  width: 100%;\r\n  height: 25%;\r\n  font-size: 3.5em;\n}\n.m-name1[data-v-110f2d29]{\r\n  width: 100%;\r\n  height: 35%;\r\n  font-size: 4em;\n}\n.m-all[data-v-110f2d29]{\r\n  width: 100%;\r\n  height: 65%;\r\n  font-size: 3.5em;\r\n  text-align: center;\n}\n.m-rule[data-v-110f2d29]{\r\n  width:100%;\r\n  height: 48%;\r\n  font-size: 2.3em;\r\n  line-height: 106%;\n}\n.m-situ[data-v-110f2d29]{\r\n  width: 100%;\r\n  height: 27%;\r\n  font-size: 2.3em;\n}\n.col[data-v-110f2d29]{\r\n  background-color: #fffff5;\r\n  border-radius: 15px;\r\n  background: #fffff5;\r\n  -webkit-box-shadow: 4px 4px 5px #7f9eb2;\r\n          box-shadow: 4px 4px 5px #7f9eb2;\r\n  margin-bottom: 2%;\n}\n.d-time[data-v-110f2d29]{\r\n  width: 100%;\r\n  height: 20%;\n}\n.d-group[data-v-110f2d29]{\r\n  width: 100%;\r\n  height: 20%;\n}\n.d-topic[data-v-110f2d29]{\r\n  width: 100%;\r\n  height: 30%;\n}\n.title[data-v-110f2d29]{\r\n  width: 50%;\r\n  font-size: 4em;\n}\n.set[data-v-110f2d29]{\r\n  width: 50%;\r\n  font-size: 3.5em;\n}\n.input[data-v-110f2d29]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 100%;\r\n  font-size: 1em;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -51215,30 +51352,213 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "setting-page animated fadeInUp" }, [
-      _c("div", { staticClass: "title" }, [_vm._v("遊戲設定")]),
+  return _c("div", { staticClass: "setting-page animated fadeInUp" }, [
+    _c("div", { staticClass: "setting-title f-c" }, [_vm._v("遊戲設定")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "choose-bar" }, [
+      _c(
+        "div",
+        {
+          staticClass: "choose-game h-100",
+          on: {
+            click: function($event) {
+              _vm.change_page("gametype")
+            }
+          }
+        },
+        [
+          _c("div", {
+            staticClass: "bar-img f-l h-100",
+            attrs: { id: _vm.setting.gameID }
+          }),
+          _vm._v(" "),
+          _c("div", { staticClass: "bar-text f-l f-c h-100" }, [
+            _vm._v(_vm._s(_vm.setting.gameName))
+          ])
+        ]
+      ),
       _vm._v(" "),
-      _c("div", { staticClass: "choose-bar" }),
+      _c(
+        "div",
+        {
+          staticClass: "choose-method h-100",
+          on: {
+            click: function($event) {
+              _vm.change_page("brain-method")
+            }
+          }
+        },
+        [
+          _c("div", {
+            staticClass: "bar-img f-l h-100",
+            attrs: { id: _vm.setting.brainID }
+          }),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "bar-text f-l f-c h-100", attrs: { id: "toolong" } },
+            [_vm._v(_vm._s(_vm.setting.brainName))]
+          )
+        ]
+      )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "content" }, [
+      _vm.currentPage == "gametype"
+        ? _c(
+            "div",
+            { staticClass: "special" },
+            _vm._l(_vm.GameList, function(game) {
+              return _c(
+                "div",
+                {
+                  staticClass: "choose-li animated fadeInUp",
+                  on: {
+                    click: function($event) {
+                      _vm.select_game(game.ID, game.name)
+                    }
+                  }
+                },
+                [
+                  _c("div", {
+                    staticClass: "logo1 f-l h-100",
+                    attrs: { id: game.ID }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "describe1 f-l h-100" }, [
+                    _c("div", { staticClass: "m-name1 f-c" }, [
+                      _vm._v(_vm._s(game.name))
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "m-all f-c" }, [
+                      _vm._v(_vm._s(game.situ))
+                    ])
+                  ])
+                ]
+              )
+            })
+          )
+        : _vm._e(),
       _vm._v(" "),
-      _c("div", { staticClass: "content" }),
+      _vm.currentPage == "brain-method"
+        ? _c(
+            "div",
+            { staticClass: "special" },
+            _vm._l(_vm.BrainList, function(method) {
+              return _c(
+                "div",
+                {
+                  staticClass: "choose-li animated fadeInUp",
+                  on: {
+                    click: function($event) {
+                      _vm.select_method(method.ID, method.name)
+                    }
+                  }
+                },
+                [
+                  _c("div", {
+                    staticClass: "logo f-l h-100",
+                    attrs: { id: method.ID }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "describe f-l h-100" }, [
+                    _c("div", { staticClass: "m-name f-c" }, [
+                      _vm._v(_vm._s(method.name))
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "m-rule" }, [
+                      _vm._v("規則：" + _vm._s(method.rule))
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "m-situ" }, [
+                      _vm._v("情境：" + _vm._s(method.situ))
+                    ])
+                  ])
+                ]
+              )
+            })
+          )
+        : _vm._e(),
       _vm._v(" "),
-      _c("div", { staticClass: "topic" }),
+      _vm.currentPage == "default"
+        ? _c("div", { staticClass: "special" }, [
+            _c("div", { staticClass: "col d-time f-l" }, [
+              _c("div", { staticClass: "title h-100 f-c f-l" }, [
+                _vm._v("進行時間")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "set h-100 f-l f-c" }, [
+                _vm._v(_vm._s(_vm.setting.time))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col d-group f-l" }, [
+              _c("div", { staticClass: "title h-100 f-c f-l" }, [
+                _vm._v("分組方式")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "set h-100 f-l f-c" }, [
+                _vm._v(_vm._s(_vm.setting.group))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "col d-topic f-l" }, [
+              _c("div", { staticClass: "title h-100 f-c f-l" }, [
+                _vm._v("發想題目")
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "set h-100 f-l" }, [
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.setting.topic,
+                      expression: "setting.topic"
+                    }
+                  ],
+                  staticClass: "input h-100 f-c",
+                  attrs: { placeholder: "請輸入題目" },
+                  domProps: { value: _vm.setting.topic },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.setting, "topic", $event.target.value)
+                    }
+                  }
+                })
+              ])
+            ])
+          ])
+        : _vm._e()
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "topic" }),
+    _vm._v(" "),
+    _c("div", { staticClass: "bottom f-c" }, [
+      _c("button", {
+        staticClass: "btn ok",
+        on: {
+          click: function($event) {
+            _vm.sendOkToParent()
+          }
+        }
+      }),
       _vm._v(" "),
-      _c("div", { staticClass: "bottom" }, [
-        _c("button", { staticClass: "btn ok" }),
-        _vm._v(" "),
-        _c("button", { staticClass: "btn cancel" })
-      ])
+      _c("button", {
+        staticClass: "btn cancel",
+        on: {
+          click: function($event) {
+            _vm.sendCancelToParent()
+          }
+        }
+      })
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -51343,7 +51663,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n.waiting-class[data-v-1e7735a0]{\r\n  width: 100%;\r\n  height: 7%;\r\n  font-size: 3em;\n}\n.waiting-header[data-v-1e7735a0]{\r\n  width: 100%;\r\n  height: 8%;\r\n  font-size: 7em;\r\n  font-weight: bold;\r\n  color: #ff7473;\r\n  text-shadow: 2px 3px 9px #c03546;\n}\n.waiting-body[data-v-1e7735a0]{\r\n  padding: 3.5% 5%;\r\n  width: 100%;\r\n  height: 70%;\n}\n.waiting-bottom[data-v-1e7735a0]{\r\n  width: 100%;\r\n  height: 15%;\n}\n.col[data-v-1e7735a0]{\r\n  width: 100%;\r\n  border-radius: 30px;\r\n  -webkit-box-shadow:\r\n    2px 2px 2px rgba(20%,20%,40%,0.6),\r\n    4px 4px 6px rgba(20%,20%,40%,0.4),\r\n    6px 6px 12px rgba(20%,20%,40%,0.4);\r\n          box-shadow:\r\n    2px 2px 2px rgba(20%,20%,40%,0.6),\r\n    4px 4px 6px rgba(20%,20%,40%,0.4),\r\n    6px 6px 12px rgba(20%,20%,40%,0.4);\n}\n.chat-ul[data-v-1e7735a0]{\r\n  width:100%;\r\n  height: 100%;\r\n  overflow-y: scroll;\n}\n.chat-li[data-v-1e7735a0]{\r\n  width:100%;\r\n  font-size:3em;\r\n  margin-bottom: 1%;\r\n  line-height: 135%;\r\n  font-weight: bold;\r\n  color: white;\r\n  text-shadow:\r\n    1px 1px 5px #000,\r\n    2px 2px 5px #000;\n}\n.set-li[data-v-1e7735a0]{\r\n  list-style: none;\r\n  width:100%;\r\n  font-size:2.5em;\r\n  margin-bottom: 1%;\r\n  line-height: 135%;\r\n  font-weight: bold;\r\n  color: white;\r\n  text-shadow:\r\n    1px 1px 5px #000,\r\n    2px 2px 5px #000;\n}\n.infro-people[data-v-1e7735a0]{\r\n  height: 20%;\r\n  margin-bottom: 3%;\r\n  background: rgba(255,201,82,.8) url(/img/room_people.png) no-repeat 5% 100%;\r\n  background-size: 40%;\n}\n.infro-setting[data-v-1e7735a0]{\r\n  padding: 3%;\r\n  height: 35%;\r\n  margin-bottom: 3%;\r\n  background: rgba(236,115,87,.8) url(/img/setting_1.png) no-repeat 94% -5%;\r\n  background-size: 45%;\n}\n.infro-chatting[data-v-1e7735a0]{\r\n  padding: 3%;\r\n  height: 40%;\r\n  background: rgba(117,79,68,.8) url(/img/chat.png) no-repeat 5% 120%;\r\n  background-size: 53%;\n}\n.go-button[data-v-1e7735a0]{\r\n  background: transparent url(/img/go.png) no-repeat center 15%;\r\n  background-size: 50%;\r\n  width:100%;\r\n  height:100%;\n}\n.people[data-v-1e7735a0]{\r\n  text-align: right;\r\n  font-size: 4em;\r\n  float:left;\r\n  width:40%;\n}\n.current[data-v-1e7735a0]{\r\n  font-weight: bold;\r\n  font-size: 7em;\r\n  float:left;\r\n  width:25%;\n}\n.total[data-v-1e7735a0]{\r\n  font-size: 3.5em;\r\n  float: right;\r\n  width: 20%;\n}\n.gametype[data-v-1e7735a0]{\r\n  float:left;\r\n  width:25%;\r\n  height: 90%;\r\n  margin-top: 3%;\r\n  border-radius: 30px 0px 0px 30px;\r\n  background-color:  rgba(253,153,154,.7);\n}\n.brain-method[data-v-1e7735a0]{\r\n  float:left;\r\n  width:25%;\r\n  height: 90%;\r\n  margin-top: 3%;\r\n  border-radius: 0px 30px 30px 0px;\r\n  background-color: rgba(103,213,181,.7);\n}\n.other-setting[data-v-1e7735a0]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  float:left;\r\n  width:50%;\n}\n.infro-img[data-v-1e7735a0]{\r\n  width:100%;\r\n  height:60%;\n}\n.infro-text[data-v-1e7735a0]{\r\n  width:100%;\r\n  height:40%;\r\n  font-size: 4em;\r\n  font-weight: bold;\r\n  text-align: center;\n}\n#toolong[data-v-1e7735a0]{\r\n  font-size: 2.5em;\r\n  font-weight: bold;\n}\n#pass[data-v-1e7735a0]{\r\n    background: transparent url(/img/pass.png) no-repeat center center;\r\n    background-size: 70%;\n}\n#sixhat[data-v-1e7735a0]{\r\n    background: transparent url(/img/hat.png) no-repeat center center;\r\n    background-size: 80%;\n}\n.white-bg[data-v-1e7735a0]{\r\n  position: absolute;\r\n  z-index: 1;\r\n  width: 100%;\r\n  height: 100%;\r\n  background-color: rgba(255,255,255,.7);\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.nav-bar[data-v-1e7735a0]{\r\n  width: 106%;\r\n  height: 7%;\r\n  margin-left: -3%;\r\n  -webkit-box-shadow: 0px 5px 8px #9baec8;\r\n          box-shadow: 0px 5px 8px #9baec8; \r\n  font-size: 3em;\n}\n.waiting-header[data-v-1e7735a0]{\r\n  width: 100%;\r\n  height: 12%;\r\n  font-size: 7em;\r\n  font-weight: bold;\r\n  color: #ff7473;\r\n  text-shadow: 2px 3px 9px #c03546;\n}\n.waiting-body[data-v-1e7735a0]{\r\n  padding: 0% 6%;\r\n  width: 100%;\r\n  height: 63%;\n}\n.waiting-bottom[data-v-1e7735a0]{\r\n  width: 100%;\r\n  height: 18%;\n}\n.col[data-v-1e7735a0]{\r\n  width: 100%;\r\n  border-radius: 30px;\r\n  -webkit-box-shadow:\r\n    2px 2px 2px rgba(20%,20%,40%,0.6),\r\n    4px 4px 6px rgba(20%,20%,40%,0.4),\r\n    6px 6px 12px rgba(20%,20%,40%,0.4);\r\n          box-shadow:\r\n    2px 2px 2px rgba(20%,20%,40%,0.6),\r\n    4px 4px 6px rgba(20%,20%,40%,0.4),\r\n    6px 6px 12px rgba(20%,20%,40%,0.4);\n}\n.chat-ul[data-v-1e7735a0]{\r\n  width:100%;\r\n  height: 100%;\r\n  overflow-y: scroll;\n}\n.chat-li[data-v-1e7735a0]{\r\n  width:100%;\r\n  font-size:3em;\r\n  margin-bottom: 1%;\r\n  line-height: 135%;\r\n  font-weight: bold;\r\n  color: white;\r\n  text-shadow:\r\n    1px 1px 5px #000,\r\n    2px 2px 5px #000;\n}\n.set-li[data-v-1e7735a0]{\r\n  list-style: none;\r\n  width:100%;\r\n  font-size:2.5em;\r\n  margin-bottom: 1%;\r\n  line-height: 135%;\r\n  font-weight: bold;\r\n  color: white;\r\n  text-shadow:\r\n    1px 1px 5px #000,\r\n    2px 2px 5px #000;\n}\n.infro-people[data-v-1e7735a0]{\r\n  height: 20%;\r\n  margin-bottom: 2%;\r\n  background: rgba(255,201,82,.8) url(/img/room_people.png) no-repeat 5% 100%;\r\n  background-size: 40%;\n}\n.infro-setting[data-v-1e7735a0]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  height: 35%;\r\n  margin-bottom: 2%;\r\n  background: rgba(236,115,87,.8) url(/img/setting_1.png) no-repeat 94% -5%;\r\n  background-size: 45%;\n}\n.infro-chatting[data-v-1e7735a0]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  height: 40%;\r\n  background: rgba(117,79,68,.8) url(/img/chat.png) no-repeat 5% 120%;\r\n  background-size: 53%;\n}\n.go-button[data-v-1e7735a0]{\r\n  background: transparent url(/img/go.png) no-repeat center 15%;\r\n  background-size: 50%;\r\n  width:100%;\r\n  height:100%;\n}\n.people[data-v-1e7735a0]{\r\n  float:left;\r\n  width:40%;\n}\n.current[data-v-1e7735a0]{\r\n  font-weight: bold;\r\n  font-size: 7em;\r\n  float:right;\r\n  width:25%;\n}\n.total[data-v-1e7735a0]{\r\n  font-size: 3.5em;\r\n  float: right;\r\n  width: 20%;\n}\n.gametype[data-v-1e7735a0]{\r\n  float:left;\r\n  width:25%;\r\n  height: 90%;\r\n  margin-top: 3%;\r\n  border-radius: 30px 0px 0px 30px;\r\n  background-color:  rgba(253,153,154,.7);\n}\n.brain-method[data-v-1e7735a0]{\r\n  float:left;\r\n  width:25%;\r\n  height: 90%;\r\n  margin-top: 3%;\r\n  border-radius: 0px 30px 30px 0px;\r\n  background-color: rgba(103,213,181,.7);\n}\n.other-setting[data-v-1e7735a0]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  float:left;\r\n  width:50%;\n}\n.infro-img[data-v-1e7735a0]{\r\n  width:100%;\r\n  height:60%;\n}\n.infro-text[data-v-1e7735a0]{\r\n  width:100%;\r\n  height:40%;\r\n  font-size: 2.8em;\r\n  font-weight: bold;\r\n  text-align: center;\n}\n#no-r[data-v-1e7735a0]{\r\n  background: transparent url('/img/no-r.png') no-repeat center center;\r\n  background-size: 70%;\n}\n#no-g[data-v-1e7735a0]{\r\n  background: transparent url('/img/no-g.png') no-repeat center center;\r\n  background-size: 70%;\n}\n#pass[data-v-1e7735a0]{\r\n  background: transparent url('/img/pass.png') no-repeat center center;\r\n  background-size: 70%;\n}\n#sixhat[data-v-1e7735a0]{\r\n  background: transparent url('/img/hat.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#stf[data-v-1e7735a0]{\r\n  background: transparent url('/img/stf.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#role-play[data-v-1e7735a0]{\r\n  background: transparent url('/img/role-play.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#talking[data-v-1e7735a0]{\r\n  background: transparent url('/img/talking.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#passgate[data-v-1e7735a0]{\r\n  background: transparent url('/img/passgate.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#groupfight[data-v-1e7735a0]{\r\n  background: transparent url('/img/groupfight.png') no-repeat center center;\r\n  background-size: 80%;\n}\n.white-bg[data-v-1e7735a0]{\r\n  position: absolute;\r\n  z-index: 1;\r\n  width: 100%;\r\n  height: 100%;\r\n  background-color: rgba(255,255,255,.7);\n}\n.nav-btn[data-v-1e7735a0]{\r\n  float: left;\r\n  width: 12%;\n}\n#return[data-v-1e7735a0]{\r\n  background: transparent url('/img/return.png') no-repeat center center;\r\n  background-size: 25%;\n}\n.class-name[data-v-1e7735a0]{\r\n  float: left;\r\n  width: 76%;\n}\n#no-r[data-v-1e7735a0]{\r\n  background: transparent url('/img/no-r.png') no-repeat center center;\r\n  background-size: 70%;\n}\n#no-g[data-v-1e7735a0]{\r\n  background: transparent url('/img/no-g.png') no-repeat center center;\r\n  background-size: 70%;\n}\n#pass[data-v-1e7735a0]{\r\n  background: transparent url('/img/pass.png') no-repeat center center;\r\n  background-size: 70%;\n}\n#sixhat[data-v-1e7735a0]{\r\n  background: transparent url('/img/hat.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#stf[data-v-1e7735a0]{\r\n  background: transparent url('/img/stf.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#role-play[data-v-1e7735a0]{\r\n  background: transparent url('/img/role-play.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#talking[data-v-1e7735a0]{\r\n  background: transparent url('/img/talking.png') no-repeat center center;\r\n  background-size: 80%;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -51360,12 +51680,28 @@ var render = function() {
     "div",
     { staticClass: "container" },
     [
-      _vm.isSettingOpen ? _c("set") : _vm._e(),
+      _vm.isSettingOpen
+        ? _c("set", {
+            attrs: { isSettingOpen: _vm.isSettingOpen, setting: _vm.setting },
+            on: { "click-okay": _vm.changePage }
+          })
+        : _vm._e(),
       _vm._v(" "),
-      _vm.isSettingOpen ? _c("div", { staticClass: "white-bg" }) : _vm._e(),
-      _vm._v(" "),
-      _c("div", { staticClass: "waiting-class f-c" }, [
-        _vm._v("〈課程名稱〉(還不知道怎排版)")
+      _c("div", { staticClass: "nav-bar f-c" }, [
+        _c("div", {
+          staticClass: "nav-btn h-100",
+          attrs: { id: "return" },
+          on: { click: _vm.return_to_pre }
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "class-name h-100 f-c" }, [
+          _vm._v("〈課程名稱〉")
+        ]),
+        _vm._v(" "),
+        _c("div", {
+          staticClass: "nav-btn h-100",
+          on: { click: _vm.return_to_pre }
+        })
       ]),
       _vm._v(" "),
       _c("div", { staticClass: "waiting-header f-c animated bounceInDown" }, [
@@ -51381,11 +51717,47 @@ var render = function() {
             staticClass: "col infro-setting b-x animated fadeInUp",
             on: {
               click: function($event) {
-                !_vm.isSettingOpen
+                _vm.OpenSettingPage()
               }
             }
           },
-          [_vm._m(1), _vm._v(" "), _vm._m(2), _vm._v(" "), _vm._m(3)]
+          [
+            _c("div", { staticClass: "gametype h-100" }, [
+              _c("div", {
+                staticClass: "infro-img",
+                attrs: { id: _vm.setting.gameID }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "infro-text f-c" }, [
+                _vm._v(_vm._s(_vm.setting.gameName))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "brain-method h-100" }, [
+              _c("div", {
+                staticClass: "infro-img",
+                attrs: { id: _vm.setting.brainID }
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "infro-text f-c" }, [
+                _vm._v(_vm._s(_vm.setting.brainName))
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "other-setting h-100" }, [
+              _c("li", { staticClass: "set-li" }, [
+                _vm._v("時間：" + _vm._s(_vm.setting.time))
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "set-li" }, [
+                _vm._v("分組：" + _vm._s(_vm.setting.group))
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "set-li" }, [
+                _vm._v("題目：" + _vm._s(_vm.setting.topic))
+              ])
+            ])
+          ]
         ),
         _vm._v(" "),
         _c("div", { staticClass: "col infro-chatting b-x animated fadeInUp" }, [
@@ -51399,7 +51771,7 @@ var render = function() {
         ])
       ]),
       _vm._v(" "),
-      _vm._m(4)
+      _vm._m(1)
     ],
     1
   )
@@ -51413,47 +51785,13 @@ var staticRenderFns = [
       "div",
       { staticClass: "col infro-people b-x f-c animated fadeInUp" },
       [
+        _c("span", { staticClass: "people f-c h-100" }),
+        _vm._v(" "),
         _c("span", { staticClass: "current f-c h-100" }, [_vm._v("10")]),
         _vm._v(" "),
         _c("span", { staticClass: "total f-c h-100" }, [_vm._v("/ 15人")])
       ]
     )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "gametype h-100" }, [
-      _c("div", { staticClass: "infro-img", attrs: { id: "pass" } }),
-      _vm._v(" "),
-      _c("div", { staticClass: "infro-text f-c" }, [_vm._v("闖關")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "brain-method h-100" }, [
-      _c("div", { staticClass: "infro-img", attrs: { id: "sixhat" } }),
-      _vm._v(" "),
-      _c("div", { staticClass: "infro-text f-c", attrs: { id: "toolong" } }, [
-        _vm._v("六頂思考帽法")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "other-setting h-100" }, [
-      _c("li", { staticClass: "set-li" }, [_vm._v("各種遊戲設定rrrrrr")]),
-      _vm._v(" "),
-      _c("li", { staticClass: "set-li" }, [_vm._v("懶得排版惹")]),
-      _vm._v(" "),
-      _c("li", { staticClass: "set-li" }, [_vm._v("QQQQQQQQ")]),
-      _vm._v(" "),
-      _c("li", { staticClass: "set-li" }, [_vm._v("GGGGGGGG")])
-    ])
   },
   function() {
     var _vm = this

@@ -1,30 +1,39 @@
 <template>
   <div class="container">
-    <set v-if="isSettingOpen"></set>
-    <div v-if="isSettingOpen" class="white-bg"></div>
+    <set
+      v-if="isSettingOpen"
+      :isSettingOpen="isSettingOpen"
+      :setting="setting"
+      v-on:click-okay="changePage"
+    >
+    </set>
 
-    <div class="waiting-class f-c">〈課程名稱〉(還不知道怎排版)</div>
+    <div class="nav-bar f-c">
+    <div class="nav-btn h-100" id="return" @click="return_to_pre"></div>
+    <div class="class-name h-100 f-c">〈課程名稱〉</div>
+    <div class="nav-btn h-100" @click="return_to_pre"></div>
+    </div>
     <div class="waiting-header f-c animated bounceInDown">等待遊戲者...</div>
     <div class="waiting-body b-x">
       <div class="col infro-people b-x f-c animated fadeInUp">
+        <span class="people f-c h-100"></span>
         <span class="current f-c h-100">10</span>
         <span class="total f-c h-100">/ 15人</span>
       </div>
 
-      <div @click="!isSettingOpen" class="col infro-setting b-x animated fadeInUp">
+      <div @click="OpenSettingPage()" class="col infro-setting b-x animated fadeInUp">
         <div class="gametype h-100">
-          <div class="infro-img" id="pass"></div>
-          <div class="infro-text f-c">闖關</div>
+          <div class="infro-img" :id="setting.gameID"></div>
+          <div class="infro-text f-c">{{setting.gameName}}</div>
         </div>
         <div class="brain-method h-100">
-          <div class="infro-img" id="sixhat"></div>
-          <div class="infro-text f-c" id="toolong">六頂思考帽法</div>
+          <div class="infro-img" :id="setting.brainID"></div>
+          <div class="infro-text f-c" >{{setting.brainName}}</div>
         </div>
         <div class="other-setting h-100">
-          <li class="set-li">各種遊戲設定rrrrrr</li>
-          <li class="set-li">懶得排版惹</li>
-          <li class="set-li">QQQQQQQQ</li>
-          <li class="set-li">GGGGGGGG</li>
+          <li class="set-li">時間：{{setting.time}}</li>
+          <li class="set-li">分組：{{setting.group}}</li>
+          <li class="set-li">題目：{{setting.topic}}</li>
         </div>
       </div>
 
@@ -46,12 +55,35 @@
   export default {
     data() {
       return {
-        isSettingOpen: false,
-        chatting:[]
+        chatting:[],
+        isSettingOpen: true,
+        setting: {
+          gameName: '遊戲模式',
+          gameID: 'no-r',
+          brainName: '腦力激盪技法',
+          brainID: 'no-g',
+          time: '30分',
+          group: '平均分配',
+          topic: '題目未定'
+        }
       }
     },
     components:{
       'set': Setting
+    },
+    methods: {
+      return_to_pre: function(){
+        this.$router.push({ path: '/courselist' });
+      },
+      changePage: function(data){
+        this.isSettingOpen = data;
+      },
+      changeSetting: function(data){
+        this.isSettingOpen = data;
+      },
+      OpenSettingPage: function(){
+        this.isSettingOpen = true;
+      }
     },
     mounted: function(){
 
@@ -70,15 +102,17 @@
 
 <style scoped>
 
-.waiting-class{
-  width: 100%;
+.nav-bar{
+  width: 106%;
   height: 7%;
+  margin-left: -3%;
+  box-shadow: 0px 5px 8px #9baec8; 
   font-size: 3em;
 }
 
 .waiting-header{
   width: 100%;
-  height: 8%;
+  height: 12%;
   font-size: 7em;
   font-weight: bold;
   color: #ff7473;
@@ -86,14 +120,14 @@
 }
 
 .waiting-body{
-  padding: 3.5% 5%;
+  padding: 0% 6%;
   width: 100%;
-  height: 70%;
+  height: 63%;
 }
 
 .waiting-bottom{
   width: 100%;
-  height: 15%;
+  height: 18%;
 }
 
 .col{
@@ -138,20 +172,22 @@
 
 .infro-people{
   height: 20%;
-  margin-bottom: 3%;
+  margin-bottom: 2%;
   background: rgba(255,201,82,.8) url(/img/room_people.png) no-repeat 5% 100%;
   background-size: 40%;
 }
 
 .infro-setting{
+  box-sizing: border-box;
   padding: 3%;
   height: 35%;
-  margin-bottom: 3%;
+  margin-bottom: 2%;
   background: rgba(236,115,87,.8) url(/img/setting_1.png) no-repeat 94% -5%;
   background-size: 45%;
 }
 
 .infro-chatting{
+  box-sizing: border-box;
   padding: 3%;
   height: 40%;
   background: rgba(117,79,68,.8) url(/img/chat.png) no-repeat 5% 120%;
@@ -166,8 +202,6 @@
 }
 
 .people{
-  text-align: right;
-  font-size: 4em;
   float:left;
   width:40%;
 }
@@ -175,7 +209,7 @@
 .current{
   font-weight: bold;
   font-size: 7em;
-  float:left;
+  float:right;
   width:25%;
 }
 
@@ -218,24 +252,54 @@
 .infro-text{
   width:100%;
   height:40%;
-  font-size: 4em;
+  font-size: 2.8em;
   font-weight: bold;
   text-align: center;
 }
 
-#toolong{
-  font-size: 2.5em;
-  font-weight: bold;
+#no-r{
+  background: transparent url('/img/no-r.png') no-repeat center center;
+  background-size: 70%;
+}
+
+#no-g{
+  background: transparent url('/img/no-g.png') no-repeat center center;
+  background-size: 70%;
 }
 
 #pass{
-    background: transparent url(/img/pass.png) no-repeat center center;
-    background-size: 70%;
+  background: transparent url('/img/pass.png') no-repeat center center;
+  background-size: 70%;
 }
 
 #sixhat{
-    background: transparent url(/img/hat.png) no-repeat center center;
-    background-size: 80%;
+  background: transparent url('/img/hat.png') no-repeat center center;
+  background-size: 80%;
+}
+
+#stf{
+  background: transparent url('/img/stf.png') no-repeat center center;
+  background-size: 80%;
+}
+
+#role-play{
+  background: transparent url('/img/role-play.png') no-repeat center center;
+  background-size: 80%;
+}
+
+#talking{
+  background: transparent url('/img/talking.png') no-repeat center center;
+  background-size: 80%;
+}
+
+#passgate{
+  background: transparent url('/img/passgate.png') no-repeat center center;
+  background-size: 80%;
+}
+
+#groupfight{
+  background: transparent url('/img/groupfight.png') no-repeat center center;
+  background-size: 80%;
 }
 
 .white-bg{
@@ -244,6 +308,56 @@
   width: 100%;
   height: 100%;
   background-color: rgba(255,255,255,.7);
+}
+
+.nav-btn{
+  float: left;
+  width: 12%;
+}
+
+#return{
+  background: transparent url('/img/return.png') no-repeat center center;
+  background-size: 25%;
+}
+
+.class-name{
+  float: left;
+  width: 76%;
+}
+
+#no-r{
+  background: transparent url('/img/no-r.png') no-repeat center center;
+  background-size: 70%;
+}
+
+#no-g{
+  background: transparent url('/img/no-g.png') no-repeat center center;
+  background-size: 70%;
+}
+
+#pass{
+  background: transparent url('/img/pass.png') no-repeat center center;
+  background-size: 70%;
+}
+
+#sixhat{
+  background: transparent url('/img/hat.png') no-repeat center center;
+  background-size: 80%;
+}
+
+#stf{
+  background: transparent url('/img/stf.png') no-repeat center center;
+  background-size: 80%;
+}
+
+#role-play{
+  background: transparent url('/img/role-play.png') no-repeat center center;
+  background-size: 80%;
+}
+
+#talking{
+  background: transparent url('/img/talking.png') no-repeat center center;
+  background-size: 80%;
 }
 
 </style>
