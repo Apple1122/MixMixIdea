@@ -1,16 +1,23 @@
 require('./bootstrap');
-import VueRouter from 'vue-router';
-import routes from './routes';
+import Login from './components/Login'
+import CourseList from './components/CourseList'
+import TWaiting from './components/TWaiting'
+import SWaiting from './components/SWaiting'
 
-// Set Up Router for vue - Andy
-Vue.use(VueRouter);
-const router = new VueRouter({
-  routes,
-  mode: 'history'
-})
-
-// New An Instance
 var vm = new Vue({
-  router,
-  el: '#app'
+  el: '#app',
+  data: {
+    currentComponent: 'login'
+  },
+  components: {
+    'login': Login,
+    'courselist': CourseList,
+    't_w': TWaiting,
+    's_w': SWaiting
+  },
+  methods: {
+    swapComponent: function (component) {
+      this.currentComponent = component;
+    }
+  }
 });
