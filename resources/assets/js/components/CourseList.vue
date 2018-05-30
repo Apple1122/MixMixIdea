@@ -97,8 +97,6 @@ export default {
               console.log(err);
             });
         });
-      } else {
-        this.$router.push({ path: "/waiting" });
       }
     },
 

@@ -131,13 +131,13 @@ export default {
     self.socket = require("socket.io-client")("http://localhost:6379");
     self.socket.on("connect", () => {
       console.log(self.socket.id);
-      self.socket.emit("createRoom", self.course_id);
+      self.socket.emit("joinRoom", self.course_id);
     });
     self.socket.on("message", function(data) {
       console.log(data);
     });
     self.socket.on("updateCurrentPeople", function(data) {
-      console.log(data);
+      console.log("房間人數: " + data);
       self.currentPeople = data;
     });
 
@@ -158,8 +158,24 @@ export default {
   },
   destroyed: function() {
     let self = this;
-    self.socket.emit("teacherLeave", self.course_id);
-    sessionStorage.removeItem("room_course_id");
+    self.$nextTick(function() {
+      axios
+        .post("/room/leave", {
+          course_id: self.course_id
+        })
+        .then(function(rtn) {
+          if (!rtn.data.errmsg) {
+            console.log(rtn.data);
+            self.socket.emit("teacherLeave", self.course_id);
+            sessionStorage.removeItem("room_course_id");
+          } else {
+            console.log(rtn.data.errmsg);
+          }
+        })
+        .catch(function(err) {
+          console.log(err);
+        });
+    });
   }
 };
 </script>
