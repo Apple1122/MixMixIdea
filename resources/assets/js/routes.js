@@ -3,6 +3,7 @@ import CourseList from './components/CourseList'
 import TWaiting from './components/TWaiting'
 import SWaiting from './components/SWaiting'
 import Loading from './components/loading'
+import Gameroom_sixhat from './components/Gameroom_sixhat'
 
 const routes = [{
     path: '/',
@@ -19,7 +20,11 @@ const routes = [{
   {
     path: '/t_waiting',
     component: TWaiting
+  },
+  {
+    path: '/gameroom_sixhat',
+    component: Gameroom_sixhat
   }
-]
+];
 
 export default routes

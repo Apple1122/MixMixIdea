@@ -15,7 +15,8 @@ Route::combine([
     '/',
     '/courselist',
     '/s_waiting',
-    '/t_waiting'
+    '/t_waiting',
+    '/gameroom_sixhat'
 ], function () {
     return view('app');
 });
