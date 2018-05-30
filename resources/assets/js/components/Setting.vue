@@ -391,6 +391,8 @@
   padding: 3%;
   width: 100%;
   font-size: 1em;
+  outline: none;
+  border: 0;
 }
 
 </style>

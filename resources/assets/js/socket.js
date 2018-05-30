@@ -20,14 +20,12 @@ server.listen(6379, function () {
 io.on('connection', (socket) => {
 
     socket.on("createRoom", (data) => {
-        socket.join(data)
+        socket.join(data);
         console.log(io.nsps['/'].adapter.rooms);
-
     });
 
     socket.on("joinRoom", (data) => {
-        socket.join(data)
-
+        socket.join(data);
         console.log(io.nsps['/'].adapter.rooms);
 
     });

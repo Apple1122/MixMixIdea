@@ -8,10 +8,16 @@
     >
     </set>
 
+    <chatroom
+      v-if="isChattingOpen"
+      :chatting="chatting"
+    >
+    </chatroom>
+
     <div class="nav-bar f-c">
-    <div class="nav-btn h-100" id="return" @click="return_to_pre"></div>
+    <div class="nav-btn h-100" id="return" @click="return_to_pre()"></div>
     <div class="class-name h-100 f-c">〈{{courseName}}〉</div>
-    <div class="nav-btn h-100" @click="return_to_pre"></div>
+    <div class="nav-btn h-100" ></div>
     </div>
     <div class="waiting-header f-c animated bounceInDown">等待遊戲者...</div>
     <div class="waiting-body b-x">
@@ -37,9 +43,9 @@
         </div>
       </div>
 
-      <div class="col infro-chatting b-x animated fadeInUp">
+      <div @click="OpenChattingPage()" class="col infro-chatting b-x animated fadeInUp">
           <ul class="chat-ul">
-            <li v-for="t in chatting" class="chat-li">{{t}}</li>
+            <li v-for="t in chatting" class="chat-li">{{t.name}}:{{t.text}}</li>
           </ul>
       </div>
 
@@ -51,12 +57,14 @@
 </template>
 
 <script>
-  import Setting from './Setting'
+  import Setting from './Setting';
+  import Chatroom from './Chatroom';
   export default {
     data() {
       return {
         chatting:[],
-        isSettingOpen: true,
+        isSettingOpen: false,
+        isChattingOpen: false,
         currentPeople: 1,
         course_id: sessionStorage.getItem("room_course_id"),
         courseName: "",
@@ -72,11 +80,14 @@
       }
     },
     components:{
-      'set': Setting
+      'set': Setting,
+      'chatroom': Chatroom
     },
     methods: {
       return_to_pre: function(){
-        this.$router.push({ path: '/courselist' });
+        if(this.isChattingOpen) this.isChattingOpen = false;
+        else if (this.isSettingOpen) this.isSettingOpen = false;
+        else this.$router.push({ path: '/courselist' });
       },
       changePage: function(data){
         this.isSettingOpen = data;
@@ -86,8 +97,17 @@
       },
       OpenSettingPage: function(){
         this.isSettingOpen = true;
-      }
+      },
+      OpenChattingPage: function(){
+        this.isChattingOpen = true;
+      },
     },
+
+    beforeCreate: function() {
+      let isLogin = sessionStorage.getItem("loginAs");
+      if (!isLogin) this.$router.push({ path: "/" });
+    },
+
     mounted: function() {
       let self = this;
       self.$nextTick(function() {
@@ -117,10 +137,24 @@
       });
       socket.on("disconnect", function() {});
       
+      //For Test
+      // let repeat = "測試";
+      // for(let i=0; i<=5 ; i++){
+      //   let now = new Date();
+      //   let chat = {
+      //     name: 'Andy',
+      //     text: 'hihi,for test'+repeat,
+      //     time: now.getHours()+':'+now.getMinutes()
+      //   };
+      //   repeat += repeat;
+      //   self.chatting.push(chat);
+      // };
+
     },
     destroyed: function() {
         sessionStorage.removeItem("room_course_id");
     }
+
   };
 </script>
 
@@ -341,7 +375,9 @@
 
 .class-name{
   float: left;
+  font-weight: bold;
   width: 76%;
+  font-size: 1.1em;
 }
 
 #no-r{
