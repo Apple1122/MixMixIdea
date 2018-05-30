@@ -15,9 +15,9 @@
     </chatroom>
 
     <div class="nav-bar f-c">
-    <div class="nav-btn h-100" id="return" @click="return_to_pre()"></div>
-    <div class="class-name h-100 f-c">〈{{courseName}}〉</div>
-    <div class="nav-btn h-100" ></div>
+      <div class="nav-btn h-100" id="return" @click="return_to_pre()"></div>
+      <div class="class-name h-100 f-c">〈{{courseName}}〉</div>
+      <div class="nav-btn h-100" ></div>
     </div>
     <div class="waiting-header f-c animated bounceInDown">等待遊戲者...</div>
     <div class="waiting-body b-x">

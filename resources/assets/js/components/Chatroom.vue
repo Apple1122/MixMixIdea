@@ -16,6 +16,9 @@
             <div class="others-infro">
                 <img class="image" src="/img/pass.png" />
                 <div class="name">Andy
+                </div>>
+                <img class="image" src="/img/pass.png" />
+                <div class="name">Andy
                 </div>
             </div>
             <div class="dialogbox">測試</div>

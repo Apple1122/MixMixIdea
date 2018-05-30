@@ -3,6 +3,7 @@ import CourseList from './components/CourseList'
 import TWaiting from './components/TWaiting'
 import SWaiting from './components/SWaiting'
 import Loading from './components/loading'
+import Analysis from './components/Analysis'
 
 const routes = [{
     path: '/',
@@ -19,6 +20,10 @@ const routes = [{
   {
     path: '/t_waiting',
     component: TWaiting
+  },
+  {
+    path: '/analysis',
+    component: Analysis
   }
 ]
 
