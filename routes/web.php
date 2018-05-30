@@ -16,7 +16,8 @@ Route::combine([
     '/courselist',
     '/s_waiting',
     '/t_waiting',
-    '/gameroom_sixhat'
+    '/gameroom_sixhat',
+    '/analysis'
 ], function () {
     return view('app');
 });
