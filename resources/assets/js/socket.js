@@ -23,7 +23,6 @@ io.on('connection', (socket) => {
         socket.join(data)
         console.log(socket.id);
         console.log(io.nsps['/'].adapter.rooms);
-
     });
 
     socket.on("joinRoom", (data) => {

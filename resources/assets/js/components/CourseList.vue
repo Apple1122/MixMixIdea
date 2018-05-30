@@ -123,6 +123,11 @@ export default {
     }
   },
 
+  beforeCreate: function() {
+    let isLogin = sessionStorage.getItem("loginAs");
+    if (!isLogin) this.$router.push({ path: "/" });
+  },
+
   mounted: function() {
     let self = this;
     self.$nextTick(function() {
