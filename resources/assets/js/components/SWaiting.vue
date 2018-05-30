@@ -42,6 +42,7 @@
 export default {
   data() {
     return {
+      socket: "",
       chatting: [],
       currentPeople: 1,
       courseName: "",
@@ -67,17 +68,27 @@ export default {
         });
     });
 
-    var socket = require("socket.io-client")("http://localhost:6379");
-    socket.on("connect", function() {
-      console.log(socket.id);
-      socket.emit("joinRoom", self.course_id);
+    self.socket = require("socket.io-client")("http://localhost:6379");
+    self.socket.on("connect", () => {
+      console.log(self.socket.id);
+      self.socket.emit("joinRoom", self.course_id);
     });
-    socket.on("message", function(data) {
+    self.socket.on("message", function(data) {
       console.log(data);
     });
-    socket.on("disconnect", function() {});
+    self.socket.on("updateCurrentPeople", function(data) {
+      console.log("房間人數: " + data);
+      self.currentPeople = data;
+    });
+    self.socket.on("teacherLeave", function() {
+      self.$router.push({ path: "/courseList" });
+      console.log("teacher left!");
+    });
+    self.socket.on("disconnect", function() {});
   },
   destroyed: function() {
+    let self = this;
+    self.socket.emit("leaveRoom", self.course_id);
     sessionStorage.removeItem("room_course_id");
   }
 };

@@ -20,12 +20,15 @@
     "vue": "^2.5.7"
   },
   "dependencies": {
+    "chart.js": "^2.7.2",
+    "chartjs-plugin-datalabels": "^0.3.0",
     "express": "^4.16.3",
     "ioredis": "^3.2.2",
     "laravel-echo": "^1.4.0",
     "pusher-js": "^4.2.2",
     "socket.io": "^2.1.1",
     "socket.io-client": "^2.1.1",
+    "vue-chartjs": "^3.3.1",
     "vue-router": "^3.0.1"
   }
 }

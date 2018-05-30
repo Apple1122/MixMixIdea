@@ -1,23 +1,23 @@
 require('./bootstrap');
-import Login from './components/Login'
-import CourseList from './components/CourseList'
-import TWaiting from './components/TWaiting'
-import SWaiting from './components/SWaiting'
+import VueRouter from 'vue-router';
+import routes from './routes';
+import ChartJsPluginDataLabels from 'chartjs-plugin-datalabels';
+import Chart from 'chart.js';
+Chart.defaults.global.defaultFontSize = 50;
+Chart.defaults.global.defaultFontFamily =  'Microsoft JhengHei';
 
+// Set Up Router for vue - Andy
+Vue.use(VueRouter);
+const router = new VueRouter({
+  routes,
+  mode: 'history'
+})
+
+// New An Instance
 var vm = new Vue({
+  router,
   el: '#app',
-  data: {
-    currentComponent: 'login'
-  },
   components: {
-    'login': Login,
-    'courselist': CourseList,
-    't_w': TWaiting,
-    's_w': SWaiting
-  },
-  methods: {
-    swapComponent: function (component) {
-      this.currentComponent = component;
-    }
+    ChartJsPluginDataLabels
   }
 });

@@ -19,20 +19,48 @@ server.listen(6379, function () {
 
 io.on('connection', (socket) => {
 
-    socket.on("createRoom", (data) => {
-        socket.join(data)
+    socket.on("createRoom", (roomId) => {
+        socket.join(roomId)
+        if(io.nsps['/'].adapter.rooms[roomId])
+            var currentPeople = io.nsps['/'].adapter.rooms[roomId].length;
         console.log(socket.id);
         console.log(io.nsps['/'].adapter.rooms);
-
+        socket.broadcast.to(roomId).emit('updateCurrentPeople', currentPeople);
     });
 
-    socket.on("joinRoom", (data) => {
-        socket.join(data)
-        console.log(socket.id);
+    socket.on("joinRoom", (roomId) => {
+        socket.join(roomId);
+        if(io.nsps['/'].adapter.rooms[roomId])
+            var currentPeople = io.nsps['/'].adapter.rooms[roomId].length;
+        console.log(socket.id + " join\n");
         console.log(io.nsps['/'].adapter.rooms);
+        console.log("\n");
+        console.log(currentPeople);
+        console.log("\n");
 
+        socket.emit('updateCurrentPeople', currentPeople);
+        socket.broadcast.to(roomId).emit('updateCurrentPeople', currentPeople);
     });
 
+    socket.on("teacherLeave", (roomId) => {
+        socket.broadcast.to(roomId).emit('teacherLeave');
+        socket.leave(roomId);
+        socket.disconnect();
+    })
+
+    socket.on("leaveRoom", (roomId) => {
+        socket.leave(roomId)
+        socket.disconnect();
+        if(io.nsps['/'].adapter.rooms[roomId])
+            var currentPeople = io.nsps['/'].adapter.rooms[roomId].length;
+
+        console.log(socket.id + " left \n");
+        console.log(io.nsps['/'].adapter.rooms);
+        console.log("\n");
+        socket.broadcast.to(roomId).emit('updateCurrentPeople', currentPeople);
+    });
+
+    //for testing
     socket.on("got", (data) => {
         console.log(socket.id);
         socket.send("got");
