@@ -76,6 +76,9 @@ export default {
       console.log(data);
     });
     socket.on("disconnect", function() {});
+  },
+  destroyed: function() {
+    sessionStorage.removeItem("room_course_id");
   }
 };
 </script>

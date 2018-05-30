@@ -60817,6 +60817,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       console.log(data);
     });
     socket.on("disconnect", function () {});
+  },
+  destroyed: function destroyed() {
+    sessionStorage.removeItem("room_course_id");
   }
 });
 
