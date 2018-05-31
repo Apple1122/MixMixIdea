@@ -74182,8 +74182,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["chatting"],
@@ -74200,14 +74198,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       }
     },
     sendMyText: function sendMyText() {
-      var now = new Date();
-      var chat = {
-        name: "Andy",
-        text: this.input_text,
-        time: now.getHours() + ":" + (now.getMinutes() < 10 ? "0" : "") + now.getMinutes()
-      };
-      this.chatting.push(chat);
-      this.input_text = "";
+      if (this.input_text != "") {
+        var now = new Date();
+        var chat = {
+          name: "Andy",
+          text: this.input_text,
+          time: now.getHours() + ":" + (now.getMinutes() < 10 ? "0" : "") + now.getMinutes()
+        };
+        this.chatting.push(chat);
+        this.input_text = "";
+      }
     }
   },
   updated: function updated() {
@@ -74241,9 +74241,7 @@ var render = function() {
                 attrs: { src: "/img/pass.png" }
               }),
               _vm._v(" "),
-              _c("div", { staticClass: "name" }, [
-                _vm._v(_vm._s(chat.name) + "\n              ")
-              ])
+              _c("div", { staticClass: "name" }, [_vm._v(_vm._s(chat.name))])
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "dialogbox" }, [
