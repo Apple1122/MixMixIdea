@@ -11,6 +11,7 @@
     <chatroom
       v-if="isChattingOpen"
       :chatting="chatting"
+      :socket="socket"
     >
     </chatroom>
 
@@ -108,7 +109,6 @@ export default {
     let isLogin = sessionStorage.getItem("loginAs");
     if (!isLogin) this.$router.push({ path: "/" });
   },
-
   mounted: function() {
     let self = this;
     self.$nextTick(function() {
@@ -140,6 +140,9 @@ export default {
       console.log("房間人數: " + data);
       self.currentPeople = data;
     });
+    self.socket.on("updateChat", function(msg) {
+      self.chatting.push(msg);
+    });
 
     self.socket.on("disconnect", () => {});
 
@@ -155,6 +158,10 @@ export default {
     //   repeat += repeat;
     //   self.chatting.push(chat);
     // };
+  },
+  updated: function() {
+    let chatbox = this.$el.querySelector(".chat-ul");
+    chatbox.scrollTop = chatbox.scrollHeight;
   },
   destroyed: function() {
     let self = this;

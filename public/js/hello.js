@@ -73459,6 +73459,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -73510,7 +73511,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     var isLogin = sessionStorage.getItem("loginAs");
     if (!isLogin) this.$router.push({ path: "/" });
   },
-
   mounted: function mounted() {
     var self = this;
     self.$nextTick(function () {
@@ -73539,6 +73539,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       console.log("房間人數: " + data);
       self.currentPeople = data;
     });
+    self.socket.on("updateChat", function (msg) {
+      self.chatting.push(msg);
+    });
 
     self.socket.on("disconnect", function () {});
 
@@ -73554,6 +73557,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     //   repeat += repeat;
     //   self.chatting.push(chat);
     // };
+  },
+  updated: function updated() {
+    var chatbox = this.$el.querySelector(".chat-ul");
+    chatbox.scrollTop = chatbox.scrollHeight;
   },
   destroyed: function destroyed() {
     var self = this;
@@ -74185,7 +74192,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["chatting"],
+  props: ["chatting", "socket"],
   data: function data() {
     return {
       input_text: "輸入想要傳送的訊息吧！"
@@ -74202,14 +74209,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       if (this.input_text != "") {
         var now = new Date();
         var chat = {
-          name: "Andy",
+          name: sessionStorage.getItem('username'),
           text: this.input_text,
           time: now.getHours() + ":" + (now.getMinutes() < 10 ? "0" : "") + now.getMinutes()
         };
         this.chatting.push(chat);
         this.input_text = "";
+        this.socket.emit("sendMessage", chat);
       }
     }
+  },
+  mounted: function mounted() {
+    var self = this;
   },
   updated: function updated() {
     var chatbox = this.$el.querySelector(".chatting-content");
@@ -74231,29 +74242,22 @@ var render = function() {
     _c(
       "div",
       { staticClass: "chatting-content" },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._l(_vm.chatting, function(chat) {
-          return _c("div", { staticClass: "others-message" }, [
-            _c("div", { staticClass: "others-infro" }, [
-              _c("img", {
-                staticClass: "image",
-                attrs: { src: "/img/pass.png" }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "name" }, [_vm._v(_vm._s(chat.name))])
-            ]),
+      _vm._l(_vm.chatting, function(chat) {
+        return _c("div", { staticClass: "others-message" }, [
+          _c("div", { staticClass: "others-infro" }, [
+            _c("img", {
+              staticClass: "image",
+              attrs: { src: "/img/pass.png" }
+            }),
             _vm._v(" "),
-            _c("div", { staticClass: "dialogbox" }, [
-              _vm._v(_vm._s(chat.text))
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "time" }, [_vm._v(_vm._s(chat.time))])
-          ])
-        })
-      ],
-      2
+            _c("div", { staticClass: "name" }, [_vm._v(_vm._s(chat.name))])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "dialogbox" }, [_vm._v(_vm._s(chat.text))]),
+          _vm._v(" "),
+          _c("div", { staticClass: "time" }, [_vm._v(_vm._s(chat.time))])
+        ])
+      })
     ),
     _vm._v(" "),
     _c("div", { staticClass: "chatting-bottom" }, [
@@ -74296,24 +74300,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "myself-message" }, [
-      _c("div", { staticClass: "myself-infro" }, [
-        _c("img", { staticClass: "image", attrs: { src: "/img/pass.png" } }),
-        _vm._v(" "),
-        _c("div", { staticClass: "name" }, [_vm._v("Andy")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "dialogbox" }, [_vm._v("測試")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "time" }, [_vm._v("21:00")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -79415,7 +79402,9 @@ var render = function() {
         : _vm._e(),
       _vm._v(" "),
       _vm.isChattingOpen
-        ? _c("chatroom", { attrs: { chatting: _vm.chatting } })
+        ? _c("chatroom", {
+            attrs: { chatting: _vm.chatting, socket: _vm.socket }
+          })
         : _vm._e(),
       _vm._v(" "),
       _c("div", { staticClass: "nav-bar f-c" }, [
@@ -79638,7 +79627,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.waiting-class[data-v-2dda805e] {\n  width: 100%;\n  height: 7%;\n  font-size: 3em;\n}\n.waiting-header[data-v-2dda805e] {\n  width: 100%;\n  height: 8%;\n  font-size: 7em;\n  font-weight: bold;\n  color: #ff7473;\n  text-shadow: 2px 3px 9px #c03546;\n}\n.waiting-body[data-v-2dda805e] {\n  padding: 3.5% 5%;\n  width: 100%;\n  height: 70%;\n}\n.waiting-bottom[data-v-2dda805e] {\n  width: 100%;\n  height: 15%;\n}\n.col[data-v-2dda805e] {\n  width: 100%;\n  border-radius: 30px;\n  -webkit-box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6),\n    4px 4px 6px rgba(20%, 20%, 40%, 0.4), 6px 6px 12px rgba(20%, 20%, 40%, 0.4);\n          box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6),\n    4px 4px 6px rgba(20%, 20%, 40%, 0.4), 6px 6px 12px rgba(20%, 20%, 40%, 0.4);\n}\n.chat-ul[data-v-2dda805e] {\n  width: 100%;\n  height: 100%;\n  overflow-y: scroll;\n}\n.chat-li[data-v-2dda805e] {\n  width: 100%;\n  font-size: 3em;\n  margin-bottom: 1%;\n  line-height: 135%;\n  font-weight: bold;\n  color: white;\n  text-shadow: 1px 1px 5px #000, 2px 2px 5px #000;\n}\n.set-li[data-v-2dda805e] {\n  list-style: none;\n  width: 100%;\n  font-size: 2.5em;\n  margin-bottom: 1%;\n  line-height: 135%;\n  font-weight: bold;\n  color: white;\n  text-shadow: 1px 1px 5px #000, 2px 2px 5px #000;\n}\n.infro-people[data-v-2dda805e] {\n  height: 20%;\n  margin-bottom: 3%;\n  background: rgba(255, 201, 82, 0.8) url(/img/room_people.png) no-repeat 5%\n    100%;\n  background-size: 40%;\n}\n.infro-setting[data-v-2dda805e] {\n  padding: 3%;\n  height: 35%;\n  margin-bottom: 3%;\n  background: rgba(236, 115, 87, 0.8) url(/img/setting_1.png) no-repeat 94% -5%;\n  background-size: 45%;\n}\n.infro-chatting[data-v-2dda805e] {\n  padding: 3%;\n  height: 40%;\n  background: rgba(117, 79, 68, 0.8) url(/img/chat.png) no-repeat 5% 120%;\n  background-size: 53%;\n}\n.go-button[data-v-2dda805e] {\n  background: transparent url(/img/go.png) no-repeat center 15%;\n  background-size: 50%;\n  width: 100%;\n  height: 100%;\n}\n.people[data-v-2dda805e] {\n  text-align: right;\n  font-size: 4em;\n  float: left;\n  width: 40%;\n}\n.current[data-v-2dda805e] {\n  font-weight: bold;\n  font-size: 7em;\n  float: left;\n  width: 25%;\n}\n.total[data-v-2dda805e] {\n  font-size: 3.5em;\n  float: right;\n  width: 20%;\n}\n.gametype[data-v-2dda805e] {\n  float: left;\n  width: 25%;\n  height: 90%;\n  margin-top: 3%;\n  border-radius: 30px 0px 0px 30px;\n  background-color: rgba(253, 153, 154, 0.7);\n}\n.brain-method[data-v-2dda805e] {\n  float: left;\n  width: 25%;\n  height: 90%;\n  margin-top: 3%;\n  border-radius: 0px 30px 30px 0px;\n  background-color: rgba(103, 213, 181, 0.7);\n}\n.other-setting[data-v-2dda805e] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 2%;\n  float: left;\n  width: 50%;\n}\n.infro-img[data-v-2dda805e] {\n  width: 100%;\n  height: 60%;\n}\n.infro-text[data-v-2dda805e] {\n  width: 100%;\n  height: 40%;\n  font-size: 4em;\n  font-weight: bold;\n  text-align: center;\n}\n#toolong[data-v-2dda805e] {\n  font-size: 2.5em;\n  font-weight: bold;\n}\n#pass[data-v-2dda805e] {\n  background: transparent url(/img/pass.png) no-repeat center center;\n  background-size: 70%;\n}\n#sixhat[data-v-2dda805e] {\n  background: transparent url(/img/hat.png) no-repeat center center;\n  background-size: 80%;\n}\n.white-bg[data-v-2dda805e] {\n  position: absolute;\n  z-index: 1;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(255, 255, 255, 0.7);\n}\n", ""]);
+exports.push([module.i, "\n.nav-bar[data-v-2dda805e] {\n  width: 106%;\n  height: 7%;\n  margin-left: -3%;\n  -webkit-box-shadow: 0px 5px 8px #9baec8;\n          box-shadow: 0px 5px 8px #9baec8;\n  font-size: 3em;\n}\n.nav-btn[data-v-2dda805e] {\n  float: left;\n  width: 12%;\n}\n.class-name[data-v-2dda805e] {\n  float: left;\n  font-weight: bold;\n  width: 76%;\n  font-size: 1.1em;\n}\n#return[data-v-2dda805e] {\n  background: transparent url(\"/img/return.png\") no-repeat center center;\n  background-size: 25%;\n}\n.waiting-class[data-v-2dda805e] {\n  width: 100%;\n  height: 7%;\n  font-size: 3em;\n}\n.waiting-header[data-v-2dda805e] {\n  width: 100%;\n  height: 8%;\n  font-size: 7em;\n  font-weight: bold;\n  color: #ff7473;\n  text-shadow: 2px 3px 9px #c03546;\n}\n.waiting-body[data-v-2dda805e] {\n  padding: 3.5% 5%;\n  width: 100%;\n  height: 70%;\n}\n.waiting-bottom[data-v-2dda805e] {\n  width: 100%;\n  height: 15%;\n}\n.col[data-v-2dda805e] {\n  width: 100%;\n  border-radius: 30px;\n  -webkit-box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6),\n    4px 4px 6px rgba(20%, 20%, 40%, 0.4), 6px 6px 12px rgba(20%, 20%, 40%, 0.4);\n          box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6),\n    4px 4px 6px rgba(20%, 20%, 40%, 0.4), 6px 6px 12px rgba(20%, 20%, 40%, 0.4);\n}\n.chat-ul[data-v-2dda805e] {\n  width: 100%;\n  height: 100%;\n  overflow-y: scroll;\n}\n.chat-li[data-v-2dda805e] {\n  width: 100%;\n  font-size: 3em;\n  margin-bottom: 1%;\n  line-height: 135%;\n  font-weight: bold;\n  color: white;\n  text-shadow: 1px 1px 5px #000, 2px 2px 5px #000;\n}\n.set-li[data-v-2dda805e] {\n  list-style: none;\n  width: 100%;\n  font-size: 2.5em;\n  margin-bottom: 1%;\n  line-height: 135%;\n  font-weight: bold;\n  color: white;\n  text-shadow: 1px 1px 5px #000, 2px 2px 5px #000;\n}\n.infro-people[data-v-2dda805e] {\n  height: 20%;\n  margin-bottom: 3%;\n  background: rgba(255, 201, 82, 0.8) url(/img/room_people.png) no-repeat 5%\n    100%;\n  background-size: 40%;\n}\n.infro-setting[data-v-2dda805e] {\n  padding: 3%;\n  height: 35%;\n  margin-bottom: 3%;\n  background: rgba(236, 115, 87, 0.8) url(/img/setting_1.png) no-repeat 94% -5%;\n  background-size: 45%;\n}\n.infro-chatting[data-v-2dda805e] {\n  padding: 3%;\n  height: 40%;\n  background: rgba(117, 79, 68, 0.8) url(/img/chat.png) no-repeat 5% 120%;\n  background-size: 53%;\n}\n.go-button[data-v-2dda805e] {\n  background: transparent url(/img/go.png) no-repeat center 15%;\n  background-size: 50%;\n  width: 100%;\n  height: 100%;\n}\n.people[data-v-2dda805e] {\n  text-align: right;\n  font-size: 4em;\n  float: left;\n  width: 40%;\n}\n.current[data-v-2dda805e] {\n  font-weight: bold;\n  font-size: 7em;\n  float: left;\n  width: 25%;\n}\n.total[data-v-2dda805e] {\n  font-size: 3.5em;\n  float: right;\n  width: 20%;\n}\n.gametype[data-v-2dda805e] {\n  float: left;\n  width: 25%;\n  height: 90%;\n  margin-top: 3%;\n  border-radius: 30px 0px 0px 30px;\n  background-color: rgba(253, 153, 154, 0.7);\n}\n.brain-method[data-v-2dda805e] {\n  float: left;\n  width: 25%;\n  height: 90%;\n  margin-top: 3%;\n  border-radius: 0px 30px 30px 0px;\n  background-color: rgba(103, 213, 181, 0.7);\n}\n.other-setting[data-v-2dda805e] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 2%;\n  float: left;\n  width: 50%;\n}\n.infro-img[data-v-2dda805e] {\n  width: 100%;\n  height: 60%;\n}\n.infro-text[data-v-2dda805e] {\n  width: 100%;\n  height: 40%;\n  font-size: 4em;\n  font-weight: bold;\n  text-align: center;\n}\n#toolong[data-v-2dda805e] {\n  font-size: 2.5em;\n  font-weight: bold;\n}\n#pass[data-v-2dda805e] {\n  background: transparent url(/img/pass.png) no-repeat center center;\n  background-size: 70%;\n}\n#sixhat[data-v-2dda805e] {\n  background: transparent url(/img/hat.png) no-repeat center center;\n  background-size: 80%;\n}\n.white-bg[data-v-2dda805e] {\n  position: absolute;\n  z-index: 1;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(255, 255, 255, 0.7);\n}\n", ""]);
 
 // exports
 
@@ -79649,6 +79638,8 @@ exports.push([module.i, "\n.waiting-class[data-v-2dda805e] {\n  width: 100%;\n  
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Chatroom__ = __webpack_require__(222);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Chatroom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Chatroom__);
 //
 //
 //
@@ -79689,18 +79680,41 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       socket: "",
       chatting: [],
+      isChattingOpen: false,
       currentPeople: 1,
       courseName: "",
       course_id: sessionStorage.getItem("room_course_id")
     };
   },
 
+  components: {
+    chatroom: __WEBPACK_IMPORTED_MODULE_0__Chatroom___default.a
+  },
+  methods: {
+    return_to_pre: function return_to_pre() {
+      if (this.isChattingOpen) this.isChattingOpen = false;else this.$router.push({ path: "/courselist" });
+    },
+    OpenChattingPage: function OpenChattingPage() {
+      this.isChattingOpen = true;
+    }
+  },
   mounted: function mounted() {
     var self = this;
     self.$nextTick(function () {
@@ -79729,11 +79743,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       console.log("房間人數: " + data);
       self.currentPeople = data;
     });
+    self.socket.on("updateChat", function (msg) {
+      self.chatting.push(msg);
+    });
     self.socket.on("teacherLeave", function () {
       self.$router.push({ path: "/courseList" });
       console.log("teacher left!");
     });
     self.socket.on("disconnect", function () {});
+  },
+  updated: function updated() {
+    var chatbox = this.$el.querySelector(".chat-ul");
+    chatbox.scrollTop = chatbox.scrollHeight;
   },
   destroyed: function destroyed() {
     var self = this;
@@ -79750,50 +79771,92 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "waiting-class f-c" }, [
-      _vm._v(_vm._s(_vm.courseName) + "(還不知道怎排版)")
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "waiting-header f-c animated bounceInDown" }, [
-      _vm._v("等待遊戲者...")
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "waiting-body b-x" }, [
-      _c("div", { staticClass: "col infro-people b-x f-c animated fadeInUp" }, [
-        _c("span", { staticClass: "current f-c h-100" }, [
-          _vm._v(_vm._s(_vm.currentPeople))
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "total f-c h-100" }, [_vm._v("/ 15人")])
-      ]),
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _vm.isChattingOpen
+        ? _c("chatroom", {
+            attrs: { chatting: _vm.chatting, socket: _vm.socket }
+          })
+        : _vm._e(),
       _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "col infro-setting b-x animated fadeInUp",
+      _c("div", { staticClass: "nav-bar f-c" }, [
+        _c("div", {
+          staticClass: "nav-btn h-100",
+          attrs: { id: "return" },
           on: {
             click: function($event) {
-              !_vm.isSettingOpen
+              _vm.return_to_pre()
             }
           }
-        },
-        [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)]
-      ),
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "class-name h-100 f-c" }, [
+          _vm._v("〈" + _vm._s(_vm.courseName) + "〉")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "nav-btn h-100" })
+      ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col infro-chatting b-x animated fadeInUp" }, [
+      _c("div", { staticClass: "waiting-header f-c animated bounceInDown" }, [
+        _vm._v("等待遊戲者...")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "waiting-body b-x" }, [
         _c(
-          "ul",
-          { staticClass: "chat-ul" },
-          _vm._l(_vm.chatting, function(t) {
-            return _c("li", { staticClass: "chat-li" }, [_vm._v(_vm._s(t))])
-          })
+          "div",
+          { staticClass: "col infro-people b-x f-c animated fadeInUp" },
+          [
+            _c("span", { staticClass: "current f-c h-100" }, [
+              _vm._v(_vm._s(_vm.currentPeople))
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "total f-c h-100" }, [_vm._v("/ 15人")])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "col infro-setting b-x animated fadeInUp",
+            on: {
+              click: function($event) {
+                !_vm.isSettingOpen
+              }
+            }
+          },
+          [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "col infro-chatting b-x animated fadeInUp",
+            on: {
+              click: function($event) {
+                _vm.OpenChattingPage()
+              }
+            }
+          },
+          [
+            _c(
+              "ul",
+              { staticClass: "chat-ul" },
+              _vm._l(_vm.chatting, function(t) {
+                return _c("li", { staticClass: "chat-li" }, [
+                  _vm._v(_vm._s(t.name) + ":" + _vm._s(t.text))
+                ])
+              })
+            )
+          ]
         )
-      ])
-    ]),
-    _vm._v(" "),
-    _vm._m(3)
-  ])
+      ]),
+      _vm._v(" "),
+      _vm._m(3)
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {

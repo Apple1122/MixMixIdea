@@ -12,7 +12,7 @@ redis.on('message', function (channel, notification) {
     // 將訊息推播給使用者
     io.emit('notification', notification.data);
 });
-// 監聽 3000 port
+// 監聽 6379 port
 server.listen(6379, function () {
     console.log('Listening on Port 6379');
 });
@@ -21,7 +21,7 @@ io.on('connection', (socket) => {
 
     socket.on("createRoom", (roomId) => {
         socket.join(roomId)
-        if(io.nsps['/'].adapter.rooms[roomId])
+        if (io.nsps['/'].adapter.rooms[roomId])
             var currentPeople = io.nsps['/'].adapter.rooms[roomId].length;
         console.log(socket.id);
         console.log(io.nsps['/'].adapter.rooms);
@@ -30,7 +30,7 @@ io.on('connection', (socket) => {
 
     socket.on("joinRoom", (roomId) => {
         socket.join(roomId);
-        if(io.nsps['/'].adapter.rooms[roomId])
+        if (io.nsps['/'].adapter.rooms[roomId])
             var currentPeople = io.nsps['/'].adapter.rooms[roomId].length;
         console.log(socket.id + " join\n");
         console.log(io.nsps['/'].adapter.rooms);
@@ -51,13 +51,19 @@ io.on('connection', (socket) => {
     socket.on("leaveRoom", (roomId) => {
         socket.leave(roomId)
         socket.disconnect();
-        if(io.nsps['/'].adapter.rooms[roomId])
+        if (io.nsps['/'].adapter.rooms[roomId])
             var currentPeople = io.nsps['/'].adapter.rooms[roomId].length;
 
         console.log(socket.id + " left \n");
         console.log(io.nsps['/'].adapter.rooms);
         console.log("\n");
         socket.broadcast.to(roomId).emit('updateCurrentPeople', currentPeople);
+    });
+
+    socket.on("sendMessage", (msg) => {
+        let roomId = Object.keys(io.sockets.adapter.sids[socket.id])[0];
+        console.log("room: " + roomId + "\nmsg: " + msg);
+        socket.broadcast.to(roomId).emit('updateChat', msg);
     });
 
     //for testing
