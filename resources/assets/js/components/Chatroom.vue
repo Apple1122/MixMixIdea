@@ -11,17 +11,16 @@
             <div class="dialogbox">測試</div>
             <div class="time">21:00</div>
         </div>
-
+      
         <div v-for="chat in chatting"  class="others-message">
             <div class="others-infro">
                 <img class="image" src="/img/pass.png" />
-                <div class="name">{{chat.name}}
-                </div>
+                <div class="name">{{chat.name}}</div>
             </div>
             <div class="dialogbox">{{chat.text}}</div>
             <div class="time">{{chat.time}}</div>
         </div>
-
+      </div>
       <div class="chatting-bottom">
         <div class="inputbox h-100 f-l f-c">
           <textarea @click="resetText()"  v-model="input_text" class="input h-100 f-c"></textarea>
@@ -48,25 +47,26 @@ export default {
       }
     },
     sendMyText: function() {
-      let now = new Date();
-      let chat = {
-        name: "Andy",
-        text: this.input_text,
-        time:
-          now.getHours() +
-          ":" +
-          (now.getMinutes() < 10 ? "0" : "") +
-          now.getMinutes()
-      };
-      this.chatting.push(chat);
-      this.input_text = "";
-
+      if (this.input_text != "") {
+        let now = new Date();
+        let chat = {
+          name: "Andy",
+          text: this.input_text,
+          time:
+            now.getHours() +
+            ":" +
+            (now.getMinutes() < 10 ? "0" : "") +
+            now.getMinutes()
+        };
+        this.chatting.push(chat);
+        this.input_text = "";
+      }
     }
   },
-    updated: function() {      
-      let chatbox = this.$el.querySelector(".chatting-content");
-      chatbox.scrollTop = chatbox.scrollHeight;
-    }
+  updated: function() {
+    let chatbox = this.$el.querySelector(".chatting-content");
+    chatbox.scrollTop = chatbox.scrollHeight;
+  }
 };
 </script>
 
