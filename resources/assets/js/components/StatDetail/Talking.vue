@@ -14,7 +14,8 @@
         options: {
           legend: {
             fontSize: 30
-          }
+          },
+          responsive: true
         }
       })
     }

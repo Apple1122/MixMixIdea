@@ -347,7 +347,8 @@
 .content{
     box-sizing: border-box;
     width: 100%;
-    height: 50%;
+    padding: 2%;
+    min-height: 54%;
     background: rgba(255,255,245,.8);
     box-shadow: 2px 2px 9px #7f9eb2;
     margin-bottom: 3%;
@@ -355,7 +356,7 @@
 }
 
 #achieve{
-  height: 30%;
+  height: 35%;
 }
 
 .content1{
@@ -371,10 +372,9 @@
 
 .name{
   width: 100%;
-  height: 20%;
   font-size: 3em;
   font-weight: bold;
-  margin-bottom: 1%;
+  margin-bottom: 3%;
 }
 
 .chart{
@@ -384,7 +384,7 @@
 
 .achieve{
   width: 100%;
-  height: 80%;
+  height: 70%;
   overflow-x: scroll;
 }
 
