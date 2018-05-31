@@ -3,7 +3,7 @@
     <div class="nav-bar f-c">
       <div class="nav-btn h-100" id="return" @click="return_to_pre()"></div>
       <div class="class-name h-100 f-c">〈程式設計〉</div>
-      <div class="nav-btn h-100" id="next"></div>
+      <div class="nav-btn h-100" id="home" @click="return_to_home()"></div>
     </div>
 
     <div class="analysis-title f-c">遊戲分析</div>
@@ -211,7 +211,10 @@
         this.currentPage = page;
       },
       return_to_pre: function() {
-        this.$router.push()
+        this.$router.push({ path: "/t_waiting" });
+      },
+      return_to_home: function() {
+        this.$router.push({ path: "/courselist" });
       }
     }
   }
@@ -329,6 +332,11 @@
   background: transparent url("/img/return.png") no-repeat center center;
   background-size: 25%;
   transform: rotate(180deg);
+}
+
+#home {
+  background: transparent url(/img/home.png) no-repeat left center;
+  background-size: 60%;
 }
 
 #data{
