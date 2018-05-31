@@ -21,7 +21,6 @@
             <div class="dialogbox">{{chat.text}}</div>
             <div class="time">{{chat.time}}</div>
         </div>
-      </div>
 
       <div class="chatting-bottom">
         <div class="inputbox h-100 f-l f-c">
@@ -35,39 +34,44 @@
 </template>
 
 <script>
-  export default {
-    props:[
-      'chatting'
-    ],
-    data() {
-      return {
-        input_text: '輸入想要傳送的訊息吧！'
+export default {
+  props: ["chatting"],
+  data() {
+    return {
+      input_text: "輸入想要傳送的訊息吧！"
+    };
+  },
+  methods: {
+    resetText: function() {
+      if (this.input_text == "輸入想要傳送的訊息吧！") {
+        this.input_text = "";
       }
     },
-    methods: {
-      resetText: function(){
-        if(this.input_text=='輸入想要傳送的訊息吧！'){
-          this.input_text = '';
-        }
-      },
-      sendMyText: function(){
-        let now = new Date();
-        let chat = {
-          name: 'Andy',
-          text: this.input_text,
-          time: now.getHours()+ ':' +
-                (now.getMinutes()<10 ? '0' : '') +
-                now.getMinutes()
-        };
-        this.chatting.push(chat);
-        this.input_text = '';
-      }
+    sendMyText: function() {
+      let now = new Date();
+      let chat = {
+        name: "Andy",
+        text: this.input_text,
+        time:
+          now.getHours() +
+          ":" +
+          (now.getMinutes() < 10 ? "0" : "") +
+          now.getMinutes()
+      };
+      this.chatting.push(chat);
+      this.input_text = "";
+
     }
-  }
+  },
+    updated: function() {      
+      let chatbox = this.$el.querySelector(".chatting-content");
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }
+};
 </script>
 
 <style scoped>
-.chatting-page{
+.chatting-page {
   position: absolute;
   top: 7%;
   left: 0%;
@@ -75,25 +79,25 @@
   width: 100%;
   height: 93%;
   padding: 0% 5%;
-  background: rgba(255,255,255,.9);
+  background: rgba(255, 255, 255, 0.9);
 }
 
-.chatting-content{
+.chatting-content {
   box-sizing: border-box;
   padding: 2%;
-  width:100%;
+  width: 100%;
   height: 70%;
   overflow-y: scroll;
 }
 
-.chatting-title{
+.chatting-title {
   width: 100%;
   height: 15%;
   font-size: 6em;
   text-align: center;
   font-weight: bold;
-  color: #754F44;
-  background: transparent url('/img/setting_title.png') no-repeat center center;
+  color: #754f44;
+  background: transparent url("/img/setting_title.png") no-repeat center center;
   background-size: 70%;
   text-shadow: 2px 2px 1px #34314c;
 }
@@ -105,7 +109,7 @@
   height: 15%;
 }
 
-.inputbox{
+.inputbox {
   width: 78%;
   background-color: #fff1b9;
   border-radius: 20px;
@@ -113,7 +117,7 @@
   margin-right: 2%;
 }
 
-.input{
+.input {
   box-sizing: border-box;
   padding: 3%;
   width: 100%;
@@ -123,11 +127,11 @@
   font-size: 2.2em;
 }
 
-.sendbox{
+.sendbox {
   width: 20%;
 }
 
-.sent-btn{
+.sent-btn {
   width: 8em;
   height: 8em;
   border-radius: 99em;
@@ -138,49 +142,49 @@
 
 .myself-message,
 .others-message {
-	box-sizing: border-box;
-	padding: 1.5%;
-	position: relative;
-	left: 0;
-	width: 97%;
-	min-height: 10%;
-	animation: fadeIn 1s;
+  box-sizing: border-box;
+  padding: 1.5%;
+  position: relative;
+  left: 0;
+  width: 97%;
+  min-height: 10%;
+  animation: fadeIn 1s;
 }
 
 .myself-message .image,
 .others-message .image {
-	float: left;
-	top: 28%;
-	left: 3%;
-	width: 8em;
-	height: 8em;
-	border-radius: 99em;
-	background-color: white;
-	box-shadow: 1px 1px 1px $input-shadow;
+  float: left;
+  top: 28%;
+  left: 3%;
+  width: 8em;
+  height: 8em;
+  border-radius: 99em;
+  background-color: white;
+  box-shadow: 1px 1px 1px $input-shadow;
 }
 
 .myself-message .name,
 .others-message .name {
-	float: left;
-	margin-top: 7%;
-	text-align: center;
-	width: 100%;
-	font-size: 2.3em;
+  float: left;
+  margin-top: 7%;
+  text-align: center;
+  width: 100%;
+  font-size: 2.3em;
 }
 
 .myself-message .dialogbox,
 .others-message .dialogbox {
   font-size: 3em;
-	display: inline-block;
-	width: 80%;
-	margin-top: 1%;
-	box-sizing: border-box;
+  display: inline-block;
+  width: 80%;
+  margin-top: 1%;
+  box-sizing: border-box;
   box-shadow: 4px 4px 5px #7f9eb2;
-	padding: 2% 5% 2% 5%;
+  padding: 2% 5% 2% 5%;
   background: #fffff5;
-	word-break: break-all;
-	border-radius: 6px;
-	line-height: 200%;
+  word-break: break-all;
+  border-radius: 6px;
+  line-height: 200%;
 }
 
 .myself-message .dialogbox:after,
@@ -195,33 +199,33 @@
 }
 
 .myself-infro {
-	box-sizing: border-box;
-	padding: 1%;
-	position: absolute;
-	width: 17%;
-	height: 90%;
+  box-sizing: border-box;
+  padding: 1%;
+  position: absolute;
+  width: 17%;
+  height: 90%;
 }
 
 .others-infro {
-	box-sizing: border-box;
-	padding: 1%;
-	position: absolute;
-	right: 1%;
-	width: 17%;
-	height: 90%;
+  box-sizing: border-box;
+  padding: 1%;
+  position: absolute;
+  right: 1%;
+  width: 17%;
+  height: 90%;
 }
 
 .myself-message .time {
-	position: relative;
-	margin-top: 2%;
-	left: 86%;
+  position: relative;
+  margin-top: 2%;
+  left: 86%;
   font-size: 2.2em;
 }
 
 .myself-message .dialogbox {
-	position: relative;
-	left: 20%;
-	top: 0%;
+  position: relative;
+  left: 20%;
+  top: 0%;
 }
 
 .myself-message .dialogbox :after {
@@ -232,14 +236,14 @@
 }
 
 .others-message .time {
-	position: relative;
-	margin-top: 2%;
+  position: relative;
+  margin-top: 2%;
 }
 
 .others-message .dialogbox {
-	position: relative;
-	left: 0%;
-	top: 0%;
+  position: relative;
+  left: 0%;
+  top: 0%;
 }
 
 .others-message .dialogbox:after {
@@ -248,5 +252,4 @@
   top: 6%;
   border-left-color: #fff;
 }
-
 </style>
