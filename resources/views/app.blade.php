@@ -65,6 +65,5 @@
 		background: transparent url("/img/bg-img.png") no-repeat center;
 		background-size: 90%;
 	}
-
-}
+	}
 </style>

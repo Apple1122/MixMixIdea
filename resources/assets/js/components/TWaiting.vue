@@ -401,39 +401,4 @@ export default {
   width: 76%;
   font-size: 1.1em;
 }
-
-#no-r {
-  background: transparent url("/img/no-r.png") no-repeat center center;
-  background-size: 70%;
-}
-
-#no-g {
-  background: transparent url("/img/no-g.png") no-repeat center center;
-  background-size: 70%;
-}
-
-#pass {
-  background: transparent url("/img/pass.png") no-repeat center center;
-  background-size: 70%;
-}
-
-#sixhat {
-  background: transparent url("/img/hat.png") no-repeat center center;
-  background-size: 80%;
-}
-
-#stf {
-  background: transparent url("/img/stf.png") no-repeat center center;
-  background-size: 80%;
-}
-
-#role-play {
-  background: transparent url("/img/role-play.png") no-repeat center center;
-  background-size: 80%;
-}
-
-#talking {
-  background: transparent url("/img/talking.png") no-repeat center center;
-  background-size: 80%;
-}
 </style>
