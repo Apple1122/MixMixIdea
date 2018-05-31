@@ -13,12 +13,10 @@
 
   <div class="input f-c">
     <input class="col effect-2" id="ac" v-model="inputAccount" type="text" placeholder="請輸入帳號" />
-    <span class="focus-border"</span>
       </div>
 
   <div class="input f-c">
     <input class="col effect-2" id="pw" v-model="inputPassword" type="password" placeholder="請輸入密碼" />
-    <span class="focus-border"></span>
   </div>
     </div>
 
@@ -131,8 +129,8 @@ export default {
 }
 
 .logo {
-  height: 30em;
-  width: 30em;
+  height: 20em;
+  width: 20em;
 }
 
 .button-login {
@@ -215,7 +213,7 @@ export default {
   height: 80%;
   text-align: center;
   font-size: 3.5em;
-  line-height: 115px;
+  line-height: 40px;
   color: #a3a1a1;
 }
 
@@ -245,4 +243,5 @@ export default {
   transition: 0.4s;
   left: 0;
 }
+
 </style>
