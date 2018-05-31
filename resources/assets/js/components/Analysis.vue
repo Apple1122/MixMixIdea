@@ -31,6 +31,10 @@
     <div class="analysis-body">
 
       <div v-if=" currentPage == 'chart' " class="special animated fadeInUp" >
+        <div class="download">
+          <div class="name f-c">下載報表</div>
+        </div>
+
         <div class="content">
           <div class="name f-c">本次出席率</div>
           <div class="chart">
@@ -542,4 +546,15 @@
   background-size: 100%;
 }
 
+.download{
+    box-sizing: border-box;
+    padding: 3%;
+    width: 99%;
+    height: 8%;
+    background-color: rgba(71,184,224,.9);
+    box-shadow: 2px 2px 9px #7f9eb2;
+    margin-bottom: 3%;
+    border-radius: 30px;
+    transition: background-color 2s;
+}
 </style>

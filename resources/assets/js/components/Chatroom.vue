@@ -3,26 +3,23 @@
       <div class="chatting-title f-c">聊天室</div>
 
       <div class="chatting-content">
-        <div v-for="chat in chatting"  class="myself-message">
+        <div class="myself-message">
             <div class="myself-infro">
                 <img class="image" src="/img/pass.png" />
-                <div class="name">{{chat.name}}</div>
-            </div>
-            <div class="dialogbox">{{chat.text}}</div>
-            <div class="time">{{chat.time}}</div>
-        </div>
-
-        <div class="others-message">
-            <div class="others-infro">
-                <img class="image" src="/img/pass.png" />
-                <div class="name">Andy
-                </div>>
-                <img class="image" src="/img/pass.png" />
-                <div class="name">Andy
-                </div>
+                <div class="name">Andy</div>
             </div>
             <div class="dialogbox">測試</div>
             <div class="time">21:00</div>
+        </div>
+
+        <div v-for="chat in chatting"  class="others-message">
+            <div class="others-infro">
+                <img class="image" src="/img/pass.png" />
+                <div class="name">{{chat.name}}
+                </div>
+            </div>
+            <div class="dialogbox">{{chat.text}}</div>
+            <div class="time">{{chat.time}}</div>
         </div>
       </div>
 
