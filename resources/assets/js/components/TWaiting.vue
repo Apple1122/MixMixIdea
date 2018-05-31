@@ -51,7 +51,7 @@
       </div>
 
     </div>
-    <div class="waiting-bottom b-x">
+    <div @click="swapToGame()" class="waiting-bottom b-x">
       <button class="go-button"></button>
     </div>
   </div>
@@ -102,6 +102,9 @@ export default {
     },
     OpenChattingPage: function() {
       this.isChattingOpen = true;
+    },
+    swapToGame: function() {
+      this.$router.push({ path: "/gameroom_sixhat" });
     }
   },
 
@@ -193,7 +196,7 @@ export default {
   width: 106%;
   height: 7%;
   margin-left: -3%;
-  box-shadow: 0px 5px 8px #9baec8;
+  box-shadow: 0px 2px 8px #9baec8;
   font-size: 3em;
 }
 
@@ -203,7 +206,7 @@ export default {
   font-size: 7em;
   font-weight: bold;
   color: #ff7473;
-  text-shadow: 2px 3px 9px #c03546;
+  text-shadow: 2px 3px 4px #c03546;
 }
 
 .waiting-body {
@@ -221,7 +224,7 @@ export default {
   width: 100%;
   border-radius: 30px;
   box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6),
-    4px 4px 6px rgba(20%, 20%, 40%, 0.4), 6px 6px 12px rgba(20%, 20%, 40%, 0.4);
+    4px 4px 6px rgba(20%, 20%, 40%, 0.4);
 }
 
 .chat-ul {
@@ -398,7 +401,7 @@ export default {
 }
 
 #return {
-  background: transparent url("/img/return.png") no-repeat center center;
+  background: transparent url("/img/return.png") no-repeat 75% center;
   background-size: 25%;
 }
 
@@ -407,5 +410,9 @@ export default {
   font-weight: bold;
   width: 76%;
   font-size: 1.1em;
+}
+
+.container{
+  height: 100%;
 }
 </style>

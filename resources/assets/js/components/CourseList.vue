@@ -77,7 +77,6 @@ export default {
     clickCourseItem: function(item) {
       this.$set(this.courses[item], "isOpen", !this.courses[item].isOpen);
     },
-
     swapToTW: function(id) {
       // if no room for this course then create and enter else just enter
       if (sessionStorage.getItem("room_course_id") == null) {
@@ -191,8 +190,8 @@ export default {
 }
 
 .circle {
-  width: 18.5em;
-  height: 18.5em;
+  width: 12em;
+  height: 12em;
   border-radius: 99em;
   box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.3), 0px 8px 13px rgba(0, 0, 0, 0.1),
     0px 18px 23px rgba(0, 0, 0, 0.1);
@@ -279,7 +278,7 @@ export default {
   width: 100%;
   height: 100%;
   background-color: #ffc952;
-  border-radius: 40px;
+  border-radius: 20px;
   box-shadow: 3px 3px 3px 2px #ccc;
 }
 

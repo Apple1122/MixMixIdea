@@ -229,7 +229,7 @@
   width: 106%;
   height: 7%;
   margin-left: -3%;
-  box-shadow: 0px 5px 8px #9baec8; 
+  box-shadow: 0px 2px 8px #9baec8;
   font-size: 3em;
 }
 
@@ -246,7 +246,7 @@
 }
 
 #return{
-  background: transparent url('/img/return.png') no-repeat center center;
+  background: transparent url('/img/return.png') no-repeat 75% center;
   background-size: 25%;
 }
 
@@ -259,7 +259,7 @@
   color: #754F44;
   background: transparent url('/img/setting_title.png') no-repeat center center;
   background-size: 70%;
-  text-shadow: 2px 2px 1px #34314c;
+  text-shadow: 1px 1px 3px #34314c;
 }
 
 .analysis-body{
@@ -290,7 +290,7 @@
   width: 50%;
   height: 90%;
   border-radius: 30px 0px 0px 30px;
-  box-shadow: 0px 5px 5px #df405a;
+  box-shadow: 0px 2px 5px #df405a;
   background-color: rgba(253,153,154,.2);
   border-right: none;
   transition: background-color 0.3s;
@@ -311,7 +311,7 @@
   width: 50%;
   height: 90%;
   border-radius: 0px 30px 30px 0px;
-  box-shadow: 0px 5px 5px #3b8686;
+  box-shadow: 0px 2px 5px #3b8686;
   border-left: none;
   background-color: rgba(103,213,181,.2);
   transition: background-color 0.3s;
@@ -329,7 +329,7 @@
 
 #chart{
   background: transparent url('/img/chart.png') no-repeat center center;
-  background-size: 80%;
+  background-size: 65%;
 }
 
 #next {
@@ -345,7 +345,7 @@
 
 #data{
   background: transparent url('/img/data.png') no-repeat center center;
-  background-size: 80%;
+  background-size: 75%;
 }
 
 .content{
@@ -407,12 +407,12 @@
 
 #no-r {
   background: transparent url("/img/no-r.png") no-repeat center center;
-  background-size: 60%;
+  background-size: 50%;
 }
 
 #no-g {
   background: transparent url("/img/no-g.png") no-repeat center center;
-  background-size: 60%;
+  background-size: 50%;
 }
 
 #pass {
@@ -446,8 +446,7 @@
   padding: 1%;
   width: 25%;
   height: 75%;
-  margin-top: 2%;
-  border-radius: 30px 0px 0px 30px;
+  border-radius: 15px 0px 0px 15px;
   background-color: rgba(253, 153, 154, 0.7);
 }
 
@@ -457,8 +456,7 @@
   padding: 1%;
   width: 25%;
   height: 75%;
-  margin-top: 2%;
-  border-radius: 0px 30px 30px 0px;
+  border-radius: 0px 15px 15px 0px;
   background-color: rgba(103, 213, 181, 0.7);
 }
 
@@ -496,8 +494,8 @@
 }
 
 .img{
-  width: 5em;
-  height: 5em;
+  width: 4.5em;
+  height: 4.5em;
   border-radius: 99em;
   box-shadow: 4px 4px 10px #666;
 }

@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "/";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 173);
+/******/ 	return __webpack_require__(__webpack_require__.s = 174);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -4737,7 +4737,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(205)
+var listToStyles = __webpack_require__(206)
 
 /*
 type StyleObject = {
@@ -5062,7 +5062,7 @@ module.exports = function normalizeComponent (
 
 
 var bind = __webpack_require__(28);
-var isBuffer = __webpack_require__(183);
+var isBuffer = __webpack_require__(184);
 
 /*global toString:true*/
 
@@ -5371,7 +5371,7 @@ module.exports = {
 "use strict";
 
 
-var color = __webpack_require__(46);
+var color = __webpack_require__(47);
 var helpers = __webpack_require__(1);
 
 function interpolate(start, view, model, ease) {
@@ -5880,7 +5880,7 @@ Emitter.prototype.hasListeners = function(event){
  */
 
 var keys = __webpack_require__(235);
-var hasBinary = __webpack_require__(40);
+var hasBinary = __webpack_require__(41);
 var sliceBuffer = __webpack_require__(241);
 var after = __webpack_require__(242);
 var utf8 = __webpack_require__(243);
@@ -7651,7 +7651,7 @@ module.exports = function(module) {
 /* WEBPACK VAR INJECTION */(function(process) {
 
 var utils = __webpack_require__(7);
-var normalizeHeaderName = __webpack_require__(185);
+var normalizeHeaderName = __webpack_require__(186);
 
 var DEFAULT_CONTENT_TYPE = {
   'Content-Type': 'application/x-www-form-urlencoded'
@@ -7759,8 +7759,8 @@ module.exports = defaults;
 var debug = __webpack_require__(9)('socket.io-parser');
 var Emitter = __webpack_require__(11);
 var binary = __webpack_require__(230);
-var isArray = __webpack_require__(35);
-var isBuf = __webpack_require__(36);
+var isArray = __webpack_require__(36);
+var isBuf = __webpack_require__(37);
 
 /**
  * Protocol version.
@@ -8394,10 +8394,10 @@ __webpack_require__(281)(Chart);
 Chart.defaults = __webpack_require__(2);
 Chart.Element = __webpack_require__(8);
 Chart.elements = __webpack_require__(10);
-Chart.Interaction = __webpack_require__(47);
+Chart.Interaction = __webpack_require__(48);
 Chart.layouts = __webpack_require__(13);
-Chart.platform = __webpack_require__(48);
-Chart.plugins = __webpack_require__(49);
+Chart.platform = __webpack_require__(49);
+Chart.plugins = __webpack_require__(50);
 Chart.Ticks = __webpack_require__(14);
 
 __webpack_require__(292)(Chart);
@@ -21431,12 +21431,12 @@ module.exports = function bind(fn, thisArg) {
 
 
 var utils = __webpack_require__(7);
-var settle = __webpack_require__(186);
-var buildURL = __webpack_require__(188);
-var parseHeaders = __webpack_require__(189);
-var isURLSameOrigin = __webpack_require__(190);
+var settle = __webpack_require__(187);
+var buildURL = __webpack_require__(189);
+var parseHeaders = __webpack_require__(190);
+var isURLSameOrigin = __webpack_require__(191);
 var createError = __webpack_require__(30);
-var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(191);
+var btoa = (typeof window !== 'undefined' && window.btoa && window.btoa.bind(window)) || __webpack_require__(192);
 
 module.exports = function xhrAdapter(config) {
   return new Promise(function dispatchXhrRequest(resolve, reject) {
@@ -21533,7 +21533,7 @@ module.exports = function xhrAdapter(config) {
     // This is only done if running in a standard browser environment.
     // Specifically not if we're in a web worker, or react-native.
     if (utils.isStandardBrowserEnv()) {
-      var cookies = __webpack_require__(192);
+      var cookies = __webpack_require__(193);
 
       // Add xsrf header
       var xsrfValue = (config.withCredentials || isURLSameOrigin(config.url)) && config.xsrfCookieName ?
@@ -21617,7 +21617,7 @@ module.exports = function xhrAdapter(config) {
 "use strict";
 
 
-var enhanceError = __webpack_require__(187);
+var enhanceError = __webpack_require__(188);
 
 /**
  * Create an Error with the specified message, config, error code, request and response.
@@ -21677,6 +21677,57 @@ module.exports = Cancel;
 /* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(223)
+}
+var normalizeComponent = __webpack_require__(6)
+/* script */
+var __vue_script__ = __webpack_require__(225)
+/* template */
+var __vue_template__ = __webpack_require__(226)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-1fc57d2a"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\Chatroom.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-1fc57d2a", Component.options)
+  } else {
+    hotAPI.reload("data-v-1fc57d2a", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 34 */
+/***/ (function(module, exports, __webpack_require__) {
+
 
 /**
  * Module dependencies.
@@ -21684,7 +21735,7 @@ module.exports = Cancel;
 
 var url = __webpack_require__(227);
 var parser = __webpack_require__(22);
-var Manager = __webpack_require__(37);
+var Manager = __webpack_require__(38);
 var debug = __webpack_require__(9)('socket.io-client');
 
 /**
@@ -21769,12 +21820,12 @@ exports.connect = lookup;
  * @api public
  */
 
-exports.Manager = __webpack_require__(37);
-exports.Socket = __webpack_require__(43);
+exports.Manager = __webpack_require__(38);
+exports.Socket = __webpack_require__(44);
 
 
 /***/ }),
-/* 34 */
+/* 35 */
 /***/ (function(module, exports) {
 
 /**
@@ -21819,7 +21870,7 @@ module.exports = function parseuri(str) {
 
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -21830,7 +21881,7 @@ module.exports = Array.isArray || function (arr) {
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {
@@ -21861,7 +21912,7 @@ function isBuf(obj) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -21870,13 +21921,13 @@ function isBuf(obj) {
  */
 
 var eio = __webpack_require__(231);
-var Socket = __webpack_require__(43);
+var Socket = __webpack_require__(44);
 var Emitter = __webpack_require__(11);
 var parser = __webpack_require__(22);
-var on = __webpack_require__(44);
-var bind = __webpack_require__(45);
+var on = __webpack_require__(45);
+var bind = __webpack_require__(46);
 var debug = __webpack_require__(9)('socket.io-client:manager');
-var indexOf = __webpack_require__(42);
+var indexOf = __webpack_require__(43);
 var Backoff = __webpack_require__(250);
 
 /**
@@ -22440,7 +22491,7 @@ Manager.prototype.onreconnect = function () {
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/**
@@ -22500,7 +22551,7 @@ function polling (opts) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 39 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -22511,7 +22562,7 @@ var Transport = __webpack_require__(24);
 var parseqs = __webpack_require__(15);
 var parser = __webpack_require__(12);
 var inherit = __webpack_require__(16);
-var yeast = __webpack_require__(41);
+var yeast = __webpack_require__(42);
 var debug = __webpack_require__(9)('engine.io-client:polling');
 
 /**
@@ -22751,7 +22802,7 @@ Polling.prototype.uri = function () {
 
 
 /***/ }),
-/* 40 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {/* global Blob File */
@@ -22822,7 +22873,7 @@ function hasBinary (obj) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(236).Buffer))
 
 /***/ }),
-/* 41 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22897,7 +22948,7 @@ module.exports = yeast;
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports) {
 
 
@@ -22912,7 +22963,7 @@ module.exports = function(arr, obj){
 };
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -22923,11 +22974,11 @@ module.exports = function(arr, obj){
 var parser = __webpack_require__(22);
 var Emitter = __webpack_require__(11);
 var toArray = __webpack_require__(249);
-var on = __webpack_require__(44);
-var bind = __webpack_require__(45);
+var on = __webpack_require__(45);
+var bind = __webpack_require__(46);
 var debug = __webpack_require__(9)('socket.io-client:socket');
 var parseqs = __webpack_require__(15);
-var hasBin = __webpack_require__(40);
+var hasBin = __webpack_require__(41);
 
 /**
  * Module exports.
@@ -23356,7 +23407,7 @@ Socket.prototype.binary = function (binary) {
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports) {
 
 
@@ -23386,7 +23437,7 @@ function on (obj, ev, fn) {
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports) {
 
 /**
@@ -23415,7 +23466,7 @@ module.exports = function(obj, fn){
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* MIT license */
@@ -23906,7 +23957,7 @@ module.exports = Color;
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24243,7 +24294,7 @@ module.exports = {
 
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24324,7 +24375,7 @@ module.exports = helpers.extend({
 
 
 /***/ }),
-/* 49 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -24713,7 +24764,7 @@ module.exports = {
 
 
 /***/ }),
-/* 50 */
+/* 51 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24790,7 +24841,7 @@ module.exports = {
 
 
 /***/ }),
-/* 51 */
+/* 52 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24929,7 +24980,7 @@ module.exports = {
 
 
 /***/ }),
-/* 52 */
+/* 53 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -24992,7 +25043,7 @@ module.exports = {
 
 
 /***/ }),
-/* 53 */
+/* 54 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25055,7 +25106,7 @@ module.exports = {
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25181,7 +25232,7 @@ module.exports = {
 
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25244,7 +25295,7 @@ module.exports = {
 
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25352,7 +25403,7 @@ module.exports = {
 
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25415,7 +25466,7 @@ module.exports = {
 
 
 /***/ }),
-/* 58 */
+/* 59 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25524,7 +25575,7 @@ module.exports = {
 
 
 /***/ }),
-/* 59 */
+/* 60 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25660,7 +25711,7 @@ module.exports = {
 
 
 /***/ }),
-/* 60 */
+/* 61 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25754,7 +25805,7 @@ module.exports = {
 
 
 /***/ }),
-/* 61 */
+/* 62 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25816,7 +25867,7 @@ module.exports = {
 
 
 /***/ }),
-/* 62 */
+/* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -25939,7 +25990,7 @@ module.exports = {
 
 
 /***/ }),
-/* 63 */
+/* 64 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26062,7 +26113,7 @@ module.exports = {
 
 
 /***/ }),
-/* 64 */
+/* 65 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26174,7 +26225,7 @@ module.exports = {
 
 
 /***/ }),
-/* 65 */
+/* 66 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26329,7 +26380,7 @@ module.exports = {
 
 
 /***/ }),
-/* 66 */
+/* 67 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26421,7 +26472,7 @@ module.exports = {
 
 
 /***/ }),
-/* 67 */
+/* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26604,7 +26655,7 @@ module.exports = {
 
 
 /***/ }),
-/* 68 */
+/* 69 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26671,7 +26722,7 @@ module.exports = {
 
 
 /***/ }),
-/* 69 */
+/* 70 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26755,7 +26806,7 @@ module.exports = {
 
 
 /***/ }),
-/* 70 */
+/* 71 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26819,7 +26870,7 @@ module.exports = {
 
 
 /***/ }),
-/* 71 */
+/* 72 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26899,7 +26950,7 @@ module.exports = {
 
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -26979,7 +27030,7 @@ module.exports = {
 
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27059,7 +27110,7 @@ module.exports = {
 
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27162,7 +27213,7 @@ module.exports = {
 
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27266,7 +27317,7 @@ module.exports = {
 
 
 /***/ }),
-/* 76 */
+/* 77 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27337,7 +27388,7 @@ module.exports = {
 
 
 /***/ }),
-/* 77 */
+/* 78 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27404,7 +27455,7 @@ module.exports = {
 
 
 /***/ }),
-/* 78 */
+/* 79 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27475,7 +27526,7 @@ module.exports = {
 
 
 /***/ }),
-/* 79 */
+/* 80 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27546,7 +27597,7 @@ module.exports = {
 
 
 /***/ }),
-/* 80 */
+/* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27612,7 +27663,7 @@ module.exports = {
 
 
 /***/ }),
-/* 81 */
+/* 82 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27683,7 +27734,7 @@ module.exports = {
 
 
 /***/ }),
-/* 82 */
+/* 83 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27758,7 +27809,7 @@ module.exports = {
 
 
 /***/ }),
-/* 83 */
+/* 84 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27854,7 +27905,7 @@ module.exports = {
 
 
 /***/ }),
-/* 84 */
+/* 85 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -27950,7 +28001,7 @@ module.exports = {
 
 
 /***/ }),
-/* 85 */
+/* 86 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28037,7 +28088,7 @@ module.exports = {
 
 
 /***/ }),
-/* 86 */
+/* 87 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28121,7 +28172,7 @@ module.exports = {
 
 
 /***/ }),
-/* 87 */
+/* 88 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28191,7 +28242,7 @@ module.exports = {
 
 
 /***/ }),
-/* 88 */
+/* 89 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28301,7 +28352,7 @@ module.exports = {
 
 
 /***/ }),
-/* 89 */
+/* 90 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28414,7 +28465,7 @@ module.exports = {
 
 
 /***/ }),
-/* 90 */
+/* 91 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28478,7 +28529,7 @@ module.exports = {
 
 
 /***/ }),
-/* 91 */
+/* 92 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28565,7 +28616,7 @@ module.exports = {
 
 
 /***/ }),
-/* 92 */
+/* 93 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28643,7 +28694,7 @@ module.exports = {
 
 
 /***/ }),
-/* 93 */
+/* 94 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28725,7 +28776,7 @@ module.exports = {
 
 
 /***/ }),
-/* 94 */
+/* 95 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28804,7 +28855,7 @@ module.exports = {
 
 
 /***/ }),
-/* 95 */
+/* 96 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28884,7 +28935,7 @@ module.exports = {
 
 
 /***/ }),
-/* 96 */
+/* 97 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -28965,7 +29016,7 @@ module.exports = {
 
 
 /***/ }),
-/* 97 */
+/* 98 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29092,7 +29143,7 @@ module.exports = {
 
 
 /***/ }),
-/* 98 */
+/* 99 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29220,7 +29271,7 @@ module.exports = {
 
 
 /***/ }),
-/* 99 */
+/* 100 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29321,7 +29372,7 @@ module.exports = {
 
 
 /***/ }),
-/* 100 */
+/* 101 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29449,7 +29500,7 @@ module.exports = {
 
 
 /***/ }),
-/* 101 */
+/* 102 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29607,7 +29658,7 @@ module.exports = {
 
 
 /***/ }),
-/* 102 */
+/* 103 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29721,7 +29772,7 @@ module.exports = {
 
 
 /***/ }),
-/* 103 */
+/* 104 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29820,7 +29871,7 @@ module.exports = {
 
 
 /***/ }),
-/* 104 */
+/* 105 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -29906,7 +29957,7 @@ module.exports = {
 
 
 /***/ }),
-/* 105 */
+/* 106 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30042,7 +30093,7 @@ module.exports = {
 
 
 /***/ }),
-/* 106 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30115,7 +30166,7 @@ module.exports = {
 
 
 /***/ }),
-/* 107 */
+/* 108 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30211,7 +30262,7 @@ module.exports = {
 
 
 /***/ }),
-/* 108 */
+/* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30297,7 +30348,7 @@ module.exports = {
 
 
 /***/ }),
-/* 109 */
+/* 110 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30390,7 +30441,7 @@ module.exports = {
 
 
 /***/ }),
-/* 110 */
+/* 111 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30481,7 +30532,7 @@ module.exports = {
 
 
 /***/ }),
-/* 111 */
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30595,7 +30646,7 @@ module.exports = {
 
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30725,7 +30776,7 @@ module.exports = {
 
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30810,7 +30861,7 @@ module.exports = {
 
 
 /***/ }),
-/* 114 */
+/* 115 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -30901,7 +30952,7 @@ module.exports = {
 
 
 /***/ }),
-/* 115 */
+/* 116 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31041,7 +31092,7 @@ module.exports = {
 
 
 /***/ }),
-/* 116 */
+/* 117 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31115,7 +31166,7 @@ module.exports = {
 
 
 /***/ }),
-/* 117 */
+/* 118 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31237,7 +31288,7 @@ module.exports = {
 
 
 /***/ }),
-/* 118 */
+/* 119 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31338,7 +31389,7 @@ module.exports = {
 
 
 /***/ }),
-/* 119 */
+/* 120 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31454,7 +31505,7 @@ module.exports = {
 
 
 /***/ }),
-/* 120 */
+/* 121 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31522,7 +31573,7 @@ module.exports = {
 
 
 /***/ }),
-/* 121 */
+/* 122 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31616,7 +31667,7 @@ module.exports = {
 
 
 /***/ }),
-/* 122 */
+/* 123 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31701,7 +31752,7 @@ module.exports = {
 
 
 /***/ }),
-/* 123 */
+/* 124 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31809,7 +31860,7 @@ module.exports = {
 
 
 /***/ }),
-/* 124 */
+/* 125 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -31973,7 +32024,7 @@ module.exports = {
 
 
 /***/ }),
-/* 125 */
+/* 126 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32059,7 +32110,7 @@ module.exports = {
 
 
 /***/ }),
-/* 126 */
+/* 127 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32145,7 +32196,7 @@ module.exports = {
 
 
 /***/ }),
-/* 127 */
+/* 128 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32209,7 +32260,7 @@ module.exports = {
 
 
 /***/ }),
-/* 128 */
+/* 129 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32306,7 +32357,7 @@ module.exports = {
 
 
 /***/ }),
-/* 129 */
+/* 130 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32372,7 +32423,7 @@ module.exports = {
 
 
 /***/ }),
-/* 130 */
+/* 131 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32499,7 +32550,7 @@ module.exports = {
 
 
 /***/ }),
-/* 131 */
+/* 132 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32590,7 +32641,7 @@ module.exports = {
 
 
 /***/ }),
-/* 132 */
+/* 133 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32681,7 +32732,7 @@ module.exports = {
 
 
 /***/ }),
-/* 133 */
+/* 134 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32745,7 +32796,7 @@ module.exports = {
 
 
 /***/ }),
-/* 134 */
+/* 135 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -32873,7 +32924,7 @@ module.exports = {
 
 
 /***/ }),
-/* 135 */
+/* 136 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33003,7 +33054,7 @@ module.exports = {
 
 
 /***/ }),
-/* 136 */
+/* 137 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33072,7 +33123,7 @@ module.exports = {
 
 
 /***/ }),
-/* 137 */
+/* 138 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33137,7 +33188,7 @@ module.exports = {
 
 
 /***/ }),
-/* 138 */
+/* 139 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33216,7 +33267,7 @@ module.exports = {
 
 
 /***/ }),
-/* 139 */
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33402,7 +33453,7 @@ module.exports = {
 
 
 /***/ }),
-/* 140 */
+/* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33504,7 +33555,7 @@ module.exports = {
 
 
 /***/ }),
-/* 141 */
+/* 142 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33568,7 +33619,7 @@ module.exports = {
 
 
 /***/ }),
-/* 142 */
+/* 143 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33643,7 +33694,7 @@ module.exports = {
 
 
 /***/ }),
-/* 143 */
+/* 144 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33803,7 +33854,7 @@ module.exports = {
 
 
 /***/ }),
-/* 144 */
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -33980,7 +34031,7 @@ module.exports = {
 
 
 /***/ }),
-/* 145 */
+/* 146 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34052,7 +34103,7 @@ module.exports = {
 
 
 /***/ }),
-/* 146 */
+/* 147 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34167,7 +34218,7 @@ module.exports = {
 
 
 /***/ }),
-/* 147 */
+/* 148 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34282,7 +34333,7 @@ module.exports = {
 
 
 /***/ }),
-/* 148 */
+/* 149 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34374,7 +34425,7 @@ module.exports = {
 
 
 /***/ }),
-/* 149 */
+/* 150 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34447,7 +34498,7 @@ module.exports = {
 
 
 /***/ }),
-/* 150 */
+/* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34510,7 +34561,7 @@ module.exports = {
 
 
 /***/ }),
-/* 151 */
+/* 152 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34643,7 +34694,7 @@ module.exports = {
 
 
 /***/ }),
-/* 152 */
+/* 153 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34736,7 +34787,7 @@ module.exports = {
 
 
 /***/ }),
-/* 153 */
+/* 154 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34807,7 +34858,7 @@ module.exports = {
 
 
 /***/ }),
-/* 154 */
+/* 155 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34927,7 +34978,7 @@ module.exports = {
 
 
 /***/ }),
-/* 155 */
+/* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -34998,7 +35049,7 @@ module.exports = {
 
 
 /***/ }),
-/* 156 */
+/* 157 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -35064,7 +35115,7 @@ module.exports = {
 
 
 /***/ }),
-/* 157 */
+/* 158 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -35190,7 +35241,7 @@ module.exports = {
 
 
 /***/ }),
-/* 158 */
+/* 159 */
 /***/ (function(module, exports, __webpack_require__) {
 
 
@@ -35288,7 +35339,7 @@ module.exports = {
 
 
 /***/ }),
-/* 159 */
+/* 160 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -35383,7 +35434,7 @@ module.exports = {
 
 
 /***/ }),
-/* 160 */
+/* 161 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -35445,7 +35496,7 @@ module.exports = {
 
 
 /***/ }),
-/* 161 */
+/* 162 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -35507,7 +35558,7 @@ module.exports = {
 
 
 /***/ }),
-/* 162 */
+/* 163 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js language configuration
@@ -35630,7 +35681,7 @@ module.exports = {
 
 
 /***/ }),
-/* 163 */
+/* 164 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -35785,7 +35836,7 @@ module.exports = {
 
 
 /***/ }),
-/* 164 */
+/* 165 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -35887,7 +35938,7 @@ module.exports = {
 
 
 /***/ }),
-/* 165 */
+/* 166 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -35949,7 +36000,7 @@ module.exports = {
 
 
 /***/ }),
-/* 166 */
+/* 167 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -36011,7 +36062,7 @@ module.exports = {
 
 
 /***/ }),
-/* 167 */
+/* 168 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -36094,7 +36145,7 @@ module.exports = {
 
 
 /***/ }),
-/* 168 */
+/* 169 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -36166,7 +36217,7 @@ module.exports = {
 
 
 /***/ }),
-/* 169 */
+/* 170 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -36230,7 +36281,7 @@ module.exports = {
 
 
 /***/ }),
-/* 170 */
+/* 171 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -36344,7 +36395,7 @@ module.exports = {
 
 
 /***/ }),
-/* 171 */
+/* 172 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -36451,7 +36502,7 @@ module.exports = {
 
 
 /***/ }),
-/* 172 */
+/* 173 */
 /***/ (function(module, exports, __webpack_require__) {
 
 //! moment.js locale configuration
@@ -36558,31 +36609,31 @@ module.exports = {
 
 
 /***/ }),
-/* 173 */
+/* 174 */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(174);
+__webpack_require__(175);
 module.exports = __webpack_require__(337);
 
 
 /***/ }),
-/* 174 */
+/* 175 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_router__ = __webpack_require__(200);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_router__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes__ = __webpack_require__(202);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_chartjs_plugin_datalabels__ = __webpack_require__(336);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_chartjs_plugin_datalabels___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_chartjs_plugin_datalabels__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_chart_js__);
-__webpack_require__(175);
+__webpack_require__(176);
 
 
 
 
-__WEBPACK_IMPORTED_MODULE_3_chart_js___default.a.defaults.global.defaultFontSize = 50;
+__WEBPACK_IMPORTED_MODULE_3_chart_js___default.a.defaults.global.defaultFontSize = 20;
 __WEBPACK_IMPORTED_MODULE_3_chart_js___default.a.defaults.global.defaultFontFamily = 'Microsoft JhengHei';
 
 // Set Up Router for vue - Andy
@@ -36602,11 +36653,11 @@ var vm = new Vue({
 });
 
 /***/ }),
-/* 175 */
+/* 176 */
 /***/ (function(module, exports, __webpack_require__) {
 
-window.Vue = __webpack_require__(176);
-window._ = __webpack_require__(179);
+window.Vue = __webpack_require__(177);
+window._ = __webpack_require__(180);
 window.Popper = __webpack_require__(26).default;
 
 /**
@@ -36619,7 +36670,7 @@ window.Popper = __webpack_require__(26).default;
 try {
   window.$ = window.jQuery = __webpack_require__(27);
 
-  __webpack_require__(180);
+  __webpack_require__(181);
 } catch (e) {}
 
 /**
@@ -36628,7 +36679,7 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = __webpack_require__(181);
+window.axios = __webpack_require__(182);
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
@@ -36664,7 +36715,7 @@ if (token) {
 // });
 
 /***/ }),
-/* 176 */
+/* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -47627,10 +47678,10 @@ Vue.compile = compileToFunctions;
 
 module.exports = Vue;
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(177).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(178).setImmediate))
 
 /***/ }),
-/* 177 */
+/* 178 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {var scope = (typeof global !== "undefined" && global) ||
@@ -47686,7 +47737,7 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(178);
+__webpack_require__(179);
 // On some exotic environments, it's not clear which object `setimmediate` was
 // able to install onto.  Search each possibility in the same order as the
 // `setimmediate` library.
@@ -47700,7 +47751,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
-/* 178 */
+/* 179 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -47893,7 +47944,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(19)))
 
 /***/ }),
-/* 179 */
+/* 180 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, module) {var __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -65006,7 +65057,7 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3), __webpack_require__(20)(module)))
 
 /***/ }),
-/* 180 */
+/* 181 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
@@ -68939,13 +68990,13 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 
 /***/ }),
-/* 181 */
+/* 182 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(182);
+module.exports = __webpack_require__(183);
 
 /***/ }),
-/* 182 */
+/* 183 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -68953,7 +69004,7 @@ module.exports = __webpack_require__(182);
 
 var utils = __webpack_require__(7);
 var bind = __webpack_require__(28);
-var Axios = __webpack_require__(184);
+var Axios = __webpack_require__(185);
 var defaults = __webpack_require__(21);
 
 /**
@@ -68988,14 +69039,14 @@ axios.create = function create(instanceConfig) {
 
 // Expose Cancel & CancelToken
 axios.Cancel = __webpack_require__(32);
-axios.CancelToken = __webpack_require__(198);
+axios.CancelToken = __webpack_require__(199);
 axios.isCancel = __webpack_require__(31);
 
 // Expose all/spread
 axios.all = function all(promises) {
   return Promise.all(promises);
 };
-axios.spread = __webpack_require__(199);
+axios.spread = __webpack_require__(200);
 
 module.exports = axios;
 
@@ -69004,7 +69055,7 @@ module.exports.default = axios;
 
 
 /***/ }),
-/* 183 */
+/* 184 */
 /***/ (function(module, exports) {
 
 /*!
@@ -69031,7 +69082,7 @@ function isSlowBuffer (obj) {
 
 
 /***/ }),
-/* 184 */
+/* 185 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69039,8 +69090,8 @@ function isSlowBuffer (obj) {
 
 var defaults = __webpack_require__(21);
 var utils = __webpack_require__(7);
-var InterceptorManager = __webpack_require__(193);
-var dispatchRequest = __webpack_require__(194);
+var InterceptorManager = __webpack_require__(194);
+var dispatchRequest = __webpack_require__(195);
 
 /**
  * Create a new instance of Axios
@@ -69117,7 +69168,7 @@ module.exports = Axios;
 
 
 /***/ }),
-/* 185 */
+/* 186 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69136,7 +69187,7 @@ module.exports = function normalizeHeaderName(headers, normalizedName) {
 
 
 /***/ }),
-/* 186 */
+/* 187 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69169,7 +69220,7 @@ module.exports = function settle(resolve, reject, response) {
 
 
 /***/ }),
-/* 187 */
+/* 188 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69197,7 +69248,7 @@ module.exports = function enhanceError(error, config, code, request, response) {
 
 
 /***/ }),
-/* 188 */
+/* 189 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69270,7 +69321,7 @@ module.exports = function buildURL(url, params, paramsSerializer) {
 
 
 /***/ }),
-/* 189 */
+/* 190 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69330,7 +69381,7 @@ module.exports = function parseHeaders(headers) {
 
 
 /***/ }),
-/* 190 */
+/* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69405,7 +69456,7 @@ module.exports = (
 
 
 /***/ }),
-/* 191 */
+/* 192 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69448,7 +69499,7 @@ module.exports = btoa;
 
 
 /***/ }),
-/* 192 */
+/* 193 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69508,7 +69559,7 @@ module.exports = (
 
 
 /***/ }),
-/* 193 */
+/* 194 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69567,18 +69618,18 @@ module.exports = InterceptorManager;
 
 
 /***/ }),
-/* 194 */
+/* 195 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(7);
-var transformData = __webpack_require__(195);
+var transformData = __webpack_require__(196);
 var isCancel = __webpack_require__(31);
 var defaults = __webpack_require__(21);
-var isAbsoluteURL = __webpack_require__(196);
-var combineURLs = __webpack_require__(197);
+var isAbsoluteURL = __webpack_require__(197);
+var combineURLs = __webpack_require__(198);
 
 /**
  * Throws a `Cancel` if cancellation has been requested.
@@ -69660,7 +69711,7 @@ module.exports = function dispatchRequest(config) {
 
 
 /***/ }),
-/* 195 */
+/* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69687,7 +69738,7 @@ module.exports = function transformData(data, headers, fns) {
 
 
 /***/ }),
-/* 196 */
+/* 197 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69708,7 +69759,7 @@ module.exports = function isAbsoluteURL(url) {
 
 
 /***/ }),
-/* 197 */
+/* 198 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69729,7 +69780,7 @@ module.exports = function combineURLs(baseURL, relativeURL) {
 
 
 /***/ }),
-/* 198 */
+/* 199 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69793,7 +69844,7 @@ module.exports = CancelToken;
 
 
 /***/ }),
-/* 199 */
+/* 200 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -69827,7 +69878,7 @@ module.exports = function spread(callback) {
 
 
 /***/ }),
-/* 200 */
+/* 201 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -72457,15 +72508,15 @@ if (inBrowser && window.Vue) {
 
 
 /***/ }),
-/* 201 */
+/* 202 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Login__ = __webpack_require__(202);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Login__ = __webpack_require__(203);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_Login___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__components_Login__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_CourseList__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_CourseList__ = __webpack_require__(209);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_CourseList___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__components_CourseList__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_TWaiting__ = __webpack_require__(213);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_TWaiting__ = __webpack_require__(214);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__components_TWaiting___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__components_TWaiting__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_SWaiting__ = __webpack_require__(252);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_SWaiting___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_SWaiting__);
@@ -72506,19 +72557,19 @@ var routes = [{
 /* harmony default export */ __webpack_exports__["a"] = (routes);
 
 /***/ }),
-/* 202 */
+/* 203 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(203)
+  __webpack_require__(204)
 }
 var normalizeComponent = __webpack_require__(6)
 /* script */
-var __vue_script__ = __webpack_require__(206)
+var __vue_script__ = __webpack_require__(207)
 /* template */
-var __vue_template__ = __webpack_require__(207)
+var __vue_template__ = __webpack_require__(208)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -72557,13 +72608,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 203 */
+/* 204 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(204);
+var content = __webpack_require__(205);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -72583,7 +72634,7 @@ if(false) {
 }
 
 /***/ }),
-/* 204 */
+/* 205 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -72591,13 +72642,13 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.login-header[data-v-01e7f602] {\n  width: 100%;\n  height: 35%;\n}\n.login-body[data-v-01e7f602] {\n  width: 100%;\n  height: 37%;\n}\n.login-bottom[data-v-01e7f602] {\n  width: 100%;\n  height: 30%;\n}\n.login-button[data-v-01e7f602] {\n  width: 100%;\n  height: 35%;\n}\n.logo[data-v-01e7f602] {\n  height: 30em;\n  width: 30em;\n}\n.button-login[data-v-01e7f602] {\n  font: bold;\n  border-radius: 99em;\n  width: 78%;\n  height: 70%;\n  color: #383838;\n  font-size: 4.3em;\n  font-family: Microsoft JhengHei;\n  -webkit-transition: opacity 2s;\n  transition: opacity 2s;\n  -webkit-box-shadow: 6px 7px 20px 1px #a4a4a4;\n          box-shadow: 6px 7px 20px 1px #a4a4a4;\n  background: rgb(248, 80, 50);\n  /* Old browsers */\n  background: rgb(252, 234, 187);\n  /* Old browsers */\n  /* FF3.6-15 */\n  /* Chrome10-25,Safari5.1-6 */\n  background: linear-gradient(\n    135deg,\n    rgba(252, 234, 187, 1) 0%,\n    rgba(252, 205, 77, 1) 50%,\n    rgba(248, 181, 0, 1) 51%,\n    rgba(251, 223, 147, 1) 100%\n  );\n  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\n  filter: progid:DXImageTransform.Microsoft.gradient(\n      startColorstr=\"#fceabb\",\n      endColorstr=\"#fbdf93\",\n      GradientType=1\n    );\n  /* IE6-9 fallback on horizontal gradient */\n}\n.col-choose-bar[data-v-01e7f602] {\n  width: 100%;\n  height: 25%;\n}\n.input[data-v-01e7f602] {\n  width: 100%;\n  height: 35%;\n}\n.col[data-v-01e7f602] {\n  width: 75%;\n  height: 60%;\n  font-size: 3.5em;\n  text-indent: 3em;\n}\n#ac[data-v-01e7f602] {\n  background: transparent url(/img/account.png) no-repeat 5%;\n  background-size: 9%;\n}\n#pw[data-v-01e7f602] {\n  background: transparent url(/img/password.png) no-repeat 4%;\n  background-size: 10%;\n}\n.bar[data-v-01e7f602] {\n  font: bold;\n  width: 30%;\n  border-bottom: 8px solid #d9e1d8;\n  height: 80%;\n  text-align: center;\n  font-size: 3.5em;\n  line-height: 115px;\n  color: #a3a1a1;\n}\n#selected[data-v-01e7f602] {\n  color: #ff5f2e;\n  border-bottom: 8px solid #ff5f2e;\n}\n.effect-2[data-v-01e7f602] {\n  border: 0;\n  padding: 7px 0;\n  border-bottom: 5px solid #ccc;\n}\n.effect-2 ~ .focus-border[data-v-01e7f602] {\n  position: absolute;\n  bottom: 0;\n  left: 50%;\n  width: 0;\n  height: 2px;\n  background-color: #3399ff;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n.effect-2:focus ~ .focus-border[data-v-01e7f602] {\n  width: 100%;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n  left: 0;\n}\n", ""]);
+exports.push([module.i, "\n.login-header[data-v-01e7f602] {\n  width: 100%;\n  height: 35%;\n}\n.login-body[data-v-01e7f602] {\n  width: 100%;\n  height: 37%;\n}\n.login-bottom[data-v-01e7f602] {\n  width: 100%;\n  height: 30%;\n}\n.login-button[data-v-01e7f602] {\n  width: 100%;\n  height: 35%;\n}\n.logo[data-v-01e7f602] {\n  height: 20em;\n  width: 20em;\n}\n.button-login[data-v-01e7f602] {\n  font: bold;\n  border-radius: 99em;\n  width: 78%;\n  height: 70%;\n  color: #383838;\n  font-size: 4.3em;\n  font-family: Microsoft JhengHei;\n  -webkit-transition: opacity 2s;\n  transition: opacity 2s;\n  -webkit-box-shadow: 6px 7px 20px 1px #a4a4a4;\n          box-shadow: 6px 7px 20px 1px #a4a4a4;\n  background: rgb(248, 80, 50);\n  /* Old browsers */\n  background: rgb(252, 234, 187);\n  /* Old browsers */\n  /* FF3.6-15 */\n  /* Chrome10-25,Safari5.1-6 */\n  background: linear-gradient(\n    135deg,\n    rgba(252, 234, 187, 1) 0%,\n    rgba(252, 205, 77, 1) 50%,\n    rgba(248, 181, 0, 1) 51%,\n    rgba(251, 223, 147, 1) 100%\n  );\n  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */\n  filter: progid:DXImageTransform.Microsoft.gradient(\n      startColorstr=\"#fceabb\",\n      endColorstr=\"#fbdf93\",\n      GradientType=1\n    );\n  /* IE6-9 fallback on horizontal gradient */\n}\n.col-choose-bar[data-v-01e7f602] {\n  width: 100%;\n  height: 25%;\n}\n.input[data-v-01e7f602] {\n  width: 100%;\n  height: 35%;\n}\n.col[data-v-01e7f602] {\n  width: 75%;\n  height: 60%;\n  font-size: 3.5em;\n  text-indent: 3em;\n}\n#ac[data-v-01e7f602] {\n  background: transparent url(/img/account.png) no-repeat 5%;\n  background-size: 9%;\n}\n#pw[data-v-01e7f602] {\n  background: transparent url(/img/password.png) no-repeat 4%;\n  background-size: 10%;\n}\n.bar[data-v-01e7f602] {\n  font: bold;\n  width: 30%;\n  border-bottom: 8px solid #d9e1d8;\n  height: 80%;\n  text-align: center;\n  font-size: 3.5em;\n  line-height: 40px;\n  color: #a3a1a1;\n}\n#selected[data-v-01e7f602] {\n  color: #ff5f2e;\n  border-bottom: 8px solid #ff5f2e;\n}\n.effect-2[data-v-01e7f602] {\n  border: 0;\n  padding: 7px 0;\n  border-bottom: 5px solid #ccc;\n}\n.effect-2 ~ .focus-border[data-v-01e7f602] {\n  position: absolute;\n  bottom: 0;\n  left: 50%;\n  width: 0;\n  height: 2px;\n  background-color: #3399ff;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n}\n.effect-2:focus ~ .focus-border[data-v-01e7f602] {\n  width: 100%;\n  -webkit-transition: 0.4s;\n  transition: 0.4s;\n  left: 0;\n}\n\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 205 */
+/* 206 */
 /***/ (function(module, exports) {
 
 /**
@@ -72630,13 +72681,11 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 206 */
+/* 207 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
 //
 //
 //
@@ -72742,7 +72791,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }*/
 
 /***/ }),
-/* 207 */
+/* 208 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -72828,9 +72877,7 @@ var render = function() {
               _vm.inputPassword = $event.target.value
             }
           }
-        }),
-        _vm._v(" "),
-        _c("span", { staticClass: "focus-border" })
+        })
       ])
     ]),
     _vm._v(" "),
@@ -72875,19 +72922,19 @@ if (false) {
 }
 
 /***/ }),
-/* 208 */
+/* 209 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(209)
+  __webpack_require__(210)
 }
 var normalizeComponent = __webpack_require__(6)
 /* script */
-var __vue_script__ = __webpack_require__(211)
+var __vue_script__ = __webpack_require__(212)
 /* template */
-var __vue_template__ = __webpack_require__(212)
+var __vue_template__ = __webpack_require__(213)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -72926,13 +72973,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 209 */
+/* 210 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(210);
+var content = __webpack_require__(211);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -72952,7 +72999,7 @@ if(false) {
 }
 
 /***/ }),
-/* 210 */
+/* 211 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -72960,13 +73007,13 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.cl-header[data-v-5c7654e0] {\n  width: 100%;\n  height: 30%;\n}\n.cl-body[data-v-5c7654e0] {\n  width: 100%;\n  height: 70%;\n}\n.ch-LR[data-v-5c7654e0] {\n  float: left;\n  width: 26%;\n  height: 100%;\n}\n.ch-center[data-v-5c7654e0] {\n  float: left;\n  width: 44%;\n  height: 100%;\n}\n.infro-img[data-v-5c7654e0] {\n  width: 100%;\n  height: 80%;\n}\n.infro-name[data-v-5c7654e0] {\n  color: #34314c;\n  font-weight: bold;\n  text-align: center;\n  font-size: 4em;\n  width: 100%;\n  height: 20%;\n  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),\n    0px 18px 23px rgba(0, 0, 0, 0.1);\n}\n.circle[data-v-5c7654e0] {\n  width: 18.5em;\n  height: 18.5em;\n  border-radius: 99em;\n  -webkit-box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.3), 0px 8px 13px rgba(0, 0, 0, 0.1),\n    0px 18px 23px rgba(0, 0, 0, 0.1);\n          box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.3), 0px 8px 13px rgba(0, 0, 0, 0.1),\n    0px 18px 23px rgba(0, 0, 0, 0.1);\n}\n.LR-top[data-v-5c7654e0] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  padding-top: 30%;\n  width: 100%;\n  height: 50%;\n}\n.LR-bottom[data-v-5c7654e0] {\n  width: 100%;\n  height: 50%;\n}\n.before-text[data-v-5c7654e0] {\n  width: 100%;\n  font-size: 2.5em;\n  float: left;\n  text-align: center;\n  margin: 3%;\n  text-shadow: 2px 2px 1px #ccc;\n}\n.top-button[data-v-5c7654e0] {\n  width: 100%;\n  height: 100%;\n}\n.setting[data-v-5c7654e0] {\n  background: transparent url(/img/setting.png) no-repeat top center;\n  background-size: 50%;\n  position: relative;\n  left: 20%;\n  top: 5%;\n}\n.shop[data-v-5c7654e0] {\n  background: transparent url(/img/shop.png) no-repeat top center;\n  background-size: 52%;\n  position: relative;\n  left: -10%;\n  top: 5%;\n}\n.choose-text[data-v-5c7654e0] {\n  font-weight: bold;\n  width: 100%;\n  height: 12%;\n  color: #ff7473;\n  font-size: 4.5em;\n}\n.courselist[data-v-5c7654e0] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 8%;\n  padding-top: 4%;\n  width: 100%;\n  height: 88%;\n  overflow-y: scroll;\n}\n.course[data-v-5c7654e0] {\n  width: 100%;\n  height: 17%;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 1%;\n  margin-bottom: 5%;\n  -webkit-transition: margin-bottom 1.5s;\n  transition: margin-bottom 1.5s;\n}\n.course.open[data-v-5c7654e0] {\n  margin-bottom: 20%;\n}\n.class-infro[data-v-5c7654e0] {\n  position: relative;\n  z-index: 2;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  width: 100%;\n  height: 100%;\n  background-color: #ffc952;\n  border-radius: 40px;\n  -webkit-box-shadow: 3px 3px 3px 2px #ccc;\n          box-shadow: 3px 3px 3px 2px #ccc;\n}\n.subject[data-v-5c7654e0] {\n  font-size: 2.7em;\n  float: left;\n  width: 25%;\n  height: 100%;\n}\n.class-name[data-v-5c7654e0] {\n  font-weight: bold;\n  font-size: 3em;\n  float: left;\n  width: 60%;\n  height: 100%;\n}\n.class-time[data-v-5c7654e0] {\n  font-size: 2.3em;\n  float: left;\n  width: 15%;\n  height: 100%;\n}\n.logo-time[data-v-5c7654e0] {\n  width: 40%;\n  margin: 3%;\n}\n.time-text[data-v-5c7654e0] {\n  text-align: center;\n  line-height: 130%;\n}\n.class-detail[data-v-5c7654e0] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 2%;\n  position: -webkit-sticky;\n  position: sticky;\n  z-index: 1;\n  margin-top: -2%;\n  width: 100%;\n  height: 115%;\n  background-color: #fbffb9;\n  border-radius: 10px;\n}\n.col-d[data-v-5c7654e0] {\n  float: left;\n  width: 50%;\n  height: 100%;\n  font-size: 2.5em;\n}\n.add-room[data-v-5c7654e0] {\n  float: left;\n  width: 40%;\n  height: 100%;\n  background: transparent url(\"/img/addroom.png\") no-repeat center 70%;\n  background-size: 45%;\n}\n.join-room[data-v-5c7654e0] {\n  float: left;\n  width: 40%;\n  height: 100%;\n  background: transparent url(\"/img/joinroom.png\") no-repeat center 75%;\n  background-size: 40%;\n}\n.history[data-v-5c7654e0] {\n  float: left;\n  width: 40%;\n  height: 100%;\n  background: transparent url(\"/img/history.png\") no-repeat center 75%;\n  background-size: 50%;\n}\n.room-text[data-v-5c7654e0] {\n  float: left;\n  width: 50%;\n  height: 100%;\n  font-size: 1.1em;\n  padding-top: 5%;\n}\n.hide[data-v-5c7654e0] {\n  display: none;\n}\n", ""]);
+exports.push([module.i, "\n.cl-header[data-v-5c7654e0] {\n  width: 100%;\n  height: 30%;\n}\n.cl-body[data-v-5c7654e0] {\n  width: 100%;\n  height: 70%;\n}\n.ch-LR[data-v-5c7654e0] {\n  float: left;\n  width: 26%;\n  height: 100%;\n}\n.ch-center[data-v-5c7654e0] {\n  float: left;\n  width: 44%;\n  height: 100%;\n}\n.infro-img[data-v-5c7654e0] {\n  width: 100%;\n  height: 80%;\n}\n.infro-name[data-v-5c7654e0] {\n  color: #34314c;\n  font-weight: bold;\n  text-align: center;\n  font-size: 4em;\n  width: 100%;\n  height: 20%;\n  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),\n    0px 18px 23px rgba(0, 0, 0, 0.1);\n}\n.circle[data-v-5c7654e0] {\n  width: 12em;\n  height: 12em;\n  border-radius: 99em;\n  -webkit-box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.3), 0px 8px 13px rgba(0, 0, 0, 0.1),\n    0px 18px 23px rgba(0, 0, 0, 0.1);\n          box-shadow: 0px 4px 3px rgba(0, 0, 0, 0.3), 0px 8px 13px rgba(0, 0, 0, 0.1),\n    0px 18px 23px rgba(0, 0, 0, 0.1);\n}\n.LR-top[data-v-5c7654e0] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  padding-top: 30%;\n  width: 100%;\n  height: 50%;\n}\n.LR-bottom[data-v-5c7654e0] {\n  width: 100%;\n  height: 50%;\n}\n.before-text[data-v-5c7654e0] {\n  width: 100%;\n  font-size: 2.5em;\n  float: left;\n  text-align: center;\n  margin: 3%;\n  text-shadow: 2px 2px 1px #ccc;\n}\n.top-button[data-v-5c7654e0] {\n  width: 100%;\n  height: 100%;\n}\n.setting[data-v-5c7654e0] {\n  background: transparent url(/img/setting.png) no-repeat top center;\n  background-size: 50%;\n  position: relative;\n  left: 20%;\n  top: 5%;\n}\n.shop[data-v-5c7654e0] {\n  background: transparent url(/img/shop.png) no-repeat top center;\n  background-size: 52%;\n  position: relative;\n  left: -10%;\n  top: 5%;\n}\n.choose-text[data-v-5c7654e0] {\n  font-weight: bold;\n  width: 100%;\n  height: 12%;\n  color: #ff7473;\n  font-size: 4.5em;\n}\n.courselist[data-v-5c7654e0] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 8%;\n  padding-top: 4%;\n  width: 100%;\n  height: 88%;\n  overflow-y: scroll;\n}\n.course[data-v-5c7654e0] {\n  width: 100%;\n  height: 17%;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 1%;\n  margin-bottom: 5%;\n  -webkit-transition: margin-bottom 1.5s;\n  transition: margin-bottom 1.5s;\n}\n.course.open[data-v-5c7654e0] {\n  margin-bottom: 20%;\n}\n.class-infro[data-v-5c7654e0] {\n  position: relative;\n  z-index: 2;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  width: 100%;\n  height: 100%;\n  background-color: #ffc952;\n  border-radius: 20px;\n  -webkit-box-shadow: 3px 3px 3px 2px #ccc;\n          box-shadow: 3px 3px 3px 2px #ccc;\n}\n.subject[data-v-5c7654e0] {\n  font-size: 2.7em;\n  float: left;\n  width: 25%;\n  height: 100%;\n}\n.class-name[data-v-5c7654e0] {\n  font-weight: bold;\n  font-size: 3em;\n  float: left;\n  width: 60%;\n  height: 100%;\n}\n.class-time[data-v-5c7654e0] {\n  font-size: 2.3em;\n  float: left;\n  width: 15%;\n  height: 100%;\n}\n.logo-time[data-v-5c7654e0] {\n  width: 40%;\n  margin: 3%;\n}\n.time-text[data-v-5c7654e0] {\n  text-align: center;\n  line-height: 130%;\n}\n.class-detail[data-v-5c7654e0] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 2%;\n  position: -webkit-sticky;\n  position: sticky;\n  z-index: 1;\n  margin-top: -2%;\n  width: 100%;\n  height: 115%;\n  background-color: #fbffb9;\n  border-radius: 10px;\n}\n.col-d[data-v-5c7654e0] {\n  float: left;\n  width: 50%;\n  height: 100%;\n  font-size: 2.5em;\n}\n.add-room[data-v-5c7654e0] {\n  float: left;\n  width: 40%;\n  height: 100%;\n  background: transparent url(\"/img/addroom.png\") no-repeat center 70%;\n  background-size: 45%;\n}\n.join-room[data-v-5c7654e0] {\n  float: left;\n  width: 40%;\n  height: 100%;\n  background: transparent url(\"/img/joinroom.png\") no-repeat center 75%;\n  background-size: 40%;\n}\n.history[data-v-5c7654e0] {\n  float: left;\n  width: 40%;\n  height: 100%;\n  background: transparent url(\"/img/history.png\") no-repeat center 75%;\n  background-size: 50%;\n}\n.room-text[data-v-5c7654e0] {\n  float: left;\n  width: 50%;\n  height: 100%;\n  font-size: 1.1em;\n  padding-top: 5%;\n}\n.hide[data-v-5c7654e0] {\n  display: none;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 211 */
+/* 212 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -73051,7 +73098,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     clickCourseItem: function clickCourseItem(item) {
       this.$set(this.courses[item], "isOpen", !this.courses[item].isOpen);
     },
-
     swapToTW: function swapToTW(id) {
       // if no room for this course then create and enter else just enter
       if (sessionStorage.getItem("room_course_id") == null) {
@@ -73115,7 +73161,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 212 */
+/* 213 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -73301,17 +73347,17 @@ if (false) {
 }
 
 /***/ }),
-/* 213 */
+/* 214 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(214)
+  __webpack_require__(215)
 }
 var normalizeComponent = __webpack_require__(6)
 /* script */
-var __vue_script__ = __webpack_require__(216)
+var __vue_script__ = __webpack_require__(217)
 /* template */
 var __vue_template__ = __webpack_require__(251)
 /* template functional */
@@ -73352,13 +73398,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 214 */
+/* 215 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(215);
+var content = __webpack_require__(216);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -73378,7 +73424,7 @@ if(false) {
 }
 
 /***/ }),
-/* 215 */
+/* 216 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -73386,20 +73432,20 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.nav-bar[data-v-1e7735a0] {\n  width: 106%;\n  height: 7%;\n  margin-left: -3%;\n  -webkit-box-shadow: 0px 5px 8px #9baec8;\n          box-shadow: 0px 5px 8px #9baec8;\n  font-size: 3em;\n}\n.waiting-header[data-v-1e7735a0] {\n  width: 100%;\n  height: 12%;\n  font-size: 7em;\n  font-weight: bold;\n  color: #ff7473;\n  text-shadow: 2px 3px 9px #c03546;\n}\n.waiting-body[data-v-1e7735a0] {\n  padding: 0% 6%;\n  width: 100%;\n  height: 63%;\n}\n.waiting-bottom[data-v-1e7735a0] {\n  width: 100%;\n  height: 18%;\n}\n.col[data-v-1e7735a0] {\n  width: 100%;\n  border-radius: 30px;\n  -webkit-box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6),\n    4px 4px 6px rgba(20%, 20%, 40%, 0.4), 6px 6px 12px rgba(20%, 20%, 40%, 0.4);\n          box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6),\n    4px 4px 6px rgba(20%, 20%, 40%, 0.4), 6px 6px 12px rgba(20%, 20%, 40%, 0.4);\n}\n.chat-ul[data-v-1e7735a0] {\n  width: 100%;\n  height: 100%;\n  overflow-y: scroll;\n}\n.chat-li[data-v-1e7735a0] {\n  width: 100%;\n  font-size: 3em;\n  margin-bottom: 1%;\n  line-height: 135%;\n  font-weight: bold;\n  color: white;\n  text-shadow: 1px 1px 5px #000, 2px 2px 5px #000;\n}\n.set-li[data-v-1e7735a0] {\n  list-style: none;\n  width: 100%;\n  font-size: 2.5em;\n  margin-bottom: 1%;\n  line-height: 135%;\n  font-weight: bold;\n  color: white;\n  text-shadow: 1px 1px 5px #000, 2px 2px 5px #000;\n}\n.infro-people[data-v-1e7735a0] {\n  height: 20%;\n  margin-bottom: 2%;\n  background: rgba(255, 201, 82, 0.8) url(/img/room_people.png) no-repeat 5%\n    100%;\n  background-size: 40%;\n}\n.infro-setting[data-v-1e7735a0] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  height: 35%;\n  margin-bottom: 2%;\n  background: rgba(236, 115, 87, 0.8) url(/img/setting_1.png) no-repeat 94% -5%;\n  background-size: 45%;\n}\n.infro-chatting[data-v-1e7735a0] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  height: 40%;\n  background: rgba(117, 79, 68, 0.8) url(/img/chat.png) no-repeat 5% 120%;\n  background-size: 53%;\n}\n.go-button[data-v-1e7735a0] {\n  background: transparent url(/img/go.png) no-repeat center 15%;\n  background-size: 50%;\n  width: 100%;\n  height: 100%;\n}\n.people[data-v-1e7735a0] {\n  float: left;\n  width: 40%;\n}\n.current[data-v-1e7735a0] {\n  font-weight: bold;\n  font-size: 7em;\n  float: right;\n  width: 25%;\n}\n.total[data-v-1e7735a0] {\n  font-size: 3.5em;\n  float: right;\n  width: 20%;\n}\n.gametype[data-v-1e7735a0] {\n  float: left;\n  width: 25%;\n  height: 90%;\n  margin-top: 3%;\n  border-radius: 30px 0px 0px 30px;\n  background-color: rgba(253, 153, 154, 0.7);\n}\n.brain-method[data-v-1e7735a0] {\n  float: left;\n  width: 25%;\n  height: 90%;\n  margin-top: 3%;\n  border-radius: 0px 30px 30px 0px;\n  background-color: rgba(103, 213, 181, 0.7);\n}\n.other-setting[data-v-1e7735a0] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 2%;\n  float: left;\n  width: 50%;\n}\n.infro-img[data-v-1e7735a0] {\n  width: 100%;\n  height: 60%;\n}\n.infro-text[data-v-1e7735a0] {\n  width: 100%;\n  height: 40%;\n  font-size: 2.8em;\n  font-weight: bold;\n  text-align: center;\n}\n#no-r[data-v-1e7735a0] {\n  background: transparent url(\"/img/no-r.png\") no-repeat center center;\n  background-size: 70%;\n}\n#no-g[data-v-1e7735a0] {\n  background: transparent url(\"/img/no-g.png\") no-repeat center center;\n  background-size: 70%;\n}\n#pass[data-v-1e7735a0] {\n  background: transparent url(\"/img/pass.png\") no-repeat center center;\n  background-size: 70%;\n}\n#sixhat[data-v-1e7735a0] {\n  background: transparent url(\"/img/hat.png\") no-repeat center center;\n  background-size: 80%;\n}\n#stf[data-v-1e7735a0] {\n  background: transparent url(\"/img/stf.png\") no-repeat center center;\n  background-size: 80%;\n}\n#role-play[data-v-1e7735a0] {\n  background: transparent url(\"/img/role-play.png\") no-repeat center center;\n  background-size: 80%;\n}\n#talking[data-v-1e7735a0] {\n  background: transparent url(\"/img/talking.png\") no-repeat center center;\n  background-size: 80%;\n}\n#passgate[data-v-1e7735a0] {\n  background: transparent url(\"/img/passgate.png\") no-repeat center center;\n  background-size: 80%;\n}\n#groupfight[data-v-1e7735a0] {\n  background: transparent url(\"/img/groupfight.png\") no-repeat center center;\n  background-size: 80%;\n}\n.white-bg[data-v-1e7735a0] {\n  position: absolute;\n  z-index: 1;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(255, 255, 255, 0.7);\n}\n.nav-btn[data-v-1e7735a0] {\n  float: left;\n  width: 12%;\n}\n#return[data-v-1e7735a0] {\n  background: transparent url(\"/img/return.png\") no-repeat center center;\n  background-size: 25%;\n}\n.class-name[data-v-1e7735a0] {\n  float: left;\n  font-weight: bold;\n  width: 76%;\n  font-size: 1.1em;\n}\n", ""]);
+exports.push([module.i, "\n.nav-bar[data-v-1e7735a0] {\n  width: 106%;\n  height: 7%;\n  margin-left: -3%;\n  -webkit-box-shadow: 0px 2px 8px #9baec8;\n          box-shadow: 0px 2px 8px #9baec8;\n  font-size: 3em;\n}\n.waiting-header[data-v-1e7735a0] {\n  width: 100%;\n  height: 12%;\n  font-size: 7em;\n  font-weight: bold;\n  color: #ff7473;\n  text-shadow: 2px 3px 4px #c03546;\n}\n.waiting-body[data-v-1e7735a0] {\n  padding: 0% 6%;\n  width: 100%;\n  height: 63%;\n}\n.waiting-bottom[data-v-1e7735a0] {\n  width: 100%;\n  height: 18%;\n}\n.col[data-v-1e7735a0] {\n  width: 100%;\n  border-radius: 30px;\n  -webkit-box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6),\n    4px 4px 6px rgba(20%, 20%, 40%, 0.4);\n          box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6),\n    4px 4px 6px rgba(20%, 20%, 40%, 0.4);\n}\n.chat-ul[data-v-1e7735a0] {\n  width: 100%;\n  height: 100%;\n  overflow-y: scroll;\n}\n.chat-li[data-v-1e7735a0] {\n  width: 100%;\n  font-size: 3em;\n  margin-bottom: 1%;\n  line-height: 135%;\n  font-weight: bold;\n  color: white;\n  text-shadow: 1px 1px 5px #000, 2px 2px 5px #000;\n}\n.set-li[data-v-1e7735a0] {\n  list-style: none;\n  width: 100%;\n  font-size: 2.5em;\n  margin-bottom: 1%;\n  line-height: 135%;\n  font-weight: bold;\n  color: white;\n  text-shadow: 1px 1px 5px #000, 2px 2px 5px #000;\n}\n.infro-people[data-v-1e7735a0] {\n  height: 20%;\n  margin-bottom: 2%;\n  background: rgba(255, 201, 82, 0.8) url(/img/room_people.png) no-repeat 5%\n    100%;\n  background-size: 40%;\n}\n.infro-setting[data-v-1e7735a0] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  height: 35%;\n  margin-bottom: 2%;\n  background: rgba(236, 115, 87, 0.8) url(/img/setting_1.png) no-repeat 94% -5%;\n  background-size: 45%;\n}\n.infro-chatting[data-v-1e7735a0] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  height: 40%;\n  background: rgba(117, 79, 68, 0.8) url(/img/chat.png) no-repeat 5% 120%;\n  background-size: 53%;\n}\n.go-button[data-v-1e7735a0] {\n  background: transparent url(/img/go.png) no-repeat center 15%;\n  background-size: 50%;\n  width: 100%;\n  height: 100%;\n}\n.people[data-v-1e7735a0] {\n  float: left;\n  width: 40%;\n}\n.current[data-v-1e7735a0] {\n  font-weight: bold;\n  font-size: 7em;\n  float: right;\n  width: 25%;\n}\n.total[data-v-1e7735a0] {\n  font-size: 3.5em;\n  float: right;\n  width: 20%;\n}\n.gametype[data-v-1e7735a0] {\n  float: left;\n  width: 25%;\n  height: 90%;\n  margin-top: 3%;\n  border-radius: 30px 0px 0px 30px;\n  background-color: rgba(253, 153, 154, 0.7);\n}\n.brain-method[data-v-1e7735a0] {\n  float: left;\n  width: 25%;\n  height: 90%;\n  margin-top: 3%;\n  border-radius: 0px 30px 30px 0px;\n  background-color: rgba(103, 213, 181, 0.7);\n}\n.other-setting[data-v-1e7735a0] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 2%;\n  float: left;\n  width: 50%;\n}\n.infro-img[data-v-1e7735a0] {\n  width: 100%;\n  height: 60%;\n}\n.infro-text[data-v-1e7735a0] {\n  width: 100%;\n  height: 40%;\n  font-size: 2.8em;\n  font-weight: bold;\n  text-align: center;\n}\n#no-r[data-v-1e7735a0] {\n  background: transparent url(\"/img/no-r.png\") no-repeat center center;\n  background-size: 70%;\n}\n#no-g[data-v-1e7735a0] {\n  background: transparent url(\"/img/no-g.png\") no-repeat center center;\n  background-size: 70%;\n}\n#pass[data-v-1e7735a0] {\n  background: transparent url(\"/img/pass.png\") no-repeat center center;\n  background-size: 70%;\n}\n#sixhat[data-v-1e7735a0] {\n  background: transparent url(\"/img/hat.png\") no-repeat center center;\n  background-size: 80%;\n}\n#stf[data-v-1e7735a0] {\n  background: transparent url(\"/img/stf.png\") no-repeat center center;\n  background-size: 80%;\n}\n#role-play[data-v-1e7735a0] {\n  background: transparent url(\"/img/role-play.png\") no-repeat center center;\n  background-size: 80%;\n}\n#talking[data-v-1e7735a0] {\n  background: transparent url(\"/img/talking.png\") no-repeat center center;\n  background-size: 80%;\n}\n#passgate[data-v-1e7735a0] {\n  background: transparent url(\"/img/passgate.png\") no-repeat center center;\n  background-size: 80%;\n}\n#groupfight[data-v-1e7735a0] {\n  background: transparent url(\"/img/groupfight.png\") no-repeat center center;\n  background-size: 80%;\n}\n.white-bg[data-v-1e7735a0] {\n  position: absolute;\n  z-index: 1;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(255, 255, 255, 0.7);\n}\n.nav-btn[data-v-1e7735a0] {\n  float: left;\n  width: 12%;\n}\n#return[data-v-1e7735a0] {\n  background: transparent url(\"/img/return.png\") no-repeat 75% center;\n  background-size: 25%;\n}\n.class-name[data-v-1e7735a0] {\n  float: left;\n  font-weight: bold;\n  width: 76%;\n  font-size: 1.1em;\n}\n.container[data-v-1e7735a0]{\n  height: 100%;\n}\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 216 */
+/* 217 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Setting__ = __webpack_require__(217);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Setting__ = __webpack_require__(218);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Setting___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Setting__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Chatroom__ = __webpack_require__(222);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Chatroom__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Chatroom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Chatroom__);
 //
 //
@@ -73504,6 +73550,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
     OpenChattingPage: function OpenChattingPage() {
       this.isChattingOpen = true;
+    },
+    swapToGame: function swapToGame() {
+      this.$router.push({ path: "/gameroom_sixhat" });
     }
   },
 
@@ -73527,7 +73576,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       });
     });
 
-    self.socket = __webpack_require__(33)("http://localhost:6379");
+    self.socket = __webpack_require__(34)("http://localhost:6379");
     self.socket.on("connect", function () {
       console.log(self.socket.id);
       self.socket.emit("joinRoom", self.course_id);
@@ -73583,19 +73632,19 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 217 */
+/* 218 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
 function injectStyle (ssrContext) {
   if (disposed) return
-  __webpack_require__(218)
+  __webpack_require__(219)
 }
 var normalizeComponent = __webpack_require__(6)
 /* script */
-var __vue_script__ = __webpack_require__(220)
+var __vue_script__ = __webpack_require__(221)
 /* template */
-var __vue_template__ = __webpack_require__(221)
+var __vue_template__ = __webpack_require__(222)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -73634,13 +73683,13 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 218 */
+/* 219 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(219);
+var content = __webpack_require__(220);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
@@ -73660,7 +73709,7 @@ if(false) {
 }
 
 /***/ }),
-/* 219 */
+/* 220 */
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(4)(false);
@@ -73668,13 +73717,13 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.setting-page[data-v-110f2d29]{\n  position: absolute;\n  top: 7%;\n  left: 0%;\n  z-index: 99;\n  width: 100%;\n  height: 93%;\n  padding: 0% 5%;\n  background: rgba(255,255,255,.9);\n}\n.setting-title[data-v-110f2d29]{\n  width: 100%;\n  height: 15%;\n  font-size: 6em;\n  text-align: center;\n  font-weight: bold;\n  color: #754F44;\n  background: transparent url('/img/setting_title.png') no-repeat center center;\n  background-size: 70%;\n  text-shadow: 2px 2px 1px #34314c;\n}\n.choose-bar[data-v-110f2d29]{\n  width: 100%;\n  height: 13%;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 0% 4%;\n}\n.content[data-v-110f2d29]{\n  width: 100%;\n  height: 60%;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3% 5% 0% 5%;\n}\n.bottom[data-v-110f2d29]{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  width: 100%;\n  height: 12%;\n  padding: 0% 5% 3% 5%;\n}\n.btn[data-v-110f2d29]{\n  float: left;\n  width: 12em;\n  height: 12em;\n  border-radius: 99em;\n  margin-right: 10%;\n  margin-left: 10%;\n}\n.btn.ok[data-v-110f2d29]{\n  background: #8CD790 url('/img/tick.png') no-repeat center center;\n  background-size: 60%;\n}\n.btn.cancel[data-v-110f2d29]{\n  background: #E53A40 url('/img/cross.png') no-repeat center center;\n  background-size: 50%;\n}\n.choose-game[data-v-110f2d29]{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 2%;\n  float: left;\n  width: 50%;\n  height: 90%;\n  margin-top: 3%;\n  border-radius: 30px 0px 0px 30px;\n  background-color:  rgba(253,153,154,.7);\n}\n.choose-method[data-v-110f2d29]{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 2%;\n  float: left;\n  width: 50%;\n  height: 90%;\n  margin-top: 3%;\n  border-radius: 0px 30px 30px 0px;\n  background-color: rgba(103,213,181,.7);\n}\n.bar-img[data-v-110f2d29]{\n  width: 40%;\n}\n.bar-text[data-v-110f2d29]{\n  text-align: center;\n  width: 60%;\n  font-size: 3.5em;\n}\n.special[data-v-110f2d29]{\n  width: 100%;\n  height: 100%;\n  overflow-y: scroll;\n}\n.choose-li[data-v-110f2d29]{\n  width: 99%;\n  height: 33%;\n  border-radius: 15px;\n  background: #fffff5;\n  -webkit-box-shadow: 4px 4px 5px #7f9eb2;\n          box-shadow: 4px 4px 5px #7f9eb2;\n  margin-bottom: 3%;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 1%;\n}\n.logo[data-v-110f2d29]{\n  width: 30%;\n}\n.logo1[data-v-110f2d29]{\n  width: 40%;\n}\n.describe[data-v-110f2d29]{\n  width: 70%;\n}\n.describe1[data-v-110f2d29]{\n  width: 60%;\n}\n#no-r[data-v-110f2d29]{\n  background: transparent url('/img/no-r.png') no-repeat center center;\n  background-size: 70%;\n}\n#no-g[data-v-110f2d29]{\n  background: transparent url('/img/no-g.png') no-repeat center center;\n  background-size: 70%;\n}\n#pass[data-v-110f2d29]{\n  background: transparent url('/img/pass.png') no-repeat center center;\n  background-size: 70%;\n}\n#sixhat[data-v-110f2d29]{\n  background: transparent url('/img/hat.png') no-repeat center center;\n  background-size: 80%;\n}\n#stf[data-v-110f2d29]{\n  background: transparent url('/img/stf.png') no-repeat center center;\n  background-size: 80%;\n}\n#role-play[data-v-110f2d29]{\n  background: transparent url('/img/role-play.png') no-repeat center center;\n  background-size: 80%;\n}\n#talking[data-v-110f2d29]{\n  background: transparent url('/img/talking.png') no-repeat center center;\n  background-size: 80%;\n}\n#passgate[data-v-110f2d29]{\n  background: transparent url('/img/passgate.png') no-repeat center center;\n  background-size: 80%;\n}\n#groupfight[data-v-110f2d29]{\n  background: transparent url('/img/groupfight.png') no-repeat center center;\n  background-size: 80%;\n}\n#normal[data-v-110f2d29]{\n  background: transparent url('/img/normal.png') no-repeat center center;\n  background-size: 80%;\n}\n.m-name[data-v-110f2d29]{\n  width: 100%;\n  height: 25%;\n  font-size: 3.5em;\n}\n.m-name1[data-v-110f2d29]{\n  width: 100%;\n  height: 35%;\n  font-size: 4em;\n}\n.m-all[data-v-110f2d29]{\n  width: 100%;\n  height: 65%;\n  font-size: 3.5em;\n  text-align: center;\n}\n.m-rule[data-v-110f2d29]{\n  width:100%;\n  height: 48%;\n  font-size: 2.3em;\n  line-height: 106%;\n}\n.m-situ[data-v-110f2d29]{\n  width: 100%;\n  height: 27%;\n  font-size: 2.3em;\n}\n.col[data-v-110f2d29]{\n  background-color: #fffff5;\n  border-radius: 15px;\n  background: #fffff5;\n  -webkit-box-shadow: 4px 4px 5px #7f9eb2;\n          box-shadow: 4px 4px 5px #7f9eb2;\n  margin-bottom: 2%;\n}\n.d-time[data-v-110f2d29]{\n  width: 100%;\n  height: 20%;\n}\n.d-group[data-v-110f2d29]{\n  width: 100%;\n  height: 20%;\n}\n.d-topic[data-v-110f2d29]{\n  width: 100%;\n  height: 30%;\n}\n.title[data-v-110f2d29]{\n  width: 50%;\n  font-size: 4em;\n}\n.set[data-v-110f2d29]{\n  width: 50%;\n  font-size: 3.5em;\n  text-align: center;\n}\n.input[data-v-110f2d29]{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  width: 100%;\n  font-size: 1em;\n  outline: none;\n  border: 0;\n}\n\n", ""]);
+exports.push([module.i, "\n.setting-page[data-v-110f2d29]{\n  position: absolute;\n  top: 7%;\n  left: 0%;\n  z-index: 99;\n  width: 100%;\n  height: 93%;\n  padding: 0% 5%;\n  background: rgba(255,255,255,.9);\n}\n.setting-title[data-v-110f2d29]{\n  width: 100%;\n  height: 15%;\n  font-size: 6em;\n  text-align: center;\n  font-weight: bold;\n  color: #754F44;\n  background: transparent url('/img/setting_title.png') no-repeat center center;\n  background-size: 70%;\n  text-shadow: 2px 2px 1px #34314c;\n}\n.choose-bar[data-v-110f2d29]{\n  width: 100%;\n  height: 13%;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 0% 4%;\n}\n.content[data-v-110f2d29]{\n  width: 100%;\n  height: 60%;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3% 5% 0% 5%;\n}\n.bottom[data-v-110f2d29]{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  width: 100%;\n  height: 12%;\n  padding: 0% 5% 3% 5%;\n}\n.btn[data-v-110f2d29]{\n  float: left;\n  width: 5em;\n  height: 5em;\n  border-radius: 99em;\n  margin-right: 10%;\n  margin-left: 10%;\n}\n.btn.ok[data-v-110f2d29]{\n  background: #8CD790 url('/img/tick.png') no-repeat center center;\n  background-size: 60%;\n}\n.btn.cancel[data-v-110f2d29]{\n  background: #E53A40 url('/img/cross.png') no-repeat center center;\n  background-size: 50%;\n}\n.choose-game[data-v-110f2d29]{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 2%;\n  float: left;\n  width: 50%;\n  height: 90%;\n  margin-top: 3%;\n  border-radius: 30px 0px 0px 30px;\n  background-color:  rgba(253,153,154,.7);\n}\n.choose-method[data-v-110f2d29]{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 2%;\n  float: left;\n  width: 50%;\n  height: 90%;\n  margin-top: 3%;\n  border-radius: 0px 30px 30px 0px;\n  background-color: rgba(103,213,181,.7);\n}\n.bar-img[data-v-110f2d29]{\n  width: 40%;\n}\n.bar-text[data-v-110f2d29]{\n  text-align: center;\n  width: 60%;\n  font-size: 3.5em;\n}\n.special[data-v-110f2d29]{\n  width: 100%;\n  height: 100%;\n  overflow-y: scroll;\n}\n.choose-li[data-v-110f2d29]{\n  width: 99%;\n  height: 33%;\n  border-radius: 15px;\n  background: #fffff5;\n  -webkit-box-shadow: 4px 4px 5px #7f9eb2;\n          box-shadow: 4px 4px 5px #7f9eb2;\n  margin-bottom: 3%;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 1%;\n}\n.logo[data-v-110f2d29]{\n  width: 30%;\n}\n.logo1[data-v-110f2d29]{\n  width: 40%;\n}\n.describe[data-v-110f2d29]{\n  width: 70%;\n}\n.describe1[data-v-110f2d29]{\n  width: 60%;\n}\n#no-r[data-v-110f2d29]{\n  background: transparent url('/img/no-r.png') no-repeat center center;\n  background-size: 70%;\n}\n#no-g[data-v-110f2d29]{\n  background: transparent url('/img/no-g.png') no-repeat center center;\n  background-size: 70%;\n}\n#pass[data-v-110f2d29]{\n  background: transparent url('/img/pass.png') no-repeat center center;\n  background-size: 70%;\n}\n#sixhat[data-v-110f2d29]{\n  background: transparent url('/img/hat.png') no-repeat center center;\n  background-size: 80%;\n}\n#stf[data-v-110f2d29]{\n  background: transparent url('/img/stf.png') no-repeat center center;\n  background-size: 80%;\n}\n#role-play[data-v-110f2d29]{\n  background: transparent url('/img/role-play.png') no-repeat center center;\n  background-size: 80%;\n}\n#talking[data-v-110f2d29]{\n  background: transparent url('/img/talking.png') no-repeat center center;\n  background-size: 80%;\n}\n#passgate[data-v-110f2d29]{\n  background: transparent url('/img/passgate.png') no-repeat center center;\n  background-size: 80%;\n}\n#groupfight[data-v-110f2d29]{\n  background: transparent url('/img/groupfight.png') no-repeat center center;\n  background-size: 80%;\n}\n#normal[data-v-110f2d29]{\n  background: transparent url('/img/normal.png') no-repeat center center;\n  background-size: 80%;\n}\n.m-name[data-v-110f2d29]{\n  width: 100%;\n  height: 25%;\n  font-size: 3.5em;\n}\n.m-name1[data-v-110f2d29]{\n  width: 100%;\n  height: 35%;\n  font-size: 4em;\n}\n.m-all[data-v-110f2d29]{\n  width: 100%;\n  height: 65%;\n  font-size: 3.5em;\n  text-align: center;\n}\n.m-rule[data-v-110f2d29]{\n  width:100%;\n  height: 48%;\n  font-size: 2.3em;\n  line-height: 106%;\n}\n.m-situ[data-v-110f2d29]{\n  width: 100%;\n  height: 27%;\n  font-size: 2.3em;\n}\n.col[data-v-110f2d29]{\n  background-color: #fffff5;\n  border-radius: 15px;\n  background: #fffff5;\n  -webkit-box-shadow: 4px 4px 5px #7f9eb2;\n          box-shadow: 4px 4px 5px #7f9eb2;\n  margin-bottom: 2%;\n}\n.d-time[data-v-110f2d29]{\n  width: 100%;\n  height: 20%;\n}\n.d-group[data-v-110f2d29]{\n  width: 100%;\n  height: 20%;\n}\n.d-topic[data-v-110f2d29]{\n  width: 100%;\n  height: 30%;\n}\n.title[data-v-110f2d29]{\n  width: 50%;\n  font-size: 4em;\n}\n.set[data-v-110f2d29]{\n  width: 50%;\n  font-size: 3.5em;\n  text-align: center;\n}\n.input[data-v-110f2d29]{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  width: 100%;\n  font-size: 1em;\n  outline: none;\n  border: 0;\n}\n\n", ""]);
 
 // exports
 
 
 /***/ }),
-/* 220 */
+/* 221 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -73816,7 +73865,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 });
 
 /***/ }),
-/* 221 */
+/* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -74060,57 +74109,6 @@ if (false) {
 }
 
 /***/ }),
-/* 222 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-function injectStyle (ssrContext) {
-  if (disposed) return
-  __webpack_require__(223)
-}
-var normalizeComponent = __webpack_require__(6)
-/* script */
-var __vue_script__ = __webpack_require__(225)
-/* template */
-var __vue_template__ = __webpack_require__(226)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = injectStyle
-/* scopeId */
-var __vue_scopeId__ = "data-v-1fc57d2a"
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources\\assets\\js\\components\\Chatroom.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-1fc57d2a", Component.options)
-  } else {
-    hotAPI.reload("data-v-1fc57d2a", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
 /* 223 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -74145,7 +74143,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.chatting-page[data-v-1fc57d2a] {\n  position: absolute;\n  top: 7%;\n  left: 0%;\n  z-index: 99;\n  width: 100%;\n  height: 93%;\n  padding: 0% 5%;\n  background: rgba(255, 255, 255, 0.9);\n}\n.chatting-content[data-v-1fc57d2a] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 2%;\n  width: 100%;\n  height: 70%;\n  overflow-y: scroll;\n}\n.chatting-title[data-v-1fc57d2a] {\n  width: 100%;\n  height: 15%;\n  font-size: 6em;\n  text-align: center;\n  font-weight: bold;\n  color: #754f44;\n  background: transparent url(\"/img/setting_title.png\") no-repeat center center;\n  background-size: 70%;\n  text-shadow: 2px 2px 1px #34314c;\n}\n.chatting-bottom[data-v-1fc57d2a] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  width: 100%;\n  height: 15%;\n}\n.inputbox[data-v-1fc57d2a] {\n  width: 78%;\n  background-color: #fff1b9;\n  border-radius: 20px;\n  -webkit-box-shadow: 3px 3px 7px #f94e3f;\n          box-shadow: 3px 3px 7px #f94e3f;\n  margin-right: 2%;\n}\n.input[data-v-1fc57d2a] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  width: 100%;\n  outline: none;\n  border: none;\n  background: transparent;\n  font-size: 2.2em;\n}\n.sendbox[data-v-1fc57d2a] {\n  width: 20%;\n}\n.sent-btn[data-v-1fc57d2a] {\n  width: 8em;\n  height: 8em;\n  border-radius: 99em;\n  background: #ff7473 url(/img/send-button.png) no-repeat center center;\n  -webkit-box-shadow: 3px 3px 7px #a6172d;\n          box-shadow: 3px 3px 7px #a6172d;\n  background-size: 50%;\n}\n.myself-message[data-v-1fc57d2a],\n.others-message[data-v-1fc57d2a] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 1.5%;\n  position: relative;\n  left: 0;\n  width: 97%;\n  min-height: 10%;\n  -webkit-animation: fadeIn 1s;\n          animation: fadeIn 1s;\n}\n.myself-message .image[data-v-1fc57d2a],\n.others-message .image[data-v-1fc57d2a] {\n  float: left;\n  top: 28%;\n  left: 3%;\n  width: 8em;\n  height: 8em;\n  border-radius: 99em;\n  background-color: white;\n  -webkit-box-shadow: 1px 1px 1px $input-shadow;\n          box-shadow: 1px 1px 1px $input-shadow;\n}\n.myself-message .name[data-v-1fc57d2a],\n.others-message .name[data-v-1fc57d2a] {\n  float: left;\n  margin-top: 7%;\n  text-align: center;\n  width: 100%;\n  font-size: 2.3em;\n}\n.myself-message .dialogbox[data-v-1fc57d2a],\n.others-message .dialogbox[data-v-1fc57d2a] {\n  font-size: 3em;\n  display: inline-block;\n  width: 80%;\n  margin-top: 1%;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  -webkit-box-shadow: 4px 4px 5px #7f9eb2;\n          box-shadow: 4px 4px 5px #7f9eb2;\n  padding: 2% 5% 2% 5%;\n  background: #fffff5;\n  word-break: break-all;\n  border-radius: 6px;\n  line-height: 200%;\n}\n.myself-message .dialogbox[data-v-1fc57d2a]:after,\n.others-message .dialogbox[data-v-1fc57d2a]:after {\n  content: \" \";\n  height: 0;\n  width: 0;\n  pointer-events: none;\n  border: solid transparent;\n  border-color: #fffff5;\n  border-width: 7px;\n}\n.myself-infro[data-v-1fc57d2a] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 1%;\n  position: absolute;\n  width: 17%;\n  height: 90%;\n}\n.others-infro[data-v-1fc57d2a] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 1%;\n  position: absolute;\n  right: 1%;\n  width: 17%;\n  height: 90%;\n}\n.myself-message .time[data-v-1fc57d2a] {\n  position: relative;\n  margin-top: 2%;\n  left: 86%;\n  font-size: 2.2em;\n}\n.myself-message .dialogbox[data-v-1fc57d2a] {\n  position: relative;\n  left: 20%;\n  top: 0%;\n}\n.myself-message .dialogbox[data-v-1fc57d2a] :after {\n  position: absolute;\n  right: 99%;\n  top: 4%;\n  border-right-color: #fff;\n}\n.others-message .time[data-v-1fc57d2a] {\n  position: relative;\n  margin-top: 2%;\n}\n.others-message .dialogbox[data-v-1fc57d2a] {\n  position: relative;\n  left: 0%;\n  top: 0%;\n}\n.others-message .dialogbox[data-v-1fc57d2a]:after {\n  position: absolute;\n  right: -6%;\n  top: 6%;\n  border-left-color: #fff;\n}\n", ""]);
+exports.push([module.i, "\n.chatting-page[data-v-1fc57d2a] {\n  position: absolute;\n  top: 7%;\n  left: 0%;\n  z-index: 99;\n  width: 100%;\n  height: 93%;\n  padding: 0% 5%;\n  background: rgba(255, 255, 255, 0.9);\n}\n.chatting-content[data-v-1fc57d2a] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 2%;\n  width: 100%;\n  height: 70%;\n  overflow-y: scroll;\n}\n.chatting-title[data-v-1fc57d2a] {\n  width: 100%;\n  height: 15%;\n  font-size: 6em;\n  text-align: center;\n  font-weight: bold;\n  color: #754f44;\n  background: transparent url(\"/img/setting_title.png\") no-repeat center center;\n  background-size: 70%;\n  text-shadow: 2px 2px 1px #34314c;\n}\n.chatting-bottom[data-v-1fc57d2a] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  width: 100%;\n  height: 15%;\n}\n.inputbox[data-v-1fc57d2a] {\n  width: 78%;\n  background-color: #fff1b9;\n  border-radius: 20px;\n  -webkit-box-shadow: 3px 3px 7px #f94e3f;\n          box-shadow: 3px 3px 7px #f94e3f;\n  margin-right: 2%;\n}\n.input[data-v-1fc57d2a] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 4%;\n  width: 100%;\n  outline: none;\n  border: none;\n  background: transparent;\n  font-size: 2.2em;\n}\n.sendbox[data-v-1fc57d2a] {\n  width: 20%;\n}\n.sent-btn[data-v-1fc57d2a] {\n  width: 5em;\n  height: 5em;\n  border-radius: 99em;\n  background: #ff7473 url(/img/send-button.png) no-repeat center center;\n  -webkit-box-shadow: 3px 3px 7px #a6172d;\n          box-shadow: 3px 3px 7px #a6172d;\n  background-size: 50%;\n}\n.myself-message[data-v-1fc57d2a],\n.others-message[data-v-1fc57d2a] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 1.5%;\n  position: relative;\n  left: 0;\n  width: 97%;\n  min-height: 10%;\n  -webkit-animation: fadeIn 1s;\n          animation: fadeIn 1s;\n}\n.myself-message .image[data-v-1fc57d2a],\n.others-message .image[data-v-1fc57d2a] {\n  float: left;\n  top: 28%;\n  left: 3%;\n  width: 4.5em;\n  height: 4.5em;\n  border-radius: 99em;\n  background-color: white;\n  -webkit-box-shadow: 1px 1px 1px $input-shadow;\n          box-shadow: 1px 1px 1px $input-shadow;\n}\n.myself-message .name[data-v-1fc57d2a],\n.others-message .name[data-v-1fc57d2a] {\n  float: left;\n  margin-top: 7%;\n  text-align: center;\n  width: 100%;\n  font-size: 2.3em;\n}\n.myself-message .dialogbox[data-v-1fc57d2a],\n.others-message .dialogbox[data-v-1fc57d2a] {\n  font-size: 3em;\n  display: inline-block;\n  width: 80%;\n  margin-top: 1%;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  -webkit-box-shadow: 2px 2px 5px #7f9eb2;\n          box-shadow: 2px 2px 5px #7f9eb2;\n  padding: 2% 5% 2% 5%;\n  background: #fffff5;\n  word-break: break-all;\n  border-radius: 6px;\n  line-height: 200%;\n}\n.myself-message .dialogbox[data-v-1fc57d2a]:after,\n.others-message .dialogbox[data-v-1fc57d2a]:after {\n  content: \" \";\n  height: 0;\n  width: 0;\n  pointer-events: none;\n  border: solid transparent;\n  border-color: #fffff5;\n  border-width: 7px;\n}\n.myself-infro[data-v-1fc57d2a] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 1%;\n  position: absolute;\n  width: 17%;\n  height: 90%;\n}\n.others-infro[data-v-1fc57d2a] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 1%;\n  position: absolute;\n  right: 1%;\n  width: 17%;\n  height: 90%;\n}\n.myself-message .time[data-v-1fc57d2a] {\n  position: relative;\n  margin-top: 2%;\n  left: 86%;\n  font-size: 2.2em;\n}\n.myself-message .dialogbox[data-v-1fc57d2a] {\n  position: relative;\n  left: 20%;\n  top: 0%;\n}\n.myself-message .dialogbox[data-v-1fc57d2a] :after {\n  position: absolute;\n  right: 99%;\n  top: 4%;\n  border-right-color: #fff;\n}\n.others-message .time[data-v-1fc57d2a] {\n  position: relative;\n  margin-top: 2%;\n}\n.others-message .dialogbox[data-v-1fc57d2a] {\n  position: relative;\n  left: 0%;\n  top: 0%;\n}\n.others-message .dialogbox[data-v-1fc57d2a]:after {\n  position: absolute;\n  right: -6%;\n  top: 6%;\n  border-left-color: #fff;\n}\n", ""]);
 
 // exports
 
@@ -74156,6 +74154,7 @@ exports.push([module.i, "\n.chatting-page[data-v-1fc57d2a] {\n  position: absolu
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
@@ -74319,7 +74318,7 @@ if (false) {
  * Module dependencies.
  */
 
-var parseuri = __webpack_require__(34);
+var parseuri = __webpack_require__(35);
 var debug = __webpack_require__(9)('socket.io-client:url');
 
 /**
@@ -74791,8 +74790,8 @@ function plural(ms, n, name) {
  * Module requirements
  */
 
-var isArray = __webpack_require__(35);
-var isBuf = __webpack_require__(36);
+var isArray = __webpack_require__(36);
+var isBuf = __webpack_require__(37);
 var toString = Object.prototype.toString;
 var withNativeBlob = typeof global.Blob === 'function' || toString.call(global.Blob) === '[object BlobConstructor]';
 var withNativeFile = typeof global.File === 'function' || toString.call(global.File) === '[object FileConstructor]';
@@ -74953,12 +74952,12 @@ module.exports.parser = __webpack_require__(12);
  * Module dependencies.
  */
 
-var transports = __webpack_require__(38);
+var transports = __webpack_require__(39);
 var Emitter = __webpack_require__(11);
 var debug = __webpack_require__(9)('engine.io-client:socket');
-var index = __webpack_require__(42);
+var index = __webpack_require__(43);
 var parser = __webpack_require__(12);
-var parseuri = __webpack_require__(34);
+var parseuri = __webpack_require__(35);
 var parseqs = __webpack_require__(15);
 
 /**
@@ -75093,7 +75092,7 @@ Socket.protocol = parser.protocol; // this is an int
 
 Socket.Socket = Socket;
 Socket.Transport = __webpack_require__(24);
-Socket.transports = __webpack_require__(38);
+Socket.transports = __webpack_require__(39);
 Socket.parser = __webpack_require__(12);
 
 /**
@@ -75727,7 +75726,7 @@ try {
  */
 
 var XMLHttpRequest = __webpack_require__(23);
-var Polling = __webpack_require__(39);
+var Polling = __webpack_require__(40);
 var Emitter = __webpack_require__(11);
 var inherit = __webpack_require__(16);
 var debug = __webpack_require__(9)('engine.io-client:polling-xhr');
@@ -78744,7 +78743,7 @@ module.exports = (function() {
  * Module requirements.
  */
 
-var Polling = __webpack_require__(39);
+var Polling = __webpack_require__(40);
 var inherit = __webpack_require__(16);
 
 /**
@@ -78985,7 +78984,7 @@ var Transport = __webpack_require__(24);
 var parser = __webpack_require__(12);
 var parseqs = __webpack_require__(15);
 var inherit = __webpack_require__(16);
-var yeast = __webpack_require__(41);
+var yeast = __webpack_require__(42);
 var debug = __webpack_require__(9)('engine.io-client:websocket');
 var BrowserWebSocket = global.WebSocket || global.MozWebSocket;
 var NodeWebSocket;
@@ -79517,21 +79516,23 @@ var render = function() {
         )
       ]),
       _vm._v(" "),
-      _vm._m(0)
+      _c(
+        "div",
+        {
+          staticClass: "waiting-bottom b-x",
+          on: {
+            click: function($event) {
+              _vm.swapToGame()
+            }
+          }
+        },
+        [_c("button", { staticClass: "go-button" })]
+      )
     ],
     1
   )
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "waiting-bottom b-x" }, [
-      _c("button", { staticClass: "go-button" })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -79638,7 +79639,7 @@ exports.push([module.i, "\n.nav-bar[data-v-2dda805e] {\n  width: 106%;\n  height
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Chatroom__ = __webpack_require__(222);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Chatroom__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Chatroom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Chatroom__);
 //
 //
@@ -79731,7 +79732,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       });
     });
 
-    self.socket = __webpack_require__(33)("http://localhost:6379");
+    self.socket = __webpack_require__(34)("http://localhost:6379");
     self.socket.on("connect", function () {
       console.log(self.socket.id);
       self.socket.emit("joinRoom", self.course_id);
@@ -80473,7 +80474,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.nav-bar[data-v-e718e95a]{\n  width: 106%;\n  height: 7%;\n  margin-left: -3%;\n  -webkit-box-shadow: 0px 5px 8px #9baec8;\n          box-shadow: 0px 5px 8px #9baec8; \n  font-size: 3em;\n}\n.nav-btn[data-v-e718e95a]{\n  float: left;\n  width: 12%;\n}\n.class-name[data-v-e718e95a]{\n  float: left;\n  font-weight: bold;\n  width: 76%;\n  font-size: 1.1em;\n}\n#return[data-v-e718e95a]{\n  background: transparent url('/img/return.png') no-repeat center center;\n  background-size: 25%;\n}\n.analysis-title[data-v-e718e95a]{\n  width: 100%;\n  height: 15%;\n  font-size: 6em;\n  text-align: center;\n  font-weight: bold;\n  color: #754F44;\n  background: transparent url('/img/setting_title.png') no-repeat center center;\n  background-size: 70%;\n  text-shadow: 2px 2px 1px #34314c;\n}\n.analysis-body[data-v-e718e95a]{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 100%;\n  height: 72%;\n  padding: 2% 5%;\n}\n.special[data-v-e718e95a]{\n  width: 100%;\n  height: 100%;\n  overflow-y: scroll;\n}\n.choose-bar[data-v-e718e95a]{\n  width: 100%;\n  height: 7%;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 0% 15%;\n}\n.choose-chart[data-v-e718e95a]{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 2%;\n  float: left;\n  width: 50%;\n  height: 90%;\n  border-radius: 30px 0px 0px 30px;\n  -webkit-box-shadow: 0px 5px 5px #df405a;\n          box-shadow: 0px 5px 5px #df405a;\n  background-color: rgba(253,153,154,.2);\n  border-right: none;\n  -webkit-transition: background-color 0.3s;\n  transition: background-color 0.3s;\n}\n#chart_clicked[data-v-e718e95a]{\n  background-color:  rgba(253,153,154,.7);\n}\n#data_clicked[data-v-e718e95a]{\n  background-color: rgba(103,213,181,.7);\n}\n.choose-data[data-v-e718e95a]{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 2%;\n  float: left;\n  width: 50%;\n  height: 90%;\n  border-radius: 0px 30px 30px 0px;\n  -webkit-box-shadow: 0px 5px 5px #3b8686;\n          box-shadow: 0px 5px 5px #3b8686;\n  border-left: none;\n  background-color: rgba(103,213,181,.2);\n  -webkit-transition: background-color 0.3s;\n  transition: background-color 0.3s;\n}\n.bar-img[data-v-e718e95a]{\n  width: 40%;\n}\n.bar-text[data-v-e718e95a]{\n  text-align: center;\n  width: 60%;\n  font-size: 3.5em;\n}\n#chart[data-v-e718e95a]{\n  background: transparent url('/img/chart.png') no-repeat center center;\n  background-size: 80%;\n}\n#next[data-v-e718e95a] {\n  background: transparent url(\"/img/return.png\") no-repeat center center;\n  background-size: 25%;\n  -webkit-transform: rotate(180deg);\n          transform: rotate(180deg);\n}\n#home[data-v-e718e95a] {\n  background: transparent url(/img/home.png) no-repeat left center;\n  background-size: 60%;\n}\n#data[data-v-e718e95a]{\n  background: transparent url('/img/data.png') no-repeat center center;\n  background-size: 80%;\n}\n.content[data-v-e718e95a]{\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 100%;\n    padding: 2%;\n    min-height: 54%;\n    background: rgba(255,255,245,.8);\n    -webkit-box-shadow: 2px 2px 9px #7f9eb2;\n            box-shadow: 2px 2px 9px #7f9eb2;\n    margin-bottom: 3%;\n    border-radius: 30px;\n}\n#achieve[data-v-e718e95a]{\n  height: 35%;\n}\n.content1[data-v-e718e95a]{\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    padding: 3%;\n    width: 99%;\n    min-height: 15%;\n    background: rgba(255,255,245,.8);\n    -webkit-box-shadow: 2px 2px 9px #7f9eb2;\n            box-shadow: 2px 2px 9px #7f9eb2;\n    margin-bottom: 3%;\n    border-radius: 30px;\n}\n.name[data-v-e718e95a]{\n  width: 100%;\n  font-size: 3em;\n  font-weight: bold;\n  margin-bottom: 3%;\n}\n.chart[data-v-e718e95a]{\n  width: 100%;\n  height: 80%;\n}\n.achieve[data-v-e718e95a]{\n  width: 100%;\n  height: 70%;\n  overflow-x: scroll;\n}\n.ac-li[data-v-e718e95a]{\n  width: 30%;\n}\n.data-text[data-v-e718e95a]{\n  width: 100%;\n  height: 80%;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  font-size: 2.5em;\n}\n#no-r[data-v-e718e95a] {\n  background: transparent url(\"/img/no-r.png\") no-repeat center center;\n  background-size: 60%;\n}\n#no-g[data-v-e718e95a] {\n  background: transparent url(\"/img/no-g.png\") no-repeat center center;\n  background-size: 60%;\n}\n#pass[data-v-e718e95a] {\n  background: transparent url(\"/img/pass.png\") no-repeat center center;\n  background-size: 60%;\n}\n#sixhat[data-v-e718e95a] {\n  background: transparent url(\"/img/hat.png\") no-repeat center center;\n  background-size: 70%;\n}\n#stf[data-v-e718e95a] {\n  background: transparent url(\"/img/stf.png\") no-repeat center center;\n  background-size: 70%;\n}\n#role-play[data-v-e718e95a] {\n  background: transparent url(\"/img/role-play.png\") no-repeat center center;\n  background-size: 70%;\n}\n#talking[data-v-e718e95a] {\n  background: transparent url(\"/img/talking.png\") no-repeat center center;\n  background-size: 70%;\n}\n.gametype[data-v-e718e95a] {\n  float: left;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 1%;\n  width: 25%;\n  height: 75%;\n  margin-top: 2%;\n  border-radius: 30px 0px 0px 30px;\n  background-color: rgba(253, 153, 154, 0.7);\n}\n.brain-method[data-v-e718e95a] {\n  float: left;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 1%;\n  width: 25%;\n  height: 75%;\n  margin-top: 2%;\n  border-radius: 0px 30px 30px 0px;\n  background-color: rgba(103, 213, 181, 0.7);\n}\n.infro-img[data-v-e718e95a] {\n  width: 100%;\n  height: 60%;\n}\n.infro-text[data-v-e718e95a] {\n  width: 100%;\n  height: 40%;\n  font-size: 2.3em;\n  font-weight: bold;\n  text-align: center;\n}\n.other-setting[data-v-e718e95a] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 2%;\n  float: left;\n  width: 50%;\n}\n.set-li[data-v-e718e95a] {\n  list-style: none;\n  width: 100%;\n  font-size: 2.5em;\n  margin-bottom: 1%;\n  line-height: 135%;\n  margin-right: 3%;\n}\n#set[data-v-e718e95a]{\n  height: 25%;\n}\n.img[data-v-e718e95a]{\n  width: 5em;\n  height: 5em;\n  border-radius: 99em;\n  -webkit-box-shadow: 4px 4px 10px #666;\n          box-shadow: 4px 4px 10px #666;\n}\n.ac-img[data-v-e718e95a]{\n  width: 100%;\n  height: 60%;\n  font-size: 2em;\n}\n.ac-title[data-v-e718e95a]{\n  width: 100%;\n  height: 20%;\n  font-size: 2.4em;\n}\n.ac-name[data-v-e718e95a]{\n  width: 100%;\n  height: 20%;\n  font-size: 2.5em;\n  font-weight: bold;\n}\n#goodmost[data-v-e718e95a]{\n  background: #ffda8e url('/img/goodmost.png') no-repeat center center;\n  background-size: 100%;\n}\n#goodtalk[data-v-e718e95a]{\n  background: #ffda8e url('/img/goodtalk.png') no-repeat center center;\n  background-size: 70%;\n}\n#goodadd[data-v-e718e95a]{\n  background: #ffda8e url('/img/goodadd.png') no-repeat center center;\n  background-size: 100%;\n}\n#goodwrite[data-v-e718e95a]{\n  background: #ffda8e url('/img/goodwrite.png') no-repeat center center;\n  background-size: 100%;\n}\n#goodtime[data-v-e718e95a]{\n  background: #ffda8e url('/img/goodtime.png') no-repeat center center;\n  background-size: 100%;\n}\n.download[data-v-e718e95a]{\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    padding: 3%;\n    width: 99%;\n    height: 8%;\n    background-color: rgba(71,184,224,.9);\n    -webkit-box-shadow: 2px 2px 9px #7f9eb2;\n            box-shadow: 2px 2px 9px #7f9eb2;\n    margin-bottom: 3%;\n    border-radius: 30px;\n    -webkit-transition: background-color 2s;\n    transition: background-color 2s;\n}\n", ""]);
+exports.push([module.i, "\n.nav-bar[data-v-e718e95a]{\n  width: 106%;\n  height: 7%;\n  margin-left: -3%;\n  -webkit-box-shadow: 0px 2px 8px #9baec8;\n          box-shadow: 0px 2px 8px #9baec8;\n  font-size: 3em;\n}\n.nav-btn[data-v-e718e95a]{\n  float: left;\n  width: 12%;\n}\n.class-name[data-v-e718e95a]{\n  float: left;\n  font-weight: bold;\n  width: 76%;\n  font-size: 1.1em;\n}\n#return[data-v-e718e95a]{\n  background: transparent url('/img/return.png') no-repeat 75% center;\n  background-size: 25%;\n}\n.analysis-title[data-v-e718e95a]{\n  width: 100%;\n  height: 15%;\n  font-size: 6em;\n  text-align: center;\n  font-weight: bold;\n  color: #754F44;\n  background: transparent url('/img/setting_title.png') no-repeat center center;\n  background-size: 70%;\n  text-shadow: 1px 1px 3px #34314c;\n}\n.analysis-body[data-v-e718e95a]{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  width: 100%;\n  height: 72%;\n  padding: 2% 5%;\n}\n.special[data-v-e718e95a]{\n  width: 100%;\n  height: 100%;\n  overflow-y: scroll;\n}\n.choose-bar[data-v-e718e95a]{\n  width: 100%;\n  height: 7%;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 0% 15%;\n}\n.choose-chart[data-v-e718e95a]{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 2%;\n  float: left;\n  width: 50%;\n  height: 90%;\n  border-radius: 30px 0px 0px 30px;\n  -webkit-box-shadow: 0px 2px 5px #df405a;\n          box-shadow: 0px 2px 5px #df405a;\n  background-color: rgba(253,153,154,.2);\n  border-right: none;\n  -webkit-transition: background-color 0.3s;\n  transition: background-color 0.3s;\n}\n#chart_clicked[data-v-e718e95a]{\n  background-color:  rgba(253,153,154,.7);\n}\n#data_clicked[data-v-e718e95a]{\n  background-color: rgba(103,213,181,.7);\n}\n.choose-data[data-v-e718e95a]{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 2%;\n  float: left;\n  width: 50%;\n  height: 90%;\n  border-radius: 0px 30px 30px 0px;\n  -webkit-box-shadow: 0px 2px 5px #3b8686;\n          box-shadow: 0px 2px 5px #3b8686;\n  border-left: none;\n  background-color: rgba(103,213,181,.2);\n  -webkit-transition: background-color 0.3s;\n  transition: background-color 0.3s;\n}\n.bar-img[data-v-e718e95a]{\n  width: 40%;\n}\n.bar-text[data-v-e718e95a]{\n  text-align: center;\n  width: 60%;\n  font-size: 3.5em;\n}\n#chart[data-v-e718e95a]{\n  background: transparent url('/img/chart.png') no-repeat center center;\n  background-size: 65%;\n}\n#next[data-v-e718e95a] {\n  background: transparent url(\"/img/return.png\") no-repeat center center;\n  background-size: 25%;\n  -webkit-transform: rotate(180deg);\n          transform: rotate(180deg);\n}\n#home[data-v-e718e95a] {\n  background: transparent url(/img/home.png) no-repeat left center;\n  background-size: 60%;\n}\n#data[data-v-e718e95a]{\n  background: transparent url('/img/data.png') no-repeat center center;\n  background-size: 75%;\n}\n.content[data-v-e718e95a]{\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    width: 100%;\n    padding: 2%;\n    min-height: 54%;\n    background: rgba(255,255,245,.8);\n    -webkit-box-shadow: 2px 2px 9px #7f9eb2;\n            box-shadow: 2px 2px 9px #7f9eb2;\n    margin-bottom: 3%;\n    border-radius: 30px;\n}\n#achieve[data-v-e718e95a]{\n  height: 35%;\n}\n.content1[data-v-e718e95a]{\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    padding: 3%;\n    width: 99%;\n    min-height: 15%;\n    background: rgba(255,255,245,.8);\n    -webkit-box-shadow: 2px 2px 9px #7f9eb2;\n            box-shadow: 2px 2px 9px #7f9eb2;\n    margin-bottom: 3%;\n    border-radius: 30px;\n}\n.name[data-v-e718e95a]{\n  width: 100%;\n  font-size: 3em;\n  font-weight: bold;\n  margin-bottom: 3%;\n}\n.chart[data-v-e718e95a]{\n  width: 100%;\n  height: 80%;\n}\n.achieve[data-v-e718e95a]{\n  width: 100%;\n  height: 70%;\n  overflow-x: scroll;\n}\n.ac-li[data-v-e718e95a]{\n  width: 30%;\n}\n.data-text[data-v-e718e95a]{\n  width: 100%;\n  height: 80%;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  font-size: 2.5em;\n}\n#no-r[data-v-e718e95a] {\n  background: transparent url(\"/img/no-r.png\") no-repeat center center;\n  background-size: 50%;\n}\n#no-g[data-v-e718e95a] {\n  background: transparent url(\"/img/no-g.png\") no-repeat center center;\n  background-size: 50%;\n}\n#pass[data-v-e718e95a] {\n  background: transparent url(\"/img/pass.png\") no-repeat center center;\n  background-size: 60%;\n}\n#sixhat[data-v-e718e95a] {\n  background: transparent url(\"/img/hat.png\") no-repeat center center;\n  background-size: 70%;\n}\n#stf[data-v-e718e95a] {\n  background: transparent url(\"/img/stf.png\") no-repeat center center;\n  background-size: 70%;\n}\n#role-play[data-v-e718e95a] {\n  background: transparent url(\"/img/role-play.png\") no-repeat center center;\n  background-size: 70%;\n}\n#talking[data-v-e718e95a] {\n  background: transparent url(\"/img/talking.png\") no-repeat center center;\n  background-size: 70%;\n}\n.gametype[data-v-e718e95a] {\n  float: left;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 1%;\n  width: 25%;\n  height: 75%;\n  border-radius: 15px 0px 0px 15px;\n  background-color: rgba(253, 153, 154, 0.7);\n}\n.brain-method[data-v-e718e95a] {\n  float: left;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 1%;\n  width: 25%;\n  height: 75%;\n  border-radius: 0px 15px 15px 0px;\n  background-color: rgba(103, 213, 181, 0.7);\n}\n.infro-img[data-v-e718e95a] {\n  width: 100%;\n  height: 60%;\n}\n.infro-text[data-v-e718e95a] {\n  width: 100%;\n  height: 40%;\n  font-size: 2.3em;\n  font-weight: bold;\n  text-align: center;\n}\n.other-setting[data-v-e718e95a] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 2%;\n  float: left;\n  width: 50%;\n}\n.set-li[data-v-e718e95a] {\n  list-style: none;\n  width: 100%;\n  font-size: 2.5em;\n  margin-bottom: 1%;\n  line-height: 135%;\n  margin-right: 3%;\n}\n#set[data-v-e718e95a]{\n  height: 25%;\n}\n.img[data-v-e718e95a]{\n  width: 4.5em;\n  height: 4.5em;\n  border-radius: 99em;\n  -webkit-box-shadow: 4px 4px 10px #666;\n          box-shadow: 4px 4px 10px #666;\n}\n.ac-img[data-v-e718e95a]{\n  width: 100%;\n  height: 60%;\n  font-size: 2em;\n}\n.ac-title[data-v-e718e95a]{\n  width: 100%;\n  height: 20%;\n  font-size: 2.4em;\n}\n.ac-name[data-v-e718e95a]{\n  width: 100%;\n  height: 20%;\n  font-size: 2.5em;\n  font-weight: bold;\n}\n#goodmost[data-v-e718e95a]{\n  background: #ffda8e url('/img/goodmost.png') no-repeat center center;\n  background-size: 100%;\n}\n#goodtalk[data-v-e718e95a]{\n  background: #ffda8e url('/img/goodtalk.png') no-repeat center center;\n  background-size: 70%;\n}\n#goodadd[data-v-e718e95a]{\n  background: #ffda8e url('/img/goodadd.png') no-repeat center center;\n  background-size: 100%;\n}\n#goodwrite[data-v-e718e95a]{\n  background: #ffda8e url('/img/goodwrite.png') no-repeat center center;\n  background-size: 100%;\n}\n#goodtime[data-v-e718e95a]{\n  background: #ffda8e url('/img/goodtime.png') no-repeat center center;\n  background-size: 100%;\n}\n.download[data-v-e718e95a]{\n    -webkit-box-sizing: border-box;\n            box-sizing: border-box;\n    padding: 3%;\n    width: 99%;\n    height: 8%;\n    background-color: rgba(71,184,224,.9);\n    -webkit-box-shadow: 2px 2px 9px #7f9eb2;\n            box-shadow: 2px 2px 9px #7f9eb2;\n    margin-bottom: 3%;\n    border-radius: 30px;\n    -webkit-transition: background-color 2s;\n    transition: background-color 2s;\n}\n", ""]);
 
 // exports
 
@@ -81663,7 +81664,7 @@ module.exports = {
 /* global document: false */
 
 
-var color = __webpack_require__(46);
+var color = __webpack_require__(47);
 var defaults = __webpack_require__(2);
 var helpers = __webpack_require__(1);
 
@@ -84681,10 +84682,10 @@ module.exports = function(Chart) {
 
 var defaults = __webpack_require__(2);
 var helpers = __webpack_require__(1);
-var Interaction = __webpack_require__(47);
+var Interaction = __webpack_require__(48);
 var layouts = __webpack_require__(13);
-var platform = __webpack_require__(48);
-var plugins = __webpack_require__(49);
+var platform = __webpack_require__(49);
+var plugins = __webpack_require__(50);
 
 module.exports = function(Chart) {
 
@@ -90130,252 +90131,252 @@ module.exports = function(Chart) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./af": 50,
-	"./af.js": 50,
-	"./ar": 51,
-	"./ar-dz": 52,
-	"./ar-dz.js": 52,
-	"./ar-kw": 53,
-	"./ar-kw.js": 53,
-	"./ar-ly": 54,
-	"./ar-ly.js": 54,
-	"./ar-ma": 55,
-	"./ar-ma.js": 55,
-	"./ar-sa": 56,
-	"./ar-sa.js": 56,
-	"./ar-tn": 57,
-	"./ar-tn.js": 57,
-	"./ar.js": 51,
-	"./az": 58,
-	"./az.js": 58,
-	"./be": 59,
-	"./be.js": 59,
-	"./bg": 60,
-	"./bg.js": 60,
-	"./bm": 61,
-	"./bm.js": 61,
-	"./bn": 62,
-	"./bn.js": 62,
-	"./bo": 63,
-	"./bo.js": 63,
-	"./br": 64,
-	"./br.js": 64,
-	"./bs": 65,
-	"./bs.js": 65,
-	"./ca": 66,
-	"./ca.js": 66,
-	"./cs": 67,
-	"./cs.js": 67,
-	"./cv": 68,
-	"./cv.js": 68,
-	"./cy": 69,
-	"./cy.js": 69,
-	"./da": 70,
-	"./da.js": 70,
-	"./de": 71,
-	"./de-at": 72,
-	"./de-at.js": 72,
-	"./de-ch": 73,
-	"./de-ch.js": 73,
-	"./de.js": 71,
-	"./dv": 74,
-	"./dv.js": 74,
-	"./el": 75,
-	"./el.js": 75,
-	"./en-au": 76,
-	"./en-au.js": 76,
-	"./en-ca": 77,
-	"./en-ca.js": 77,
-	"./en-gb": 78,
-	"./en-gb.js": 78,
-	"./en-ie": 79,
-	"./en-ie.js": 79,
-	"./en-il": 80,
-	"./en-il.js": 80,
-	"./en-nz": 81,
-	"./en-nz.js": 81,
-	"./eo": 82,
-	"./eo.js": 82,
-	"./es": 83,
-	"./es-do": 84,
-	"./es-do.js": 84,
-	"./es-us": 85,
-	"./es-us.js": 85,
-	"./es.js": 83,
-	"./et": 86,
-	"./et.js": 86,
-	"./eu": 87,
-	"./eu.js": 87,
-	"./fa": 88,
-	"./fa.js": 88,
-	"./fi": 89,
-	"./fi.js": 89,
-	"./fo": 90,
-	"./fo.js": 90,
-	"./fr": 91,
-	"./fr-ca": 92,
-	"./fr-ca.js": 92,
-	"./fr-ch": 93,
-	"./fr-ch.js": 93,
-	"./fr.js": 91,
-	"./fy": 94,
-	"./fy.js": 94,
-	"./gd": 95,
-	"./gd.js": 95,
-	"./gl": 96,
-	"./gl.js": 96,
-	"./gom-latn": 97,
-	"./gom-latn.js": 97,
-	"./gu": 98,
-	"./gu.js": 98,
-	"./he": 99,
-	"./he.js": 99,
-	"./hi": 100,
-	"./hi.js": 100,
-	"./hr": 101,
-	"./hr.js": 101,
-	"./hu": 102,
-	"./hu.js": 102,
-	"./hy-am": 103,
-	"./hy-am.js": 103,
-	"./id": 104,
-	"./id.js": 104,
-	"./is": 105,
-	"./is.js": 105,
-	"./it": 106,
-	"./it.js": 106,
-	"./ja": 107,
-	"./ja.js": 107,
-	"./jv": 108,
-	"./jv.js": 108,
-	"./ka": 109,
-	"./ka.js": 109,
-	"./kk": 110,
-	"./kk.js": 110,
-	"./km": 111,
-	"./km.js": 111,
-	"./kn": 112,
-	"./kn.js": 112,
-	"./ko": 113,
-	"./ko.js": 113,
-	"./ky": 114,
-	"./ky.js": 114,
-	"./lb": 115,
-	"./lb.js": 115,
-	"./lo": 116,
-	"./lo.js": 116,
-	"./lt": 117,
-	"./lt.js": 117,
-	"./lv": 118,
-	"./lv.js": 118,
-	"./me": 119,
-	"./me.js": 119,
-	"./mi": 120,
-	"./mi.js": 120,
-	"./mk": 121,
-	"./mk.js": 121,
-	"./ml": 122,
-	"./ml.js": 122,
-	"./mn": 123,
-	"./mn.js": 123,
-	"./mr": 124,
-	"./mr.js": 124,
-	"./ms": 125,
-	"./ms-my": 126,
-	"./ms-my.js": 126,
-	"./ms.js": 125,
-	"./mt": 127,
-	"./mt.js": 127,
-	"./my": 128,
-	"./my.js": 128,
-	"./nb": 129,
-	"./nb.js": 129,
-	"./ne": 130,
-	"./ne.js": 130,
-	"./nl": 131,
-	"./nl-be": 132,
-	"./nl-be.js": 132,
-	"./nl.js": 131,
-	"./nn": 133,
-	"./nn.js": 133,
-	"./pa-in": 134,
-	"./pa-in.js": 134,
-	"./pl": 135,
-	"./pl.js": 135,
-	"./pt": 136,
-	"./pt-br": 137,
-	"./pt-br.js": 137,
-	"./pt.js": 136,
-	"./ro": 138,
-	"./ro.js": 138,
-	"./ru": 139,
-	"./ru.js": 139,
-	"./sd": 140,
-	"./sd.js": 140,
-	"./se": 141,
-	"./se.js": 141,
-	"./si": 142,
-	"./si.js": 142,
-	"./sk": 143,
-	"./sk.js": 143,
-	"./sl": 144,
-	"./sl.js": 144,
-	"./sq": 145,
-	"./sq.js": 145,
-	"./sr": 146,
-	"./sr-cyrl": 147,
-	"./sr-cyrl.js": 147,
-	"./sr.js": 146,
-	"./ss": 148,
-	"./ss.js": 148,
-	"./sv": 149,
-	"./sv.js": 149,
-	"./sw": 150,
-	"./sw.js": 150,
-	"./ta": 151,
-	"./ta.js": 151,
-	"./te": 152,
-	"./te.js": 152,
-	"./tet": 153,
-	"./tet.js": 153,
-	"./tg": 154,
-	"./tg.js": 154,
-	"./th": 155,
-	"./th.js": 155,
-	"./tl-ph": 156,
-	"./tl-ph.js": 156,
-	"./tlh": 157,
-	"./tlh.js": 157,
-	"./tr": 158,
-	"./tr.js": 158,
-	"./tzl": 159,
-	"./tzl.js": 159,
-	"./tzm": 160,
-	"./tzm-latn": 161,
-	"./tzm-latn.js": 161,
-	"./tzm.js": 160,
-	"./ug-cn": 162,
-	"./ug-cn.js": 162,
-	"./uk": 163,
-	"./uk.js": 163,
-	"./ur": 164,
-	"./ur.js": 164,
-	"./uz": 165,
-	"./uz-latn": 166,
-	"./uz-latn.js": 166,
-	"./uz.js": 165,
-	"./vi": 167,
-	"./vi.js": 167,
-	"./x-pseudo": 168,
-	"./x-pseudo.js": 168,
-	"./yo": 169,
-	"./yo.js": 169,
-	"./zh-cn": 170,
-	"./zh-cn.js": 170,
-	"./zh-hk": 171,
-	"./zh-hk.js": 171,
-	"./zh-tw": 172,
-	"./zh-tw.js": 172
+	"./af": 51,
+	"./af.js": 51,
+	"./ar": 52,
+	"./ar-dz": 53,
+	"./ar-dz.js": 53,
+	"./ar-kw": 54,
+	"./ar-kw.js": 54,
+	"./ar-ly": 55,
+	"./ar-ly.js": 55,
+	"./ar-ma": 56,
+	"./ar-ma.js": 56,
+	"./ar-sa": 57,
+	"./ar-sa.js": 57,
+	"./ar-tn": 58,
+	"./ar-tn.js": 58,
+	"./ar.js": 52,
+	"./az": 59,
+	"./az.js": 59,
+	"./be": 60,
+	"./be.js": 60,
+	"./bg": 61,
+	"./bg.js": 61,
+	"./bm": 62,
+	"./bm.js": 62,
+	"./bn": 63,
+	"./bn.js": 63,
+	"./bo": 64,
+	"./bo.js": 64,
+	"./br": 65,
+	"./br.js": 65,
+	"./bs": 66,
+	"./bs.js": 66,
+	"./ca": 67,
+	"./ca.js": 67,
+	"./cs": 68,
+	"./cs.js": 68,
+	"./cv": 69,
+	"./cv.js": 69,
+	"./cy": 70,
+	"./cy.js": 70,
+	"./da": 71,
+	"./da.js": 71,
+	"./de": 72,
+	"./de-at": 73,
+	"./de-at.js": 73,
+	"./de-ch": 74,
+	"./de-ch.js": 74,
+	"./de.js": 72,
+	"./dv": 75,
+	"./dv.js": 75,
+	"./el": 76,
+	"./el.js": 76,
+	"./en-au": 77,
+	"./en-au.js": 77,
+	"./en-ca": 78,
+	"./en-ca.js": 78,
+	"./en-gb": 79,
+	"./en-gb.js": 79,
+	"./en-ie": 80,
+	"./en-ie.js": 80,
+	"./en-il": 81,
+	"./en-il.js": 81,
+	"./en-nz": 82,
+	"./en-nz.js": 82,
+	"./eo": 83,
+	"./eo.js": 83,
+	"./es": 84,
+	"./es-do": 85,
+	"./es-do.js": 85,
+	"./es-us": 86,
+	"./es-us.js": 86,
+	"./es.js": 84,
+	"./et": 87,
+	"./et.js": 87,
+	"./eu": 88,
+	"./eu.js": 88,
+	"./fa": 89,
+	"./fa.js": 89,
+	"./fi": 90,
+	"./fi.js": 90,
+	"./fo": 91,
+	"./fo.js": 91,
+	"./fr": 92,
+	"./fr-ca": 93,
+	"./fr-ca.js": 93,
+	"./fr-ch": 94,
+	"./fr-ch.js": 94,
+	"./fr.js": 92,
+	"./fy": 95,
+	"./fy.js": 95,
+	"./gd": 96,
+	"./gd.js": 96,
+	"./gl": 97,
+	"./gl.js": 97,
+	"./gom-latn": 98,
+	"./gom-latn.js": 98,
+	"./gu": 99,
+	"./gu.js": 99,
+	"./he": 100,
+	"./he.js": 100,
+	"./hi": 101,
+	"./hi.js": 101,
+	"./hr": 102,
+	"./hr.js": 102,
+	"./hu": 103,
+	"./hu.js": 103,
+	"./hy-am": 104,
+	"./hy-am.js": 104,
+	"./id": 105,
+	"./id.js": 105,
+	"./is": 106,
+	"./is.js": 106,
+	"./it": 107,
+	"./it.js": 107,
+	"./ja": 108,
+	"./ja.js": 108,
+	"./jv": 109,
+	"./jv.js": 109,
+	"./ka": 110,
+	"./ka.js": 110,
+	"./kk": 111,
+	"./kk.js": 111,
+	"./km": 112,
+	"./km.js": 112,
+	"./kn": 113,
+	"./kn.js": 113,
+	"./ko": 114,
+	"./ko.js": 114,
+	"./ky": 115,
+	"./ky.js": 115,
+	"./lb": 116,
+	"./lb.js": 116,
+	"./lo": 117,
+	"./lo.js": 117,
+	"./lt": 118,
+	"./lt.js": 118,
+	"./lv": 119,
+	"./lv.js": 119,
+	"./me": 120,
+	"./me.js": 120,
+	"./mi": 121,
+	"./mi.js": 121,
+	"./mk": 122,
+	"./mk.js": 122,
+	"./ml": 123,
+	"./ml.js": 123,
+	"./mn": 124,
+	"./mn.js": 124,
+	"./mr": 125,
+	"./mr.js": 125,
+	"./ms": 126,
+	"./ms-my": 127,
+	"./ms-my.js": 127,
+	"./ms.js": 126,
+	"./mt": 128,
+	"./mt.js": 128,
+	"./my": 129,
+	"./my.js": 129,
+	"./nb": 130,
+	"./nb.js": 130,
+	"./ne": 131,
+	"./ne.js": 131,
+	"./nl": 132,
+	"./nl-be": 133,
+	"./nl-be.js": 133,
+	"./nl.js": 132,
+	"./nn": 134,
+	"./nn.js": 134,
+	"./pa-in": 135,
+	"./pa-in.js": 135,
+	"./pl": 136,
+	"./pl.js": 136,
+	"./pt": 137,
+	"./pt-br": 138,
+	"./pt-br.js": 138,
+	"./pt.js": 137,
+	"./ro": 139,
+	"./ro.js": 139,
+	"./ru": 140,
+	"./ru.js": 140,
+	"./sd": 141,
+	"./sd.js": 141,
+	"./se": 142,
+	"./se.js": 142,
+	"./si": 143,
+	"./si.js": 143,
+	"./sk": 144,
+	"./sk.js": 144,
+	"./sl": 145,
+	"./sl.js": 145,
+	"./sq": 146,
+	"./sq.js": 146,
+	"./sr": 147,
+	"./sr-cyrl": 148,
+	"./sr-cyrl.js": 148,
+	"./sr.js": 147,
+	"./ss": 149,
+	"./ss.js": 149,
+	"./sv": 150,
+	"./sv.js": 150,
+	"./sw": 151,
+	"./sw.js": 151,
+	"./ta": 152,
+	"./ta.js": 152,
+	"./te": 153,
+	"./te.js": 153,
+	"./tet": 154,
+	"./tet.js": 154,
+	"./tg": 155,
+	"./tg.js": 155,
+	"./th": 156,
+	"./th.js": 156,
+	"./tl-ph": 157,
+	"./tl-ph.js": 157,
+	"./tlh": 158,
+	"./tlh.js": 158,
+	"./tr": 159,
+	"./tr.js": 159,
+	"./tzl": 160,
+	"./tzl.js": 160,
+	"./tzm": 161,
+	"./tzm-latn": 162,
+	"./tzm-latn.js": 162,
+	"./tzm.js": 161,
+	"./ug-cn": 163,
+	"./ug-cn.js": 163,
+	"./uk": 164,
+	"./uk.js": 164,
+	"./ur": 165,
+	"./ur.js": 165,
+	"./uz": 166,
+	"./uz-latn": 167,
+	"./uz-latn.js": 167,
+	"./uz.js": 166,
+	"./vi": 168,
+	"./vi.js": 168,
+	"./x-pseudo": 169,
+	"./x-pseudo.js": 169,
+	"./yo": 170,
+	"./yo.js": 170,
+	"./zh-cn": 171,
+	"./zh-cn.js": 171,
+	"./zh-hk": 172,
+	"./zh-hk.js": 172,
+	"./zh-tw": 173,
+	"./zh-tw.js": 173
 };
 function webpackContext(req) {
 	return __webpack_require__(webpackContextResolve(req));

@@ -21,6 +21,7 @@
             <div class="time">{{chat.time}}</div>
         </div>
       </div>
+
       <div class="chatting-bottom">
         <div class="inputbox h-100 f-l f-c">
           <textarea @click="resetText()"  v-model="input_text" class="input h-100 f-c"></textarea>
@@ -124,7 +125,7 @@ export default {
 
 .input {
   box-sizing: border-box;
-  padding: 3%;
+  padding: 4%;
   width: 100%;
   outline: none;
   border: none;
@@ -137,8 +138,8 @@ export default {
 }
 
 .sent-btn {
-  width: 8em;
-  height: 8em;
+  width: 5em;
+  height: 5em;
   border-radius: 99em;
   background: #ff7473 url(/img/send-button.png) no-repeat center center;
   box-shadow: 3px 3px 7px #a6172d;
@@ -161,8 +162,8 @@ export default {
   float: left;
   top: 28%;
   left: 3%;
-  width: 8em;
-  height: 8em;
+  width: 4.5em;
+  height: 4.5em;
   border-radius: 99em;
   background-color: white;
   box-shadow: 1px 1px 1px $input-shadow;
@@ -184,7 +185,7 @@ export default {
   width: 80%;
   margin-top: 1%;
   box-sizing: border-box;
-  box-shadow: 4px 4px 5px #7f9eb2;
+  box-shadow: 2px 2px 5px #7f9eb2;
   padding: 2% 5% 2% 5%;
   background: #fffff5;
   word-break: break-all;

@@ -194,8 +194,8 @@
 
 .btn{
   float: left;
-  width: 12em;
-  height: 12em;
+  width: 5em;
+  height: 5em;
   border-radius: 99em;
   margin-right: 10%;
   margin-left: 10%;
