@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    
   </div>
 </template>
 
@@ -8,7 +7,6 @@
   export default {
     data() {
       return {
-
       }
     }
   }

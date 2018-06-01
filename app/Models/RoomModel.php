@@ -11,11 +11,11 @@ class RoomModel extends Model
 
     public static function createRoom($course_id)
     {
-        $queueRoom = self::where('course_id', $course_id)
+        $queryRoom = self::where('course_id', $course_id)
         ->where('status', "waiting")
         ->first();
 
-        if ($queueRoom == null) {
+        if ($queryRoom == null) {
             $room = new RoomModel();
             $room->course_id = $course_id;
             $room->status = "waiting";
@@ -23,7 +23,19 @@ class RoomModel extends Model
             $room->updated_at = \Carbon\Carbon::now();
             $room->save();
         }
-        return $queueRoom;
+        return $queryRoom;
+    }
+
+    public static function changeStatus($course_id, $status){
+        $queryRoom = self::where('course_id', $course_id)
+        ->where("status","<>", "close")
+        ->first();
+
+        if ($queryRoom != null) {
+            $queryRoom->status = $status;
+            $queryRoom->save();
+        }
+        return $queryRoom;
     }
 
     public static function getRoom($course_id)

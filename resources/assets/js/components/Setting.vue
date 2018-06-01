@@ -38,7 +38,7 @@
         <div v-if=" currentPage == 'default' " class="special">
           <div class="col d-time f-l">
             <div class="title h-100 f-c f-l">進行時間</div>
-            <div class="set h-100 f-l f-c">{{setting.time}}</div>
+            <input class="set h-100 f-l f-c" v-model="setting.time" />
           </div>
           <div class="col d-group f-l" >
             <div class="title h-100 f-c f-l">分組方式</div>
@@ -47,7 +47,7 @@
           <div class="col d-topic f-l" >
             <div class="title h-100 f-c f-l">發想題目</div>
             <div class="set h-100 f-l">
-              <textarea class="input h-100 f-c" v-model="setting.topic" placeholder="請輸入題目"></textarea>
+              <textarea class="input h-100 f-c" @click="resetText()" v-model="setting.topic" placeholder="請輸入題目"></textarea>
             </div>
           </div>
         </div>
@@ -118,6 +118,11 @@
       }
     },
     methods: {
+      resetText: function(){
+        if(this.setting.topic=='題目未定'){
+          this.setting.topic = '';
+        }
+      },
       change_page: function(page) {
         this.currentPage = page;
       },
@@ -189,8 +194,8 @@
 
 .btn{
   float: left;
-  width: 12em;
-  height: 12em;
+  width: 5em;
+  height: 5em;
   border-radius: 99em;
   margin-right: 10%;
   margin-left: 10%;
@@ -384,6 +389,7 @@
 .set{
   width: 50%;
   font-size: 3.5em;
+  text-align: center;
 }
 
 .input{
@@ -391,6 +397,8 @@
   padding: 3%;
   width: 100%;
   font-size: 1em;
+  outline: none;
+  border: 0;
 }
 
 </style>

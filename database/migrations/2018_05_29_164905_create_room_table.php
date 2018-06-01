@@ -15,7 +15,6 @@ class CreateRoomTable extends Migration
     {
         Schema::create('room', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('member')->nullable();
             $table->string('mode')->nullable();
             $table->string('result')->nullable();
             $table->string('status');

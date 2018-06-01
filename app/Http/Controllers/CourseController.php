@@ -35,21 +35,6 @@ class CourseController extends Controller
         return $rtn;
     }
 
-    public function createRoom(Request $request)
-    {
-        $rtn = array();
-        $course_id = $request->input('course_id');
-        $room = RoomModel::createRoom($course_id);
-        
-        if ($room) {
-            $rtn['errmsg'] = 'room is already existed';
-        } else {
-            $rtn['result'] = $room;
-        }
-
-        return $rtn;
-    }
-
     public function getCourse(Request $request)
     {
         $rtn = array();

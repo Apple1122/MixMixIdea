@@ -81,3 +81,12 @@ textarea,input{
 .f-l{
 	float: left;
 }
+
+html, body, #app, .container{
+  height: 100%;
+}
+
+.container{
+	background: transparent url("/img/bg-img.png") no-repeat center;
+	background-size: 90%;
+}
