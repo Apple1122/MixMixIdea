@@ -61,7 +61,7 @@
 
         historyBrief: [
           {
-            name: "題目:",
+            name: "題目: ",
             infro: "熊貓是熊還是貓?"
           },
           {
