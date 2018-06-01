@@ -67,7 +67,12 @@ export default {
   methods: {
     return_to_pre: function() {
       if (this.isChattingOpen) this.isChattingOpen = false;
-      else this.$router.push({ path: "/courselist" });
+      else {
+        let self = this;
+        self.socket.emit("leaveRoom", self.course_id);
+        sessionStorage.removeItem("room_course_id");
+        self.$router.push({ path: "/courselist" });
+      }
     },
     OpenChattingPage: function() {
       this.isChattingOpen = true;
@@ -108,8 +113,31 @@ export default {
       self.chatting.push(msg);
     });
     self.socket.on("teacherLeave", function() {
+      let self = this;
+      self.socket.emit("leaveRoom", self.course_id);
+      sessionStorage.removeItem("room_course_id");
       self.$router.push({ path: "/courseList" });
       console.log("teacher left!");
+    });
+    self.socket.on("gameStart", function() {
+      console.log("game start");
+      self.$nextTick(function() {
+        axios
+          .post("/room/join", {
+            course_id: self.course_id
+          })
+          .then(function(rtn) {
+            if (!rtn.data.errmsg) {
+              console.log(rtn.data);
+              self.$router.push({ path: "/gameroom_sixhat" });
+            } else {
+              console.log(rtn.data.errmsg);
+            }
+          })
+          .catch(function(err) {
+            console.log(err);
+          });
+      });
     });
     self.socket.on("disconnect", function() {});
   },
@@ -118,9 +146,9 @@ export default {
     chatbox.scrollTop = chatbox.scrollHeight;
   },
   destroyed: function() {
-    let self = this;
-    self.socket.emit("leaveRoom", self.course_id);
-    sessionStorage.removeItem("room_course_id");
+    // let self = this;
+    // self.socket.emit("leaveRoom", self.course_id);
+    // sessionStorage.removeItem("room_course_id");
   }
 };
 </script>

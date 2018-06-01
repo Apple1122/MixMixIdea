@@ -19,6 +19,7 @@ class CreateTeachersTable extends Migration
             $table->string('account');
             $table->string('password');
             $table->timestamps();
+            
             $table->primary('teacher_id');
         });
     }

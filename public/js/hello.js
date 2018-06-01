@@ -73432,7 +73432,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.nav-bar[data-v-1e7735a0] {\n  width: 106%;\n  height: 7%;\n  margin-left: -3%;\n  -webkit-box-shadow: 0px 2px 8px #9baec8;\n          box-shadow: 0px 2px 8px #9baec8;\n  font-size: 3em;\n}\n.waiting-header[data-v-1e7735a0] {\n  width: 100%;\n  height: 12%;\n  font-size: 7em;\n  font-weight: bold;\n  color: #ff7473;\n  text-shadow: 2px 3px 4px #c03546;\n}\n.waiting-body[data-v-1e7735a0] {\n  padding: 0% 6%;\n  width: 100%;\n  height: 63%;\n}\n.waiting-bottom[data-v-1e7735a0] {\n  width: 100%;\n  height: 18%;\n}\n.col[data-v-1e7735a0] {\n  width: 100%;\n  border-radius: 30px;\n  -webkit-box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6),\n    4px 4px 6px rgba(20%, 20%, 40%, 0.4);\n          box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6),\n    4px 4px 6px rgba(20%, 20%, 40%, 0.4);\n}\n.chat-ul[data-v-1e7735a0] {\n  width: 100%;\n  height: 100%;\n  overflow-y: scroll;\n}\n.chat-li[data-v-1e7735a0] {\n  width: 100%;\n  font-size: 3em;\n  margin-bottom: 1%;\n  line-height: 135%;\n  font-weight: bold;\n  color: white;\n  text-shadow: 1px 1px 5px #000, 2px 2px 5px #000;\n}\n.set-li[data-v-1e7735a0] {\n  list-style: none;\n  width: 100%;\n  font-size: 2.5em;\n  margin-bottom: 1%;\n  line-height: 135%;\n  font-weight: bold;\n  color: white;\n  text-shadow: 1px 1px 5px #000, 2px 2px 5px #000;\n}\n.infro-people[data-v-1e7735a0] {\n  height: 20%;\n  margin-bottom: 2%;\n  background: rgba(255, 201, 82, 0.8) url(/img/room_people.png) no-repeat 5%\n    100%;\n  background-size: 40%;\n}\n.infro-setting[data-v-1e7735a0] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  height: 35%;\n  margin-bottom: 2%;\n  background: rgba(236, 115, 87, 0.8) url(/img/setting_1.png) no-repeat 94% -5%;\n  background-size: 45%;\n}\n.infro-chatting[data-v-1e7735a0] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  height: 40%;\n  background: rgba(117, 79, 68, 0.8) url(/img/chat.png) no-repeat 5% 120%;\n  background-size: 53%;\n}\n.go-button[data-v-1e7735a0] {\n  background: transparent url(/img/go.png) no-repeat center 15%;\n  background-size: 50%;\n  width: 100%;\n  height: 100%;\n}\n.people[data-v-1e7735a0] {\n  float: left;\n  width: 40%;\n}\n.current[data-v-1e7735a0] {\n  font-weight: bold;\n  font-size: 7em;\n  float: right;\n  width: 25%;\n}\n.total[data-v-1e7735a0] {\n  font-size: 3.5em;\n  float: right;\n  width: 20%;\n}\n.gametype[data-v-1e7735a0] {\n  float: left;\n  width: 25%;\n  height: 90%;\n  margin-top: 3%;\n  border-radius: 30px 0px 0px 30px;\n  background-color: rgba(253, 153, 154, 0.7);\n}\n.brain-method[data-v-1e7735a0] {\n  float: left;\n  width: 25%;\n  height: 90%;\n  margin-top: 3%;\n  border-radius: 0px 30px 30px 0px;\n  background-color: rgba(103, 213, 181, 0.7);\n}\n.other-setting[data-v-1e7735a0] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 2%;\n  float: left;\n  width: 50%;\n}\n.infro-img[data-v-1e7735a0] {\n  width: 100%;\n  height: 60%;\n}\n.infro-text[data-v-1e7735a0] {\n  width: 100%;\n  height: 40%;\n  font-size: 2.8em;\n  font-weight: bold;\n  text-align: center;\n}\n#no-r[data-v-1e7735a0] {\n  background: transparent url(\"/img/no-r.png\") no-repeat center center;\n  background-size: 70%;\n}\n#no-g[data-v-1e7735a0] {\n  background: transparent url(\"/img/no-g.png\") no-repeat center center;\n  background-size: 70%;\n}\n#pass[data-v-1e7735a0] {\n  background: transparent url(\"/img/pass.png\") no-repeat center center;\n  background-size: 70%;\n}\n#sixhat[data-v-1e7735a0] {\n  background: transparent url(\"/img/hat.png\") no-repeat center center;\n  background-size: 80%;\n}\n#stf[data-v-1e7735a0] {\n  background: transparent url(\"/img/stf.png\") no-repeat center center;\n  background-size: 80%;\n}\n#role-play[data-v-1e7735a0] {\n  background: transparent url(\"/img/role-play.png\") no-repeat center center;\n  background-size: 80%;\n}\n#talking[data-v-1e7735a0] {\n  background: transparent url(\"/img/talking.png\") no-repeat center center;\n  background-size: 80%;\n}\n#passgate[data-v-1e7735a0] {\n  background: transparent url(\"/img/passgate.png\") no-repeat center center;\n  background-size: 80%;\n}\n#groupfight[data-v-1e7735a0] {\n  background: transparent url(\"/img/groupfight.png\") no-repeat center center;\n  background-size: 80%;\n}\n.white-bg[data-v-1e7735a0] {\n  position: absolute;\n  z-index: 1;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(255, 255, 255, 0.7);\n}\n.nav-btn[data-v-1e7735a0] {\n  float: left;\n  width: 12%;\n}\n#return[data-v-1e7735a0] {\n  background: transparent url(\"/img/return.png\") no-repeat 75% center;\n  background-size: 25%;\n}\n.class-name[data-v-1e7735a0] {\n  float: left;\n  font-weight: bold;\n  width: 76%;\n  font-size: 1.1em;\n}\n.container[data-v-1e7735a0]{\n  height: 100%;\n}\n", ""]);
+exports.push([module.i, "\n.nav-bar[data-v-1e7735a0] {\n  width: 106%;\n  height: 7%;\n  margin-left: -3%;\n  -webkit-box-shadow: 0px 2px 8px #9baec8;\n          box-shadow: 0px 2px 8px #9baec8;\n  font-size: 3em;\n}\n.waiting-header[data-v-1e7735a0] {\n  width: 100%;\n  height: 12%;\n  font-size: 7em;\n  font-weight: bold;\n  color: #ff7473;\n  text-shadow: 2px 3px 4px #c03546;\n}\n.waiting-body[data-v-1e7735a0] {\n  padding: 0% 6%;\n  width: 100%;\n  height: 63%;\n}\n.waiting-bottom[data-v-1e7735a0] {\n  width: 100%;\n  height: 18%;\n}\n.col[data-v-1e7735a0] {\n  width: 100%;\n  border-radius: 30px;\n  -webkit-box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6),\n    4px 4px 6px rgba(20%, 20%, 40%, 0.4);\n          box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6),\n    4px 4px 6px rgba(20%, 20%, 40%, 0.4);\n}\n.chat-ul[data-v-1e7735a0] {\n  width: 100%;\n  height: 100%;\n  overflow-y: scroll;\n}\n.chat-li[data-v-1e7735a0] {\n  width: 100%;\n  font-size: 3em;\n  margin-bottom: 1%;\n  line-height: 135%;\n  font-weight: bold;\n  color: white;\n  text-shadow: 1px 1px 5px #000, 2px 2px 5px #000;\n}\n.set-li[data-v-1e7735a0] {\n  list-style: none;\n  width: 100%;\n  font-size: 2.5em;\n  margin-bottom: 1%;\n  line-height: 135%;\n  font-weight: bold;\n  color: white;\n  text-shadow: 1px 1px 5px #000, 2px 2px 5px #000;\n}\n.infro-people[data-v-1e7735a0] {\n  height: 20%;\n  margin-bottom: 2%;\n  background: rgba(255, 201, 82, 0.8) url(/img/room_people.png) no-repeat 5%\n    100%;\n  background-size: 40%;\n}\n.infro-setting[data-v-1e7735a0] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  height: 35%;\n  margin-bottom: 2%;\n  background: rgba(236, 115, 87, 0.8) url(/img/setting_1.png) no-repeat 94% -5%;\n  background-size: 45%;\n}\n.infro-chatting[data-v-1e7735a0] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  height: 40%;\n  background: rgba(117, 79, 68, 0.8) url(/img/chat.png) no-repeat 5% 120%;\n  background-size: 53%;\n}\n.go-button[data-v-1e7735a0] {\n  background: transparent url(/img/go.png) no-repeat center 15%;\n  background-size: 50%;\n  width: 100%;\n  height: 100%;\n}\n.people[data-v-1e7735a0] {\n  float: left;\n  width: 40%;\n}\n.current[data-v-1e7735a0] {\n  font-weight: bold;\n  font-size: 7em;\n  float: right;\n  width: 25%;\n}\n.total[data-v-1e7735a0] {\n  font-size: 3.5em;\n  float: right;\n  width: 20%;\n}\n.gametype[data-v-1e7735a0] {\n  float: left;\n  width: 25%;\n  height: 90%;\n  margin-top: 3%;\n  border-radius: 30px 0px 0px 30px;\n  background-color: rgba(253, 153, 154, 0.7);\n}\n.brain-method[data-v-1e7735a0] {\n  float: left;\n  width: 25%;\n  height: 90%;\n  margin-top: 3%;\n  border-radius: 0px 30px 30px 0px;\n  background-color: rgba(103, 213, 181, 0.7);\n}\n.other-setting[data-v-1e7735a0] {\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 2%;\n  float: left;\n  width: 50%;\n}\n.infro-img[data-v-1e7735a0] {\n  width: 100%;\n  height: 60%;\n}\n.infro-text[data-v-1e7735a0] {\n  width: 100%;\n  height: 40%;\n  font-size: 2.8em;\n  font-weight: bold;\n  text-align: center;\n}\n#no-r[data-v-1e7735a0] {\n  background: transparent url(\"/img/no-r.png\") no-repeat center center;\n  background-size: 70%;\n}\n#no-g[data-v-1e7735a0] {\n  background: transparent url(\"/img/no-g.png\") no-repeat center center;\n  background-size: 70%;\n}\n#pass[data-v-1e7735a0] {\n  background: transparent url(\"/img/pass.png\") no-repeat center center;\n  background-size: 70%;\n}\n#sixhat[data-v-1e7735a0] {\n  background: transparent url(\"/img/hat.png\") no-repeat center center;\n  background-size: 80%;\n}\n#stf[data-v-1e7735a0] {\n  background: transparent url(\"/img/stf.png\") no-repeat center center;\n  background-size: 80%;\n}\n#role-play[data-v-1e7735a0] {\n  background: transparent url(\"/img/role-play.png\") no-repeat center center;\n  background-size: 80%;\n}\n#talking[data-v-1e7735a0] {\n  background: transparent url(\"/img/talking.png\") no-repeat center center;\n  background-size: 80%;\n}\n#passgate[data-v-1e7735a0] {\n  background: transparent url(\"/img/passgate.png\") no-repeat center center;\n  background-size: 80%;\n}\n#groupfight[data-v-1e7735a0] {\n  background: transparent url(\"/img/groupfight.png\") no-repeat center center;\n  background-size: 80%;\n}\n.white-bg[data-v-1e7735a0] {\n  position: absolute;\n  z-index: 1;\n  width: 100%;\n  height: 100%;\n  background-color: rgba(255, 255, 255, 0.7);\n}\n.nav-btn[data-v-1e7735a0] {\n  float: left;\n  width: 12%;\n}\n#return[data-v-1e7735a0] {\n  background: transparent url(\"/img/return.png\") no-repeat 75% center;\n  background-size: 25%;\n}\n.class-name[data-v-1e7735a0] {\n  float: left;\n  font-weight: bold;\n  width: 76%;\n  font-size: 1.1em;\n}\n.container[data-v-1e7735a0] {\n  height: 100%;\n}\n", ""]);
 
 // exports
 
@@ -73537,7 +73537,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   methods: {
     return_to_pre: function return_to_pre() {
-      if (this.isChattingOpen) this.isChattingOpen = false;else if (this.isSettingOpen) this.isSettingOpen = false;else this.$router.push({ path: "/courselist" });
+      if (this.isChattingOpen) this.isChattingOpen = false;else if (this.isSettingOpen) this.isSettingOpen = false;else {
+        var self = this;
+        this.$nextTick(function () {
+          axios.post("/room/leave", {
+            course_id: self.course_id,
+            setting: JSON.stringify(self.setting)
+          }).then(function (rtn) {
+            if (!rtn.data.errmsg) {
+              console.log(rtn.data);
+              self.socket.emit("teacherLeave", self.course_id);
+              sessionStorage.removeItem("room_course_id");
+              self.$router.push({ path: "/courselist" });
+            } else {
+              console.log(rtn.data.errmsg);
+            }
+          }).catch(function (err) {
+            console.log(err);
+          });
+        });
+      }
     },
     changePage: function changePage(data) {
       this.isSettingOpen = data;
@@ -73552,7 +73571,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.isChattingOpen = true;
     },
     swapToGame: function swapToGame() {
-      this.$router.push({ path: "/gameroom_sixhat" });
+      var self = this;
+      self.$nextTick(function () {
+        axios.post("/room/gameStart", {
+          course_id: self.course_id
+        }).then(function (rtn) {
+          if (!rtn.data.errmsg) {
+            console.log(rtn.data);
+            self.socket.emit("gameStart", self.course_id);
+            self.$router.push({ path: "/gameroom_sixhat" });
+          } else {
+            console.log(rtn.data.errmsg);
+          }
+        }).catch(function (err) {
+          console.log(err);
+        });
+      });
     }
   },
 
@@ -73612,22 +73646,25 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     chatbox.scrollTop = chatbox.scrollHeight;
   },
   destroyed: function destroyed() {
-    var self = this;
-    self.$nextTick(function () {
-      axios.post("/room/leave", {
-        course_id: self.course_id
-      }).then(function (rtn) {
-        if (!rtn.data.errmsg) {
-          console.log(rtn.data);
-          self.socket.emit("teacherLeave", self.course_id);
-          sessionStorage.removeItem("room_course_id");
-        } else {
-          console.log(rtn.data.errmsg);
-        }
-      }).catch(function (err) {
-        console.log(err);
-      });
-    });
+    // let self = this;
+    // self.$nextTick(function() {
+    //   axios
+    //     .post("/room/leave", {
+    //       course_id: self.course_id
+    //     })
+    //     .then(function(rtn) {
+    //       if (!rtn.data.errmsg) {
+    //         console.log(rtn.data);
+    //         self.socket.emit("teacherLeave", self.course_id);
+    //         sessionStorage.removeItem("room_course_id");
+    //       } else {
+    //         console.log(rtn.data.errmsg);
+    //       }
+    //     })
+    //     .catch(function(err) {
+    //       console.log(err);
+    //     });
+    // });
   }
 });
 
@@ -79710,7 +79747,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   methods: {
     return_to_pre: function return_to_pre() {
-      if (this.isChattingOpen) this.isChattingOpen = false;else this.$router.push({ path: "/courselist" });
+      if (this.isChattingOpen) this.isChattingOpen = false;else {
+        var self = this;
+        self.socket.emit("leaveRoom", self.course_id);
+        sessionStorage.removeItem("room_course_id");
+        self.$router.push({ path: "/courselist" });
+      }
     },
     OpenChattingPage: function OpenChattingPage() {
       this.isChattingOpen = true;
@@ -79748,8 +79790,28 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       self.chatting.push(msg);
     });
     self.socket.on("teacherLeave", function () {
+      var self = this;
+      self.socket.emit("leaveRoom", self.course_id);
+      sessionStorage.removeItem("room_course_id");
       self.$router.push({ path: "/courseList" });
       console.log("teacher left!");
+    });
+    self.socket.on("gameStart", function () {
+      console.log("game start");
+      self.$nextTick(function () {
+        axios.post("/room/join", {
+          course_id: self.course_id
+        }).then(function (rtn) {
+          if (!rtn.data.errmsg) {
+            console.log(rtn.data);
+            self.$router.push({ path: "/gameroom_sixhat" });
+          } else {
+            console.log(rtn.data.errmsg);
+          }
+        }).catch(function (err) {
+          console.log(err);
+        });
+      });
     });
     self.socket.on("disconnect", function () {});
   },
@@ -79758,9 +79820,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     chatbox.scrollTop = chatbox.scrollHeight;
   },
   destroyed: function destroyed() {
-    var self = this;
-    self.socket.emit("leaveRoom", self.course_id);
-    sessionStorage.removeItem("room_course_id");
+    // let self = this;
+    // self.socket.emit("leaveRoom", self.course_id);
+    // sessionStorage.removeItem("room_course_id");
   }
 });
 
@@ -80247,6 +80309,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.chatting.push(chat);
       this.input_text = "";
     }
+  },
+  destroyed: function destroyed() {
+    var self = this;
+    self.socket.emit("leaveRoom", self.course_id);
+    sessionStorage.removeItem("room_course_id");
   }
 });
 

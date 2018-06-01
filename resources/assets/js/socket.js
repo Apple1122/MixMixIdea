@@ -42,11 +42,16 @@ io.on('connection', (socket) => {
         socket.broadcast.to(roomId).emit('updateCurrentPeople', currentPeople);
     });
 
+    socket.on("gameStart", (roomId) => {
+        console.log("on gameStart");
+        socket.broadcast.to(roomId).emit('gameStart');        
+    })
+
     socket.on("teacherLeave", (roomId) => {
         socket.broadcast.to(roomId).emit('teacherLeave');
         socket.leave(roomId);
         socket.disconnect();
-    })
+    });
 
     socket.on("leaveRoom", (roomId) => {
         socket.leave(roomId)
