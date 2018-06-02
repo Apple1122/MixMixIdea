@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import routes from './routes';
 import ChartJsPluginDataLabels from 'chartjs-plugin-datalabels';
 import Chart from 'chart.js';
+
 Chart.defaults.global.defaultFontSize = 20;
 Chart.defaults.global.defaultFontFamily =  'Microsoft JhengHei';
 

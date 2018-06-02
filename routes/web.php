@@ -16,12 +16,12 @@ Route::combine([
     '/courselist',
     '/s_waiting',
     '/t_waiting',
-<<<<<<< HEAD
-    '/history'
-=======
+    '/history',
     '/gameroom_sixhat',
-    '/analysis'
->>>>>>> 6b58843a14f40cafcd34d5a2d8ee8617aa417f69
+    '/analysis',
+    '/vote',
+    '/gameroom',
+    '/groupfight'
 ], function () {
     return view('app');
 });

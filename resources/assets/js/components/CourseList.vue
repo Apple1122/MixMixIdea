@@ -87,7 +87,10 @@ export default {
             .then(function(rtn) {
               if (!rtn.data.errmsg) {
                 sessionStorage.setItem("room_course_id", id);
-                self.$router.push({ path: "/t_waiting" });
+                self.$router.push({
+                  path: "/t_waiting",
+                  params: "123"
+                });
               } else {
                 console.log(rtn.data.errmsg);
               }

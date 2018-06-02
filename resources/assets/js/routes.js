@@ -3,12 +3,12 @@ import CourseList from './components/CourseList'
 import TWaiting from './components/TWaiting'
 import SWaiting from './components/SWaiting'
 import Loading from './components/loading'
-<<<<<<< HEAD
 import History from './components/History'
-=======
 import Gameroom_sixhat from './components/Gameroom_sixhat'
 import Analysis from './components/Analysis'
->>>>>>> 6b58843a14f40cafcd34d5a2d8ee8617aa417f69
+import Vote from './components/Vote'
+import Gameroom from './components/Gameroom'
+import Groupfight from './components/Groupfight'
 
 const routes = [{
     path: '/',
@@ -27,24 +27,30 @@ const routes = [{
     component: TWaiting
   },
   {
-<<<<<<< HEAD
     path: '/history',
     component: History
-  }
-
-]
-=======
+  },
+  {
     path: '/gameroom_sixhat',
     component: Gameroom_sixhat
   },
   {
     path: '/analysis',
     component: Analysis
+  },
+  {
+    path: '/vote',
+    component: Vote
+  },
+  {
+    path: '/gameroom',
+    component: Gameroom
+  },
+  {
+    path: '/groupfight',
+    component: Groupfight
   }
 
-
-
 ];
->>>>>>> 6b58843a14f40cafcd34d5a2d8ee8617aa417f69
 
 export default routes
