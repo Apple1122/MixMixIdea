@@ -7,6 +7,7 @@ import Gameroom_sixhat from './components/Gameroom_sixhat'
 import Analysis from './components/Analysis'
 import Vote from './components/Vote'
 import Gameroom from './components/Gameroom'
+import Groupfight from './components/Groupfight'
 
 const routes = [{
     path: '/',
@@ -39,6 +40,10 @@ const routes = [{
   {
     path: '/gameroom',
     component: Gameroom
+  },
+  {
+    path: '/groupfight',
+    component: Groupfight
   }
 
 

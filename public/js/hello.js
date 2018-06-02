@@ -72484,6 +72484,9 @@ if (inBrowser && window.Vue) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_Vote___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_Vote__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_Gameroom__ = __webpack_require__(341);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_Gameroom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_Gameroom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_Groupfight__ = __webpack_require__(352);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_Groupfight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_Groupfight__);
+
 
 
 
@@ -72518,6 +72521,9 @@ var routes = [{
 }, {
   path: '/gameroom',
   component: __WEBPACK_IMPORTED_MODULE_8__components_Gameroom___default.a
+}, {
+  path: '/groupfight',
+  component: __WEBPACK_IMPORTED_MODULE_9__components_Groupfight___default.a
 }];
 
 /* harmony default export */ __webpack_exports__["a"] = (routes);
@@ -96291,6 +96297,245 @@ if (true) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 349 */,
+/* 350 */,
+/* 351 */,
+/* 352 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(353)
+}
+var normalizeComponent = __webpack_require__(6)
+/* script */
+var __vue_script__ = __webpack_require__(355)
+/* template */
+var __vue_template__ = __webpack_require__(356)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-96bc99b0"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\Groupfight.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-96bc99b0", Component.options)
+  } else {
+    hotAPI.reload("data-v-96bc99b0", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 353 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(354);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(5)("77b95f42", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-96bc99b0\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Groupfight.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-96bc99b0\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Groupfight.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 354 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.group-header[data-v-96bc99b0]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  width: 100%;\r\n  height: 10%;\n}\n.game-body[data-v-96bc99b0]{\r\n  width: 100%;\r\n  height: 70%;\n}\n.game-bottom[data-v-96bc99b0]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 100%;\r\n  height: 20%;\n}\n.timer[data-v-96bc99b0]{\r\n  width: 35%;\r\n  margin-right: 5%;\n}\n.type[data-v-96bc99b0]{\r\n  width: 40%;\r\n  margin-right: 5%;\n}\n.setting[data-v-96bc99b0]{\r\n  width: 15%;\r\n  background: transparent url('/img/setting.png') no-repeat center center;\r\n  background-size: 70%;\n}\n.t-l[data-v-96bc99b0]{\r\n  width: 50%;\r\n  border-radius: 15px 0px 0px 15px;\n}\n.t-r[data-v-96bc99b0]{\r\n  width: 50%; \r\n  border-radius: 0px 15px 15px 0px;\n}\n.time-logo[data-v-96bc99b0]{\r\n  width: 45%;\r\n  background: transparent url('/img/clock.png') no-repeat center center;\r\n  background-size: 90%;\n}\n.time-text[data-v-96bc99b0]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 6% 9%;\r\n    margin-left: 15%;\r\n    position: relative;\r\n    z-index: -99;\r\n    margin-top: -36%;\r\n    width: 85%;\r\n    background: #FBFFB9;\r\n    height: 80%;\r\n    text-align: right;\r\n    font-size: 3.5em;\n}\n#pass[data-v-96bc99b0]{\r\n  background: transparent url('/img/pass.png') no-repeat center center;\r\n  background-size: 70%;\n}\n#sixhat[data-v-96bc99b0]{\r\n  background: rgba(253,153,154,.7) url('/img/hat.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#stf[data-v-96bc99b0]{\r\n  background: transparent url('/img/stf.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#role-play[data-v-96bc99b0]{\r\n  background: transparent url('/img/role-play.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#talking[data-v-96bc99b0]{\r\n  background: transparent url('/img/talking.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#passgate[data-v-96bc99b0]{\r\n  background: transparent url('/img/passgate.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#groupfight[data-v-96bc99b0]{\r\n  background: rgba(103,213,181,.7) url('/img/groupfight.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#normal[data-v-96bc99b0]{\r\n  background: transparent url('/img/normal.png') no-repeat center center;\r\n  background-size: 80%;\n}\r\n\r\n\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 355 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      msg: [{
+        groupid: 1,
+        goodnum: 20,
+        lovenum: 30,
+        hatID: 'blue',
+        whichhat: '藍帽',
+        content: '程式設計好好玩',
+        isvoted: false
+      }],
+      setting: {
+        gameName: "遊戲模式",
+        gameID: "groupfight",
+        brainName: "腦力激盪技法",
+        brainID: "sixhat",
+        time: "30分",
+        group: "平均分配",
+        topic: "程式設計好玩ㄇ"
+      },
+      input_text: '',
+      isVoteTime: true
+    };
+  },
+
+  methods: {
+    sendMyText: function sendMyText() {
+      var msg = {
+        groupid: 1,
+        goodnum: 0,
+        lovenum: 0,
+        hatID: 'blue',
+        whichhat: '藍帽',
+        content: this.input_text,
+        isvoted: false
+      };
+      this.msg.push(msg);
+    },
+    FocuseOn: function FocuseOn(text) {
+      var obj = document.getElementById('slide');
+      if (obj != null) {
+        var which = obj.scrollLeft / 377;
+        if (text == 'left') {
+          obj.scrollLeft = 377 * (which - 1);
+        } else {
+          obj.scrollLeft = 377 * (which + 1);
+        }
+        // if (test >= 188){
+        //   obj.scrollLeft = 377 * (page+1);
+        // }
+        // else if (obj.scrollLeft <=188){
+        //   obj.scrollLeft = 0;
+        // }
+        // else {
+        //   obj.scrollLeft = 377 * (page);
+        // }
+      }
+    }
+  }
+});
+
+/***/ }),
+/* 356 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "game-header" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "type f-l h-100" }, [
+        _c("div", {
+          staticClass: "t-l f-l h-100",
+          attrs: { id: _vm.setting.gameID }
+        }),
+        _vm._v(" "),
+        _c("div", {
+          staticClass: "t-r f-l h-100",
+          attrs: { id: _vm.setting.brainID }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "setting f-l h-100" })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "group-body" }),
+    _vm._v(" "),
+    _c("div", { staticClass: "group-bottom" })
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "timer f-l h-100" }, [
+      _c("div", { staticClass: "time-logo h-100" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "time-text h-100" }, [_vm._v("10:00")])
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-96bc99b0", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

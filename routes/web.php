@@ -19,7 +19,8 @@ Route::combine([
     '/gameroom_sixhat',
     '/analysis',
     '/vote',
-    '/gameroom'
+    '/gameroom',
+    '/groupfight'
 ], function () {
     return view('app');
 });
