@@ -124,108 +124,108 @@
   </div>  
 </template>
 
-<script>  
-  import Attend from './StatDetail/Attend';
-  import Talking from './StatDetail/Talking';
-  import Good from './StatDetail/Good';
-  import TimeStatus from './StatDetail/TimeStatus';
+<script>
+import Attend from "./StatDetail/Attend";
+import Talking from "./StatDetail/Talking";
+import Good from "./StatDetail/Good";
+import TimeStatus from "./StatDetail/TimeStatus";
 
-  export default {
-    data() {
-      return {
-        currentPage: 'chart',
-        setting: {
-          gameName: "遊戲模式",
-          gameID: "no-r",
-          brainName: "腦力激盪",
-          brainID: "no-g",
-          time: "30分",
-          group: "平均分配",
-          topic: "題目未定"
+export default {
+  data() {
+    return {
+      currentPage: "chart",
+      setting: {
+        gameName: "遊戲模式",
+        gameID: "groupfight",
+        brainName: "腦力激盪",
+        brainID: "sixhat",
+        time: "10分",
+        group: "平均分配",
+        topic: "熊貓是熊還是貓"
+      },
+      allmsg: [
+        {
+          text: "熊貓又不會喵喵叫 當然不是貓",
+          time: "2017-05-31"
         },
-        allmsg:[
-          {
-            text: '程式設計是一門藝術',
-            time: '2017-05-31'
-          },
-          {
-            text: '程式設計入學門檻稍高',
-            time: '2017-05-31'
-          },
-          {
-            text: '程式設計學起來',
-            time: '2017-05-31'
-          },
-          {
-            text: '程式設計安安安安',
-            time: '2017-05-31'
-          }
-        ],
-        popularmsg:[
-          {
-            text: '程式設計是一門藝術',
-            num: 55
-          },
-          {
-            text: '程式設計入學門檻稍高',
-            num: 30
-          },
-          {
-            text: '程式設計學起來',
-            num: 25
-          }
-        ],
-        achievelist:[
-          {
-            id: 'goodmost',
-            title: '讚數最多獎',
-            person: 'Andy'
-          },
-          {
-            id: 'goodtalk',
-            title: '讚數最多獎',
-            person: 'Andy'
-          },
-          {
-            id: 'goodadd',
-            title: '最佳參與獎',
-            person: 'Andy'
-          },
-          {
-            id: 'goodwrite',
-            title: '最佳書寫獎',
-            person: 'Andy'
-          },
-          {
-            id: 'goodtime',
-            title: '最佳精神獎',
-            person: 'Andy'
-          }
-        ]
-      }
+        {
+          text: "可是熊貓也不會亂吼阿 更不會暴力抓樹",
+          time: "2017-05-31"
+        },
+        {
+          text: "那貓熊跟熊貓是什麼關係阿??",
+          time: "2017-05-31"
+        },
+        {
+          text: "老師我們可不可以不要討論這個了",
+          time: "2017-05-31"
+        }
+      ],
+      popularmsg: [
+        {
+          text: "老師我們可不可以別討論這個了",
+          num: 55
+        },
+        {
+          text: "熊貓又不會喵喵叫 當然不是貓",
+          num: 30
+        },
+        {
+          text: "那貓熊跟熊貓是什麼關係阿??",
+          num: 25
+        }
+      ],
+      achievelist: [
+        {
+          id: "goodmost",
+          title: "讚數最多獎",
+          person: "Andy"
+        },
+        {
+          id: "goodtalk",
+          title: "最多話獎",
+          person: "pony"
+        },
+        {
+          id: "goodadd",
+          title: "最佳參與獎",
+          person: "魚尾尾"
+        },
+        {
+          id: "goodwrite",
+          title: "最佳書寫獎",
+          person: "凱格哥"
+        },
+        {
+          id: "goodtime",
+          title: "最佳精神獎",
+          person: "Andy"
+        }
+      ]
+    };
+  },
+  components: {
+    Attend,
+    Talking,
+    Good,
+    TimeStatus
+  },
+  methods: {
+    change_page: function(page) {
+      this.currentPage = page;
     },
-    components: {
-      Attend,
-      Talking,
-      Good,
-      TimeStatus
+    return_to_pre: function() {
+      this.$router.push({ path: "/t_waiting" });
     },
-    methods: {
-      change_page: function(page) {
-        this.currentPage = page;
-      },
-      return_to_pre: function() {
-        this.$router.push({ path: "/t_waiting" });
-      },
-      return_to_home: function() {
-        this.$router.push({ path: "/courselist" });
-      }
+    return_to_home: function() {
+      this.$router.push({ path: "/courselist" });
     }
   }
+};
 </script>
 
 <style scoped>
-.nav-bar{
+.nav-bar {
   width: 106%;
   height: 7%;
   margin-left: -3%;
@@ -233,57 +233,56 @@
   font-size: 3em;
 }
 
-.nav-btn{
+.nav-btn {
   float: left;
   width: 12%;
 }
 
-.class-name{
+.class-name {
   float: left;
   font-weight: bold;
   width: 76%;
   font-size: 1.1em;
 }
 
-#return{
-  background: transparent url('/img/return.png') no-repeat 75% center;
+#return {
+  background: transparent url("/img/return.png") no-repeat 75% center;
   background-size: 25%;
 }
 
-.analysis-title{
+.analysis-title {
   width: 100%;
   height: 15%;
   font-size: 6em;
   text-align: center;
   font-weight: bold;
-  color: #754F44;
-  background: transparent url('/img/setting_title.png') no-repeat center center;
+  color: #754f44;
+  background: transparent url("/img/setting_title.png") no-repeat center center;
   background-size: 70%;
   text-shadow: 1px 1px 3px #34314c;
 }
 
-.analysis-body{
+.analysis-body {
   box-sizing: border-box;
   width: 100%;
   height: 72%;
   padding: 2% 5%;
 }
 
-.special{
+.special {
   width: 100%;
   height: 100%;
   overflow-y: scroll;
 }
 
-
-.choose-bar{
+.choose-bar {
   width: 100%;
   height: 7%;
   box-sizing: border-box;
   padding: 0% 15%;
 }
 
-.choose-chart{
+.choose-chart {
   box-sizing: border-box;
   padding: 2%;
   float: left;
@@ -291,20 +290,20 @@
   height: 90%;
   border-radius: 30px 0px 0px 30px;
   box-shadow: 0px 2px 5px #df405a;
-  background-color: rgba(253,153,154,.2);
+  background-color: rgba(253, 153, 154, 0.2);
   border-right: none;
   transition: background-color 0.3s;
 }
 
-#chart_clicked{
-  background-color:  rgba(253,153,154,.7);
+#chart_clicked {
+  background-color: rgba(253, 153, 154, 0.7);
 }
 
-#data_clicked{
-  background-color: rgba(103,213,181,.7);
+#data_clicked {
+  background-color: rgba(103, 213, 181, 0.7);
 }
 
-.choose-data{
+.choose-data {
   box-sizing: border-box;
   padding: 2%;
   float: left;
@@ -313,22 +312,22 @@
   border-radius: 0px 30px 30px 0px;
   box-shadow: 0px 2px 5px #3b8686;
   border-left: none;
-  background-color: rgba(103,213,181,.2);
+  background-color: rgba(103, 213, 181, 0.2);
   transition: background-color 0.3s;
 }
 
-.bar-img{
+.bar-img {
   width: 40%;
 }
 
-.bar-text{
+.bar-text {
   text-align: center;
   width: 60%;
   font-size: 3.5em;
 }
 
-#chart{
-  background: transparent url('/img/chart.png') no-repeat center center;
+#chart {
+  background: transparent url("/img/chart.png") no-repeat center center;
   background-size: 65%;
 }
 
@@ -343,67 +342,66 @@
   background-size: 60%;
 }
 
-#data{
-  background: transparent url('/img/data.png') no-repeat center center;
+#data {
+  background: transparent url("/img/data.png") no-repeat center center;
   background-size: 75%;
 }
 
-.content{
-    box-sizing: border-box;
-    width: 100%;
-    padding: 2%;
-    min-height: 54%;
-    background: rgba(255,255,245,.8);
-    box-shadow: 2px 2px 9px #7f9eb2;
-    margin-bottom: 3%;
-    border-radius: 30px;
+.content {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 2%;
+  min-height: 54%;
+  background: rgba(255, 255, 245, 0.8);
+  box-shadow: 2px 2px 9px #7f9eb2;
+  margin-bottom: 3%;
+  border-radius: 30px;
 }
 
-#achieve{
+#achieve {
   height: 35%;
 }
 
-.content1{
-    box-sizing: border-box;
-    padding: 3%;
-    width: 99%;
-    min-height: 15%;
-    background: rgba(255,255,245,.8);
-    box-shadow: 2px 2px 9px #7f9eb2;
-    margin-bottom: 3%;
-    border-radius: 30px;
+.content1 {
+  box-sizing: border-box;
+  padding: 3%;
+  width: 99%;
+  min-height: 15%;
+  background: rgba(255, 255, 245, 0.8);
+  box-shadow: 2px 2px 9px #7f9eb2;
+  margin-bottom: 3%;
+  border-radius: 30px;
 }
 
-.name{
+.name {
   width: 100%;
   font-size: 3em;
   font-weight: bold;
   margin-bottom: 3%;
 }
 
-.chart{
+.chart {
   width: 100%;
   height: 80%;
 }
 
-.achieve{
+.achieve {
   width: 100%;
   height: 70%;
   overflow-x: scroll;
 }
 
-.ac-li{
+.ac-li {
   width: 30%;
 }
 
-.data-text{
+.data-text {
   width: 100%;
   height: 80%;
   box-sizing: border-box;
   padding: 3%;
   font-size: 2.5em;
 }
-
 
 #no-r {
   background: transparent url("/img/no-r.png") no-repeat center center;
@@ -438,6 +436,11 @@
 #talking {
   background: transparent url("/img/talking.png") no-repeat center center;
   background-size: 70%;
+}
+
+#groupfight {
+  background: transparent url("/img/groupfight.png") no-repeat center center;
+  background-size: 80%;
 }
 
 .gametype {
@@ -489,70 +492,70 @@
   margin-right: 3%;
 }
 
-#set{
+#set {
   height: 25%;
 }
 
-.img{
+.img {
   width: 4.5em;
   height: 4.5em;
   border-radius: 99em;
   box-shadow: 4px 4px 10px #666;
 }
 
-.ac-img{
+.ac-img {
   width: 100%;
   height: 60%;
   font-size: 2em;
 }
 
-.ac-title{
+.ac-title {
   width: 100%;
   height: 20%;
   font-size: 2.4em;
 }
 
-.ac-name{
+.ac-name {
   width: 100%;
   height: 20%;
   font-size: 2.5em;
   font-weight: bold;
 }
 
-#goodmost{
-  background: #ffda8e url('/img/goodmost.png') no-repeat center center;
+#goodmost {
+  background: #ffda8e url("/img/goodmost.png") no-repeat center center;
   background-size: 100%;
 }
 
-#goodtalk{
-  background: #ffda8e url('/img/goodtalk.png') no-repeat center center;
+#goodtalk {
+  background: #ffda8e url("/img/goodtalk.png") no-repeat center center;
   background-size: 70%;
 }
 
-#goodadd{
-  background: #ffda8e url('/img/goodadd.png') no-repeat center center;
+#goodadd {
+  background: #ffda8e url("/img/goodadd.png") no-repeat center center;
   background-size: 100%;
 }
 
-#goodwrite{
-  background: #ffda8e url('/img/goodwrite.png') no-repeat center center;
+#goodwrite {
+  background: #ffda8e url("/img/goodwrite.png") no-repeat center center;
   background-size: 100%;
 }
 
-#goodtime{
-  background: #ffda8e url('/img/goodtime.png') no-repeat center center;
+#goodtime {
+  background: #ffda8e url("/img/goodtime.png") no-repeat center center;
   background-size: 100%;
 }
 
-.download{
-    box-sizing: border-box;
-    padding: 3%;
-    width: 99%;
-    height: 8%;
-    background-color: rgba(71,184,224,.9);
-    box-shadow: 2px 2px 9px #7f9eb2;
-    margin-bottom: 3%;
-    border-radius: 30px;
-    transition: background-color 2s;
+.download {
+  box-sizing: border-box;
+  padding: 3%;
+  width: 99%;
+  height: 8%;
+  background-color: rgba(71, 184, 224, 0.9);
+  box-shadow: 2px 2px 9px #7f9eb2;
+  margin-bottom: 3%;
+  border-radius: 30px;
+  transition: background-color 2s;
 }
 </style>

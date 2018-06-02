@@ -73565,23 +73565,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   methods: {
     return_to_pre: function return_to_pre() {
       if (this.isChattingOpen) this.isChattingOpen = false;else if (this.isSettingOpen) this.isSettingOpen = false;else {
-        var self = this;
-        this.$nextTick(function () {
-          axios.post("/room/leave", {
-            course_id: self.course_id
-          }).then(function (rtn) {
-            if (!rtn.data.errmsg) {
-              console.log(rtn.data);
-              self.socket.emit("teacherLeave", self.course_id);
-              sessionStorage.removeItem("room_course_id");
-              self.$router.push({ path: "/courselist" });
-            } else {
-              console.log(rtn.data.errmsg);
-            }
-          }).catch(function (err) {
-            console.log(err);
-          });
-        });
+        this.$router.push({ path: "/courselist" });
       }
     },
     changePage: function changePage(data) {
@@ -73674,25 +73658,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     chatbox.scrollTop = chatbox.scrollHeight;
   },
   destroyed: function destroyed() {
-    // let self = this;
-    // self.$nextTick(function() {
-    //   axios
-    //     .post("/room/leave", {
-    //       course_id: self.course_id
-    //     })
-    //     .then(function(rtn) {
-    //       if (!rtn.data.errmsg) {
-    //         console.log(rtn.data);
-    //         self.socket.emit("teacherLeave", self.course_id);
-    //         sessionStorage.removeItem("room_course_id");
-    //       } else {
-    //         console.log(rtn.data.errmsg);
-    //       }
-    //     })
-    //     .catch(function(err) {
-    //       console.log(err);
-    //     });
-    // });
+    var self = this;
+    this.$nextTick(function () {
+      axios.post("/room/leave", {
+        course_id: self.course_id
+      }).then(function (rtn) {
+        if (!rtn.data.errmsg) {
+          console.log(rtn.data);
+          self.socket.emit("teacherLeave", self.course_id);
+          sessionStorage.removeItem("room_course_id");
+        } else {
+          console.log(rtn.data.errmsg);
+        }
+      }).catch(function (err) {
+        console.log(err);
+      });
+    });
   }
 });
 
@@ -74254,13 +74235,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["chatting", "socket"],
   data: function data() {
     return {
       input_text: "輸入想要傳送的訊息吧！",
-      isMyText: false
+      username: sessionStorage.getItem("username")
     };
   },
 
@@ -74278,10 +74261,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           text: this.input_text,
           time: now.getHours() + ":" + (now.getMinutes() < 10 ? "0" : "") + now.getMinutes()
         };
-
-        this.isMyText = true;
         this.chatting.push(chat);
-        // this.isMyText = false;
         this.input_text = "";
         this.socket.emit("sendMessage", chat);
       }
@@ -74311,30 +74291,40 @@ var render = function() {
       "div",
       { staticClass: "chatting-content" },
       _vm._l(_vm.chatting, function(chat) {
-        return _c(
-          "div",
-          { class: _vm.isMyText == true ? "others-message" : "myself-message" },
-          [
-            _c(
-              "div",
-              { class: _vm.isMyText == true ? "others-infro" : "myself-infro" },
-              [
-                _c("img", {
-                  staticClass: "image",
-                  attrs: { src: "/img/pass.png" }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "name" }, [_vm._v(_vm._s(chat.name))])
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "dialogbox" }, [
-              _vm._v(_vm._s(chat.text))
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "time" }, [_vm._v(_vm._s(chat.time))])
-          ]
-        )
+        return _c("div", [
+          _c(
+            "div",
+            {
+              class:
+                chat.name == _vm.username ? "others-message" : "myself-message"
+            },
+            [
+              _c(
+                "div",
+                {
+                  class:
+                    chat.name == _vm.username ? "others-infro" : "myself-infro"
+                },
+                [
+                  _c("img", {
+                    staticClass: "image",
+                    attrs: { src: "/img/pass.png" }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "name" }, [
+                    _vm._v(_vm._s(chat.name))
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "dialogbox" }, [
+                _vm._v(_vm._s(chat.text))
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "time" }, [_vm._v(_vm._s(chat.time))])
+            ]
+          )
+        ])
       })
     ),
     _vm._v(" "),
@@ -79832,7 +79822,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       self.chatting.push(msg);
     });
     self.socket.on("teacherLeave", function () {
-      var self = this;
       self.socket.emit("leaveRoom", self.course_id);
       sessionStorage.removeItem("room_course_id");
       self.$router.push({ path: "/courseList" });
@@ -79847,7 +79836,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           if (!rtn.data.errmsg) {
             console.log(rtn.data);
             self.$router.push({
-              path: "gameroom_sixhat"
+              path: "/gameroom"
             });
           } else {
             console.log(rtn.data.errmsg);
@@ -80553,7 +80542,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.container[data-v-7c7e8384] {\r\n  position: fixed;\r\n  overflow: hidden;\r\n  padding: 0% 3%;\r\n  width: 100%;\r\n  height: 100%;\r\n  background: transparent url(\"/img/bg-img.png\") no-repeat center;\r\n  background-size: 90%;\n}\n.icon-4[data-v-7c7e8384] {\r\n  height: 4em;\r\n  width: 4em;\n}\n.header[data-v-7c7e8384] {\r\n  height: 4em;\n}\n.mode[data-v-7c7e8384] {\r\n  font-size: 1.5em;\n}\n.answer-group[data-v-7c7e8384] {\r\n  height: 20em;\r\n  background-color: #f9edbd;\r\n  -webkit-box-shadow: 4px 4px 20px 1px rgba(182, 182, 206, 0.5);\r\n          box-shadow: 4px 4px 20px 1px rgba(182, 182, 206, 0.5);\r\n  margin-left: 3em;\r\n  margin-right: 3em;\r\n  padding: 0.5em;\n}\n.chatting-page[data-v-7c7e8384] {\r\n  position: absolute;\r\n  top: 7%;\r\n  left: 0%;\r\n  z-index: 99;\r\n  width: 100%;\r\n  height: 93%;\r\n  padding: 0% 5%;\r\n  background: rgba(255, 255, 255, 0.9);\n}\n.chatting-content[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  width: 100%;\r\n  height: 70%;\r\n  overflow-y: scroll;\n}\n.chatting-title[data-v-7c7e8384] {\r\n  width: 100%;\r\n  height: 15%;\r\n  font-size: 6em;\r\n  text-align: center;\r\n  font-weight: bold;\r\n  color: #754f44;\r\n  background: transparent url(\"/img/setting_title.png\") no-repeat center center;\r\n  background-size: 70%;\r\n  text-shadow: 2px 2px 1px #34314c;\n}\n.chatting-bottom[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 100%;\r\n  height: 15%;\n}\n.inputbox[data-v-7c7e8384] {\r\n  width: 78%;\r\n  background-color: #fff1b9;\r\n  border-radius: 20px;\r\n  -webkit-box-shadow: 3px 3px 7px #f94e3f;\r\n          box-shadow: 3px 3px 7px #f94e3f;\r\n  margin-right: 2%;\n}\n.input[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 100%;\r\n  outline: none;\r\n  border: none;\r\n  background: transparent;\r\n  font-size: 2.2em;\n}\n.sendbox[data-v-7c7e8384] {\r\n  width: 20%;\n}\n.sent-btn[data-v-7c7e8384] {\r\n  width: 4em;\r\n  height: 4em;\r\n  border-radius: 99em;\r\n  background: #ff7473 url(/img/send-button.png) no-repeat center center;\r\n  -webkit-box-shadow: 3px 3px 7px #a6172d;\r\n          box-shadow: 3px 3px 7px #a6172d;\r\n  background-size: 50%;\n}\n.myself-message[data-v-7c7e8384],\r\n.others-message[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 1.5%;\r\n  position: relative;\r\n  left: 0;\r\n  width: 97%;\r\n  min-height: 10%;\r\n  -webkit-animation: fadeIn 1s;\r\n          animation: fadeIn 1s;\n}\n.myself-message .image[data-v-7c7e8384],\r\n.others-message .image[data-v-7c7e8384] {\r\n  float: left;\r\n  top: 28%;\r\n  left: 3%;\r\n  width: 8em;\r\n  height: 8em;\r\n  border-radius: 99em;\r\n  background-color: white;\r\n  -webkit-box-shadow: 1px 1px 1px $input-shadow;\r\n          box-shadow: 1px 1px 1px $input-shadow;\n}\n.myself-message .name[data-v-7c7e8384],\r\n.others-message .name[data-v-7c7e8384] {\r\n  float: left;\r\n  margin-top: 7%;\r\n  text-align: center;\r\n  width: 100%;\r\n  font-size: 2.3em;\n}\n.myself-message .dialogbox[data-v-7c7e8384],\r\n.others-message .dialogbox[data-v-7c7e8384] {\r\n  font-size: 3em;\r\n  display: inline-block;\r\n  width: 80%;\r\n  margin-top: 1%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  -webkit-box-shadow: 4px 4px 5px #7f9eb2;\r\n          box-shadow: 4px 4px 5px #7f9eb2;\r\n  padding: 2% 5% 2% 5%;\r\n  background: #fffff5;\r\n  word-break: break-all;\r\n  border-radius: 6px;\r\n  line-height: 200%;\n}\n.myself-message .dialogbox[data-v-7c7e8384]:after,\r\n.others-message .dialogbox[data-v-7c7e8384]:after {\r\n  content: \" \";\r\n  height: 0;\r\n  width: 0;\r\n  pointer-events: none;\r\n  border: solid transparent;\r\n  border-color: #fffff5;\r\n  border-width: 7px;\n}\n.myself-infro[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 1%;\r\n  position: absolute;\r\n  width: 17%;\r\n  height: 90%;\n}\n.others-infro[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 1%;\r\n  position: absolute;\r\n  right: 1%;\r\n  width: 17%;\r\n  height: 90%;\n}\n.myself-message .time[data-v-7c7e8384] {\r\n  position: relative;\r\n  margin-top: 2%;\r\n  left: 86%;\r\n  font-size: 2.2em;\n}\n.myself-message .dialogbox[data-v-7c7e8384] {\r\n  position: relative;\r\n  left: 20%;\r\n  top: 0%;\n}\n.myself-message .dialogbox[data-v-7c7e8384] :after {\r\n  position: absolute;\r\n  right: 99%;\r\n  top: 4%;\r\n  border-right-color: #fff;\n}\n.others-message .time[data-v-7c7e8384] {\r\n  position: relative;\r\n  margin-top: 2%;\n}\n.others-message .dialogbox[data-v-7c7e8384] {\r\n  position: relative;\r\n  left: 0%;\r\n  top: 0%;\n}\n.others-message .dialogbox[data-v-7c7e8384]:after {\r\n  position: absolute;\r\n  right: -6%;\r\n  top: 6%;\r\n  border-left-color: #fff;\n}\n.col-l[data-v-7c7e8384]{\r\n  width: 35%;\r\n  height: 100%;\r\n  background-color: #FBFFB9;\r\n  border-radius: 25px;\r\n  HEIGHT: 66%;\n}\n.col-time[data-v-7c7e8384]{\r\n  width: 55%;\r\n  height: 100%;\r\n  font-size: 3.7em;\r\n  color: #754F44;\n}\r\n", ""]);
+exports.push([module.i, "\n.container[data-v-7c7e8384] {\r\n  position: fixed;\r\n  overflow: hidden;\r\n  padding: 0% 3%;\r\n  width: 100%;\r\n  height: 100%;\r\n  background: transparent url(\"/img/bg-img.png\") no-repeat center;\r\n  background-size: 90%;\n}\n.icon-4[data-v-7c7e8384] {\r\n  height: 4em;\r\n  width: 4em;\n}\n.header[data-v-7c7e8384] {\r\n  height: 4em;\n}\n.mode[data-v-7c7e8384] {\r\n  font-size: 1.5em;\n}\n.answer-group[data-v-7c7e8384] {\r\n  height: 20em;\r\n  background-color: #f9edbd;\r\n  -webkit-box-shadow: 4px 4px 20px 1px rgba(182, 182, 206, 0.5);\r\n          box-shadow: 4px 4px 20px 1px rgba(182, 182, 206, 0.5);\r\n  margin-left: 3em;\r\n  margin-right: 3em;\r\n  padding: 0.5em;\n}\n.chatting-page[data-v-7c7e8384] {\r\n  position: absolute;\r\n  top: 7%;\r\n  left: 0%;\r\n  z-index: 99;\r\n  width: 100%;\r\n  height: 93%;\r\n  padding: 0% 5%;\r\n  background: rgba(255, 255, 255, 0.9);\n}\n.chatting-content[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  width: 100%;\r\n  height: 70%;\r\n  overflow-y: scroll;\n}\n.chatting-title[data-v-7c7e8384] {\r\n  width: 100%;\r\n  height: 15%;\r\n  font-size: 6em;\r\n  text-align: center;\r\n  font-weight: bold;\r\n  color: #754f44;\r\n  background: transparent url(\"/img/setting_title.png\") no-repeat center center;\r\n  background-size: 70%;\r\n  text-shadow: 2px 2px 1px #34314c;\n}\n.chatting-bottom[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 100%;\r\n  height: 15%;\n}\n.inputbox[data-v-7c7e8384] {\r\n  width: 78%;\r\n  background-color: #fff1b9;\r\n  border-radius: 20px;\r\n  -webkit-box-shadow: 3px 3px 7px #f94e3f;\r\n          box-shadow: 3px 3px 7px #f94e3f;\r\n  margin-right: 2%;\n}\n.input[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 100%;\r\n  outline: none;\r\n  border: none;\r\n  background: transparent;\r\n  font-size: 2.2em;\n}\n.sendbox[data-v-7c7e8384] {\r\n  width: 20%;\n}\n.sent-btn[data-v-7c7e8384] {\r\n  width: 4em;\r\n  height: 4em;\r\n  border-radius: 99em;\r\n  background: #ff7473 url(/img/send-button.png) no-repeat center center;\r\n  -webkit-box-shadow: 3px 3px 7px #a6172d;\r\n          box-shadow: 3px 3px 7px #a6172d;\r\n  background-size: 50%;\n}\n.myself-message[data-v-7c7e8384],\r\n.others-message[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 1.5%;\r\n  position: relative;\r\n  left: 0;\r\n  width: 97%;\r\n  min-height: 10%;\r\n  -webkit-animation: fadeIn 1s;\r\n          animation: fadeIn 1s;\n}\n.myself-message .image[data-v-7c7e8384],\r\n.others-message .image[data-v-7c7e8384] {\r\n  float: left;\r\n  top: 28%;\r\n  left: 3%;\r\n  width: 8em;\r\n  height: 8em;\r\n  border-radius: 99em;\r\n  background-color: white;\r\n  -webkit-box-shadow: 1px 1px 1px $input-shadow;\r\n          box-shadow: 1px 1px 1px $input-shadow;\n}\n.myself-message .name[data-v-7c7e8384],\r\n.others-message .name[data-v-7c7e8384] {\r\n  float: left;\r\n  margin-top: 7%;\r\n  text-align: center;\r\n  width: 100%;\r\n  font-size: 2.3em;\n}\n.myself-message .dialogbox[data-v-7c7e8384],\r\n.others-message .dialogbox[data-v-7c7e8384] {\r\n  font-size: 3em;\r\n  display: inline-block;\r\n  width: 80%;\r\n  margin-top: 1%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  -webkit-box-shadow: 4px 4px 5px #7f9eb2;\r\n          box-shadow: 4px 4px 5px #7f9eb2;\r\n  padding: 2% 5% 2% 5%;\r\n  background: #fffff5;\r\n  word-break: break-all;\r\n  border-radius: 6px;\r\n  line-height: 200%;\n}\n.myself-message .dialogbox[data-v-7c7e8384]:after,\r\n.others-message .dialogbox[data-v-7c7e8384]:after {\r\n  content: \" \";\r\n  height: 0;\r\n  width: 0;\r\n  pointer-events: none;\r\n  border: solid transparent;\r\n  border-color: #fffff5;\r\n  border-width: 7px;\n}\n.myself-infro[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 1%;\r\n  position: absolute;\r\n  width: 17%;\r\n  height: 90%;\n}\n.others-infro[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 1%;\r\n  position: absolute;\r\n  right: 1%;\r\n  width: 17%;\r\n  height: 90%;\n}\n.myself-message .time[data-v-7c7e8384] {\r\n  position: relative;\r\n  margin-top: 2%;\r\n  left: 86%;\r\n  font-size: 2.2em;\n}\n.myself-message .dialogbox[data-v-7c7e8384] {\r\n  position: relative;\r\n  left: 20%;\r\n  top: 0%;\n}\n.myself-message .dialogbox[data-v-7c7e8384] :after {\r\n  position: absolute;\r\n  right: 99%;\r\n  top: 4%;\r\n  border-right-color: #fff;\n}\n.others-message .time[data-v-7c7e8384] {\r\n  position: relative;\r\n  margin-top: 2%;\n}\n.others-message .dialogbox[data-v-7c7e8384] {\r\n  position: relative;\r\n  left: 0%;\r\n  top: 0%;\n}\n.others-message .dialogbox[data-v-7c7e8384]:after {\r\n  position: absolute;\r\n  right: -6%;\r\n  top: 6%;\r\n  border-left-color: #fff;\n}\n.col-l[data-v-7c7e8384] {\r\n  width: 35%;\r\n  height: 100%;\r\n  background-color: #fbffb9;\r\n  border-radius: 25px;\r\n  height: 66%;\n}\n.col-time[data-v-7c7e8384] {\r\n  width: 55%;\r\n  height: 100%;\r\n  font-size: 3.7em;\r\n  color: #754f44;\n}\r\n", ""]);
 
 // exports
 
@@ -80611,7 +80600,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["chatting"],
+  props: ["chatting", "socket"],
   data: function data() {
     return {
       input_text: "輸入想要傳送的訊息吧！"
@@ -80634,6 +80623,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.chatting.push(chat);
       this.input_text = "";
     }
+  },
+  mounted: function mounted() {
+    console.log(this.socket);
   },
   destroyed: function destroyed() {
     var self = this;
@@ -80868,7 +80860,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.nav-bar[data-v-e718e95a]{\r\n  width: 106%;\r\n  height: 7%;\r\n  margin-left: -3%;\r\n  -webkit-box-shadow: 0px 2px 8px #9baec8;\r\n          box-shadow: 0px 2px 8px #9baec8;\r\n  font-size: 3em;\n}\n.nav-btn[data-v-e718e95a]{\r\n  float: left;\r\n  width: 12%;\n}\n.class-name[data-v-e718e95a]{\r\n  float: left;\r\n  font-weight: bold;\r\n  width: 76%;\r\n  font-size: 1.1em;\n}\n#return[data-v-e718e95a]{\r\n  background: transparent url('/img/return.png') no-repeat 75% center;\r\n  background-size: 25%;\n}\n.analysis-title[data-v-e718e95a]{\r\n  width: 100%;\r\n  height: 15%;\r\n  font-size: 6em;\r\n  text-align: center;\r\n  font-weight: bold;\r\n  color: #754F44;\r\n  background: transparent url('/img/setting_title.png') no-repeat center center;\r\n  background-size: 70%;\r\n  text-shadow: 1px 1px 3px #34314c;\n}\n.analysis-body[data-v-e718e95a]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  width: 100%;\r\n  height: 72%;\r\n  padding: 2% 5%;\n}\n.special[data-v-e718e95a]{\r\n  width: 100%;\r\n  height: 100%;\r\n  overflow-y: scroll;\n}\n.choose-bar[data-v-e718e95a]{\r\n  width: 100%;\r\n  height: 7%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 0% 15%;\n}\n.choose-chart[data-v-e718e95a]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  float: left;\r\n  width: 50%;\r\n  height: 90%;\r\n  border-radius: 30px 0px 0px 30px;\r\n  -webkit-box-shadow: 0px 2px 5px #df405a;\r\n          box-shadow: 0px 2px 5px #df405a;\r\n  background-color: rgba(253,153,154,.2);\r\n  border-right: none;\r\n  -webkit-transition: background-color 0.3s;\r\n  transition: background-color 0.3s;\n}\n#chart_clicked[data-v-e718e95a]{\r\n  background-color:  rgba(253,153,154,.7);\n}\n#data_clicked[data-v-e718e95a]{\r\n  background-color: rgba(103,213,181,.7);\n}\n.choose-data[data-v-e718e95a]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  float: left;\r\n  width: 50%;\r\n  height: 90%;\r\n  border-radius: 0px 30px 30px 0px;\r\n  -webkit-box-shadow: 0px 2px 5px #3b8686;\r\n          box-shadow: 0px 2px 5px #3b8686;\r\n  border-left: none;\r\n  background-color: rgba(103,213,181,.2);\r\n  -webkit-transition: background-color 0.3s;\r\n  transition: background-color 0.3s;\n}\n.bar-img[data-v-e718e95a]{\r\n  width: 40%;\n}\n.bar-text[data-v-e718e95a]{\r\n  text-align: center;\r\n  width: 60%;\r\n  font-size: 3.5em;\n}\n#chart[data-v-e718e95a]{\r\n  background: transparent url('/img/chart.png') no-repeat center center;\r\n  background-size: 65%;\n}\n#next[data-v-e718e95a] {\r\n  background: transparent url(\"/img/return.png\") no-repeat center center;\r\n  background-size: 25%;\r\n  -webkit-transform: rotate(180deg);\r\n          transform: rotate(180deg);\n}\n#home[data-v-e718e95a] {\r\n  background: transparent url(/img/home.png) no-repeat left center;\r\n  background-size: 60%;\n}\n#data[data-v-e718e95a]{\r\n  background: transparent url('/img/data.png') no-repeat center center;\r\n  background-size: 75%;\n}\n.content[data-v-e718e95a]{\r\n    -webkit-box-sizing: border-box;\r\n            box-sizing: border-box;\r\n    width: 100%;\r\n    padding: 2%;\r\n    min-height: 54%;\r\n    background: rgba(255,255,245,.8);\r\n    -webkit-box-shadow: 2px 2px 9px #7f9eb2;\r\n            box-shadow: 2px 2px 9px #7f9eb2;\r\n    margin-bottom: 3%;\r\n    border-radius: 30px;\n}\n#achieve[data-v-e718e95a]{\r\n  height: 35%;\n}\n.content1[data-v-e718e95a]{\r\n    -webkit-box-sizing: border-box;\r\n            box-sizing: border-box;\r\n    padding: 3%;\r\n    width: 99%;\r\n    min-height: 15%;\r\n    background: rgba(255,255,245,.8);\r\n    -webkit-box-shadow: 2px 2px 9px #7f9eb2;\r\n            box-shadow: 2px 2px 9px #7f9eb2;\r\n    margin-bottom: 3%;\r\n    border-radius: 30px;\n}\n.name[data-v-e718e95a]{\r\n  width: 100%;\r\n  font-size: 3em;\r\n  font-weight: bold;\r\n  margin-bottom: 3%;\n}\n.chart[data-v-e718e95a]{\r\n  width: 100%;\r\n  height: 80%;\n}\n.achieve[data-v-e718e95a]{\r\n  width: 100%;\r\n  height: 70%;\r\n  overflow-x: scroll;\n}\n.ac-li[data-v-e718e95a]{\r\n  width: 30%;\n}\n.data-text[data-v-e718e95a]{\r\n  width: 100%;\r\n  height: 80%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  font-size: 2.5em;\n}\n#no-r[data-v-e718e95a] {\r\n  background: transparent url(\"/img/no-r.png\") no-repeat center center;\r\n  background-size: 50%;\n}\n#no-g[data-v-e718e95a] {\r\n  background: transparent url(\"/img/no-g.png\") no-repeat center center;\r\n  background-size: 50%;\n}\n#pass[data-v-e718e95a] {\r\n  background: transparent url(\"/img/pass.png\") no-repeat center center;\r\n  background-size: 60%;\n}\n#sixhat[data-v-e718e95a] {\r\n  background: transparent url(\"/img/hat.png\") no-repeat center center;\r\n  background-size: 70%;\n}\n#stf[data-v-e718e95a] {\r\n  background: transparent url(\"/img/stf.png\") no-repeat center center;\r\n  background-size: 70%;\n}\n#role-play[data-v-e718e95a] {\r\n  background: transparent url(\"/img/role-play.png\") no-repeat center center;\r\n  background-size: 70%;\n}\n#talking[data-v-e718e95a] {\r\n  background: transparent url(\"/img/talking.png\") no-repeat center center;\r\n  background-size: 70%;\n}\n.gametype[data-v-e718e95a] {\r\n  float: left;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 1%;\r\n  width: 25%;\r\n  height: 75%;\r\n  border-radius: 15px 0px 0px 15px;\r\n  background-color: rgba(253, 153, 154, 0.7);\n}\n.brain-method[data-v-e718e95a] {\r\n  float: left;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 1%;\r\n  width: 25%;\r\n  height: 75%;\r\n  border-radius: 0px 15px 15px 0px;\r\n  background-color: rgba(103, 213, 181, 0.7);\n}\n.infro-img[data-v-e718e95a] {\r\n  width: 100%;\r\n  height: 60%;\n}\n.infro-text[data-v-e718e95a] {\r\n  width: 100%;\r\n  height: 40%;\r\n  font-size: 2.3em;\r\n  font-weight: bold;\r\n  text-align: center;\n}\n.other-setting[data-v-e718e95a] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  float: left;\r\n  width: 50%;\n}\n.set-li[data-v-e718e95a] {\r\n  list-style: none;\r\n  width: 100%;\r\n  font-size: 2.5em;\r\n  margin-bottom: 1%;\r\n  line-height: 135%;\r\n  margin-right: 3%;\n}\n#set[data-v-e718e95a]{\r\n  height: 25%;\n}\n.img[data-v-e718e95a]{\r\n  width: 4.5em;\r\n  height: 4.5em;\r\n  border-radius: 99em;\r\n  -webkit-box-shadow: 4px 4px 10px #666;\r\n          box-shadow: 4px 4px 10px #666;\n}\n.ac-img[data-v-e718e95a]{\r\n  width: 100%;\r\n  height: 60%;\r\n  font-size: 2em;\n}\n.ac-title[data-v-e718e95a]{\r\n  width: 100%;\r\n  height: 20%;\r\n  font-size: 2.4em;\n}\n.ac-name[data-v-e718e95a]{\r\n  width: 100%;\r\n  height: 20%;\r\n  font-size: 2.5em;\r\n  font-weight: bold;\n}\n#goodmost[data-v-e718e95a]{\r\n  background: #ffda8e url('/img/goodmost.png') no-repeat center center;\r\n  background-size: 100%;\n}\n#goodtalk[data-v-e718e95a]{\r\n  background: #ffda8e url('/img/goodtalk.png') no-repeat center center;\r\n  background-size: 70%;\n}\n#goodadd[data-v-e718e95a]{\r\n  background: #ffda8e url('/img/goodadd.png') no-repeat center center;\r\n  background-size: 100%;\n}\n#goodwrite[data-v-e718e95a]{\r\n  background: #ffda8e url('/img/goodwrite.png') no-repeat center center;\r\n  background-size: 100%;\n}\n#goodtime[data-v-e718e95a]{\r\n  background: #ffda8e url('/img/goodtime.png') no-repeat center center;\r\n  background-size: 100%;\n}\n.download[data-v-e718e95a]{\r\n    -webkit-box-sizing: border-box;\r\n            box-sizing: border-box;\r\n    padding: 3%;\r\n    width: 99%;\r\n    height: 8%;\r\n    background-color: rgba(71,184,224,.9);\r\n    -webkit-box-shadow: 2px 2px 9px #7f9eb2;\r\n            box-shadow: 2px 2px 9px #7f9eb2;\r\n    margin-bottom: 3%;\r\n    border-radius: 30px;\r\n    -webkit-transition: background-color 2s;\r\n    transition: background-color 2s;\n}\r\n", ""]);
+exports.push([module.i, "\n.nav-bar[data-v-e718e95a] {\r\n  width: 106%;\r\n  height: 7%;\r\n  margin-left: -3%;\r\n  -webkit-box-shadow: 0px 2px 8px #9baec8;\r\n          box-shadow: 0px 2px 8px #9baec8;\r\n  font-size: 3em;\n}\n.nav-btn[data-v-e718e95a] {\r\n  float: left;\r\n  width: 12%;\n}\n.class-name[data-v-e718e95a] {\r\n  float: left;\r\n  font-weight: bold;\r\n  width: 76%;\r\n  font-size: 1.1em;\n}\n#return[data-v-e718e95a] {\r\n  background: transparent url(\"/img/return.png\") no-repeat 75% center;\r\n  background-size: 25%;\n}\n.analysis-title[data-v-e718e95a] {\r\n  width: 100%;\r\n  height: 15%;\r\n  font-size: 6em;\r\n  text-align: center;\r\n  font-weight: bold;\r\n  color: #754f44;\r\n  background: transparent url(\"/img/setting_title.png\") no-repeat center center;\r\n  background-size: 70%;\r\n  text-shadow: 1px 1px 3px #34314c;\n}\n.analysis-body[data-v-e718e95a] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  width: 100%;\r\n  height: 72%;\r\n  padding: 2% 5%;\n}\n.special[data-v-e718e95a] {\r\n  width: 100%;\r\n  height: 100%;\r\n  overflow-y: scroll;\n}\n.choose-bar[data-v-e718e95a] {\r\n  width: 100%;\r\n  height: 7%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 0% 15%;\n}\n.choose-chart[data-v-e718e95a] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  float: left;\r\n  width: 50%;\r\n  height: 90%;\r\n  border-radius: 30px 0px 0px 30px;\r\n  -webkit-box-shadow: 0px 2px 5px #df405a;\r\n          box-shadow: 0px 2px 5px #df405a;\r\n  background-color: rgba(253, 153, 154, 0.2);\r\n  border-right: none;\r\n  -webkit-transition: background-color 0.3s;\r\n  transition: background-color 0.3s;\n}\n#chart_clicked[data-v-e718e95a] {\r\n  background-color: rgba(253, 153, 154, 0.7);\n}\n#data_clicked[data-v-e718e95a] {\r\n  background-color: rgba(103, 213, 181, 0.7);\n}\n.choose-data[data-v-e718e95a] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  float: left;\r\n  width: 50%;\r\n  height: 90%;\r\n  border-radius: 0px 30px 30px 0px;\r\n  -webkit-box-shadow: 0px 2px 5px #3b8686;\r\n          box-shadow: 0px 2px 5px #3b8686;\r\n  border-left: none;\r\n  background-color: rgba(103, 213, 181, 0.2);\r\n  -webkit-transition: background-color 0.3s;\r\n  transition: background-color 0.3s;\n}\n.bar-img[data-v-e718e95a] {\r\n  width: 40%;\n}\n.bar-text[data-v-e718e95a] {\r\n  text-align: center;\r\n  width: 60%;\r\n  font-size: 3.5em;\n}\n#chart[data-v-e718e95a] {\r\n  background: transparent url(\"/img/chart.png\") no-repeat center center;\r\n  background-size: 65%;\n}\n#next[data-v-e718e95a] {\r\n  background: transparent url(\"/img/return.png\") no-repeat center center;\r\n  background-size: 25%;\r\n  -webkit-transform: rotate(180deg);\r\n          transform: rotate(180deg);\n}\n#home[data-v-e718e95a] {\r\n  background: transparent url(/img/home.png) no-repeat left center;\r\n  background-size: 60%;\n}\n#data[data-v-e718e95a] {\r\n  background: transparent url(\"/img/data.png\") no-repeat center center;\r\n  background-size: 75%;\n}\n.content[data-v-e718e95a] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  width: 100%;\r\n  padding: 2%;\r\n  min-height: 54%;\r\n  background: rgba(255, 255, 245, 0.8);\r\n  -webkit-box-shadow: 2px 2px 9px #7f9eb2;\r\n          box-shadow: 2px 2px 9px #7f9eb2;\r\n  margin-bottom: 3%;\r\n  border-radius: 30px;\n}\n#achieve[data-v-e718e95a] {\r\n  height: 35%;\n}\n.content1[data-v-e718e95a] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 99%;\r\n  min-height: 15%;\r\n  background: rgba(255, 255, 245, 0.8);\r\n  -webkit-box-shadow: 2px 2px 9px #7f9eb2;\r\n          box-shadow: 2px 2px 9px #7f9eb2;\r\n  margin-bottom: 3%;\r\n  border-radius: 30px;\n}\n.name[data-v-e718e95a] {\r\n  width: 100%;\r\n  font-size: 3em;\r\n  font-weight: bold;\r\n  margin-bottom: 3%;\n}\n.chart[data-v-e718e95a] {\r\n  width: 100%;\r\n  height: 80%;\n}\n.achieve[data-v-e718e95a] {\r\n  width: 100%;\r\n  height: 70%;\r\n  overflow-x: scroll;\n}\n.ac-li[data-v-e718e95a] {\r\n  width: 30%;\n}\n.data-text[data-v-e718e95a] {\r\n  width: 100%;\r\n  height: 80%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  font-size: 2.5em;\n}\n#no-r[data-v-e718e95a] {\r\n  background: transparent url(\"/img/no-r.png\") no-repeat center center;\r\n  background-size: 50%;\n}\n#no-g[data-v-e718e95a] {\r\n  background: transparent url(\"/img/no-g.png\") no-repeat center center;\r\n  background-size: 50%;\n}\n#pass[data-v-e718e95a] {\r\n  background: transparent url(\"/img/pass.png\") no-repeat center center;\r\n  background-size: 60%;\n}\n#sixhat[data-v-e718e95a] {\r\n  background: transparent url(\"/img/hat.png\") no-repeat center center;\r\n  background-size: 70%;\n}\n#stf[data-v-e718e95a] {\r\n  background: transparent url(\"/img/stf.png\") no-repeat center center;\r\n  background-size: 70%;\n}\n#role-play[data-v-e718e95a] {\r\n  background: transparent url(\"/img/role-play.png\") no-repeat center center;\r\n  background-size: 70%;\n}\n#talking[data-v-e718e95a] {\r\n  background: transparent url(\"/img/talking.png\") no-repeat center center;\r\n  background-size: 70%;\n}\n#groupfight[data-v-e718e95a] {\r\n  background: transparent url(\"/img/groupfight.png\") no-repeat center center;\r\n  background-size: 80%;\n}\n.gametype[data-v-e718e95a] {\r\n  float: left;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 1%;\r\n  width: 25%;\r\n  height: 75%;\r\n  border-radius: 15px 0px 0px 15px;\r\n  background-color: rgba(253, 153, 154, 0.7);\n}\n.brain-method[data-v-e718e95a] {\r\n  float: left;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 1%;\r\n  width: 25%;\r\n  height: 75%;\r\n  border-radius: 0px 15px 15px 0px;\r\n  background-color: rgba(103, 213, 181, 0.7);\n}\n.infro-img[data-v-e718e95a] {\r\n  width: 100%;\r\n  height: 60%;\n}\n.infro-text[data-v-e718e95a] {\r\n  width: 100%;\r\n  height: 40%;\r\n  font-size: 2.3em;\r\n  font-weight: bold;\r\n  text-align: center;\n}\n.other-setting[data-v-e718e95a] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  float: left;\r\n  width: 50%;\n}\n.set-li[data-v-e718e95a] {\r\n  list-style: none;\r\n  width: 100%;\r\n  font-size: 2.5em;\r\n  margin-bottom: 1%;\r\n  line-height: 135%;\r\n  margin-right: 3%;\n}\n#set[data-v-e718e95a] {\r\n  height: 25%;\n}\n.img[data-v-e718e95a] {\r\n  width: 4.5em;\r\n  height: 4.5em;\r\n  border-radius: 99em;\r\n  -webkit-box-shadow: 4px 4px 10px #666;\r\n          box-shadow: 4px 4px 10px #666;\n}\n.ac-img[data-v-e718e95a] {\r\n  width: 100%;\r\n  height: 60%;\r\n  font-size: 2em;\n}\n.ac-title[data-v-e718e95a] {\r\n  width: 100%;\r\n  height: 20%;\r\n  font-size: 2.4em;\n}\n.ac-name[data-v-e718e95a] {\r\n  width: 100%;\r\n  height: 20%;\r\n  font-size: 2.5em;\r\n  font-weight: bold;\n}\n#goodmost[data-v-e718e95a] {\r\n  background: #ffda8e url(\"/img/goodmost.png\") no-repeat center center;\r\n  background-size: 100%;\n}\n#goodtalk[data-v-e718e95a] {\r\n  background: #ffda8e url(\"/img/goodtalk.png\") no-repeat center center;\r\n  background-size: 70%;\n}\n#goodadd[data-v-e718e95a] {\r\n  background: #ffda8e url(\"/img/goodadd.png\") no-repeat center center;\r\n  background-size: 100%;\n}\n#goodwrite[data-v-e718e95a] {\r\n  background: #ffda8e url(\"/img/goodwrite.png\") no-repeat center center;\r\n  background-size: 100%;\n}\n#goodtime[data-v-e718e95a] {\r\n  background: #ffda8e url(\"/img/goodtime.png\") no-repeat center center;\r\n  background-size: 100%;\n}\n.download[data-v-e718e95a] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 99%;\r\n  height: 8%;\r\n  background-color: rgba(71, 184, 224, 0.9);\r\n  -webkit-box-shadow: 2px 2px 9px #7f9eb2;\r\n          box-shadow: 2px 2px 9px #7f9eb2;\r\n  margin-bottom: 3%;\r\n  border-radius: 30px;\r\n  -webkit-transition: background-color 2s;\r\n  transition: background-color 2s;\n}\r\n", ""]);
 
 // exports
 
@@ -81022,59 +81014,59 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      currentPage: 'chart',
+      currentPage: "chart",
       setting: {
         gameName: "遊戲模式",
-        gameID: "no-r",
+        gameID: "groupfight",
         brainName: "腦力激盪",
-        brainID: "no-g",
-        time: "30分",
+        brainID: "sixhat",
+        time: "10分",
         group: "平均分配",
-        topic: "題目未定"
+        topic: "熊貓是熊還是貓"
       },
       allmsg: [{
-        text: '程式設計是一門藝術',
-        time: '2017-05-31'
+        text: "熊貓又不會喵喵叫 當然不是貓",
+        time: "2017-05-31"
       }, {
-        text: '程式設計入學門檻稍高',
-        time: '2017-05-31'
+        text: "可是熊貓也不會亂吼阿 更不會暴力抓樹",
+        time: "2017-05-31"
       }, {
-        text: '程式設計學起來',
-        time: '2017-05-31'
+        text: "那貓熊跟熊貓是什麼關係阿??",
+        time: "2017-05-31"
       }, {
-        text: '程式設計安安安安',
-        time: '2017-05-31'
+        text: "老師我們可不可以不要討論這個了",
+        time: "2017-05-31"
       }],
       popularmsg: [{
-        text: '程式設計是一門藝術',
+        text: "老師我們可不可以別討論這個了",
         num: 55
       }, {
-        text: '程式設計入學門檻稍高',
+        text: "熊貓又不會喵喵叫 當然不是貓",
         num: 30
       }, {
-        text: '程式設計學起來',
+        text: "那貓熊跟熊貓是什麼關係阿??",
         num: 25
       }],
       achievelist: [{
-        id: 'goodmost',
-        title: '讚數最多獎',
-        person: 'Andy'
+        id: "goodmost",
+        title: "讚數最多獎",
+        person: "Andy"
       }, {
-        id: 'goodtalk',
-        title: '讚數最多獎',
-        person: 'Andy'
+        id: "goodtalk",
+        title: "最多話獎",
+        person: "pony"
       }, {
-        id: 'goodadd',
-        title: '最佳參與獎',
-        person: 'Andy'
+        id: "goodadd",
+        title: "最佳參與獎",
+        person: "魚尾尾"
       }, {
-        id: 'goodwrite',
-        title: '最佳書寫獎',
-        person: 'Andy'
+        id: "goodwrite",
+        title: "最佳書寫獎",
+        person: "凱格哥"
       }, {
-        id: 'goodtime',
-        title: '最佳精神獎',
-        person: 'Andy'
+        id: "goodtime",
+        title: "最佳精神獎",
+        person: "Andy"
       }]
     };
   },
@@ -94620,7 +94612,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.game-header[data-v-774abbe1]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  width: 100%;\r\n  height: 10%;\n}\n.game-body[data-v-774abbe1]{\r\n  width: 100%;\r\n  height: 70%;\n}\n.game-bottom[data-v-774abbe1]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 100%;\r\n  height: 20%;\n}\n.timer[data-v-774abbe1]{\r\n  width: 35%;\r\n  margin-right: 5%;\n}\n.type[data-v-774abbe1]{\r\n  width: 40%;\r\n  margin-right: 5%;\n}\n.setting[data-v-774abbe1]{\r\n  width: 15%;\r\n  background: transparent url('/img/setting.png') no-repeat center center;\r\n  background-size: 70%;\n}\n.t-l[data-v-774abbe1]{\r\n  width: 50%;\r\n  border-radius: 15px 0px 0px 15px;\n}\n.t-r[data-v-774abbe1]{\r\n  width: 50%; \r\n  border-radius: 0px 15px 15px 0px;\n}\n#pass[data-v-774abbe1]{\r\n  background: transparent url('/img/pass.png') no-repeat center center;\r\n  background-size: 70%;\n}\n#sixhat[data-v-774abbe1]{\r\n  background: rgba(253,153,154,.7) url('/img/hat.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#stf[data-v-774abbe1]{\r\n  background: transparent url('/img/stf.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#role-play[data-v-774abbe1]{\r\n  background: transparent url('/img/role-play.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#talking[data-v-774abbe1]{\r\n  background: transparent url('/img/talking.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#passgate[data-v-774abbe1]{\r\n  background: transparent url('/img/passgate.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#groupfight[data-v-774abbe1]{\r\n  background: rgba(103,213,181,.7) url('/img/groupfight.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#normal[data-v-774abbe1]{\r\n  background: transparent url('/img/normal.png') no-repeat center center;\r\n  background-size: 80%;\n}\n.time-logo[data-v-774abbe1]{\r\n  width: 45%;\r\n  background: transparent url('/img/clock.png') no-repeat center center;\r\n  background-size: 90%;\n}\n.time-text[data-v-774abbe1]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 6% 9%;\r\n    margin-left: 15%;\r\n    position: relative;\r\n    z-index: -99;\r\n    margin-top: -36%;\r\n    width: 85%;\r\n    background: #FBFFB9;\r\n    height: 80%;\r\n    text-align: right;\r\n    font-size: 3.5em;\n}\n.game-topic[data-v-774abbe1]{\r\n  width: 100%;\r\n  height: 15%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\n}\n.box[data-v-774abbe1]{\r\n  width: 85%;\r\n  background: #D4DFE6;\r\n  font-size: 3em;\r\n  border-radius: 20px;\n}\n.game-content[data-v-774abbe1]{\r\n  display: -webkit-box;\r\n  overflow-x: auto;\r\n  overflow-y: hidden;\r\n  width: 100%;\r\n  height: 85%;\n}\n.sticky[data-v-774abbe1]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 80%;\r\n  height: 99%;\r\n  background: #ffda8e;\r\n  -webkit-box-shadow: 1px 1px 5px #754F44;\r\n          box-shadow: 1px 1px 5px #754F44;\r\n  border-radius: 15px;\r\n  margin: 0% 10%;\r\n  overflow-y: scroll;\n}\n.white[data-v-774abbe1]{\r\n  width: 10%;\r\n  height: 99%;\n}\n.gb-l[data-v-774abbe1]{\r\n  width: 25%;\n}\n.gb-r[data-v-774abbe1]{\r\n  width: 75%;\n}\n.inputbox[data-v-774abbe1] {\r\n  width: 76%;\r\n  height: 90%;\r\n  background-color: #fff1b9;\r\n  border-radius: 20px;\r\n  -webkit-box-shadow: 2px 2px 5px #f94e3f;\r\n          box-shadow: 2px 2px 5px #f94e3f;\r\n  margin-right: 4%;\n}\n.input[data-v-774abbe1] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 5%;\r\n  width: 100%;\r\n  outline: none;\r\n  border: none;\r\n  background: transparent;\r\n  font-size: 2.2em;\n}\n.sendbox[data-v-774abbe1] {\r\n  width: 20%;\n}\n.sent-btn[data-v-774abbe1] {\r\n  width: 4.5em;\r\n  height: 4.5em;\r\n  border-radius: 99em;\r\n  background: #ff7473 url(/img/send-button.png) no-repeat center center;\r\n  -webkit-box-shadow: 3px 3px 7px #a6172d;\r\n          box-shadow: 3px 3px 7px #a6172d;\r\n  background-size: 50%;\n}\n.animal[data-v-774abbe1]{\r\n  width: 100%;\r\n  height: 70%;\r\n  background: transparent url('/img/cat.png') no-repeat center center;\r\n  background-size: 90%;\n}\n.hat[data-v-774abbe1]{\r\n  width: 100%;\r\n  height: 30%;\n}\n.blue[data-v-774abbe1]{\r\n    width: 75%;\r\n    margin-left: 7%;\r\n    position: relative;\n}\n.msg[data-v-774abbe1]{\r\n  width:100%;\r\n  height: 35%;\r\n  background: #fff1b9;\r\n  border-radius: 10px;\r\n  -webkit-box-shadow: 1px 1px 5px #754F44;\r\n          box-shadow: 1px 1px 5px #754F44;\r\n  margin-bottom: 3%;\n}\n.s-text[data-v-774abbe1]{\r\n  width: 100%;\r\n  height: 70%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  font-size: 2.5em;\n}\n.s-bottom[data-v-774abbe1]{\r\n  width: 100%;\r\n  height: 30%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\n}\n.s-good[data-v-774abbe1]{\r\n  width: 30%;\r\n  margin-right: 5%;\n}\n.s-love[data-v-774abbe1]{\r\n  width: 30%;\r\n  margin-right: 5%;\n}\n.s-hat[data-v-774abbe1]{\r\n  width: 30%;\n}\n.s-img[data-v-774abbe1]{\r\n  width: 50%;\n}\n.s-num[data-v-774abbe1]{\r\n  width: 50%;\r\n  font-size: 2.5em;\n}\n#blue[data-v-774abbe1]{\r\n  background: transparent url('/img/other_blue.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#good[data-v-774abbe1]{\r\n  background: transparent url('/img/goodmost.png') no-repeat center center;\r\n  background-size: 70%;\n}\n#love[data-v-774abbe1]{\r\n  background: transparent url('/img/goodadd.png') no-repeat center center;\r\n  background-size: 70%;\n}\n#red[data-v-774abbe1]{\r\n  background: transparent url('/img/sixhat_red.png') no-repeat center center;\r\n  background-size: 25%;\n}\n#red_o[data-v-774abbe1]{\r\n  background: transparent url('/img/other_red.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#green[data-v-774abbe1]{\r\n  background: transparent url('/img/sixhat_green.png') no-repeat center center;\r\n  background-size: 25%;\n}\n#blue[data-v-774abbe1]{\r\n  background: transparent url('/img/sixhat_blue.png') no-repeat center center;\r\n  background-size: 25%;\n}\n.l-btn[data-v-774abbe1]{\r\n  position: absolute;\r\n  z-index: 99;\r\n  top: 45%;\r\n  left: 0%;\r\n  width: 5em;\r\n  height: 5em;\r\n  background: rgba(255,255,255,.5) url(/img/return.png) no-repeat center center;\r\n  background-size: 30%;\r\n  border-radius: 99em;\n}\n.r-btn[data-v-774abbe1]{\r\n  position: absolute;\r\n  z-index: 99;\r\n  top: 45%;\r\n  right: 0%;\r\n  width: 5em;\r\n  height: 5em;\r\n  background: rgba(255,255,255,.5) url(/img/return.png) no-repeat center center;\r\n  background-size: 30%;\r\n  -webkit-transform: rotate(180deg);\r\n          transform: rotate(180deg);\r\n  border-radius: 99em;\n}\n.groupnum[data-v-774abbe1]{\r\n  position: relative;\r\n  font-size: 10em;\r\n  text-align: center;\r\n  color:#EC7357;\r\n  opacity: 0.7;\n}\n.s-vote[data-v-774abbe1]{\r\n  width: 80%;\r\n  background: #41D3BD;\r\n  font-size: 3em;\r\n  border-radius: 20px;\n}\n#voted[data-v-774abbe1]{\r\n  background: #E71D36;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.game-header[data-v-774abbe1] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  width: 100%;\r\n  height: 10%;\n}\n.game-body[data-v-774abbe1] {\r\n  width: 100%;\r\n  height: 70%;\n}\n.game-bottom[data-v-774abbe1] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 100%;\r\n  height: 20%;\n}\n.timer[data-v-774abbe1] {\r\n  width: 35%;\r\n  margin-right: 5%;\n}\n.type[data-v-774abbe1] {\r\n  width: 40%;\r\n  margin-right: 5%;\n}\n.setting[data-v-774abbe1] {\r\n  width: 15%;\r\n  background: transparent url(\"/img/setting.png\") no-repeat center center;\r\n  background-size: 70%;\n}\n.t-l[data-v-774abbe1] {\r\n  width: 50%;\r\n  border-radius: 15px 0px 0px 15px;\n}\n.t-r[data-v-774abbe1] {\r\n  width: 50%;\r\n  border-radius: 0px 15px 15px 0px;\n}\n#pass[data-v-774abbe1] {\r\n  background: transparent url(\"/img/pass.png\") no-repeat center center;\r\n  background-size: 70%;\n}\n#sixhat[data-v-774abbe1] {\r\n  background: rgba(253, 153, 154, 0.7) url(\"/img/hat.png\") no-repeat center\r\n    center;\r\n  background-size: 80%;\n}\n#stf[data-v-774abbe1] {\r\n  background: transparent url(\"/img/stf.png\") no-repeat center center;\r\n  background-size: 80%;\n}\n#role-play[data-v-774abbe1] {\r\n  background: transparent url(\"/img/role-play.png\") no-repeat center center;\r\n  background-size: 80%;\n}\n#talking[data-v-774abbe1] {\r\n  background: transparent url(\"/img/talking.png\") no-repeat center center;\r\n  background-size: 80%;\n}\n#passgate[data-v-774abbe1] {\r\n  background: transparent url(\"/img/passgate.png\") no-repeat center center;\r\n  background-size: 80%;\n}\n#groupfight[data-v-774abbe1] {\r\n  background: rgba(103, 213, 181, 0.7) url(\"/img/groupfight.png\") no-repeat\r\n    center center;\r\n  background-size: 80%;\n}\n#normal[data-v-774abbe1] {\r\n  background: transparent url(\"/img/normal.png\") no-repeat center center;\r\n  background-size: 80%;\n}\n.time-logo[data-v-774abbe1] {\r\n  width: 45%;\r\n  background: transparent url(\"/img/clock.png\") no-repeat center center;\r\n  background-size: 90%;\n}\n.time-text[data-v-774abbe1] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 6% 9%;\r\n  margin-left: 15%;\r\n  position: relative;\r\n  z-index: -99;\r\n  margin-top: -36%;\r\n  width: 85%;\r\n  background: #fbffb9;\r\n  height: 80%;\r\n  text-align: right;\r\n  font-size: 3.5em;\n}\n.game-topic[data-v-774abbe1] {\r\n  width: 100%;\r\n  height: 15%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\n}\n.box[data-v-774abbe1] {\r\n  width: 85%;\r\n  background: #d4dfe6;\r\n  font-size: 3em;\r\n  border-radius: 20px;\n}\n.game-content[data-v-774abbe1] {\r\n  display: -webkit-box;\r\n  overflow-x: auto;\r\n  overflow-y: hidden;\r\n  width: 100%;\r\n  height: 85%;\n}\n.sticky[data-v-774abbe1] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 80%;\r\n  height: 99%;\r\n  background: #ffda8e;\r\n  -webkit-box-shadow: 1px 1px 5px #754f44;\r\n          box-shadow: 1px 1px 5px #754f44;\r\n  border-radius: 15px;\r\n  margin: 0% 10%;\r\n  overflow-y: scroll;\n}\n.white[data-v-774abbe1] {\r\n  width: 10%;\r\n  height: 99%;\n}\n.gb-l[data-v-774abbe1] {\r\n  width: 25%;\n}\n.gb-r[data-v-774abbe1] {\r\n  width: 75%;\n}\n.inputbox[data-v-774abbe1] {\r\n  width: 76%;\r\n  height: 90%;\r\n  background-color: #fff1b9;\r\n  border-radius: 20px;\r\n  -webkit-box-shadow: 2px 2px 5px #f94e3f;\r\n          box-shadow: 2px 2px 5px #f94e3f;\r\n  margin-right: 4%;\n}\n.input[data-v-774abbe1] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 5%;\r\n  width: 100%;\r\n  outline: none;\r\n  border: none;\r\n  background: transparent;\r\n  font-size: 2.2em;\n}\n.sendbox[data-v-774abbe1] {\r\n  width: 20%;\n}\n.sent-btn[data-v-774abbe1] {\r\n  width: 4.5em;\r\n  height: 4.5em;\r\n  border-radius: 99em;\r\n  background: #ff7473 url(/img/send-button.png) no-repeat center center;\r\n  -webkit-box-shadow: 3px 3px 7px #a6172d;\r\n          box-shadow: 3px 3px 7px #a6172d;\r\n  background-size: 50%;\n}\n.animal[data-v-774abbe1] {\r\n  width: 100%;\r\n  height: 70%;\r\n  background: transparent url(\"/img/cat.png\") no-repeat center center;\r\n  background-size: 90%;\n}\n.hat[data-v-774abbe1] {\r\n  width: 100%;\r\n  height: 30%;\n}\n.blue[data-v-774abbe1] {\r\n  width: 75%;\r\n  margin-left: 7%;\r\n  position: relative;\n}\n.msg[data-v-774abbe1] {\r\n  width: 100%;\r\n  height: 35%;\r\n  background: #fff1b9;\r\n  border-radius: 10px;\r\n  -webkit-box-shadow: 1px 1px 5px #754f44;\r\n          box-shadow: 1px 1px 5px #754f44;\r\n  margin-bottom: 3%;\n}\n.s-text[data-v-774abbe1] {\r\n  width: 100%;\r\n  height: 70%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  font-size: 2.5em;\n}\n.s-bottom[data-v-774abbe1] {\r\n  width: 100%;\r\n  height: 30%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\n}\n.s-good[data-v-774abbe1] {\r\n  width: 30%;\r\n  margin-right: 5%;\n}\n.s-love[data-v-774abbe1] {\r\n  width: 30%;\r\n  margin-right: 5%;\n}\n.s-hat[data-v-774abbe1] {\r\n  width: 30%;\n}\n.s-img[data-v-774abbe1] {\r\n  width: 50%;\n}\n.s-num[data-v-774abbe1] {\r\n  width: 50%;\r\n  font-size: 2.5em;\n}\n#blue[data-v-774abbe1] {\r\n  background: transparent url(\"/img/other_blue.png\") no-repeat center center;\r\n  background-size: 80%;\n}\n#good[data-v-774abbe1] {\r\n  background: transparent url(\"/img/goodmost.png\") no-repeat center center;\r\n  background-size: 70%;\n}\n#love[data-v-774abbe1] {\r\n  background: transparent url(\"/img/goodadd.png\") no-repeat center center;\r\n  background-size: 70%;\n}\n#red[data-v-774abbe1]{\r\n  background: transparent url('/img/sixhat_red.png') no-repeat center center;\r\n  background-size: 25%;\n}\n#red_o[data-v-774abbe1]{\r\n  background: transparent url('/img/other_red.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#green[data-v-774abbe1]{\r\n  background: transparent url('/img/sixhat_green.png') no-repeat center center;\r\n  background-size: 25%;\n}\n#blue[data-v-774abbe1]{\r\n  background: transparent url('/img/sixhat_blue.png') no-repeat center center;\r\n  background-size: 25%;\n}\n.l-btn[data-v-774abbe1]{\r\n  position: absolute;\r\n  z-index: 99;\r\n  top: 45%;\r\n  left: 0%;\r\n  width: 5em;\r\n  height: 5em;\r\n  background: rgba(255, 255, 255, 0.5) url(/img/return.png) no-repeat center\r\n    center;\r\n  background-size: 30%;\r\n  border-radius: 99em;\n}\n.r-btn[data-v-774abbe1] {\r\n  position: absolute;\r\n  z-index: 99;\r\n  top: 45%;\r\n  right: 0%;\r\n  width: 5em;\r\n  height: 5em;\r\n  background: rgba(255, 255, 255, 0.5) url(/img/return.png) no-repeat center\r\n    center;\r\n  background-size: 30%;\r\n  -webkit-transform: rotate(180deg);\r\n          transform: rotate(180deg);\r\n  border-radius: 99em;\n}\n.groupnum[data-v-774abbe1] {\r\n  position: relative;\r\n  font-size: 10em;\r\n  text-align: center;\r\n  color: #ec7357;\r\n  opacity: 0.7;\n}\n.s-vote[data-v-774abbe1] {\r\n  width: 80%;\r\n  background: #41d3bd;\r\n  font-size: 3em;\r\n  border-radius: 20px;\n}\n#voted[data-v-774abbe1] {\r\n  background: #e71d36;\n}\r\n", ""]);
 
 // exports
 
@@ -94629,7 +94621,7 @@ exports.push([module.i, "\n.game-header[data-v-774abbe1]{\r\n  -webkit-box-sizin
 /* 344 */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed: SyntaxError: C:/xampp/htdocs/MixMixIdea/resources/assets/js/components/Vote.vue: Unexpected token (133:0)\n\n\u001b[0m \u001b[90m 131 | \u001b[39m          goodnum\u001b[33m:\u001b[39m \u001b[35m20\u001b[39m\u001b[33m,\u001b[39m\n \u001b[90m 132 | \u001b[39m          lovenum\u001b[33m:\u001b[39m \u001b[35m30\u001b[39m\u001b[33m,\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 133 | \u001b[39m\u001b[37m\u001b[41m\u001b[1m@\u001b[22m\u001b[49m\u001b[39m          hatID\u001b[33m:\u001b[39m \u001b[32m'blue'\u001b[39m\u001b[33m,\u001b[39m\n \u001b[90m     | \u001b[39m\u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 134 | \u001b[39m          whichhat\u001b[33m:\u001b[39m \u001b[32m'藍帽'\u001b[39m\u001b[33m,\u001b[39m\n \u001b[90m 135 | \u001b[39m          content\u001b[33m:\u001b[39m \u001b[32m'熊貓是熊'\u001b[39m\u001b[33m,\u001b[39m\n \u001b[90m 136 | \u001b[39m          isvoted\u001b[33m:\u001b[39m \u001b[36mfalse\u001b[39m\u001b[0m\n");
+throw new Error("Module build failed: SyntaxError: C:/xampp/htdocs/MixMixIdea/resources/assets/js/components/Vote.vue: Unexpected token (133:2)\n\n\u001b[0m \u001b[90m 131 | \u001b[39m            goodnum\u001b[33m:\u001b[39m \u001b[35m20\u001b[39m\u001b[33m,\u001b[39m\n \u001b[90m 132 | \u001b[39m            lovenum\u001b[33m:\u001b[39m \u001b[35m30\u001b[39m\u001b[33m,\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 133 | \u001b[39m  \u001b[37m\u001b[41m\u001b[1m@\u001b[22m\u001b[49m\u001b[39m          hatID\u001b[33m:\u001b[39m \u001b[32m'blue'\u001b[39m\u001b[33m,\u001b[39m\n \u001b[90m     | \u001b[39m  \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 134 | \u001b[39m            whichhat\u001b[33m:\u001b[39m \u001b[32m'藍帽'\u001b[39m\u001b[33m,\u001b[39m\n \u001b[90m 135 | \u001b[39m            content\u001b[33m:\u001b[39m \u001b[32m'熊貓是熊'\u001b[39m\u001b[33m,\u001b[39m\n \u001b[90m 136 | \u001b[39m            isvoted\u001b[33m:\u001b[39m \u001b[36mfalse\u001b[39m\u001b[0m\n");
 
 /***/ }),
 /* 345 */
@@ -94641,7 +94633,13 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "game-header" }, [
-      _vm._m(0),
+      _c("div", { staticClass: "timer f-l h-100" }, [
+        _c("div", { staticClass: "time-logo h-100" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "time-text h-100" }, [
+          _vm._v(_vm._s(_vm.gameTime.m) + ":" + _vm._s(_vm.gameTime.s))
+        ])
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "type f-l h-100" }, [
         _c("div", {
@@ -94863,7 +94861,7 @@ var render = function() {
     ]),
     _vm._v(" "),
     _c("div", { staticClass: "game-bottom" }, [
-      _vm._m(1),
+      _vm._m(0),
       _vm._v(" "),
       _c("div", { staticClass: "gb-r h-100 f-l" }, [
         _c("div", { staticClass: "inputbox f-l f-c" }, [
@@ -94907,16 +94905,6 @@ var render = function() {
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "timer f-l h-100" }, [
-      _c("div", { staticClass: "time-logo h-100" }),
-      _vm._v(" "),
-      _c("div", { staticClass: "time-text h-100" }, [_vm._v("10:00")])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement

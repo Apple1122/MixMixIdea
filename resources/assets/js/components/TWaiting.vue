@@ -90,26 +90,7 @@ export default {
       if (this.isChattingOpen) this.isChattingOpen = false;
       else if (this.isSettingOpen) this.isSettingOpen = false;
       else {
-        var self = this;
-        this.$nextTick(function() {
-          axios
-            .post("/room/leave", {
-              course_id: self.course_id
-            })
-            .then(function(rtn) {
-              if (!rtn.data.errmsg) {
-                console.log(rtn.data);
-                self.socket.emit("teacherLeave", self.course_id);
-                sessionStorage.removeItem("room_course_id");
-                self.$router.push({ path: "/courselist" });
-              } else {
-                console.log(rtn.data.errmsg);
-              }
-            })
-            .catch(function(err) {
-              console.log(err);
-            });
-        });
+        this.$router.push({ path: "/courselist" });
       }
     },
     changePage: function(data) {
@@ -208,25 +189,25 @@ export default {
     chatbox.scrollTop = chatbox.scrollHeight;
   },
   destroyed: function() {
-    // let self = this;
-    // self.$nextTick(function() {
-    //   axios
-    //     .post("/room/leave", {
-    //       course_id: self.course_id
-    //     })
-    //     .then(function(rtn) {
-    //       if (!rtn.data.errmsg) {
-    //         console.log(rtn.data);
-    //         self.socket.emit("teacherLeave", self.course_id);
-    //         sessionStorage.removeItem("room_course_id");
-    //       } else {
-    //         console.log(rtn.data.errmsg);
-    //       }
-    //     })
-    //     .catch(function(err) {
-    //       console.log(err);
-    //     });
-    // });
+    var self = this;
+    this.$nextTick(function() {
+      axios
+        .post("/room/leave", {
+          course_id: self.course_id
+        })
+        .then(function(rtn) {
+          if (!rtn.data.errmsg) {
+            console.log(rtn.data);
+            self.socket.emit("teacherLeave", self.course_id);
+            sessionStorage.removeItem("room_course_id");
+          } else {
+            console.log(rtn.data.errmsg);
+          }
+        })
+        .catch(function(err) {
+          console.log(err);
+        });
+    });
   }
 };
 </script>
