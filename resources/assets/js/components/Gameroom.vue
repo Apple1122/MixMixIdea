@@ -14,18 +14,30 @@
 
    <div class="game-body">
 
-    <div class="l-btn"></div>
-    <div class="r-btn"></div>
+    <div @click="FocuseOn('left')"  class="l-btn"></div>
+    <div @click="FocuseOn('right')"  class="r-btn"></div>
 
-      <div class="game-topic f-c">
-        <div class="box f-c h-100">題目：{{setting.topic}}</div>
+      <div class="game-topic f-c" :id="isVoteTime? 'red':''">
+        <div v-if="isVoteTime" class="f-c h-100"></div>
+        <div v-else="isVoteTime" class="box f-c h-100">題目：{{setting.topic}}</div>
       </div>
-      <div class="game-content">
+      <div class="game-content" id="slide">
 
-        <div class="sticky ">
+        <div class="sticky">
           <div v-for="msg in msg" class="msg animated fadeInUp">
             <div class="s-text">{{msg.content}}</div>
-            <div class="s-bottom">
+
+            <div v-if="isVoteTime" class="s-bottom f-c">
+              <div
+                @click="msg.isvoted=!msg.isvoted"
+                class="s-vote h-100 f-c"
+                :id="msg.isvoted? 'voted' : ''"
+              >
+                {{msg.isvoted? '已投票' : '投我一票!'}}
+              </div>
+            </div>
+
+            <div v-else="isVoteTime" class="s-bottom">
               <div class="s-good f-l h-100">
                 <div @click="msg.goodnum++" class="s-img f-l h-100" id="good"></div>
                 <div class="s-num f-l f-c h-100">{{msg.goodnum}}</div>
@@ -41,14 +53,21 @@
                 <div class="s-num f-l f-c h-100">{{msg.whichhat}}</div>
               </div>
             </div>
+            
+
           </div>
             <div class="groupnum"></div>
         </div>
 
         <div class="sticky">
+
+        
         </div>
 
         <div class="sticky">
+        </div>
+
+        <div class="white">
         </div>
       </div>
    </div>
@@ -83,7 +102,8 @@
             lovenum: 30,
             hatID: 'blue',
             whichhat: '藍帽',
-            content: '程式設計好好玩'
+            content: '熊貓是熊',
+            isvoted: false
           }
         ],
         setting: {
@@ -93,8 +113,10 @@
           brainID: "sixhat",
           time: "30分",
           group: "平均分配",
-          topic: "程式設計好玩ㄇ"
-        }
+          topic: "熊貓是熊還是貓？"
+        },
+        input_text: '',
+        isVoteTime: false
       }
     },
     methods: {
@@ -105,9 +127,31 @@
             lovenum: 0,
             hatID: 'blue',
             whichhat: '藍帽',
-            content: this.input_text
+            content: this.input_text,
+            isvoted: false
         }
         this.msg.push(msg);
+      },
+      FocuseOn: function(text) {
+        let obj = document.getElementById('slide');
+        if(obj!= null){
+          let which = (obj.scrollLeft / 377);
+          if(text == 'left'){
+            obj.scrollLeft = 377 * (which-1);
+          }
+          else {
+            obj.scrollLeft = 377 * (which+1);
+          }
+          // if (test >= 188){
+          //   obj.scrollLeft = 377 * (page+1);
+          // }
+          // else if (obj.scrollLeft <=188){
+          //   obj.scrollLeft = 0;
+          // }
+          // else {
+          //   obj.scrollLeft = 377 * (page);
+          // }
+        }
       }
     }
   }
@@ -255,6 +299,11 @@
   overflow-y: scroll;
 }
 
+.white{
+  width: 10%;
+  height: 99%;
+}
+
 .gb-l{
   width: 25%;
 }
@@ -376,6 +425,12 @@
   background-size: 70%;
 }
 
+#red{
+  background: transparent url('/img/sixhat_red.png') no-repeat center center;
+  background-size: 25%;
+}
+
+
 .l-btn{
   position: absolute;
   z-index: 99;
@@ -407,6 +462,18 @@
   text-align: center;
   color:#EC7357;
   opacity: 0.7;
+}
+
+.s-vote{
+  width: 80%;
+  background: #41D3BD;
+  font-size: 3em;
+  border-radius: 20px;
+
+}
+
+#voted{
+  background: #E71D36;
 }
 
 </style>

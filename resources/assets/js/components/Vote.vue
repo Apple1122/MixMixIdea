@@ -17,8 +17,9 @@
     <div @click="FocuseOn('left')"  class="l-btn"></div>
     <div @click="FocuseOn('right')"  class="r-btn"></div>
 
-      <div class="game-topic f-c">
-        <div class="box f-c h-100">題目：{{setting.topic}}</div>
+      <div class="game-topic f-c" :id="isGreen? isBlue? 'blue':'green':'red'">
+        <div v-if="isVoteTime" class="f-c h-100"></div>
+        <div v-else="isVoteTime" class="box f-c h-100">題目：{{setting.topic}}</div>
       </div>
       <div class="game-content" id="slide">
 
@@ -59,6 +60,38 @@
         </div>
 
         <div class="sticky">
+
+          <div v-for="msg in msg1" class="msg animated fadeInUp">
+            <div class="s-text">{{msg.content}}</div>
+
+            <div v-if="isVoteTime" class="s-bottom f-c">
+              <div
+                @click="msg.isvoted=!msg.isvoted"
+                class="s-vote h-100 f-c"
+                :id="msg.isvoted? 'voted' : ''"
+              >
+                {{msg.isvoted? '已投票' : '投我一票!'}}
+              </div>
+            </div>
+
+            <div v-else="isVoteTime" class="s-bottom">
+              <div class="s-good f-l h-100">
+                <div @click="msg.goodnum++" class="s-img f-l h-100" id="good"></div>
+                <div class="s-num f-l f-c h-100">{{msg.goodnum}}</div>
+              </div>
+
+              <div class="s-love f-l h-100">
+                <div @click="msg.lovenum++" class="s-img f-l h-100" id="love"></div>
+                <div class="s-num f-l f-c h-100">{{msg.lovenum}}</div>
+              </div>
+
+              <div class="s-hat f-l h-100">
+                <div class="s-img f-l h-100" :id="msg.hatID"></div>
+                <div class="s-num f-l f-c h-100">{{msg.whichhat}}</div>
+              </div>
+            </div>
+          </div>
+
         </div>
 
         <div class="sticky">
@@ -99,7 +132,36 @@
             lovenum: 30,
             hatID: 'blue',
             whichhat: '藍帽',
-            content: '程式設計好好玩',
+            content: '熊貓是熊',
+            isvoted: false
+          },
+          {
+            groupid: 1,
+            goodnum: 20,
+            lovenum: 30,
+            hatID: 'red_o',
+            whichhat: '紅帽',
+            content: '熊貓並不是熊也不是貓，是居於中間的動物',
+            isvoted: false
+          }, 
+        ],
+        msg1:[
+          {
+            groupid: 1,
+            goodnum: 5,
+            lovenum: 30,
+            hatID: 'blue',
+            whichhat: '藍帽',
+            content: '我覺得可以問問熊貓的看法',
+            isvoted: false
+          },
+          {
+            groupid: 1,
+            goodnum: 5,
+            lovenum: 30,
+            hatID: 'blue',
+            whichhat: '藍帽',
+            content: '應該去好好分析熊與貓的差異，再來決定',
             isvoted: false
           }
         ],
@@ -113,7 +175,8 @@
           topic: "程式設計好玩ㄇ"
         },
         input_text: '',
-        isVoteTime: true
+        isVoteTime: true,
+        isGreen: false
       }
     },
     methods: {
@@ -148,6 +211,9 @@
           // else {
           //   obj.scrollLeft = 377 * (page);
           // }
+
+          if (this.isGreen == true) this.isBlue = true;
+          else this.isGreen = true;
         }
       }
     }
@@ -420,6 +486,26 @@
 #love{
   background: transparent url('/img/goodadd.png') no-repeat center center;
   background-size: 70%;
+}
+
+#red{
+  background: transparent url('/img/sixhat_red.png') no-repeat center center;
+  background-size: 25%;
+}
+
+#red_o{
+  background: transparent url('/img/other_red.png') no-repeat center center;
+  background-size: 80%;
+}
+
+#green{
+  background: transparent url('/img/sixhat_green.png') no-repeat center center;
+  background-size: 25%;
+}
+
+#blue{
+  background: transparent url('/img/sixhat_blue.png') no-repeat center center;
+  background-size: 25%;
 }
 
 .l-btn{
