@@ -72476,16 +72476,19 @@ if (inBrowser && window.Vue) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_SWaiting___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_SWaiting__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_loading__ = __webpack_require__(257);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__components_loading___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4__components_loading__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Gameroom_sixhat__ = __webpack_require__(262);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Gameroom_sixhat___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_Gameroom_sixhat__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_Analysis__ = __webpack_require__(267);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_Analysis___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_Analysis__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_Vote__ = __webpack_require__(336);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_Vote___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_Vote__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_Gameroom__ = __webpack_require__(341);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_Gameroom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_Gameroom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_Groupfight__ = __webpack_require__(352);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_Groupfight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_Groupfight__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_History__ = __webpack_require__(357);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_History___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_History__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_Gameroom_sixhat__ = __webpack_require__(262);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_Gameroom_sixhat___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_Gameroom_sixhat__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_Analysis__ = __webpack_require__(267);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_Analysis___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_Analysis__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_Vote__ = __webpack_require__(336);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_Vote___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_Vote__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_Gameroom__ = __webpack_require__(341);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__components_Gameroom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9__components_Gameroom__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_Groupfight__ = __webpack_require__(352);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_Groupfight___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_10__components_Groupfight__);
+
 
 
 
@@ -72511,19 +72514,22 @@ var routes = [{
   component: __WEBPACK_IMPORTED_MODULE_2__components_TWaiting___default.a
 }, {
   path: '/gameroom_sixhat',
-  component: __WEBPACK_IMPORTED_MODULE_5__components_Gameroom_sixhat___default.a
+  component: __WEBPACK_IMPORTED_MODULE_6__components_Gameroom_sixhat___default.a
 }, {
   path: '/analysis',
-  component: __WEBPACK_IMPORTED_MODULE_6__components_Analysis___default.a
+  component: __WEBPACK_IMPORTED_MODULE_7__components_Analysis___default.a
 }, {
   path: '/vote',
-  component: __WEBPACK_IMPORTED_MODULE_7__components_Vote___default.a
+  component: __WEBPACK_IMPORTED_MODULE_8__components_Vote___default.a
 }, {
   path: '/gameroom',
-  component: __WEBPACK_IMPORTED_MODULE_8__components_Gameroom___default.a
+  component: __WEBPACK_IMPORTED_MODULE_9__components_Gameroom___default.a
 }, {
   path: '/groupfight',
-  component: __WEBPACK_IMPORTED_MODULE_9__components_Groupfight___default.a
+  component: __WEBPACK_IMPORTED_MODULE_10__components_Groupfight___default.a
+}, {
+  path: '/history',
+  component: history
 }];
 
 /* harmony default export */ __webpack_exports__["a"] = (routes);
@@ -73404,7 +73410,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.nav-bar[data-v-1e7735a0] {\r\n  width: 106%;\r\n  height: 7%;\r\n  margin-left: -3%;\r\n  -webkit-box-shadow: 0px 2px 8px #9baec8;\r\n          box-shadow: 0px 2px 8px #9baec8;\r\n  font-size: 3em;\n}\n.waiting-header[data-v-1e7735a0] {\r\n  width: 100%;\r\n  height: 12%;\r\n  font-size: 7em;\r\n  font-weight: bold;\r\n  color: #ff7473;\r\n  text-shadow: 2px 3px 4px #c03546;\n}\n.waiting-body[data-v-1e7735a0] {\r\n  padding: 0% 6%;\r\n  width: 100%;\r\n  height: 63%;\n}\n.waiting-bottom[data-v-1e7735a0] {\r\n  width: 100%;\r\n  height: 18%;\n}\n.col[data-v-1e7735a0] {\r\n  width: 100%;\r\n  border-radius: 30px;\r\n  -webkit-box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6),\r\n    4px 4px 6px rgba(20%, 20%, 40%, 0.4);\r\n          box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6),\r\n    4px 4px 6px rgba(20%, 20%, 40%, 0.4);\n}\n.chat-ul[data-v-1e7735a0] {\r\n  width: 100%;\r\n  height: 100%;\r\n  overflow-y: scroll;\n}\n.chat-li[data-v-1e7735a0] {\r\n  width: 100%;\r\n  font-size: 3em;\r\n  margin-bottom: 1%;\r\n  line-height: 135%;\r\n  font-weight: bold;\r\n  color: white;\r\n  text-shadow: 1px 1px 5px #000, 2px 2px 5px #000;\n}\n.set-li[data-v-1e7735a0] {\r\n  list-style: none;\r\n  width: 100%;\r\n  font-size: 2.5em;\r\n  margin-bottom: 1%;\r\n  line-height: 135%;\r\n  font-weight: bold;\r\n  color: white;\r\n  text-shadow: 1px 1px 5px #000, 2px 2px 5px #000;\n}\n.infro-people[data-v-1e7735a0] {\r\n  height: 20%;\r\n  margin-bottom: 2%;\r\n  background: rgba(255, 201, 82, 0.8) url(/img/room_people.png) no-repeat 5%\r\n    100%;\r\n  background-size: 40%;\n}\n.infro-setting[data-v-1e7735a0] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  height: 35%;\r\n  margin-bottom: 2%;\r\n  background: rgba(236, 115, 87, 0.8) url(/img/setting_1.png) no-repeat 94% -5%;\r\n  background-size: 45%;\n}\n.infro-chatting[data-v-1e7735a0] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  height: 40%;\r\n  background: rgba(117, 79, 68, 0.8) url(/img/chat.png) no-repeat 5% 120%;\r\n  background-size: 53%;\n}\n.go-button[data-v-1e7735a0] {\r\n  background: transparent url(/img/go.png) no-repeat center 15%;\r\n  background-size: 50%;\r\n  width: 100%;\r\n  height: 100%;\n}\n.people[data-v-1e7735a0] {\r\n  float: left;\r\n  width: 40%;\n}\n.current[data-v-1e7735a0] {\r\n  font-weight: bold;\r\n  font-size: 7em;\r\n  float: right;\r\n  width: 25%;\n}\n.total[data-v-1e7735a0] {\r\n  font-size: 3.5em;\r\n  float: right;\r\n  width: 20%;\n}\n.gametype[data-v-1e7735a0] {\r\n  float: left;\r\n  width: 25%;\r\n  height: 90%;\r\n  margin-top: 3%;\r\n  border-radius: 30px 0px 0px 30px;\r\n  background-color: rgba(253, 153, 154, 0.7);\n}\n.brain-method[data-v-1e7735a0] {\r\n  float: left;\r\n  width: 25%;\r\n  height: 90%;\r\n  margin-top: 3%;\r\n  border-radius: 0px 30px 30px 0px;\r\n  background-color: rgba(103, 213, 181, 0.7);\n}\n.other-setting[data-v-1e7735a0] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  float: left;\r\n  width: 50%;\n}\n.infro-img[data-v-1e7735a0] {\r\n  width: 100%;\r\n  height: 60%;\n}\n.infro-text[data-v-1e7735a0] {\r\n  width: 100%;\r\n  height: 40%;\r\n  font-size: 2.8em;\r\n  font-weight: bold;\r\n  text-align: center;\n}\n#no-r[data-v-1e7735a0] {\r\n  background: transparent url(\"/img/no-r.png\") no-repeat center center;\r\n  background-size: 70%;\n}\n#no-g[data-v-1e7735a0] {\r\n  background: transparent url(\"/img/no-g.png\") no-repeat center center;\r\n  background-size: 70%;\n}\n#pass[data-v-1e7735a0] {\r\n  background: transparent url(\"/img/pass.png\") no-repeat center center;\r\n  background-size: 70%;\n}\n#sixhat[data-v-1e7735a0] {\r\n  background: transparent url(\"/img/hat.png\") no-repeat center center;\r\n  background-size: 80%;\n}\n#stf[data-v-1e7735a0] {\r\n  background: transparent url(\"/img/stf.png\") no-repeat center center;\r\n  background-size: 80%;\n}\n#role-play[data-v-1e7735a0] {\r\n  background: transparent url(\"/img/role-play.png\") no-repeat center center;\r\n  background-size: 80%;\n}\n#talking[data-v-1e7735a0] {\r\n  background: transparent url(\"/img/talking.png\") no-repeat center center;\r\n  background-size: 80%;\n}\n#passgate[data-v-1e7735a0] {\r\n  background: transparent url(\"/img/passgate.png\") no-repeat center center;\r\n  background-size: 80%;\n}\n#groupfight[data-v-1e7735a0] {\r\n  background: transparent url(\"/img/groupfight.png\") no-repeat center center;\r\n  background-size: 80%;\n}\n.white-bg[data-v-1e7735a0] {\r\n  position: absolute;\r\n  z-index: 1;\r\n  width: 100%;\r\n  height: 100%;\r\n  background-color: rgba(255, 255, 255, 0.7);\n}\n.nav-btn[data-v-1e7735a0] {\r\n  float: left;\r\n  width: 12%;\n}\n#return[data-v-1e7735a0] {\r\n  background: transparent url(\"/img/return.png\") no-repeat 75% center;\r\n  background-size: 25%;\n}\n.class-name[data-v-1e7735a0] {\r\n  float: left;\r\n  font-weight: bold;\r\n  width: 76%;\r\n  font-size: 1.1em;\n}\n.container[data-v-1e7735a0]{\r\n  height: 100%;\n}\r\n", ""]);
+exports.push([module.i, "\n.nav-bar[data-v-1e7735a0] {\r\n  width: 106%;\r\n  height: 7%;\r\n  margin-left: -3%;\r\n  -webkit-box-shadow: 0px 2px 8px #9baec8;\r\n          box-shadow: 0px 2px 8px #9baec8;\r\n  font-size: 3em;\n}\n.waiting-header[data-v-1e7735a0] {\r\n  width: 100%;\r\n  height: 12%;\r\n  font-size: 7em;\r\n  font-weight: bold;\r\n  color: #ff7473;\r\n  text-shadow: 2px 3px 4px #c03546;\n}\n.waiting-body[data-v-1e7735a0] {\r\n  padding: 0% 6%;\r\n  width: 100%;\r\n  height: 63%;\n}\n.waiting-bottom[data-v-1e7735a0] {\r\n  width: 100%;\r\n  height: 18%;\n}\n.col[data-v-1e7735a0] {\r\n  width: 100%;\r\n  border-radius: 30px;\r\n  -webkit-box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6),\r\n    4px 4px 6px rgba(20%, 20%, 40%, 0.4);\r\n          box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6),\r\n    4px 4px 6px rgba(20%, 20%, 40%, 0.4);\n}\n.chat-ul[data-v-1e7735a0] {\r\n  width: 100%;\r\n  height: 100%;\r\n  overflow-y: scroll;\n}\n.chat-li[data-v-1e7735a0] {\r\n  width: 100%;\r\n  font-size: 3em;\r\n  margin-bottom: 1%;\r\n  line-height: 135%;\r\n  font-weight: bold;\r\n  color: white;\r\n  text-shadow: 1px 1px 5px #000, 2px 2px 5px #000;\n}\n.set-li[data-v-1e7735a0] {\r\n  list-style: none;\r\n  width: 100%;\r\n  font-size: 2.5em;\r\n  margin-bottom: 1%;\r\n  line-height: 135%;\r\n  font-weight: bold;\r\n  color: white;\r\n  text-shadow: 1px 1px 5px #000, 2px 2px 5px #000;\n}\n.infro-people[data-v-1e7735a0] {\r\n  height: 20%;\r\n  margin-bottom: 2%;\r\n  background: rgba(255, 201, 82, 0.8) url(/img/room_people.png) no-repeat 5%\r\n    100%;\r\n  background-size: 40%;\n}\n.infro-setting[data-v-1e7735a0] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  height: 35%;\r\n  margin-bottom: 2%;\r\n  background: rgba(236, 115, 87, 0.8) url(/img/setting_1.png) no-repeat 94% -5%;\r\n  background-size: 45%;\n}\n.infro-chatting[data-v-1e7735a0] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  height: 40%;\r\n  background: rgba(117, 79, 68, 0.8) url(/img/chat.png) no-repeat 5% 120%;\r\n  background-size: 53%;\n}\n.go-button[data-v-1e7735a0] {\r\n  background: transparent url(/img/go.png) no-repeat center 15%;\r\n  background-size: 50%;\r\n  width: 100%;\r\n  height: 100%;\n}\n.people[data-v-1e7735a0] {\r\n  float: left;\r\n  width: 40%;\n}\n.current[data-v-1e7735a0] {\r\n  font-weight: bold;\r\n  font-size: 7em;\r\n  float: right;\r\n  width: 25%;\n}\n.total[data-v-1e7735a0] {\r\n  font-size: 3.5em;\r\n  float: right;\r\n  width: 20%;\n}\n.gametype[data-v-1e7735a0] {\r\n  float: left;\r\n  width: 25%;\r\n  height: 90%;\r\n  margin-top: 3%;\r\n  border-radius: 30px 0px 0px 30px;\r\n  background-color: rgba(253, 153, 154, 0.7);\n}\n.brain-method[data-v-1e7735a0] {\r\n  float: left;\r\n  width: 25%;\r\n  height: 90%;\r\n  margin-top: 3%;\r\n  border-radius: 0px 30px 30px 0px;\r\n  background-color: rgba(103, 213, 181, 0.7);\n}\n.other-setting[data-v-1e7735a0] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  float: left;\r\n  width: 50%;\n}\n.infro-img[data-v-1e7735a0] {\r\n  width: 100%;\r\n  height: 60%;\n}\n.infro-text[data-v-1e7735a0] {\r\n  width: 100%;\r\n  height: 40%;\r\n  font-size: 2.8em;\r\n  font-weight: bold;\r\n  text-align: center;\n}\n#no-r[data-v-1e7735a0] {\r\n  background: transparent url(\"/img/no-r.png\") no-repeat center center;\r\n  background-size: 70%;\n}\n#no-g[data-v-1e7735a0] {\r\n  background: transparent url(\"/img/no-g.png\") no-repeat center center;\r\n  background-size: 70%;\n}\n#pass[data-v-1e7735a0] {\r\n  background: transparent url(\"/img/pass.png\") no-repeat center center;\r\n  background-size: 70%;\n}\n#sixhat[data-v-1e7735a0] {\r\n  background: transparent url(\"/img/hat.png\") no-repeat center center;\r\n  background-size: 80%;\n}\n#stf[data-v-1e7735a0] {\r\n  background: transparent url(\"/img/stf.png\") no-repeat center center;\r\n  background-size: 80%;\n}\n#role-play[data-v-1e7735a0] {\r\n  background: transparent url(\"/img/role-play.png\") no-repeat center center;\r\n  background-size: 80%;\n}\n#talking[data-v-1e7735a0] {\r\n  background: transparent url(\"/img/talking.png\") no-repeat center center;\r\n  background-size: 80%;\n}\n#passgate[data-v-1e7735a0] {\r\n  background: transparent url(\"/img/passgate.png\") no-repeat center center;\r\n  background-size: 80%;\n}\n#groupfight[data-v-1e7735a0] {\r\n  background: transparent url(\"/img/groupfight.png\") no-repeat center center;\r\n  background-size: 80%;\n}\n.white-bg[data-v-1e7735a0] {\r\n  position: absolute;\r\n  z-index: 1;\r\n  width: 100%;\r\n  height: 100%;\r\n  background-color: rgba(255, 255, 255, 0.7);\n}\n.nav-btn[data-v-1e7735a0] {\r\n  float: left;\r\n  width: 12%;\n}\n#return[data-v-1e7735a0] {\r\n  background: transparent url(\"/img/return.png\") no-repeat 75% center;\r\n  background-size: 25%;\n}\n.class-name[data-v-1e7735a0] {\r\n  float: left;\r\n  font-weight: bold;\r\n  width: 76%;\r\n  font-size: 1.1em;\n}\n.container[data-v-1e7735a0] {\r\n  height: 100%;\n}\r\n", ""]);
 
 // exports
 
@@ -73419,6 +73425,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Setting___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Setting__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Chatroom__ = __webpack_require__(222);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__Chatroom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__Chatroom__);
+//
 //
 //
 //
@@ -73508,7 +73515,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   methods: {
     return_to_pre: function return_to_pre() {
-      if (this.isChattingOpen) this.isChattingOpen = false;else if (this.isSettingOpen) this.isSettingOpen = false;else this.$router.push({ path: "/courselist" });
+      if (this.isChattingOpen) this.isChattingOpen = false;else if (this.isSettingOpen) this.isSettingOpen = false;else {
+        var self = this;
+        this.$nextTick(function () {
+          axios.post("/room/leave", {
+            course_id: self.course_id,
+            setting: JSON.stringify(self.setting)
+          }).then(function (rtn) {
+            if (!rtn.data.errmsg) {
+              console.log(rtn.data);
+              self.socket.emit("teacherLeave", self.course_id);
+              sessionStorage.removeItem("room_course_id");
+              self.$router.push({ path: "/courselist" });
+            } else {
+              console.log(rtn.data.errmsg);
+            }
+          }).catch(function (err) {
+            console.log(err);
+          });
+        });
+      }
     },
     changePage: function changePage(data) {
       this.isSettingOpen = data;
@@ -73523,7 +73549,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.isChattingOpen = true;
     },
     swapToGame: function swapToGame() {
-      this.$router.push({ path: "/gameroom_sixhat" });
+      var self = this;
+      self.$nextTick(function () {
+        axios.post("/room/gameStart", {
+          course_id: self.course_id
+        }).then(function (rtn) {
+          if (!rtn.data.errmsg) {
+            console.log(rtn.data);
+            self.socket.emit("gameStart", self.course_id);
+            self.$router.push({ path: "/gameroom_sixhat" });
+          } else {
+            console.log(rtn.data.errmsg);
+          }
+        }).catch(function (err) {
+          console.log(err);
+        });
+      });
     }
   },
 
@@ -73531,7 +73572,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     var isLogin = sessionStorage.getItem("loginAs");
     if (!isLogin) this.$router.push({ path: "/" });
   },
-
   mounted: function mounted() {
     var self = this;
     self.$nextTick(function () {
@@ -73560,6 +73600,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       console.log("房間人數: " + data);
       self.currentPeople = data;
     });
+    self.socket.on("updateChat", function (msg) {
+      self.chatting.push(msg);
+    });
 
     self.socket.on("disconnect", function () {});
 
@@ -73576,23 +73619,30 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     //   self.chatting.push(chat);
     // };
   },
+  updated: function updated() {
+    var chatbox = this.$el.querySelector(".chat-ul");
+    chatbox.scrollTop = chatbox.scrollHeight;
+  },
   destroyed: function destroyed() {
-    var self = this;
-    self.$nextTick(function () {
-      axios.post("/room/leave", {
-        course_id: self.course_id
-      }).then(function (rtn) {
-        if (!rtn.data.errmsg) {
-          console.log(rtn.data);
-          self.socket.emit("teacherLeave", self.course_id);
-          sessionStorage.removeItem("room_course_id");
-        } else {
-          console.log(rtn.data.errmsg);
-        }
-      }).catch(function (err) {
-        console.log(err);
-      });
-    });
+    // let self = this;
+    // self.$nextTick(function() {
+    //   axios
+    //     .post("/room/leave", {
+    //       course_id: self.course_id
+    //     })
+    //     .then(function(rtn) {
+    //       if (!rtn.data.errmsg) {
+    //         console.log(rtn.data);
+    //         self.socket.emit("teacherLeave", self.course_id);
+    //         sessionStorage.removeItem("room_course_id");
+    //       } else {
+    //         console.log(rtn.data.errmsg);
+    //       }
+    //     })
+    //     .catch(function(err) {
+    //       console.log(err);
+    //     });
+    // });
   }
 });
 
@@ -74207,7 +74257,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["chatting"],
+  props: ["chatting", "socket"],
   data: function data() {
     return {
       input_text: "輸入想要傳送的訊息吧！"
@@ -74224,14 +74274,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       if (this.input_text != "") {
         var now = new Date();
         var chat = {
-          name: "Andy",
+          name: sessionStorage.getItem('username'),
           text: this.input_text,
           time: now.getHours() + ":" + (now.getMinutes() < 10 ? "0" : "") + now.getMinutes()
         };
         this.chatting.push(chat);
         this.input_text = "";
+        this.socket.emit("sendMessage", chat);
       }
     }
+  },
+  mounted: function mounted() {
+    var self = this;
   },
   updated: function updated() {
     var chatbox = this.$el.querySelector(".chatting-content");
@@ -74253,29 +74307,22 @@ var render = function() {
     _c(
       "div",
       { staticClass: "chatting-content" },
-      [
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._l(_vm.chatting, function(chat) {
-          return _c("div", { staticClass: "others-message" }, [
-            _c("div", { staticClass: "others-infro" }, [
-              _c("img", {
-                staticClass: "image",
-                attrs: { src: "/img/pass.png" }
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "name" }, [_vm._v(_vm._s(chat.name))])
-            ]),
+      _vm._l(_vm.chatting, function(chat) {
+        return _c("div", { staticClass: "others-message" }, [
+          _c("div", { staticClass: "others-infro" }, [
+            _c("img", {
+              staticClass: "image",
+              attrs: { src: "/img/pass.png" }
+            }),
             _vm._v(" "),
-            _c("div", { staticClass: "dialogbox" }, [
-              _vm._v(_vm._s(chat.text))
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "time" }, [_vm._v(_vm._s(chat.time))])
-          ])
-        })
-      ],
-      2
+            _c("div", { staticClass: "name" }, [_vm._v(_vm._s(chat.name))])
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "dialogbox" }, [_vm._v(_vm._s(chat.text))]),
+          _vm._v(" "),
+          _c("div", { staticClass: "time" }, [_vm._v(_vm._s(chat.time))])
+        ])
+      })
     ),
     _vm._v(" "),
     _c("div", { staticClass: "chatting-bottom" }, [
@@ -74318,24 +74365,7 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "myself-message" }, [
-      _c("div", { staticClass: "myself-infro" }, [
-        _c("img", { staticClass: "image", attrs: { src: "/img/pass.png" } }),
-        _vm._v(" "),
-        _c("div", { staticClass: "name" }, [_vm._v("Andy")])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "dialogbox" }, [_vm._v("測試")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "time" }, [_vm._v("21:00")])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
@@ -79437,7 +79467,9 @@ var render = function() {
         : _vm._e(),
       _vm._v(" "),
       _vm.isChattingOpen
-        ? _c("chatroom", { attrs: { chatting: _vm.chatting } })
+        ? _c("chatroom", {
+            attrs: { chatting: _vm.chatting, socket: _vm.socket }
+          })
         : _vm._e(),
       _vm._v(" "),
       _c("div", { staticClass: "nav-bar f-c" }, [
@@ -79662,7 +79694,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.waiting-class[data-v-2dda805e] {\r\n  width: 100%;\r\n  height: 7%;\r\n  font-size: 3em;\n}\n.waiting-header[data-v-2dda805e] {\r\n  width: 100%;\r\n  height: 8%;\r\n  font-size: 7em;\r\n  font-weight: bold;\r\n  color: #ff7473;\r\n  text-shadow: 2px 3px 9px #c03546;\n}\n.waiting-body[data-v-2dda805e] {\r\n  padding: 3.5% 5%;\r\n  width: 100%;\r\n  height: 70%;\n}\n.waiting-bottom[data-v-2dda805e] {\r\n  width: 100%;\r\n  height: 15%;\n}\n.col[data-v-2dda805e] {\r\n  width: 100%;\r\n  border-radius: 30px;\r\n  -webkit-box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6),\r\n    4px 4px 6px rgba(20%, 20%, 40%, 0.4), 6px 6px 12px rgba(20%, 20%, 40%, 0.4);\r\n          box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6),\r\n    4px 4px 6px rgba(20%, 20%, 40%, 0.4), 6px 6px 12px rgba(20%, 20%, 40%, 0.4);\n}\n.chat-ul[data-v-2dda805e] {\r\n  width: 100%;\r\n  height: 100%;\r\n  overflow-y: scroll;\n}\n.chat-li[data-v-2dda805e] {\r\n  width: 100%;\r\n  font-size: 3em;\r\n  margin-bottom: 1%;\r\n  line-height: 135%;\r\n  font-weight: bold;\r\n  color: white;\r\n  text-shadow: 1px 1px 5px #000, 2px 2px 5px #000;\n}\n.set-li[data-v-2dda805e] {\r\n  list-style: none;\r\n  width: 100%;\r\n  font-size: 2.5em;\r\n  margin-bottom: 1%;\r\n  line-height: 135%;\r\n  font-weight: bold;\r\n  color: white;\r\n  text-shadow: 1px 1px 5px #000, 2px 2px 5px #000;\n}\n.infro-people[data-v-2dda805e] {\r\n  height: 20%;\r\n  margin-bottom: 3%;\r\n  background: rgba(255, 201, 82, 0.8) url(/img/room_people.png) no-repeat 5%\r\n    100%;\r\n  background-size: 40%;\n}\n.infro-setting[data-v-2dda805e] {\r\n  padding: 3%;\r\n  height: 35%;\r\n  margin-bottom: 3%;\r\n  background: rgba(236, 115, 87, 0.8) url(/img/setting_1.png) no-repeat 94% -5%;\r\n  background-size: 45%;\n}\n.infro-chatting[data-v-2dda805e] {\r\n  padding: 3%;\r\n  height: 40%;\r\n  background: rgba(117, 79, 68, 0.8) url(/img/chat.png) no-repeat 5% 120%;\r\n  background-size: 53%;\n}\n.go-button[data-v-2dda805e] {\r\n  background: transparent url(/img/go.png) no-repeat center 15%;\r\n  background-size: 50%;\r\n  width: 100%;\r\n  height: 100%;\n}\n.people[data-v-2dda805e] {\r\n  text-align: right;\r\n  font-size: 4em;\r\n  float: left;\r\n  width: 40%;\n}\n.current[data-v-2dda805e] {\r\n  font-weight: bold;\r\n  font-size: 7em;\r\n  float: left;\r\n  width: 25%;\n}\n.total[data-v-2dda805e] {\r\n  font-size: 3.5em;\r\n  float: right;\r\n  width: 20%;\n}\n.gametype[data-v-2dda805e] {\r\n  float: left;\r\n  width: 25%;\r\n  height: 90%;\r\n  margin-top: 3%;\r\n  border-radius: 30px 0px 0px 30px;\r\n  background-color: rgba(253, 153, 154, 0.7);\n}\n.brain-method[data-v-2dda805e] {\r\n  float: left;\r\n  width: 25%;\r\n  height: 90%;\r\n  margin-top: 3%;\r\n  border-radius: 0px 30px 30px 0px;\r\n  background-color: rgba(103, 213, 181, 0.7);\n}\n.other-setting[data-v-2dda805e] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  float: left;\r\n  width: 50%;\n}\n.infro-img[data-v-2dda805e] {\r\n  width: 100%;\r\n  height: 60%;\n}\n.infro-text[data-v-2dda805e] {\r\n  width: 100%;\r\n  height: 40%;\r\n  font-size: 4em;\r\n  font-weight: bold;\r\n  text-align: center;\n}\n#toolong[data-v-2dda805e] {\r\n  font-size: 2.5em;\r\n  font-weight: bold;\n}\n#pass[data-v-2dda805e] {\r\n  background: transparent url(/img/pass.png) no-repeat center center;\r\n  background-size: 70%;\n}\n#sixhat[data-v-2dda805e] {\r\n  background: transparent url(/img/hat.png) no-repeat center center;\r\n  background-size: 80%;\n}\n.white-bg[data-v-2dda805e] {\r\n  position: absolute;\r\n  z-index: 1;\r\n  width: 100%;\r\n  height: 100%;\r\n  background-color: rgba(255, 255, 255, 0.7);\n}\r\n", ""]);
+exports.push([module.i, "\n.nav-bar[data-v-2dda805e] {\r\n  width: 106%;\r\n  height: 7%;\r\n  margin-left: -3%;\r\n  -webkit-box-shadow: 0px 5px 8px #9baec8;\r\n          box-shadow: 0px 5px 8px #9baec8;\r\n  font-size: 3em;\n}\n.nav-btn[data-v-2dda805e] {\r\n  float: left;\r\n  width: 12%;\n}\n.class-name[data-v-2dda805e] {\r\n  float: left;\r\n  font-weight: bold;\r\n  width: 76%;\r\n  font-size: 1.1em;\n}\n#return[data-v-2dda805e] {\r\n  background: transparent url(\"/img/return.png\") no-repeat center center;\r\n  background-size: 25%;\n}\n.waiting-class[data-v-2dda805e] {\r\n  width: 100%;\r\n  height: 7%;\r\n  font-size: 3em;\n}\n.waiting-header[data-v-2dda805e] {\r\n  width: 100%;\r\n  height: 8%;\r\n  font-size: 7em;\r\n  font-weight: bold;\r\n  color: #ff7473;\r\n  text-shadow: 2px 3px 9px #c03546;\n}\n.waiting-body[data-v-2dda805e] {\r\n  padding: 3.5% 5%;\r\n  width: 100%;\r\n  height: 70%;\n}\n.waiting-bottom[data-v-2dda805e] {\r\n  width: 100%;\r\n  height: 15%;\n}\n.col[data-v-2dda805e] {\r\n  width: 100%;\r\n  border-radius: 30px;\r\n  -webkit-box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6),\r\n    4px 4px 6px rgba(20%, 20%, 40%, 0.4), 6px 6px 12px rgba(20%, 20%, 40%, 0.4);\r\n          box-shadow: 2px 2px 2px rgba(20%, 20%, 40%, 0.6),\r\n    4px 4px 6px rgba(20%, 20%, 40%, 0.4), 6px 6px 12px rgba(20%, 20%, 40%, 0.4);\n}\n.chat-ul[data-v-2dda805e] {\r\n  width: 100%;\r\n  height: 100%;\r\n  overflow-y: scroll;\n}\n.chat-li[data-v-2dda805e] {\r\n  width: 100%;\r\n  font-size: 3em;\r\n  margin-bottom: 1%;\r\n  line-height: 135%;\r\n  font-weight: bold;\r\n  color: white;\r\n  text-shadow: 1px 1px 5px #000, 2px 2px 5px #000;\n}\n.set-li[data-v-2dda805e] {\r\n  list-style: none;\r\n  width: 100%;\r\n  font-size: 2.5em;\r\n  margin-bottom: 1%;\r\n  line-height: 135%;\r\n  font-weight: bold;\r\n  color: white;\r\n  text-shadow: 1px 1px 5px #000, 2px 2px 5px #000;\n}\n.infro-people[data-v-2dda805e] {\r\n  height: 20%;\r\n  margin-bottom: 3%;\r\n  background: rgba(255, 201, 82, 0.8) url(/img/room_people.png) no-repeat 5%\r\n    100%;\r\n  background-size: 40%;\n}\n.infro-setting[data-v-2dda805e] {\r\n  padding: 3%;\r\n  height: 35%;\r\n  margin-bottom: 3%;\r\n  background: rgba(236, 115, 87, 0.8) url(/img/setting_1.png) no-repeat 94% -5%;\r\n  background-size: 45%;\n}\n.infro-chatting[data-v-2dda805e] {\r\n  padding: 3%;\r\n  height: 40%;\r\n  background: rgba(117, 79, 68, 0.8) url(/img/chat.png) no-repeat 5% 120%;\r\n  background-size: 53%;\n}\n.go-button[data-v-2dda805e] {\r\n  background: transparent url(/img/go.png) no-repeat center 15%;\r\n  background-size: 50%;\r\n  width: 100%;\r\n  height: 100%;\n}\n.people[data-v-2dda805e] {\r\n  text-align: right;\r\n  font-size: 4em;\r\n  float: left;\r\n  width: 40%;\n}\n.current[data-v-2dda805e] {\r\n  font-weight: bold;\r\n  font-size: 7em;\r\n  float: left;\r\n  width: 25%;\n}\n.total[data-v-2dda805e] {\r\n  font-size: 3.5em;\r\n  float: right;\r\n  width: 20%;\n}\n.gametype[data-v-2dda805e] {\r\n  float: left;\r\n  width: 25%;\r\n  height: 90%;\r\n  margin-top: 3%;\r\n  border-radius: 30px 0px 0px 30px;\r\n  background-color: rgba(253, 153, 154, 0.7);\n}\n.brain-method[data-v-2dda805e] {\r\n  float: left;\r\n  width: 25%;\r\n  height: 90%;\r\n  margin-top: 3%;\r\n  border-radius: 0px 30px 30px 0px;\r\n  background-color: rgba(103, 213, 181, 0.7);\n}\n.other-setting[data-v-2dda805e] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  float: left;\r\n  width: 50%;\n}\n.infro-img[data-v-2dda805e] {\r\n  width: 100%;\r\n  height: 60%;\n}\n.infro-text[data-v-2dda805e] {\r\n  width: 100%;\r\n  height: 40%;\r\n  font-size: 4em;\r\n  font-weight: bold;\r\n  text-align: center;\n}\n#toolong[data-v-2dda805e] {\r\n  font-size: 2.5em;\r\n  font-weight: bold;\n}\n#pass[data-v-2dda805e] {\r\n  background: transparent url(/img/pass.png) no-repeat center center;\r\n  background-size: 70%;\n}\n#sixhat[data-v-2dda805e] {\r\n  background: transparent url(/img/hat.png) no-repeat center center;\r\n  background-size: 80%;\n}\n.white-bg[data-v-2dda805e] {\r\n  position: absolute;\r\n  z-index: 1;\r\n  width: 100%;\r\n  height: 100%;\r\n  background-color: rgba(255, 255, 255, 0.7);\n}\r\n", ""]);
 
 // exports
 
@@ -79673,6 +79705,8 @@ exports.push([module.i, "\n.waiting-class[data-v-2dda805e] {\r\n  width: 100%;\r
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Chatroom__ = __webpack_require__(222);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__Chatroom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__Chatroom__);
 //
 //
 //
@@ -79713,18 +79747,46 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       socket: "",
       chatting: [],
+      isChattingOpen: false,
       currentPeople: 1,
       courseName: "",
       course_id: sessionStorage.getItem("room_course_id")
     };
   },
 
+  components: {
+    chatroom: __WEBPACK_IMPORTED_MODULE_0__Chatroom___default.a
+  },
+  methods: {
+    return_to_pre: function return_to_pre() {
+      if (this.isChattingOpen) this.isChattingOpen = false;else {
+        var self = this;
+        self.socket.emit("leaveRoom", self.course_id);
+        sessionStorage.removeItem("room_course_id");
+        self.$router.push({ path: "/courselist" });
+      }
+    },
+    OpenChattingPage: function OpenChattingPage() {
+      this.isChattingOpen = true;
+    }
+  },
   mounted: function mounted() {
     var self = this;
     self.$nextTick(function () {
@@ -79753,16 +79815,43 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       console.log("房間人數: " + data);
       self.currentPeople = data;
     });
+    self.socket.on("updateChat", function (msg) {
+      self.chatting.push(msg);
+    });
     self.socket.on("teacherLeave", function () {
+      var self = this;
+      self.socket.emit("leaveRoom", self.course_id);
+      sessionStorage.removeItem("room_course_id");
       self.$router.push({ path: "/courseList" });
       console.log("teacher left!");
     });
+    self.socket.on("gameStart", function () {
+      console.log("game start");
+      self.$nextTick(function () {
+        axios.post("/room/join", {
+          course_id: self.course_id
+        }).then(function (rtn) {
+          if (!rtn.data.errmsg) {
+            console.log(rtn.data);
+            self.$router.push({ path: "/gameroom_sixhat" });
+          } else {
+            console.log(rtn.data.errmsg);
+          }
+        }).catch(function (err) {
+          console.log(err);
+        });
+      });
+    });
     self.socket.on("disconnect", function () {});
   },
+  updated: function updated() {
+    var chatbox = this.$el.querySelector(".chat-ul");
+    chatbox.scrollTop = chatbox.scrollHeight;
+  },
   destroyed: function destroyed() {
-    var self = this;
-    self.socket.emit("leaveRoom", self.course_id);
-    sessionStorage.removeItem("room_course_id");
+    // let self = this;
+    // self.socket.emit("leaveRoom", self.course_id);
+    // sessionStorage.removeItem("room_course_id");
   }
 });
 
@@ -79774,50 +79863,92 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "waiting-class f-c" }, [
-      _vm._v(_vm._s(_vm.courseName) + "(還不知道怎排版)")
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "waiting-header f-c animated bounceInDown" }, [
-      _vm._v("等待遊戲者...")
-    ]),
-    _vm._v(" "),
-    _c("div", { staticClass: "waiting-body b-x" }, [
-      _c("div", { staticClass: "col infro-people b-x f-c animated fadeInUp" }, [
-        _c("span", { staticClass: "current f-c h-100" }, [
-          _vm._v(_vm._s(_vm.currentPeople))
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "total f-c h-100" }, [_vm._v("/ 15人")])
-      ]),
+  return _c(
+    "div",
+    { staticClass: "container" },
+    [
+      _vm.isChattingOpen
+        ? _c("chatroom", {
+            attrs: { chatting: _vm.chatting, socket: _vm.socket }
+          })
+        : _vm._e(),
       _vm._v(" "),
-      _c(
-        "div",
-        {
-          staticClass: "col infro-setting b-x animated fadeInUp",
+      _c("div", { staticClass: "nav-bar f-c" }, [
+        _c("div", {
+          staticClass: "nav-btn h-100",
+          attrs: { id: "return" },
           on: {
             click: function($event) {
-              !_vm.isSettingOpen
+              _vm.return_to_pre()
             }
           }
-        },
-        [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)]
-      ),
+        }),
+        _vm._v(" "),
+        _c("div", { staticClass: "class-name h-100 f-c" }, [
+          _vm._v("〈" + _vm._s(_vm.courseName) + "〉")
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "nav-btn h-100" })
+      ]),
       _vm._v(" "),
-      _c("div", { staticClass: "col infro-chatting b-x animated fadeInUp" }, [
+      _c("div", { staticClass: "waiting-header f-c animated bounceInDown" }, [
+        _vm._v("等待遊戲者...")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "waiting-body b-x" }, [
         _c(
-          "ul",
-          { staticClass: "chat-ul" },
-          _vm._l(_vm.chatting, function(t) {
-            return _c("li", { staticClass: "chat-li" }, [_vm._v(_vm._s(t))])
-          })
+          "div",
+          { staticClass: "col infro-people b-x f-c animated fadeInUp" },
+          [
+            _c("span", { staticClass: "current f-c h-100" }, [
+              _vm._v(_vm._s(_vm.currentPeople))
+            ]),
+            _vm._v(" "),
+            _c("span", { staticClass: "total f-c h-100" }, [_vm._v("/ 15人")])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "col infro-setting b-x animated fadeInUp",
+            on: {
+              click: function($event) {
+                !_vm.isSettingOpen
+              }
+            }
+          },
+          [_vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "col infro-chatting b-x animated fadeInUp",
+            on: {
+              click: function($event) {
+                _vm.OpenChattingPage()
+              }
+            }
+          },
+          [
+            _c(
+              "ul",
+              { staticClass: "chat-ul" },
+              _vm._l(_vm.chatting, function(t) {
+                return _c("li", { staticClass: "chat-li" }, [
+                  _vm._v(_vm._s(t.name) + ":" + _vm._s(t.text))
+                ])
+              })
+            )
+          ]
         )
-      ])
-    ]),
-    _vm._v(" "),
-    _vm._m(3)
-  ])
+      ]),
+      _vm._v(" "),
+      _vm._m(3)
+    ],
+    1
+  )
 }
 var staticRenderFns = [
   function() {
@@ -80207,6 +80338,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.chatting.push(chat);
       this.input_text = "";
     }
+  },
+  destroyed: function destroyed() {
+    var self = this;
+    self.socket.emit("leaveRoom", self.course_id);
+    sessionStorage.removeItem("room_course_id");
   }
 });
 
@@ -96534,6 +96670,287 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-96bc99b0", module.exports)
+  }
+}
+
+/***/ }),
+/* 357 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(358)
+}
+var normalizeComponent = __webpack_require__(6)
+/* script */
+var __vue_script__ = __webpack_require__(360)
+/* template */
+var __vue_template__ = __webpack_require__(361)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-2d53416d"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\History.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2d53416d", Component.options)
+  } else {
+    hotAPI.reload("data-v-2d53416d", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 358 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(359);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(5)("106b67ca", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2d53416d\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./History.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2d53416d\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./History.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 359 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.container[data-v-2d53416d]{\n  width: 98%;\n  height: 100%;\n}\n.nav-bar[data-v-2d53416d]{\n  width: 106%;\n  height: 7%;\n  margin-left: -3%;\n  -webkit-box-shadow: 0px 5px 8px #9baec8;\n          box-shadow: 0px 5px 8px #9baec8; \n  font-size: 3em;\n}\n.nav-btn[data-v-2d53416d]{\n  float: left;\n  width: 12%;\n}\n.class-name[data-v-2d53416d]{\n  float: left;\n  width: 76%;\n  font-weight: bold;\n  font-size: 4.5em;\n}\n.head[data-v-2d53416d]{\n  width: 100%;\n  height: 15%;\n}\n.body[data-v-2d53416d]{\n  width: 100%;\n  height: 70%;\n}\n.choose-text[data-v-2d53416d]{\n  font-weight: bold;\n  width: 100%;\n  height: 12%;\n  color: #ff7473;\n  font-size: 3.5em;\n}\n.historylist[data-v-2d53416d]{\n  width: 100%;\n  height: 85%;\n}\n.history[data-v-2d53416d]{\n  height: 40%;\n  width: 90%;\n  border-radius: 50px;\n  margin: auto;\n  margin-bottom: 2.5%;\n}\n.history-title[data-v-2d53416d]{\n  width: 90%;\n  height: 20%;\n  border-radius: 50px;\n  margin:auto;\n  margin-bottom: 2.5%;\n  padding: 3%;\n}\n.history-infro[data-v-2d53416d]{\n  position: relative;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  width: 100%;\n  height: 100%;\n  background-color: #ffc952;\n  border-radius: 40px;\n}\n.course-name[data-v-2d53416d]{\n  width: 50%;\n  height: 100%;\n  font-size: 3em;\n  float: left;\n}\n.history-time[data-v-2d53416d]{\n  width: 50%;\n  height: 100%;\n  font-size: 3em;\n  float: left;\n}\n.history-brief[data-v-2d53416d]{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 2.5%;\n\n  margin-top: -2%;\n  width: 100%;\n  height: 80%;\n}\n.ranking[data-v-2d53416d]{\n  height: 100%;\n  width: 50%;\n  margin-bottom: 2.5%;\n  background-color: rgba(253,153,154,.7);\n  float: left;\n  font-size: 2em;\n}\n.actionClick[data-v-2d53416d]{\n  height: 100%;\n  width: 100;\n  background: rgba(255,255,255,.9);\n}\n.bottom[data-v-2d53416d]{\n  height: 14%;\n  width: 78%;\n  background-color: rgba(255,201,82,.8);\n  margin: auto;\n  border-radius: 99em;\n  margin: auto;\n  padding: -1%;\n  margin-bottom: 10%;\n  padding-bottom: 12px;\n}\n.btn[data-v-2d53416d]{\n  width: 60%;\n  height: 60%;\n  border-radius: 99em;\n  margin: 0 auto;\n  font-size: 5em;\n  background-size: 60%;\n  vertical-align: middle;\n  padding: 3%;\n  top: 20%;\n}\n.brief-infro[data-v-2d53416d]{\n  width: 50%;\n  height: 100%;\n  float: left;\n  background-color: rgba(103,213,181,.7);\n}\n.brieflist1[data-v-2d53416d]{\n  height: 20%;\n  width: 100%;\n  margin-bottom: 2.5%;\n  font-size: 2em;\n  border-radius: 99px;\n  padding: 2%;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 360 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      isClickItem: false,
+      historylist: [{
+        name: "test1",
+        time: "time1"
+      }, {
+        name: "test2",
+        time: "time2"
+      }, {
+        name: "test3",
+        time: "time3"
+      }, {
+        name: "test4",
+        time: "time4"
+      }],
+
+      historyBrief: [{
+        name: "題目: ",
+        infro: "熊貓是熊還是貓?"
+      }, {
+        name: "排名:",
+        infro: "詳情請按此"
+      }, {
+        name: "設定:",
+        infro: "詳細請按此"
+      }, {
+        name: "出席率:",
+        infro: "100%"
+      }]
+    };
+  },
+
+  methods: {
+    openBrief: function openBrief() {
+      this.isClickItem = true;
+    },
+    hideblock: function hideblock() {
+      this.isClickItem = false;
+    }
+  }
+});
+
+/***/ }),
+/* 361 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _c("div", { staticClass: "body" }, [
+      _c("div", { staticClass: "choose-text f-c" }, [_vm._v(" 選擇歷史紀錄 ")]),
+      _vm._v(" "),
+      _vm.isClickItem
+        ? _c("div", { staticClass: "actionClick" }, [
+            _c(
+              "div",
+              { staticClass: "history-brief" },
+              _vm._l(_vm.historyBrief, function(brief) {
+                return _c("div", { staticClass: "brieflist1" }, [
+                  _c("div", { staticClass: "ranking f-c" }, [
+                    _vm._v(_vm._s(brief.name))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "brief-infro f-c" }, [
+                    _vm._v(_vm._s(brief.infro))
+                  ])
+                ])
+              })
+            ),
+            _vm._v(" "),
+            _c(
+              "div",
+              {
+                staticClass: "bottom",
+                on: {
+                  click: function($event) {
+                    _vm.hideblock()
+                  }
+                }
+              },
+              [_c("div", { staticClass: "btn f-c" }, [_vm._v("閱讀完畢")])]
+            )
+          ])
+        : _c(
+            "div",
+            { staticClass: "historylist" },
+            _vm._l(_vm.historylist, function(his) {
+              return _c("div", { staticClass: "history-title" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "history-infro",
+                    on: {
+                      click: function($event) {
+                        _vm.openBrief()
+                      }
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "course-name f-c" }, [
+                      _vm._v(" " + _vm._s(his.name) + " ")
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "history-time f-c" }, [
+                      _vm._v(" " + _vm._s(his.time) + " ")
+                    ])
+                  ]
+                )
+              ])
+            })
+          )
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "head" }, [
+      _c("div", { staticClass: "nav-bar f-c" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "nav-btn h-100", attrs: { id: "return" } }),
+      _vm._v(" "),
+      _c("div", { staticClass: "class-name h-100 f-c" }, [
+        _vm._v("〈歷史紀錄〉")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "nav-btn h-100" })
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-2d53416d", module.exports)
   }
 }
 

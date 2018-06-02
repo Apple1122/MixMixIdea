@@ -26,14 +26,13 @@ class RoomModel extends Model
         return $queryRoom;
     }
 
-    public static function closeRoom($course_id)
-    {
+    public static function changeStatus($course_id, $status){
         $queryRoom = self::where('course_id', $course_id)
-        ->where('status', "waiting")
+        ->where("status","<>", "close")
         ->first();
 
         if ($queryRoom != null) {
-            $queryRoom->status = "close";
+            $queryRoom->status = $status;
             $queryRoom->save();
         }
         return $queryRoom;

@@ -3,6 +3,7 @@ import CourseList from './components/CourseList'
 import TWaiting from './components/TWaiting'
 import SWaiting from './components/SWaiting'
 import Loading from './components/loading'
+import History from './components/History'
 import Gameroom_sixhat from './components/Gameroom_sixhat'
 import Analysis from './components/Analysis'
 import Vote from './components/Vote'
@@ -44,6 +45,10 @@ const routes = [{
   {
     path: '/groupfight',
     component: Groupfight
+  },
+  {
+    path: '/history',
+    component: history
   }
 
 

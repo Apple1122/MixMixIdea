@@ -71,6 +71,11 @@ export default {
       this.chatting.push(chat);
       this.input_text = "";
     }
+  },
+  destroyed: function() {
+    let self = this;
+    self.socket.emit("leaveRoom", self.course_id);
+    sessionStorage.removeItem("room_course_id");
   }
 };
 </script>

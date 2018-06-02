@@ -1,6 +1,17 @@
 <template>
   <div class="container">
-    <div class="waiting-class f-c">{{courseName}}(還不知道怎排版)</div>
+
+     <chatroom
+      v-if="isChattingOpen"
+      :chatting="chatting"
+      :socket="socket">
+    </chatroom>
+
+    <div class="nav-bar f-c">
+      <div class="nav-btn h-100" id="return" @click="return_to_pre()"></div>
+      <div class="class-name h-100 f-c">〈{{courseName}}〉</div>
+      <div class="nav-btn h-100" ></div>
+    </div>
     <div class="waiting-header f-c animated bounceInDown">等待遊戲者...</div>
     <div class="waiting-body b-x">
       <div class="col infro-people b-x f-c animated fadeInUp">
@@ -25,12 +36,11 @@
         </div>
       </div>
 
-      <div class="col infro-chatting b-x animated fadeInUp">
+      <div @click="OpenChattingPage()" class="col infro-chatting b-x animated fadeInUp">
           <ul class="chat-ul">
-            <li v-for="t in chatting" class="chat-li">{{t}}</li>
+            <li v-for="t in chatting" class="chat-li">{{t.name}}:{{t.text}}</li>
           </ul>
       </div>
-
     </div>
     <div class="waiting-bottom b-x">
       <button class="go-button"></button>
@@ -39,15 +49,34 @@
 </template>
 
 <script>
+import Chatroom from "./Chatroom";
 export default {
   data() {
     return {
       socket: "",
       chatting: [],
+      isChattingOpen: false,
       currentPeople: 1,
       courseName: "",
       course_id: sessionStorage.getItem("room_course_id")
     };
+  },
+  components: {
+    chatroom: Chatroom
+  },
+  methods: {
+    return_to_pre: function() {
+      if (this.isChattingOpen) this.isChattingOpen = false;
+      else {
+        let self = this;
+        self.socket.emit("leaveRoom", self.course_id);
+        sessionStorage.removeItem("room_course_id");
+        self.$router.push({ path: "/courselist" });
+      }
+    },
+    OpenChattingPage: function() {
+      this.isChattingOpen = true;
+    }
   },
   mounted: function() {
     let self = this;
@@ -80,21 +109,76 @@ export default {
       console.log("房間人數: " + data);
       self.currentPeople = data;
     });
+    self.socket.on("updateChat", function(msg) {
+      self.chatting.push(msg);
+    });
     self.socket.on("teacherLeave", function() {
+      let self = this;
+      self.socket.emit("leaveRoom", self.course_id);
+      sessionStorage.removeItem("room_course_id");
       self.$router.push({ path: "/courseList" });
       console.log("teacher left!");
     });
+    self.socket.on("gameStart", function() {
+      console.log("game start");
+      self.$nextTick(function() {
+        axios
+          .post("/room/join", {
+            course_id: self.course_id
+          })
+          .then(function(rtn) {
+            if (!rtn.data.errmsg) {
+              console.log(rtn.data);
+              self.$router.push({ path: "/gameroom_sixhat" });
+            } else {
+              console.log(rtn.data.errmsg);
+            }
+          })
+          .catch(function(err) {
+            console.log(err);
+          });
+      });
+    });
     self.socket.on("disconnect", function() {});
   },
+  updated: function() {
+    let chatbox = this.$el.querySelector(".chat-ul");
+    chatbox.scrollTop = chatbox.scrollHeight;
+  },
   destroyed: function() {
-    let self = this;
-    self.socket.emit("leaveRoom", self.course_id);
-    sessionStorage.removeItem("room_course_id");
+    // let self = this;
+    // self.socket.emit("leaveRoom", self.course_id);
+    // sessionStorage.removeItem("room_course_id");
   }
 };
 </script>
 
 <style scoped>
+.nav-bar {
+  width: 106%;
+  height: 7%;
+  margin-left: -3%;
+  box-shadow: 0px 5px 8px #9baec8;
+  font-size: 3em;
+}
+
+.nav-btn {
+  float: left;
+  width: 12%;
+}
+
+.class-name {
+  float: left;
+  font-weight: bold;
+  width: 76%;
+  font-size: 1.1em;
+}
+
+#return {
+  background: transparent url("/img/return.png") no-repeat center center;
+  background-size: 25%;
+}
+
 .waiting-class {
   width: 100%;
   height: 7%;

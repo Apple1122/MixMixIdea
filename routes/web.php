@@ -16,6 +16,7 @@ Route::combine([
     '/courselist',
     '/s_waiting',
     '/t_waiting',
+    '/history',
     '/gameroom_sixhat',
     '/analysis',
     '/vote',
@@ -35,6 +36,10 @@ Route::prefix('/courselist')->group(function () {
 
 Route::prefix('/room')->group(function () {
     Route::post('/leave', 'RoomController@leaveRoom');    
+    Route::post('/gameStart', 'RoomController@gameStart');
+
+    //player join room when the game start! not the momoent they enter room
+    Route::post('/join', 'RoomController@joinRoom');
 });
 
 Route::post('/getcourse', 'CourseController@getCourse');
