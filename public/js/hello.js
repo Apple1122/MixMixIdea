@@ -80261,7 +80261,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.container[data-v-2d53416d]{\n  width: 98%;\n  height: 100%;\n}\n.nav-bar[data-v-2d53416d]{\n  width: 106%;\n  height: 7%;\n  margin-left: -3%;\n  -webkit-box-shadow: 0px 5px 8px #9baec8;\n          box-shadow: 0px 5px 8px #9baec8; \n  font-size: 3em;\n}\n.nav-btn[data-v-2d53416d]{\n  float: left;\n  width: 12%;\n}\n.class-name[data-v-2d53416d]{\n  float: left;\n  width: 76%;\n  font-weight: bold;\n  font-size: 4.5em;\n}\n.head[data-v-2d53416d]{\n  width: 100%;\n  height: 15%;\n}\n.body[data-v-2d53416d]{\n  width: 100%;\n  height: 70%;\n}\n.choose-text[data-v-2d53416d]{\n  font-weight: bold;\n  width: 100%;\n  height: 12%;\n  color: #ff7473;\n  font-size: 3.5em;\n}\n.historylist[data-v-2d53416d]{\n  width: 100%;\n  height: 85%;\n}\n.history[data-v-2d53416d]{\n  height: 40%;\n  width: 90%;\n  border-radius: 50px;\n  margin: auto;\n  margin-bottom: 2.5%;\n}\n.history-title[data-v-2d53416d]{\n  width: 90%;\n  height: 20%;\n  border-radius: 50px;\n  margin:auto;\n  margin-bottom: 2.5%;\n  padding: 3%;\n}\n.history-infro[data-v-2d53416d]{\n  position: relative;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  width: 100%;\n  height: 100%;\n  background-color: #ffc952;\n  border-radius: 40px;\n}\n.course-name[data-v-2d53416d]{\n  width: 50%;\n  height: 100%;\n  font-size: 3em;\n  float: left;\n}\n.history-time[data-v-2d53416d]{\n  width: 50%;\n  height: 100%;\n  font-size: 3em;\n  float: left;\n}\n.history-brief[data-v-2d53416d]{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 2.5%;\n\n  margin-top: -2%;\n  width: 100%;\n  height: 80%;\n}\n.ranking[data-v-2d53416d]{\n  height: 100%;\n  width: 50%;\n  margin-bottom: 2.5%;\n  background-color: rgba(253,153,154,.7);\n  float: left;\n  font-size: 2em;\n}\n.actionClick[data-v-2d53416d]{\n  height: 100%;\n  width: 100;\n  background: rgba(255,255,255,.9);\n}\n.bottom[data-v-2d53416d]{\n  height: 14%;\n  width: 78%;\n  background-color: rgba(255,201,82,.8);\n  margin: auto;\n  border-radius: 99em;\n  margin: auto;\n  padding: -1%;\n  margin-bottom: 10%;\n  padding-bottom: 12px;\n}\n.btn[data-v-2d53416d]{\n  width: 60%;\n  height: 60%;\n  border-radius: 99em;\n  margin: 0 auto;\n  font-size: 5em;\n  background-size: 60%;\n  vertical-align: middle;\n  padding: 3%;\n  top: 20%;\n}\n.brief-infro[data-v-2d53416d]{\n  width: 50%;\n  height: 100%;\n  float: left;\n  background-color: rgba(103,213,181,.7);\n}\n.brieflist1[data-v-2d53416d]{\n  height: 20%;\n  width: 100%;\n  margin-bottom: 2.5%;\n  font-size: 2em;\n  border-radius: 99px;\n  padding: 2%;\n}\n", ""]);
+exports.push([module.i, "\n.container[data-v-2d53416d]{\n  width: 98%;\n  height: 100%;\n}\n.nav-bar[data-v-2d53416d]{\n  width: 106%;\n  height: 7%;\n  margin-left: -3%;\n  -webkit-box-shadow: 0px 5px 8px #9baec8;\n          box-shadow: 0px 5px 8px #9baec8; \n  font-size: 3em;\n}\n.nav-btn[data-v-2d53416d]{\n  float: left;\n  width: 12%;\n}\n.class-name[data-v-2d53416d]{\n  float: left;\n  width: 76%;\n  font-weight: bold;\n  font-size: 4.5em;\n}\n.head[data-v-2d53416d]{\n  width: 100%;\n  height: 15%;\n}\n.body[data-v-2d53416d]{\n  width: 100%;\n  height: 70%;\n}\n.choose-text[data-v-2d53416d]{\n  font-weight: bold;\n  width: 100%;\n  height: 12%;\n  color: #ff7473;\n  font-size: 3.5em;\n}\n.historylist[data-v-2d53416d]{\n  width: 100%;\n  height: 85%;\n}\n.history[data-v-2d53416d]{\n  height: 40%;\n  width: 90%;\n  border-radius: 50px;\n  margin: auto;\n  margin-bottom: 2.5%;\n}\n.history-title[data-v-2d53416d]{\n  width: 90%;\n  height: 20%;\n  border-radius: 50px;\n  margin:auto;\n  margin-bottom: 2.5%;\n  padding: 3%;\n}\n.history-infro[data-v-2d53416d]{\n  position: relative;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  width: 100%;\n  height: 100%;\n  background-color: #ffc952;\n  border-radius: 40px;\n}\n.course-name[data-v-2d53416d]{\n  width: 50%;\n  height: 100%;\n  font-size: 3em;\n  float: left;\n}\n.history-time[data-v-2d53416d]{\n  width: 50%;\n  height: 100%;\n  font-size: 3em;\n  float: left;\n}\n.history-brief[data-v-2d53416d]{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 2.5%;\n\n  margin-top: -2%;\n  width: 100%;\n  height: 80%;\n}\n.ranking[data-v-2d53416d]{\n  height: 100%;\n  width: 50%;\n  margin-bottom: 2.5%;\n  background-color: rgba(253,153,154,.7);\n  float: left;\n  font-size: 2em;\n}\n.actionClick[data-v-2d53416d]{\n  height: 100%;\n  width: 100;\n  background: rgba(255,255,255,.9);\n}\n.bottom[data-v-2d53416d]{\n  height: 14%;\n  width: 78%;\n  background-color: rgba(255,201,82,.8);\n  margin: auto;\n  border-radius: 99em;\n  margin: auto;\n  padding: -1%;\n  margin-bottom: 10%;\n  padding-bottom: 12px;\n}\n.btn[data-v-2d53416d]{\n  width: 60%;\n  height: 60%;\n  border-radius: 99em;\n  margin: 0 auto;\n  font-size: 5em;\n  background-size: 60%;\n  vertical-align: middle;\n  padding: 3%;\n  top: 20%;\n}\n.brief-infro[data-v-2d53416d]{\n  width: 50%;\n  height: 100%;\n  float: left;\n  font-size: 2.5em;\n  background-color: rgba(103,213,181,.7);\n}\n.brieflist1[data-v-2d53416d]{\n  height: 20%;\n  width: 100%;\n  margin-bottom: 2.5%;\n  font-size: 2em;\n  border-radius: 99px;\n  padding: 2%;\n}\n", ""]);
 
 // exports
 
@@ -80314,17 +80314,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       isClickItem: false,
       historylist: [{
-        name: "test1",
-        time: "time1"
+        name: "程式設計",
+        time: "190403"
       }, {
-        name: "test2",
-        time: "time2"
+        name: "企業概論",
+        time: "190404"
       }, {
-        name: "test3",
-        time: "time3"
+        name: "資訊管理導論",
+        time: "190405"
       }, {
-        name: "test4",
-        time: "time4"
+        name: "計算機概論",
+        time: "190405"
       }],
 
       historyBrief: [{
