@@ -3,7 +3,7 @@
    <div class="game-header">
     <div class="timer f-l h-100">
       <div class="time-logo h-100"></div>
-      <div class="time-text h-100">10:00</div>
+      <div class="time-text h-100">{{gameTime.m}}:{{gameTime.s}}</div>
     </div>
     <div class="type f-l h-100">
       <div class="t-l f-l h-100" :id="setting.gameID"></div>
@@ -89,194 +89,209 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        msg:[
-          {
-            groupid: 1,
-            goodnum: 20,
-            lovenum: 30,
-            hatID: 'blue',
-            whichhat: '藍帽',
-            content: '程式設計好好玩',
-            isvoted: false
-          }
-        ],
-        setting: {
-          gameName: "遊戲模式",
-          gameID: "groupfight",
-          brainName: "腦力激盪技法",
-          brainID: "sixhat",
-          time: "30分",
-          group: "平均分配",
-          topic: "程式設計好玩ㄇ"
-        },
-        input_text: '',
-        isVoteTime: true
-      }
-    },
-    methods: {
-      sendMyText: function(){
-        let msg = {
-            groupid: 1,
-            goodnum: 0,
-            lovenum: 0,
-            hatID: 'blue',
-            whichhat: '藍帽',
-            content: this.input_text,
-            isvoted: false
+export default {
+  data() {
+    return {
+      msg: [
+        {
+          groupid: 1,
+          goodnum: 20,
+          lovenum: 30,
+          hatID: "blue",
+          whichhat: "藍帽",
+          content: "程式設計好好玩",
+          isvoted: false
         }
-        this.msg.push(msg);
+      ],
+      setting: {
+        gameName: "遊戲模式",
+        gameID: "groupfight",
+        brainName: "腦力激盪技法",
+        brainID: "sixhat",
+        time: "30分",
+        group: "平均分配",
+        topic: "程式設計好玩ㄇ"
       },
-      FocuseOn: function(text) {
-        let obj = document.getElementById('slide');
-        if(obj!= null){
-          let which = (obj.scrollLeft / 377);
-          if(text == 'left'){
-            obj.scrollLeft = 377 * (which-1);
-          }
-          else {
-            obj.scrollLeft = 377 * (which+1);
-          }
-          // if (test >= 188){
-          //   obj.scrollLeft = 377 * (page+1);
-          // }
-          // else if (obj.scrollLeft <=188){
-          //   obj.scrollLeft = 0;
-          // }
-          // else {
-          //   obj.scrollLeft = 377 * (page);
-          // }
+      input_text: "",
+      gameTime: {
+        m: 10,
+        s: 0
+      },
+      isVoteTime: true
+    };
+  },
+  methods: {
+    sendMyText: function() {
+      let msg = {
+        groupid: 1,
+        goodnum: 0,
+        lovenum: 0,
+        hatID: "blue",
+        whichhat: "藍帽",
+        content: this.input_text,
+        isvoted: false
+      };
+      this.msg.push(msg);
+    },
+    FocuseOn: function(text) {
+      let obj = document.getElementById("slide");
+      if (obj != null) {
+        let which = obj.scrollLeft / 377;
+        if (text == "left") {
+          obj.scrollLeft = 377 * (which - 1);
+        } else {
+          obj.scrollLeft = 377 * (which + 1);
         }
+        // if (test >= 188){
+        //   obj.scrollLeft = 377 * (page+1);
+        // }
+        // else if (obj.scrollLeft <=188){
+        //   obj.scrollLeft = 0;
+        // }
+        // else {
+        //   obj.scrollLeft = 377 * (page);
+        // }
       }
     }
+  },
+  mounted: function() {
+    window.setInterval(() => {
+      if (this.gameTime.s != 0) {
+        this.gameTime.s--;
+      } else {
+        if (this.gameTime.m != 0) {
+          this.gameTime.m--;
+          this.gameTime.s = 59;
+        }
+      }
+    }, 1000);
   }
+};
 </script>
 
 <style scoped>
-
-.game-header{
+.game-header {
   box-sizing: border-box;
   padding: 2%;
   width: 100%;
   height: 10%;
 }
 
-.game-body{
+.game-body {
   width: 100%;
   height: 70%;
 }
 
-.game-bottom{
+.game-bottom {
   box-sizing: border-box;
   padding: 3%;
   width: 100%;
   height: 20%;
 }
 
-.timer{
+.timer {
   width: 35%;
   margin-right: 5%;
 }
 
-.type{
+.type {
   width: 40%;
   margin-right: 5%;
 }
 
-.setting{
+.setting {
   width: 15%;
-  background: transparent url('/img/setting.png') no-repeat center center;
+  background: transparent url("/img/setting.png") no-repeat center center;
   background-size: 70%;
 }
 
-.t-l{
+.t-l {
   width: 50%;
   border-radius: 15px 0px 0px 15px;
 }
 
-.t-r{
-  width: 50%; 
+.t-r {
+  width: 50%;
   border-radius: 0px 15px 15px 0px;
 }
 
-
-#pass{
-  background: transparent url('/img/pass.png') no-repeat center center;
+#pass {
+  background: transparent url("/img/pass.png") no-repeat center center;
   background-size: 70%;
 }
 
-#sixhat{
-  background: rgba(253,153,154,.7) url('/img/hat.png') no-repeat center center;
+#sixhat {
+  background: rgba(253, 153, 154, 0.7) url("/img/hat.png") no-repeat center
+    center;
   background-size: 80%;
 }
 
-#stf{
-  background: transparent url('/img/stf.png') no-repeat center center;
+#stf {
+  background: transparent url("/img/stf.png") no-repeat center center;
   background-size: 80%;
 }
 
-#role-play{
-  background: transparent url('/img/role-play.png') no-repeat center center;
+#role-play {
+  background: transparent url("/img/role-play.png") no-repeat center center;
   background-size: 80%;
 }
 
-#talking{
-  background: transparent url('/img/talking.png') no-repeat center center;
+#talking {
+  background: transparent url("/img/talking.png") no-repeat center center;
   background-size: 80%;
 }
 
-#passgate{
-  background: transparent url('/img/passgate.png') no-repeat center center;
+#passgate {
+  background: transparent url("/img/passgate.png") no-repeat center center;
   background-size: 80%;
 }
 
-#groupfight{
-  background: rgba(103,213,181,.7) url('/img/groupfight.png') no-repeat center center;
+#groupfight {
+  background: rgba(103, 213, 181, 0.7) url("/img/groupfight.png") no-repeat
+    center center;
   background-size: 80%;
 }
 
-#normal{
-  background: transparent url('/img/normal.png') no-repeat center center;
+#normal {
+  background: transparent url("/img/normal.png") no-repeat center center;
   background-size: 80%;
 }
 
-.time-logo{
+.time-logo {
   width: 45%;
-  background: transparent url('/img/clock.png') no-repeat center center;
+  background: transparent url("/img/clock.png") no-repeat center center;
   background-size: 90%;
 }
 
-.time-text{
+.time-text {
   box-sizing: border-box;
   padding: 6% 9%;
-    margin-left: 15%;
-    position: relative;
-    z-index: -99;
-    margin-top: -36%;
-    width: 85%;
-    background: #FBFFB9;
-    height: 80%;
-    text-align: right;
-    font-size: 3.5em;
+  margin-left: 15%;
+  position: relative;
+  z-index: -99;
+  margin-top: -36%;
+  width: 85%;
+  background: #fbffb9;
+  height: 80%;
+  text-align: right;
+  font-size: 3.5em;
 }
 
-.game-topic{
+.game-topic {
   width: 100%;
   height: 15%;
   box-sizing: border-box;
   padding: 2%;
 }
 
-.box{
+.box {
   width: 85%;
-  background: #D4DFE6;
+  background: #d4dfe6;
   font-size: 3em;
   border-radius: 20px;
 }
 
-.game-content{
+.game-content {
   display: -webkit-box;
   overflow-x: auto;
   overflow-y: hidden;
@@ -284,28 +299,28 @@
   height: 85%;
 }
 
-.sticky{
+.sticky {
   box-sizing: border-box;
   padding: 3%;
   width: 80%;
   height: 99%;
   background: #ffda8e;
-  box-shadow: 1px 1px 5px #754F44;
+  box-shadow: 1px 1px 5px #754f44;
   border-radius: 15px;
   margin: 0% 10%;
   overflow-y: scroll;
 }
 
-.white{
+.white {
   width: 10%;
   height: 99%;
 }
 
-.gb-l{
+.gb-l {
   width: 25%;
 }
 
-.gb-r{
+.gb-r {
   width: 75%;
 }
 
@@ -317,7 +332,6 @@
   box-shadow: 2px 2px 5px #f94e3f;
   margin-right: 4%;
 }
-
 
 .input {
   box-sizing: border-box;
@@ -342,34 +356,34 @@
   background-size: 50%;
 }
 
-.animal{
+.animal {
   width: 100%;
   height: 70%;
-  background: transparent url('/img/cat.png') no-repeat center center;
+  background: transparent url("/img/cat.png") no-repeat center center;
   background-size: 90%;
 }
 
-.hat{
+.hat {
   width: 100%;
   height: 30%;
 }
 
-.blue{
-    width: 75%;
-    margin-left: 7%;
-    position: relative;
+.blue {
+  width: 75%;
+  margin-left: 7%;
+  position: relative;
 }
 
-.msg{
-  width:100%;
+.msg {
+  width: 100%;
   height: 35%;
   background: #fff1b9;
   border-radius: 10px;
-  box-shadow: 1px 1px 5px #754F44;
-  margin-bottom: 3%;  
+  box-shadow: 1px 1px 5px #754f44;
+  margin-bottom: 3%;
 }
 
-.s-text{
+.s-text {
   width: 100%;
   height: 70%;
   box-sizing: border-box;
@@ -377,94 +391,94 @@
   font-size: 2.5em;
 }
 
-.s-bottom{
+.s-bottom {
   width: 100%;
   height: 30%;
   box-sizing: border-box;
   padding: 2%;
 }
 
-.s-good{
+.s-good {
   width: 30%;
   margin-right: 5%;
 }
 
-.s-love{
+.s-love {
   width: 30%;
   margin-right: 5%;
 }
 
-.s-hat{
+.s-hat {
   width: 30%;
 }
 
-.s-img{
+.s-img {
   width: 50%;
 }
 
-.s-num{
+.s-num {
   width: 50%;
   font-size: 2.5em;
 }
 
-#blue{
-  background: transparent url('/img/other_blue.png') no-repeat center center;
+#blue {
+  background: transparent url("/img/other_blue.png") no-repeat center center;
   background-size: 80%;
 }
 
-#good{
-  background: transparent url('/img/goodmost.png') no-repeat center center;
+#good {
+  background: transparent url("/img/goodmost.png") no-repeat center center;
   background-size: 70%;
 }
 
-#love{
-  background: transparent url('/img/goodadd.png') no-repeat center center;
+#love {
+  background: transparent url("/img/goodadd.png") no-repeat center center;
   background-size: 70%;
 }
 
-.l-btn{
+.l-btn {
   position: absolute;
   z-index: 99;
   top: 45%;
   left: 0%;
   width: 5em;
   height: 5em;
-  background: rgba(255,255,255,.5) url(/img/return.png) no-repeat center center;
+  background: rgba(255, 255, 255, 0.5) url(/img/return.png) no-repeat center
+    center;
   background-size: 30%;
   border-radius: 99em;
 }
 
-.r-btn{
+.r-btn {
   position: absolute;
   z-index: 99;
   top: 45%;
   right: 0%;
   width: 5em;
   height: 5em;
-  background: rgba(255,255,255,.5) url(/img/return.png) no-repeat center center;
+  background: rgba(255, 255, 255, 0.5) url(/img/return.png) no-repeat center
+    center;
   background-size: 30%;
   transform: rotate(180deg);
   border-radius: 99em;
 }
 
-.groupnum{
+.groupnum {
   position: relative;
   font-size: 10em;
   text-align: center;
-  color:#EC7357;
+  color: #ec7357;
   opacity: 0.7;
 }
 
-.s-vote{
+.s-vote {
   width: 80%;
-  background: #41D3BD;
+  background: #41d3bd;
   font-size: 3em;
   border-radius: 20px;
-
 }
 
-#voted{
-  background: #E71D36;
+#voted {
+  background: #e71d36;
 }
-
 </style>
