@@ -73611,7 +73611,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           if (!rtn.data.errmsg) {
             console.log(rtn.data);
             //self.socket.emit("gameStart", self.course_id);
-            //self.$router.push({ path: "/gameroom_sixhat" });
+            self.$router.push({ path: "/vote" });
           } else {
             console.log(rtn.data.errmsg);
           }
@@ -95483,7 +95483,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.group-header[data-v-96bc99b0]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  width: 100%;\r\n  height: 10%;\n}\n.game-body[data-v-96bc99b0]{\r\n  width: 100%;\r\n  height: 70%;\n}\n.game-bottom[data-v-96bc99b0]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 100%;\r\n  height: 20%;\n}\n.timer[data-v-96bc99b0]{\r\n  width: 35%;\r\n  margin-right: 5%;\n}\n.type[data-v-96bc99b0]{\r\n  width: 40%;\r\n  margin-right: 5%;\n}\n.setting[data-v-96bc99b0]{\r\n  width: 15%;\r\n  background: transparent url('/img/setting.png') no-repeat center center;\r\n  background-size: 70%;\n}\n.t-l[data-v-96bc99b0]{\r\n  width: 50%;\r\n  border-radius: 15px 0px 0px 15px;\n}\n.t-r[data-v-96bc99b0]{\r\n  width: 50%; \r\n  border-radius: 0px 15px 15px 0px;\n}\n.time-logo[data-v-96bc99b0]{\r\n  width: 45%;\r\n  background: transparent url('/img/clock.png') no-repeat center center;\r\n  background-size: 90%;\n}\n.time-text[data-v-96bc99b0]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 6% 9%;\r\n    margin-left: 15%;\r\n    position: relative;\r\n    z-index: -99;\r\n    margin-top: -36%;\r\n    width: 85%;\r\n    background: #FBFFB9;\r\n    height: 80%;\r\n    text-align: right;\r\n    font-size: 3.5em;\n}\n#pass[data-v-96bc99b0]{\r\n  background: transparent url('/img/pass.png') no-repeat center center;\r\n  background-size: 70%;\n}\n#sixhat[data-v-96bc99b0]{\r\n  background: rgba(253,153,154,.7) url('/img/hat.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#stf[data-v-96bc99b0]{\r\n  background: transparent url('/img/stf.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#role-play[data-v-96bc99b0]{\r\n  background: transparent url('/img/role-play.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#talking[data-v-96bc99b0]{\r\n  background: transparent url('/img/talking.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#passgate[data-v-96bc99b0]{\r\n  background: transparent url('/img/passgate.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#groupfight[data-v-96bc99b0]{\r\n  background: rgba(103,213,181,.7) url('/img/groupfight.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#normal[data-v-96bc99b0]{\r\n  background: transparent url('/img/normal.png') no-repeat center center;\r\n  background-size: 80%;\n}\r\n\r\n\r\n", ""]);
+exports.push([module.i, "\n.group-header[data-v-96bc99b0]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  width: 100%;\r\n  height: 10%;\n}\n.group-body[data-v-96bc99b0]{\r\n  width: 100%;\r\n  height: 80%;\n}\n.vote-status[data-v-96bc99b0]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 100%;\r\n  height: 20%;\n}\n.game[data-v-96bc99b0]{\r\n  width: 100%;\r\n  height: 80%;\r\n  overflow: hidden;\r\n    -webkit-box-sizing: border-box;\r\n            box-sizing: border-box;\r\n    padding: 0% 7%;\n}\n.group-bottom[data-v-96bc99b0]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 100%;\r\n  height: 10%;\n}\n.timer[data-v-96bc99b0]{\r\n  width: 35%;\r\n  margin-right: 5%;\n}\n.type[data-v-96bc99b0]{\r\n  width: 40%;\r\n  margin-right: 5%;\n}\n.setting[data-v-96bc99b0]{\r\n  width: 15%;\r\n  background: transparent url('/img/setting.png') no-repeat center center;\r\n  background-size: 70%;\n}\n.t-l[data-v-96bc99b0]{\r\n  width: 50%;\r\n  border-radius: 15px 0px 0px 15px;\n}\n.t-r[data-v-96bc99b0]{\r\n  width: 50%; \r\n  border-radius: 0px 15px 15px 0px;\n}\n.time-logo[data-v-96bc99b0]{\r\n  width: 45%;\r\n  background: transparent url('/img/clock.png') no-repeat center center;\r\n  background-size: 90%;\n}\n.time-text[data-v-96bc99b0]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 6% 9%;\r\n    margin-left: 15%;\r\n    position: relative;\r\n    z-index: -99;\r\n    margin-top: -36%;\r\n    width: 85%;\r\n    background: #FBFFB9;\r\n    height: 80%;\r\n    text-align: right;\r\n    font-size: 3.5em;\n}\n#pass[data-v-96bc99b0]{\r\n  background: transparent url('/img/pass.png') no-repeat center center;\r\n  background-size: 70%;\n}\n#sixhat[data-v-96bc99b0]{\r\n  background: rgba(253,153,154,.7) url('/img/hat.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#stf[data-v-96bc99b0]{\r\n  background: transparent url('/img/stf.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#role-play[data-v-96bc99b0]{\r\n  background: transparent url('/img/role-play.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#talking[data-v-96bc99b0]{\r\n  background: transparent url('/img/talking.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#passgate[data-v-96bc99b0]{\r\n  background: transparent url('/img/passgate.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#groupfight[data-v-96bc99b0]{\r\n  background: rgba(103,213,181,.7) url('/img/groupfight.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#normal[data-v-96bc99b0]{\r\n  background: transparent url('/img/normal.png') no-repeat center center;\r\n  background-size: 80%;\n}\n.v-group[data-v-96bc99b0]{\r\n  float: left;\r\n  width: 28%;\r\n  height: 40%;\r\n  border-radius: 20px;\r\n  font-size: 2.2em;\r\n  background: #ff7473;\r\n  border: 2px solid #f94e3f;\r\n  margin-right: 5%;\r\n  margin-bottom: 2%;\n}\n.send-btn[data-v-96bc99b0]{\r\n  width: 70%;\r\n  background-color:rgba(71,184,224,.5);\r\n  border-radius: 15px;\r\n  font-size: 3em;\r\n  -webkit-transition: background-color 0.7s;\r\n  transition: background-color 0.7s;\r\n  -webkit-box-shadow: 2px 2px 3px #34314c;\r\n          box-shadow: 2px 2px 3px #34314c;\n}\n.send-btn[data-v-96bc99b0]:hover{\r\n  background-color:rgba(71,184,224,.9);\n}\n.g-group[data-v-96bc99b0]{\r\n  float: left;\r\n  -webkit-box-shadow: border-box;\r\n          box-shadow: border-box;\r\n  padding: 1%;\r\n  margin-right: 5%;\r\n  width: 20%;\r\n  height: 40%;\r\n  overflow: hidden;\r\n  margin: 0% 6%;\n}\n.g-logo[data-v-96bc99b0]{\r\n  width: 95%;\n}\n.g-cicle[data-v-96bc99b0]{\r\n  width: 90%;\r\n  height: 20%;\r\n  background: red;\n}\n.g-body[data-v-96bc99b0]{\r\n  width: 90%;\r\n  height: 70%;\r\n  margin-top: -10%;\r\n  background: #e85a71;\r\nfont-size: 3em;\n}\n#two[data-v-96bc99b0]{\r\n    background: #4ea1d3;\n}\n#three[data-v-96bc99b0]{\r\n    background: #fbd14b;\n}\n#four[data-v-96bc99b0]{\r\n  background: #79bd9a;\n}\n#five[data-v-96bc99b0]{\r\n  background: #AAABD3;\n}\n.g-white[data-v-96bc99b0]{\r\n  -webkit-transition: width 0.7s;\r\n  transition: width 0.7s;\r\n  width: 100%;\r\n  height: 10%;\n}\n#ten[data-v-96bc99b0]{\r\n  width: 100%;\r\n  height: 10%\n}\n#twenty[data-v-96bc99b0]{\r\n  -webkit-transition: width 0.7s;\r\n  transition: width 0.7s;\r\n  width: 100%;\r\n  height: 20%;\n}\n#fourty[data-v-96bc99b0]{\r\n  height: 40%;\n}\n#seventy[data-v-96bc99b0]{\r\n  height: 50%;\n}\n#fifty[data-v-96bc99b0]{\r\n  height: 15%;\n}\r\n\r\n", ""]);
 
 // exports
 
@@ -95494,6 +95494,48 @@ exports.push([module.i, "\n.group-header[data-v-96bc99b0]{\r\n  -webkit-box-sizi
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -95540,7 +95582,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         topic: "程式設計好玩ㄇ"
       },
       input_text: '',
-      isVoteTime: true
+      isVoteTime: true,
+      attack: {
+        one: false,
+        two: false,
+        three: false,
+        four: false,
+        five: false,
+        isOK: false
+      }
     };
   },
 
@@ -95576,6 +95626,33 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         //   obj.scrollLeft = 377 * (page);
         // }
       }
+    },
+    attackSelect: function attackSelect(text) {
+      switch (text) {
+        case 'one':
+          this.attack.one = !this.attack.one;
+          break;
+
+        case 'two':
+          this.attack.two = !this.attack.two;
+          break;
+
+        case 'three':
+          this.attack.three = !this.attack.three;
+          break;
+
+        case 'four':
+          this.attack.four = !this.attack.four;
+          break;
+
+        case 'five':
+          this.attack.five = !this.attack.five;
+          break;
+
+      }
+    },
+    attackGO: function attackGO() {
+      this.attack.isOK = true;
     }
   }
 });
@@ -95589,7 +95666,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
-    _c("div", { staticClass: "game-header" }, [
+    _c("div", { staticClass: "group-header" }, [
       _vm._m(0),
       _vm._v(" "),
       _c("div", { staticClass: "type f-l h-100" }, [
@@ -95607,9 +95684,150 @@ var render = function() {
       _c("div", { staticClass: "setting f-l h-100" })
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "group-body" }),
+    _c("div", { staticClass: "group-body" }, [
+      _vm._m(1),
+      _vm._v(" "),
+      _c("div", { staticClass: "game" }, [
+        _c(
+          "div",
+          {
+            staticClass: "g-group",
+            on: {
+              click: function($event) {
+                _vm.attackSelect("one")
+              }
+            }
+          },
+          [
+            _c("img", {
+              staticClass: "g-logo",
+              attrs: { src: "/img/animal0.png" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "g-body f-c" }, [_vm._v("自己")])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "g-group",
+            on: {
+              click: function($event) {
+                _vm.attackSelect("two")
+              }
+            }
+          },
+          [
+            _vm.attack.isOK
+              ? _c("div", { staticClass: "g-white", attrs: { id: "twenty" } })
+              : _vm._e(),
+            _vm._v(" "),
+            _c("img", {
+              staticClass: "g-logo",
+              attrs: { src: "/img/animal1.png" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "g-body f-c", attrs: { id: "two" } }, [
+              _vm._v(_vm._s(_vm.attack.two ? "攻擊" : ""))
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "g-group",
+            on: {
+              click: function($event) {
+                _vm.attackSelect("three")
+              }
+            }
+          },
+          [
+            _vm.attack.isOK
+              ? _c("div", { staticClass: "g-white", attrs: { id: "seventy" } })
+              : _vm._e(),
+            _vm._v(" "),
+            _c("img", {
+              staticClass: "g-logo",
+              attrs: { src: "/img/animal2.png" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "g-body f-c", attrs: { id: "three" } }, [
+              _vm._v(_vm._s(_vm.attack.three ? "攻擊" : ""))
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "g-group",
+            on: {
+              click: function($event) {
+                _vm.attackSelect("four")
+              }
+            }
+          },
+          [
+            _vm.attack.isOK
+              ? _c("div", { staticClass: "g-white", attrs: { id: "ten" } })
+              : _vm._e(),
+            _vm._v(" "),
+            _c("img", {
+              staticClass: "g-logo",
+              attrs: { src: "/img/animal3.png" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "g-body f-c", attrs: { id: "four" } }, [
+              _vm._v(_vm._s(_vm.attack.four ? "攻擊" : ""))
+            ])
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "g-group",
+            on: {
+              click: function($event) {
+                _vm.attackSelect("five")
+              }
+            }
+          },
+          [
+            _vm.attack.isOK
+              ? _c("div", { staticClass: "g-white", attrs: { id: "fifty" } })
+              : _vm._e(),
+            _vm._v(" "),
+            _c("img", {
+              staticClass: "g-logo",
+              attrs: { src: "/img/animal4.png" }
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "g-body f-c", attrs: { id: "five" } }, [
+              _vm._v(_vm._s(_vm.attack.five ? "攻擊" : ""))
+            ])
+          ]
+        )
+      ])
+    ]),
     _vm._v(" "),
-    _c("div", { staticClass: "group-bottom" })
+    _c("div", { staticClass: "group-bottom f-c" }, [
+      _c(
+        "div",
+        {
+          staticClass: "send-btn f-c h-100",
+          on: {
+            click: function($event) {
+              _vm.attackGO()
+            }
+          }
+        },
+        [_vm._v("送出")]
+      )
+    ])
   ])
 }
 var staticRenderFns = [
@@ -95621,6 +95839,22 @@ var staticRenderFns = [
       _c("div", { staticClass: "time-logo h-100" }),
       _vm._v(" "),
       _c("div", { staticClass: "time-text h-100" }, [_vm._v("10:00")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "vote-status" }, [
+      _c("div", { staticClass: "v-group f-c" }, [_vm._v("第一組：5票")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "v-group f-c" }, [_vm._v("第二組：15票")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "v-group f-c" }, [_vm._v("第三組：3票")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "v-group f-c" }, [_vm._v("第四組：10票")]),
+      _vm._v(" "),
+      _c("div", { staticClass: "v-group f-c" }, [_vm._v("第五組：20票")])
     ])
   }
 ]

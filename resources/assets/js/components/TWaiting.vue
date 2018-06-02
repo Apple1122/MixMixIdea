@@ -136,7 +136,7 @@ export default {
             if (!rtn.data.errmsg) {
               console.log(rtn.data);
               //self.socket.emit("gameStart", self.course_id);
-              //self.$router.push({ path: "/gameroom_sixhat" });
+              self.$router.push({ path: "/vote" });
             } else {
               console.log(rtn.data.errmsg);
             }
