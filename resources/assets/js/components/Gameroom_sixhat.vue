@@ -2,10 +2,10 @@
   <div class="container">
     <div class="header my-3">
         <div class="d-flex flex-row justify-content-between  align-items-center">
-            <div class="">
+            <div class="col-l">
                 <div class="d-flex flex-row align-items-center ml-1">
                     <img class="icon-4" src="/img/clock.png">   
-                    <p class="ml-1 time">08:44</p>
+                    <div class="time col-time f-c">08:44</div>
                 </div>       
             </div>        
             <div class="mode h-100">
@@ -288,5 +288,20 @@ export default {
   right: -6%;
   top: 6%;
   border-left-color: #fff;
+}
+
+.col-l{
+  width: 35%;
+  height: 100%;
+  background-color: #FBFFB9;
+  border-radius: 25px;
+  HEIGHT: 66%;
+}
+
+.col-time{
+  width: 55%;
+  height: 100%;
+  font-size: 3.7em;
+  color: #754F44;
 }
 </style>

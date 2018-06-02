@@ -17,7 +17,9 @@ Route::combine([
     '/s_waiting',
     '/t_waiting',
     '/gameroom_sixhat',
-    '/analysis'
+    '/analysis',
+    '/vote',
+    '/gameroom'
 ], function () {
     return view('app');
 });

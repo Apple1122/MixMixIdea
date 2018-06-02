@@ -36562,7 +36562,7 @@ module.exports = {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(174);
-module.exports = __webpack_require__(337);
+module.exports = __webpack_require__(348);
 
 
 /***/ }),
@@ -36573,11 +36573,14 @@ module.exports = __webpack_require__(337);
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vue_router__ = __webpack_require__(200);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__routes__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_chartjs_plugin_datalabels__ = __webpack_require__(336);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_chartjs_plugin_datalabels__ = __webpack_require__(346);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_chartjs_plugin_datalabels___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_chartjs_plugin_datalabels__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_chart_js__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue2_touch_events__ = __webpack_require__(347);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue2_touch_events___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vue2_touch_events__);
 __webpack_require__(175);
+
 
 
 
@@ -36591,6 +36594,8 @@ var router = new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
   routes: __WEBPACK_IMPORTED_MODULE_1__routes__["a" /* default */],
   mode: 'history'
 });
+
+Vue.use(__WEBPACK_IMPORTED_MODULE_4_vue2_touch_events___default.a);
 
 // New An Instance
 var vm = new Vue({
@@ -72475,6 +72480,12 @@ if (inBrowser && window.Vue) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_Gameroom_sixhat___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__components_Gameroom_sixhat__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_Analysis__ = __webpack_require__(267);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__components_Analysis___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__components_Analysis__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_Vote__ = __webpack_require__(336);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__components_Vote___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__components_Vote__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_Gameroom__ = __webpack_require__(341);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__components_Gameroom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8__components_Gameroom__);
+
+
 
 
 
@@ -72501,6 +72512,12 @@ var routes = [{
 }, {
   path: '/analysis',
   component: __WEBPACK_IMPORTED_MODULE_6__components_Analysis___default.a
+}, {
+  path: '/vote',
+  component: __WEBPACK_IMPORTED_MODULE_7__components_Vote___default.a
+}, {
+  path: '/gameroom',
+  component: __WEBPACK_IMPORTED_MODULE_8__components_Gameroom___default.a
 }];
 
 /* harmony default export */ __webpack_exports__["a"] = (routes);
@@ -80103,7 +80120,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.container[data-v-7c7e8384] {\r\n  position: fixed;\r\n  overflow: hidden;\r\n  padding: 0% 3%;\r\n  width: 100%;\r\n  height: 100%;\r\n  background: transparent url(\"/img/bg-img.png\") no-repeat center;\r\n  background-size: 90%;\n}\n.icon-4[data-v-7c7e8384] {\r\n  height: 4em;\r\n  width: 4em;\n}\n.header[data-v-7c7e8384] {\r\n  height: 4em;\n}\n.mode[data-v-7c7e8384] {\r\n  font-size: 1.5em;\n}\n.answer-group[data-v-7c7e8384] {\r\n  height: 20em;\r\n  background-color: #f9edbd;\r\n  -webkit-box-shadow: 4px 4px 20px 1px rgba(182, 182, 206, 0.5);\r\n          box-shadow: 4px 4px 20px 1px rgba(182, 182, 206, 0.5);\r\n  margin-left: 3em;\r\n  margin-right: 3em;\r\n  padding: 0.5em;\n}\n.chatting-page[data-v-7c7e8384] {\r\n  position: absolute;\r\n  top: 7%;\r\n  left: 0%;\r\n  z-index: 99;\r\n  width: 100%;\r\n  height: 93%;\r\n  padding: 0% 5%;\r\n  background: rgba(255, 255, 255, 0.9);\n}\n.chatting-content[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  width: 100%;\r\n  height: 70%;\r\n  overflow-y: scroll;\n}\n.chatting-title[data-v-7c7e8384] {\r\n  width: 100%;\r\n  height: 15%;\r\n  font-size: 6em;\r\n  text-align: center;\r\n  font-weight: bold;\r\n  color: #754f44;\r\n  background: transparent url(\"/img/setting_title.png\") no-repeat center center;\r\n  background-size: 70%;\r\n  text-shadow: 2px 2px 1px #34314c;\n}\n.chatting-bottom[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 100%;\r\n  height: 15%;\n}\n.inputbox[data-v-7c7e8384] {\r\n  width: 78%;\r\n  background-color: #fff1b9;\r\n  border-radius: 20px;\r\n  -webkit-box-shadow: 3px 3px 7px #f94e3f;\r\n          box-shadow: 3px 3px 7px #f94e3f;\r\n  margin-right: 2%;\n}\n.input[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 100%;\r\n  outline: none;\r\n  border: none;\r\n  background: transparent;\r\n  font-size: 2.2em;\n}\n.sendbox[data-v-7c7e8384] {\r\n  width: 20%;\n}\n.sent-btn[data-v-7c7e8384] {\r\n  width: 4em;\r\n  height: 4em;\r\n  border-radius: 99em;\r\n  background: #ff7473 url(/img/send-button.png) no-repeat center center;\r\n  -webkit-box-shadow: 3px 3px 7px #a6172d;\r\n          box-shadow: 3px 3px 7px #a6172d;\r\n  background-size: 50%;\n}\n.myself-message[data-v-7c7e8384],\r\n.others-message[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 1.5%;\r\n  position: relative;\r\n  left: 0;\r\n  width: 97%;\r\n  min-height: 10%;\r\n  -webkit-animation: fadeIn 1s;\r\n          animation: fadeIn 1s;\n}\n.myself-message .image[data-v-7c7e8384],\r\n.others-message .image[data-v-7c7e8384] {\r\n  float: left;\r\n  top: 28%;\r\n  left: 3%;\r\n  width: 8em;\r\n  height: 8em;\r\n  border-radius: 99em;\r\n  background-color: white;\r\n  -webkit-box-shadow: 1px 1px 1px $input-shadow;\r\n          box-shadow: 1px 1px 1px $input-shadow;\n}\n.myself-message .name[data-v-7c7e8384],\r\n.others-message .name[data-v-7c7e8384] {\r\n  float: left;\r\n  margin-top: 7%;\r\n  text-align: center;\r\n  width: 100%;\r\n  font-size: 2.3em;\n}\n.myself-message .dialogbox[data-v-7c7e8384],\r\n.others-message .dialogbox[data-v-7c7e8384] {\r\n  font-size: 3em;\r\n  display: inline-block;\r\n  width: 80%;\r\n  margin-top: 1%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  -webkit-box-shadow: 4px 4px 5px #7f9eb2;\r\n          box-shadow: 4px 4px 5px #7f9eb2;\r\n  padding: 2% 5% 2% 5%;\r\n  background: #fffff5;\r\n  word-break: break-all;\r\n  border-radius: 6px;\r\n  line-height: 200%;\n}\n.myself-message .dialogbox[data-v-7c7e8384]:after,\r\n.others-message .dialogbox[data-v-7c7e8384]:after {\r\n  content: \" \";\r\n  height: 0;\r\n  width: 0;\r\n  pointer-events: none;\r\n  border: solid transparent;\r\n  border-color: #fffff5;\r\n  border-width: 7px;\n}\n.myself-infro[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 1%;\r\n  position: absolute;\r\n  width: 17%;\r\n  height: 90%;\n}\n.others-infro[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 1%;\r\n  position: absolute;\r\n  right: 1%;\r\n  width: 17%;\r\n  height: 90%;\n}\n.myself-message .time[data-v-7c7e8384] {\r\n  position: relative;\r\n  margin-top: 2%;\r\n  left: 86%;\r\n  font-size: 2.2em;\n}\n.myself-message .dialogbox[data-v-7c7e8384] {\r\n  position: relative;\r\n  left: 20%;\r\n  top: 0%;\n}\n.myself-message .dialogbox[data-v-7c7e8384] :after {\r\n  position: absolute;\r\n  right: 99%;\r\n  top: 4%;\r\n  border-right-color: #fff;\n}\n.others-message .time[data-v-7c7e8384] {\r\n  position: relative;\r\n  margin-top: 2%;\n}\n.others-message .dialogbox[data-v-7c7e8384] {\r\n  position: relative;\r\n  left: 0%;\r\n  top: 0%;\n}\n.others-message .dialogbox[data-v-7c7e8384]:after {\r\n  position: absolute;\r\n  right: -6%;\r\n  top: 6%;\r\n  border-left-color: #fff;\n}\r\n", ""]);
+exports.push([module.i, "\n.container[data-v-7c7e8384] {\r\n  position: fixed;\r\n  overflow: hidden;\r\n  padding: 0% 3%;\r\n  width: 100%;\r\n  height: 100%;\r\n  background: transparent url(\"/img/bg-img.png\") no-repeat center;\r\n  background-size: 90%;\n}\n.icon-4[data-v-7c7e8384] {\r\n  height: 4em;\r\n  width: 4em;\n}\n.header[data-v-7c7e8384] {\r\n  height: 4em;\n}\n.mode[data-v-7c7e8384] {\r\n  font-size: 1.5em;\n}\n.answer-group[data-v-7c7e8384] {\r\n  height: 20em;\r\n  background-color: #f9edbd;\r\n  -webkit-box-shadow: 4px 4px 20px 1px rgba(182, 182, 206, 0.5);\r\n          box-shadow: 4px 4px 20px 1px rgba(182, 182, 206, 0.5);\r\n  margin-left: 3em;\r\n  margin-right: 3em;\r\n  padding: 0.5em;\n}\n.chatting-page[data-v-7c7e8384] {\r\n  position: absolute;\r\n  top: 7%;\r\n  left: 0%;\r\n  z-index: 99;\r\n  width: 100%;\r\n  height: 93%;\r\n  padding: 0% 5%;\r\n  background: rgba(255, 255, 255, 0.9);\n}\n.chatting-content[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  width: 100%;\r\n  height: 70%;\r\n  overflow-y: scroll;\n}\n.chatting-title[data-v-7c7e8384] {\r\n  width: 100%;\r\n  height: 15%;\r\n  font-size: 6em;\r\n  text-align: center;\r\n  font-weight: bold;\r\n  color: #754f44;\r\n  background: transparent url(\"/img/setting_title.png\") no-repeat center center;\r\n  background-size: 70%;\r\n  text-shadow: 2px 2px 1px #34314c;\n}\n.chatting-bottom[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 100%;\r\n  height: 15%;\n}\n.inputbox[data-v-7c7e8384] {\r\n  width: 78%;\r\n  background-color: #fff1b9;\r\n  border-radius: 20px;\r\n  -webkit-box-shadow: 3px 3px 7px #f94e3f;\r\n          box-shadow: 3px 3px 7px #f94e3f;\r\n  margin-right: 2%;\n}\n.input[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 100%;\r\n  outline: none;\r\n  border: none;\r\n  background: transparent;\r\n  font-size: 2.2em;\n}\n.sendbox[data-v-7c7e8384] {\r\n  width: 20%;\n}\n.sent-btn[data-v-7c7e8384] {\r\n  width: 4em;\r\n  height: 4em;\r\n  border-radius: 99em;\r\n  background: #ff7473 url(/img/send-button.png) no-repeat center center;\r\n  -webkit-box-shadow: 3px 3px 7px #a6172d;\r\n          box-shadow: 3px 3px 7px #a6172d;\r\n  background-size: 50%;\n}\n.myself-message[data-v-7c7e8384],\r\n.others-message[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 1.5%;\r\n  position: relative;\r\n  left: 0;\r\n  width: 97%;\r\n  min-height: 10%;\r\n  -webkit-animation: fadeIn 1s;\r\n          animation: fadeIn 1s;\n}\n.myself-message .image[data-v-7c7e8384],\r\n.others-message .image[data-v-7c7e8384] {\r\n  float: left;\r\n  top: 28%;\r\n  left: 3%;\r\n  width: 8em;\r\n  height: 8em;\r\n  border-radius: 99em;\r\n  background-color: white;\r\n  -webkit-box-shadow: 1px 1px 1px $input-shadow;\r\n          box-shadow: 1px 1px 1px $input-shadow;\n}\n.myself-message .name[data-v-7c7e8384],\r\n.others-message .name[data-v-7c7e8384] {\r\n  float: left;\r\n  margin-top: 7%;\r\n  text-align: center;\r\n  width: 100%;\r\n  font-size: 2.3em;\n}\n.myself-message .dialogbox[data-v-7c7e8384],\r\n.others-message .dialogbox[data-v-7c7e8384] {\r\n  font-size: 3em;\r\n  display: inline-block;\r\n  width: 80%;\r\n  margin-top: 1%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  -webkit-box-shadow: 4px 4px 5px #7f9eb2;\r\n          box-shadow: 4px 4px 5px #7f9eb2;\r\n  padding: 2% 5% 2% 5%;\r\n  background: #fffff5;\r\n  word-break: break-all;\r\n  border-radius: 6px;\r\n  line-height: 200%;\n}\n.myself-message .dialogbox[data-v-7c7e8384]:after,\r\n.others-message .dialogbox[data-v-7c7e8384]:after {\r\n  content: \" \";\r\n  height: 0;\r\n  width: 0;\r\n  pointer-events: none;\r\n  border: solid transparent;\r\n  border-color: #fffff5;\r\n  border-width: 7px;\n}\n.myself-infro[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 1%;\r\n  position: absolute;\r\n  width: 17%;\r\n  height: 90%;\n}\n.others-infro[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 1%;\r\n  position: absolute;\r\n  right: 1%;\r\n  width: 17%;\r\n  height: 90%;\n}\n.myself-message .time[data-v-7c7e8384] {\r\n  position: relative;\r\n  margin-top: 2%;\r\n  left: 86%;\r\n  font-size: 2.2em;\n}\n.myself-message .dialogbox[data-v-7c7e8384] {\r\n  position: relative;\r\n  left: 20%;\r\n  top: 0%;\n}\n.myself-message .dialogbox[data-v-7c7e8384] :after {\r\n  position: absolute;\r\n  right: 99%;\r\n  top: 4%;\r\n  border-right-color: #fff;\n}\n.others-message .time[data-v-7c7e8384] {\r\n  position: relative;\r\n  margin-top: 2%;\n}\n.others-message .dialogbox[data-v-7c7e8384] {\r\n  position: relative;\r\n  left: 0%;\r\n  top: 0%;\n}\n.others-message .dialogbox[data-v-7c7e8384]:after {\r\n  position: absolute;\r\n  right: -6%;\r\n  top: 6%;\r\n  border-left-color: #fff;\n}\n.col-l[data-v-7c7e8384]{\r\n  width: 35%;\r\n  height: 100%;\r\n  background-color: #FBFFB9;\r\n  border-radius: 25px;\r\n  HEIGHT: 66%;\n}\n.col-time[data-v-7c7e8384]{\r\n  width: 55%;\r\n  height: 100%;\r\n  font-size: 3.7em;\r\n  color: #754F44;\n}\r\n", ""]);
 
 // exports
 
@@ -80263,7 +80280,7 @@ var staticRenderFns = [
             "d-flex flex-row justify-content-between  align-items-center"
         },
         [
-          _c("div", {}, [
+          _c("div", { staticClass: "col-l" }, [
             _c(
               "div",
               { staticClass: "d-flex flex-row align-items-center ml-1" },
@@ -80273,7 +80290,9 @@ var staticRenderFns = [
                   attrs: { src: "/img/clock.png" }
                 }),
                 _vm._v(" "),
-                _c("p", { staticClass: "ml-1 time" }, [_vm._v("08:44")])
+                _c("div", { staticClass: "time col-time f-c" }, [
+                  _vm._v("08:44")
+                ])
               ]
             )
           ]),
@@ -94081,6 +94100,878 @@ if (false) {
 /* 336 */
 /***/ (function(module, exports, __webpack_require__) {
 
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(337)
+}
+var normalizeComponent = __webpack_require__(6)
+/* script */
+var __vue_script__ = __webpack_require__(339)
+/* template */
+var __vue_template__ = __webpack_require__(340)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-774abbe1"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\Vote.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-774abbe1", Component.options)
+  } else {
+    hotAPI.reload("data-v-774abbe1", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 337 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(338);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(5)("d3254eb2", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-774abbe1\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Vote.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-774abbe1\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Vote.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 338 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.game-header[data-v-774abbe1]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  width: 100%;\r\n  height: 10%;\n}\n.game-body[data-v-774abbe1]{\r\n  width: 100%;\r\n  height: 70%;\n}\n.game-bottom[data-v-774abbe1]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 100%;\r\n  height: 20%;\n}\n.timer[data-v-774abbe1]{\r\n  width: 35%;\r\n  margin-right: 5%;\n}\n.type[data-v-774abbe1]{\r\n  width: 40%;\r\n  margin-right: 5%;\n}\n.setting[data-v-774abbe1]{\r\n  width: 15%;\r\n  background: transparent url('/img/setting.png') no-repeat center center;\r\n  background-size: 70%;\n}\n.t-l[data-v-774abbe1]{\r\n  width: 50%;\r\n  border-radius: 15px 0px 0px 15px;\n}\n.t-r[data-v-774abbe1]{\r\n  width: 50%; \r\n  border-radius: 0px 15px 15px 0px;\n}\n#pass[data-v-774abbe1]{\r\n  background: transparent url('/img/pass.png') no-repeat center center;\r\n  background-size: 70%;\n}\n#sixhat[data-v-774abbe1]{\r\n  background: rgba(253,153,154,.7) url('/img/hat.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#stf[data-v-774abbe1]{\r\n  background: transparent url('/img/stf.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#role-play[data-v-774abbe1]{\r\n  background: transparent url('/img/role-play.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#talking[data-v-774abbe1]{\r\n  background: transparent url('/img/talking.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#passgate[data-v-774abbe1]{\r\n  background: transparent url('/img/passgate.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#groupfight[data-v-774abbe1]{\r\n  background: rgba(103,213,181,.7) url('/img/groupfight.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#normal[data-v-774abbe1]{\r\n  background: transparent url('/img/normal.png') no-repeat center center;\r\n  background-size: 80%;\n}\n.time-logo[data-v-774abbe1]{\r\n  width: 45%;\r\n  background: transparent url('/img/clock.png') no-repeat center center;\r\n  background-size: 90%;\n}\n.time-text[data-v-774abbe1]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 6% 9%;\r\n    margin-left: 15%;\r\n    position: relative;\r\n    z-index: -99;\r\n    margin-top: -36%;\r\n    width: 85%;\r\n    background: #FBFFB9;\r\n    height: 80%;\r\n    text-align: right;\r\n    font-size: 3.5em;\n}\n.game-topic[data-v-774abbe1]{\r\n  width: 100%;\r\n  height: 15%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\n}\n.box[data-v-774abbe1]{\r\n  width: 85%;\r\n  background: #D4DFE6;\r\n  font-size: 3em;\r\n  border-radius: 20px;\n}\n.game-content[data-v-774abbe1]{\r\n  display: -webkit-box;\r\n  overflow-x: auto;\r\n  overflow-y: hidden;\r\n  width: 100%;\r\n  height: 85%;\n}\n.sticky[data-v-774abbe1]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 80%;\r\n  height: 99%;\r\n  background: #ffda8e;\r\n  -webkit-box-shadow: 1px 1px 5px #754F44;\r\n          box-shadow: 1px 1px 5px #754F44;\r\n  border-radius: 15px;\r\n  margin: 0% 10%;\r\n  overflow-y: scroll;\n}\n.white[data-v-774abbe1]{\r\n  width: 10%;\r\n  height: 99%;\n}\n.gb-l[data-v-774abbe1]{\r\n  width: 25%;\n}\n.gb-r[data-v-774abbe1]{\r\n  width: 75%;\n}\n.inputbox[data-v-774abbe1] {\r\n  width: 76%;\r\n  height: 90%;\r\n  background-color: #fff1b9;\r\n  border-radius: 20px;\r\n  -webkit-box-shadow: 2px 2px 5px #f94e3f;\r\n          box-shadow: 2px 2px 5px #f94e3f;\r\n  margin-right: 4%;\n}\n.input[data-v-774abbe1] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 5%;\r\n  width: 100%;\r\n  outline: none;\r\n  border: none;\r\n  background: transparent;\r\n  font-size: 2.2em;\n}\n.sendbox[data-v-774abbe1] {\r\n  width: 20%;\n}\n.sent-btn[data-v-774abbe1] {\r\n  width: 4.5em;\r\n  height: 4.5em;\r\n  border-radius: 99em;\r\n  background: #ff7473 url(/img/send-button.png) no-repeat center center;\r\n  -webkit-box-shadow: 3px 3px 7px #a6172d;\r\n          box-shadow: 3px 3px 7px #a6172d;\r\n  background-size: 50%;\n}\n.animal[data-v-774abbe1]{\r\n  width: 100%;\r\n  height: 70%;\r\n  background: transparent url('/img/cat.png') no-repeat center center;\r\n  background-size: 90%;\n}\n.hat[data-v-774abbe1]{\r\n  width: 100%;\r\n  height: 30%;\n}\n.blue[data-v-774abbe1]{\r\n    width: 75%;\r\n    margin-left: 7%;\r\n    position: relative;\n}\n.msg[data-v-774abbe1]{\r\n  width:100%;\r\n  height: 35%;\r\n  background: #fff1b9;\r\n  border-radius: 10px;\r\n  -webkit-box-shadow: 1px 1px 5px #754F44;\r\n          box-shadow: 1px 1px 5px #754F44;\r\n  margin-bottom: 3%;\n}\n.s-text[data-v-774abbe1]{\r\n  width: 100%;\r\n  height: 70%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  font-size: 2.5em;\n}\n.s-bottom[data-v-774abbe1]{\r\n  width: 100%;\r\n  height: 30%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\n}\n.s-good[data-v-774abbe1]{\r\n  width: 30%;\r\n  margin-right: 5%;\n}\n.s-love[data-v-774abbe1]{\r\n  width: 30%;\r\n  margin-right: 5%;\n}\n.s-hat[data-v-774abbe1]{\r\n  width: 30%;\n}\n.s-img[data-v-774abbe1]{\r\n  width: 50%;\n}\n.s-num[data-v-774abbe1]{\r\n  width: 50%;\r\n  font-size: 2.5em;\n}\n#blue[data-v-774abbe1]{\r\n  background: transparent url('/img/other_blue.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#good[data-v-774abbe1]{\r\n  background: transparent url('/img/goodmost.png') no-repeat center center;\r\n  background-size: 70%;\n}\n#love[data-v-774abbe1]{\r\n  background: transparent url('/img/goodadd.png') no-repeat center center;\r\n  background-size: 70%;\n}\n.l-btn[data-v-774abbe1]{\r\n  position: absolute;\r\n  z-index: 99;\r\n  top: 45%;\r\n  left: 0%;\r\n  width: 5em;\r\n  height: 5em;\r\n  background: rgba(255,255,255,.5) url(/img/return.png) no-repeat center center;\r\n  background-size: 30%;\r\n  border-radius: 99em;\n}\n.r-btn[data-v-774abbe1]{\r\n  position: absolute;\r\n  z-index: 99;\r\n  top: 45%;\r\n  right: 0%;\r\n  width: 5em;\r\n  height: 5em;\r\n  background: rgba(255,255,255,.5) url(/img/return.png) no-repeat center center;\r\n  background-size: 30%;\r\n  -webkit-transform: rotate(180deg);\r\n          transform: rotate(180deg);\r\n  border-radius: 99em;\n}\n.groupnum[data-v-774abbe1]{\r\n  position: relative;\r\n  font-size: 10em;\r\n  text-align: center;\r\n  color:#EC7357;\r\n  opacity: 0.7;\n}\n.s-vote[data-v-774abbe1]{\r\n  width: 80%;\r\n  background: #41D3BD;\r\n  font-size: 3em;\r\n  border-radius: 20px;\n}\n#voted[data-v-774abbe1]{\r\n  background: #E71D36;\n}\r\n\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 339 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      msg: [{
+        groupid: 1,
+        goodnum: 20,
+        lovenum: 30,
+        hatID: 'blue',
+        whichhat: '藍帽',
+        content: '程式設計好好玩',
+        isvoted: false
+      }],
+      setting: {
+        gameName: "遊戲模式",
+        gameID: "groupfight",
+        brainName: "腦力激盪技法",
+        brainID: "sixhat",
+        time: "30分",
+        group: "平均分配",
+        topic: "程式設計好玩ㄇ"
+      },
+      input_text: '',
+      isVoteTime: true
+    };
+  },
+
+  methods: {
+    sendMyText: function sendMyText() {
+      var msg = {
+        groupid: 1,
+        goodnum: 0,
+        lovenum: 0,
+        hatID: 'blue',
+        whichhat: '藍帽',
+        content: this.input_text,
+        isvoted: false
+      };
+      this.msg.push(msg);
+    },
+    FocuseOn: function FocuseOn(text) {
+      var obj = document.getElementById('slide');
+      if (obj != null) {
+        var which = obj.scrollLeft / 377;
+        if (text == 'left') {
+          obj.scrollLeft = 377 * (which - 1);
+        } else {
+          obj.scrollLeft = 377 * (which + 1);
+        }
+        // if (test >= 188){
+        //   obj.scrollLeft = 377 * (page+1);
+        // }
+        // else if (obj.scrollLeft <=188){
+        //   obj.scrollLeft = 0;
+        // }
+        // else {
+        //   obj.scrollLeft = 377 * (page);
+        // }
+      }
+    }
+  }
+});
+
+/***/ }),
+/* 340 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "game-header" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "type f-l h-100" }, [
+        _c("div", {
+          staticClass: "t-l f-l h-100",
+          attrs: { id: _vm.setting.gameID }
+        }),
+        _vm._v(" "),
+        _c("div", {
+          staticClass: "t-r f-l h-100",
+          attrs: { id: _vm.setting.brainID }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "setting f-l h-100" })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "game-body" }, [
+      _c("div", {
+        staticClass: "l-btn",
+        on: {
+          click: function($event) {
+            _vm.FocuseOn("left")
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("div", {
+        staticClass: "r-btn",
+        on: {
+          click: function($event) {
+            _vm.FocuseOn("right")
+          }
+        }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "game-topic f-c" }, [
+        _c("div", { staticClass: "box f-c h-100" }, [
+          _vm._v("題目：" + _vm._s(_vm.setting.topic))
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "game-content", attrs: { id: "slide" } }, [
+        _c(
+          "div",
+          { staticClass: "sticky" },
+          [
+            _vm._l(_vm.msg, function(msg) {
+              return _c("div", { staticClass: "msg animated fadeInUp" }, [
+                _c("div", { staticClass: "s-text" }, [
+                  _vm._v(_vm._s(msg.content))
+                ]),
+                _vm._v(" "),
+                _vm.isVoteTime
+                  ? _c("div", { staticClass: "s-bottom f-c" }, [
+                      _c(
+                        "div",
+                        {
+                          staticClass: "s-vote h-100 f-c",
+                          attrs: { id: msg.isvoted ? "voted" : "" },
+                          on: {
+                            click: function($event) {
+                              msg.isvoted = !msg.isvoted
+                            }
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "\n              " +
+                              _vm._s(msg.isvoted ? "已投票" : "投我一票!") +
+                              "\n            "
+                          )
+                        ]
+                      )
+                    ])
+                  : _c("div", { staticClass: "s-bottom" }, [
+                      _c("div", { staticClass: "s-good f-l h-100" }, [
+                        _c("div", {
+                          staticClass: "s-img f-l h-100",
+                          attrs: { id: "good" },
+                          on: {
+                            click: function($event) {
+                              msg.goodnum++
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "s-num f-l f-c h-100" }, [
+                          _vm._v(_vm._s(msg.goodnum))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "s-love f-l h-100" }, [
+                        _c("div", {
+                          staticClass: "s-img f-l h-100",
+                          attrs: { id: "love" },
+                          on: {
+                            click: function($event) {
+                              msg.lovenum++
+                            }
+                          }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "s-num f-l f-c h-100" }, [
+                          _vm._v(_vm._s(msg.lovenum))
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "s-hat f-l h-100" }, [
+                        _c("div", {
+                          staticClass: "s-img f-l h-100",
+                          attrs: { id: msg.hatID }
+                        }),
+                        _vm._v(" "),
+                        _c("div", { staticClass: "s-num f-l f-c h-100" }, [
+                          _vm._v(_vm._s(msg.whichhat))
+                        ])
+                      ])
+                    ])
+              ])
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "groupnum" })
+          ],
+          2
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "sticky" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "sticky" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "white" })
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "game-bottom" }, [
+      _vm._m(1),
+      _vm._v(" "),
+      _c("div", { staticClass: "gb-r h-100 f-l" }, [
+        _c("div", { staticClass: "inputbox f-l f-c" }, [
+          _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.input_text,
+                expression: "input_text"
+              }
+            ],
+            staticClass: "input h-100 f-c",
+            domProps: { value: _vm.input_text },
+            on: {
+              click: function($event) {
+                _vm.resetText()
+              },
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.input_text = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "sendbox h-100 f-l f-c" }, [
+          _c("div", {
+            staticClass: "sent-btn",
+            on: {
+              click: function($event) {
+                _vm.sendMyText()
+              }
+            }
+          })
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "timer f-l h-100" }, [
+      _c("div", { staticClass: "time-logo h-100" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "time-text h-100" }, [_vm._v("10:00")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "gb-l h-100 f-l" }, [
+      _c("div", { staticClass: "hat f-l" }, [
+        _c("img", {
+          staticClass: "blue f-c",
+          attrs: { src: "/img/sixhat_blue.png" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "animal f-l" })
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-774abbe1", module.exports)
+  }
+}
+
+/***/ }),
+/* 341 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(342)
+}
+var normalizeComponent = __webpack_require__(6)
+/* script */
+var __vue_script__ = __webpack_require__(344)
+/* template */
+var __vue_template__ = __webpack_require__(345)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-208c0878"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\Gameroom.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-208c0878", Component.options)
+  } else {
+    hotAPI.reload("data-v-208c0878", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 342 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(343);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(5)("4d17df34", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-208c0878\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Gameroom.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-208c0878\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./Gameroom.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 343 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(4)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.game-header[data-v-208c0878]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  width: 100%;\r\n  height: 10%;\n}\n.game-body[data-v-208c0878]{\r\n  width: 100%;\r\n  height: 70%;\n}\n.game-bottom[data-v-208c0878]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 100%;\r\n  height: 20%;\n}\n.timer[data-v-208c0878]{\r\n  width: 35%;\r\n  margin-right: 5%;\n}\n.type[data-v-208c0878]{\r\n  width: 40%;\r\n  margin-right: 5%;\n}\n.setting[data-v-208c0878]{\r\n  width: 15%;\r\n  background: transparent url('/img/setting.png') no-repeat center center;\r\n  background-size: 70%;\n}\n.t-l[data-v-208c0878]{\r\n  width: 50%;\r\n  border-radius: 15px 0px 0px 15px;\n}\n.t-r[data-v-208c0878]{\r\n  width: 50%; \r\n  border-radius: 0px 15px 15px 0px;\n}\n#pass[data-v-208c0878]{\r\n  background: transparent url('/img/pass.png') no-repeat center center;\r\n  background-size: 70%;\n}\n#sixhat[data-v-208c0878]{\r\n  background: rgba(253,153,154,.7) url('/img/hat.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#stf[data-v-208c0878]{\r\n  background: transparent url('/img/stf.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#role-play[data-v-208c0878]{\r\n  background: transparent url('/img/role-play.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#talking[data-v-208c0878]{\r\n  background: transparent url('/img/talking.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#passgate[data-v-208c0878]{\r\n  background: transparent url('/img/passgate.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#groupfight[data-v-208c0878]{\r\n  background: rgba(103,213,181,.7) url('/img/groupfight.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#normal[data-v-208c0878]{\r\n  background: transparent url('/img/normal.png') no-repeat center center;\r\n  background-size: 80%;\n}\n.time-logo[data-v-208c0878]{\r\n  width: 45%;\r\n  background: transparent url('/img/clock.png') no-repeat center center;\r\n  background-size: 90%;\n}\n.time-text[data-v-208c0878]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 6% 9%;\r\n    margin-left: 15%;\r\n    position: relative;\r\n    z-index: -99;\r\n    margin-top: -36%;\r\n    width: 85%;\r\n    background: #FBFFB9;\r\n    height: 80%;\r\n    text-align: right;\r\n    font-size: 3.5em;\n}\n.game-topic[data-v-208c0878]{\r\n  width: 100%;\r\n  height: 15%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\n}\n.box[data-v-208c0878]{\r\n  width: 85%;\r\n  background: #D4DFE6;\r\n  font-size: 3em;\r\n  border-radius: 20px;\n}\n.game-content[data-v-208c0878]{\r\n  display: -webkit-box;\r\n  overflow-x: auto;\r\n  overflow-y: hidden;\r\n  width: 100%;\r\n  height: 85%;\n}\n.sticky[data-v-208c0878]{\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 80%;\r\n  height: 99%;\r\n  background: #ffda8e;\r\n  -webkit-box-shadow: 1px 1px 5px #754F44;\r\n          box-shadow: 1px 1px 5px #754F44;\r\n  border-radius: 15px;\r\n  margin: 0% 10%;\r\n  overflow-y: scroll;\n}\n.gb-l[data-v-208c0878]{\r\n  width: 25%;\n}\n.gb-r[data-v-208c0878]{\r\n  width: 75%;\n}\n.inputbox[data-v-208c0878] {\r\n  width: 76%;\r\n  height: 90%;\r\n  background-color: #fff1b9;\r\n  border-radius: 20px;\r\n  -webkit-box-shadow: 2px 2px 5px #f94e3f;\r\n          box-shadow: 2px 2px 5px #f94e3f;\r\n  margin-right: 4%;\n}\n.input[data-v-208c0878] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 5%;\r\n  width: 100%;\r\n  outline: none;\r\n  border: none;\r\n  background: transparent;\r\n  font-size: 2.2em;\n}\n.sendbox[data-v-208c0878] {\r\n  width: 20%;\n}\n.sent-btn[data-v-208c0878] {\r\n  width: 4.5em;\r\n  height: 4.5em;\r\n  border-radius: 99em;\r\n  background: #ff7473 url(/img/send-button.png) no-repeat center center;\r\n  -webkit-box-shadow: 3px 3px 7px #a6172d;\r\n          box-shadow: 3px 3px 7px #a6172d;\r\n  background-size: 50%;\n}\n.animal[data-v-208c0878]{\r\n  width: 100%;\r\n  height: 70%;\r\n  background: transparent url('/img/cat.png') no-repeat center center;\r\n  background-size: 90%;\n}\n.hat[data-v-208c0878]{\r\n  width: 100%;\r\n  height: 30%;\n}\n.blue[data-v-208c0878]{\r\n    width: 75%;\r\n    margin-left: 7%;\r\n    position: relative;\n}\n.msg[data-v-208c0878]{\r\n  width:100%;\r\n  height: 35%;\r\n  background: #fff1b9;\r\n  border-radius: 10px;\r\n  -webkit-box-shadow: 1px 1px 5px #754F44;\r\n          box-shadow: 1px 1px 5px #754F44;\r\n  margin-bottom: 3%;\n}\n.s-text[data-v-208c0878]{\r\n  width: 100%;\r\n  height: 70%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  font-size: 2.5em;\n}\n.s-bottom[data-v-208c0878]{\r\n  width: 100%;\r\n  height: 30%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\n}\n.s-good[data-v-208c0878]{\r\n  width: 30%;\r\n  margin-right: 5%;\n}\n.s-love[data-v-208c0878]{\r\n  width: 30%;\r\n  margin-right: 5%;\n}\n.s-hat[data-v-208c0878]{\r\n  width: 30%;\n}\n.s-img[data-v-208c0878]{\r\n  width: 50%;\n}\n.s-num[data-v-208c0878]{\r\n  width: 50%;\r\n  font-size: 2.5em;\n}\n#blue[data-v-208c0878]{\r\n  background: transparent url('/img/other_blue.png') no-repeat center center;\r\n  background-size: 80%;\n}\n#good[data-v-208c0878]{\r\n  background: transparent url('/img/goodmost.png') no-repeat center center;\r\n  background-size: 70%;\n}\n#love[data-v-208c0878]{\r\n  background: transparent url('/img/goodadd.png') no-repeat center center;\r\n  background-size: 70%;\n}\n.l-btn[data-v-208c0878]{\r\n  position: absolute;\r\n  z-index: 99;\r\n  top: 45%;\r\n  left: 0%;\r\n  width: 5em;\r\n  height: 5em;\r\n  background: rgba(255,255,255,.5) url(/img/return.png) no-repeat center center;\r\n  background-size: 30%;\r\n  border-radius: 99em;\n}\n.r-btn[data-v-208c0878]{\r\n  position: absolute;\r\n  z-index: 99;\r\n  top: 45%;\r\n  right: 0%;\r\n  width: 5em;\r\n  height: 5em;\r\n  background: rgba(255,255,255,.5) url(/img/return.png) no-repeat center center;\r\n  background-size: 30%;\r\n  -webkit-transform: rotate(180deg);\r\n          transform: rotate(180deg);\r\n  border-radius: 99em;\n}\n.groupnum[data-v-208c0878]{\r\n  position: relative;\r\n  font-size: 10em;\r\n  text-align: center;\r\n  color:#EC7357;\r\n  opacity: 0.7;\n}\r\n\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 344 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      msg: [{
+        groupid: 1,
+        goodnum: 20,
+        lovenum: 30,
+        hatID: 'blue',
+        whichhat: '藍帽',
+        content: '程式設計好好玩'
+      }],
+      setting: {
+        gameName: "遊戲模式",
+        gameID: "groupfight",
+        brainName: "腦力激盪技法",
+        brainID: "sixhat",
+        time: "30分",
+        group: "平均分配",
+        topic: "程式設計好玩ㄇ"
+      }
+    };
+  },
+
+  methods: {
+    sendMyText: function sendMyText() {
+      var msg = {
+        groupid: 1,
+        goodnum: 0,
+        lovenum: 0,
+        hatID: 'blue',
+        whichhat: '藍帽',
+        content: this.input_text
+      };
+      this.msg.push(msg);
+    }
+  }
+});
+
+/***/ }),
+/* 345 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "game-header" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "type f-l h-100" }, [
+        _c("div", {
+          staticClass: "t-l f-l h-100",
+          attrs: { id: _vm.setting.gameID }
+        }),
+        _vm._v(" "),
+        _c("div", {
+          staticClass: "t-r f-l h-100",
+          attrs: { id: _vm.setting.brainID }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "setting f-l h-100" })
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "game-body" }, [
+      _c("div", { staticClass: "l-btn" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "r-btn" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "game-topic f-c" }, [
+        _c("div", { staticClass: "box f-c h-100" }, [
+          _vm._v("題目：" + _vm._s(_vm.setting.topic))
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "game-content" }, [
+        _c(
+          "div",
+          { staticClass: "sticky " },
+          [
+            _vm._l(_vm.msg, function(msg) {
+              return _c("div", { staticClass: "msg animated fadeInUp" }, [
+                _c("div", { staticClass: "s-text" }, [
+                  _vm._v(_vm._s(msg.content))
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "s-bottom" }, [
+                  _c("div", { staticClass: "s-good f-l h-100" }, [
+                    _c("div", {
+                      staticClass: "s-img f-l h-100",
+                      attrs: { id: "good" },
+                      on: {
+                        click: function($event) {
+                          msg.goodnum++
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "s-num f-l f-c h-100" }, [
+                      _vm._v(_vm._s(msg.goodnum))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "s-love f-l h-100" }, [
+                    _c("div", {
+                      staticClass: "s-img f-l h-100",
+                      attrs: { id: "love" },
+                      on: {
+                        click: function($event) {
+                          msg.lovenum++
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "s-num f-l f-c h-100" }, [
+                      _vm._v(_vm._s(msg.lovenum))
+                    ])
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "s-hat f-l h-100" }, [
+                    _c("div", {
+                      staticClass: "s-img f-l h-100",
+                      attrs: { id: msg.hatID }
+                    }),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "s-num f-l f-c h-100" }, [
+                      _vm._v(_vm._s(msg.whichhat))
+                    ])
+                  ])
+                ])
+              ])
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "groupnum" })
+          ],
+          2
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "sticky" }),
+        _vm._v(" "),
+        _c("div", { staticClass: "sticky" })
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "game-bottom" }, [
+      _vm._m(1),
+      _vm._v(" "),
+      _c("div", { staticClass: "gb-r h-100 f-l" }, [
+        _c("div", { staticClass: "inputbox f-l f-c" }, [
+          _c("textarea", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.input_text,
+                expression: "input_text"
+              }
+            ],
+            staticClass: "input h-100 f-c",
+            domProps: { value: _vm.input_text },
+            on: {
+              click: function($event) {
+                _vm.resetText()
+              },
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.input_text = $event.target.value
+              }
+            }
+          })
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "sendbox h-100 f-l f-c" }, [
+          _c("div", {
+            staticClass: "sent-btn",
+            on: {
+              click: function($event) {
+                _vm.sendMyText()
+              }
+            }
+          })
+        ])
+      ])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "timer f-l h-100" }, [
+      _c("div", { staticClass: "time-logo h-100" }),
+      _vm._v(" "),
+      _c("div", { staticClass: "time-text h-100" }, [_vm._v("10:00")])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "gb-l h-100 f-l" }, [
+      _c("div", { staticClass: "hat f-l" }, [
+        _c("img", {
+          staticClass: "blue f-c",
+          attrs: { src: "/img/sixhat_blue.png" }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "animal f-l" })
+    ])
+  }
+]
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-208c0878", module.exports)
+  }
+}
+
+/***/ }),
+/* 346 */
+/***/ (function(module, exports, __webpack_require__) {
+
 /*!
  * @license
  * chartjs-plugin-datalabels
@@ -95101,7 +95992,302 @@ Chart.plugins.register({
 
 
 /***/ }),
-/* 337 */
+/* 347 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ *
+ * @author    Jerry Bendy
+ * @since     4/12/2017
+ */
+
+function touchX(event) {
+    return event.touches[0].clientX;
+}
+
+function touchY(event) {
+    return event.touches[0].clientY;
+}
+
+var isPassiveSupported = (function() {
+    var supportsPassive = false;
+    try {
+        var opts = Object.defineProperty({}, 'passive', {
+            get: function() {
+                supportsPassive = true;
+            }
+        });
+        window.addEventListener('test', null, opts);
+    } catch (e) {}
+    return supportsPassive;
+})()
+
+
+var vueTouchEvents = {
+    install: function (Vue, options) {
+
+        // Set default options
+        options = Object.assign({}, {
+            disableClick: false,
+            tapTolerance: 10,
+            swipeTolerance: 30,
+            longTapTimeInterval: 400,
+            touchClass: ''
+        }, options || {})
+
+
+        function touchStartEvent(event) {
+            var $this = this.$$touchObj
+
+            $this.supportTouch = true
+
+            if ($this.touchStarted) {
+                return
+            }
+
+            addTouchClass(this)
+
+            $this.touchStarted = true
+
+            $this.touchMoved = false
+            $this.swipeOutBounded = false
+
+            $this.startX = touchX(event)
+            $this.startY = touchY(event)
+
+            $this.currentX = 0
+            $this.currentY = 0
+
+            $this.touchStartTime = event.timeStamp
+        }
+
+        function touchMoveEvent(event) {
+            var $this = this.$$touchObj
+
+            $this.currentX = touchX(event)
+            $this.currentY = touchY(event)
+
+            if (!$this.touchMoved) {
+                var tapTolerance = options.tapTolerance
+
+                $this.touchMoved = Math.abs($this.startX - $this.currentX) > tapTolerance ||
+                    Math.abs($this.startY - $this.currentY) > tapTolerance
+
+            } else if (!$this.swipeOutBounded) {
+                var swipeOutBounded = options.swipeTolerance
+
+                $this.swipeOutBounded = Math.abs($this.startX - $this.currentX) > swipeOutBounded &&
+                    Math.abs($this.startY - $this.currentY) > swipeOutBounded
+            }
+        }
+
+        function touchCancelEvent() {
+            var $this = this.$$touchObj
+
+            removeTouchClass(this)
+
+            $this.touchStarted = $this.touchMoved = false
+            $this.startX = $this.startY = 0
+        }
+
+        function touchEndEvent(event) {
+            var $this = this.$$touchObj
+
+            $this.touchStarted = false
+
+            removeTouchClass(this)
+
+            if (!$this.touchMoved) {
+                // detect if this is a longTap event or not
+                if ($this.callbacks.longtap && event.timeStamp - $this.touchStartTime > options.longTapTimeInterval) {
+                    event.preventDefault()
+                    triggerEvent(event, this, 'longtap')
+
+                } else {
+                    // emit tap event
+                    triggerEvent(event, this, 'tap')
+                }
+
+            } else if (!$this.swipeOutBounded) {
+                var swipeOutBounded = options.swipeTolerance, direction
+
+                if (Math.abs($this.startX - $this.currentX) < swipeOutBounded) {
+                    direction = $this.startY > $this.currentY ? "top" : "bottom"
+
+                } else {
+                    direction = $this.startX > $this.currentX ? "left" : "right"
+                }
+
+                // Only emit the specified event when it has modifiers
+                if ($this.callbacks['swipe.' + direction]) {
+                    triggerEvent(event, this, 'swipe.' + direction, direction)
+
+                } else {
+                    // Emit a common event when it has no any modifier
+                    triggerEvent(event, this, 'swipe', direction)
+                }
+            }
+        }
+
+        function clickEvent(event) {
+            var $this = this.$$touchObj
+
+            if (!$this.supportTouch && !options.disableClick) {
+                triggerEvent(event, this, 'tap')
+            }
+        }
+
+        function mouseEnterEvent() {
+            addTouchClass(this)
+        }
+
+        function mouseLeaveEvent() {
+            removeTouchClass(this)
+        }
+
+        function triggerEvent(e, $el, eventType, param) {
+            var $this = $el.$$touchObj
+
+            // get the callback list
+            var callbacks = $this.callbacks[eventType] || []
+            if (callbacks.length === 0) {
+                return null
+            }
+
+            for (var i = 0; i < callbacks.length; i++) {
+                var binding = callbacks[i]
+
+                // handle `self` modifier`
+                if (binding.modifiers.self && e.target !== e.currentTarget) {
+                    continue
+                }
+
+                if (typeof binding.value === 'function') {
+                    if (param) {
+                        binding.value(param, e)
+                    } else {
+                        binding.value(e)
+                    }
+                }
+            }
+        }
+
+        function addTouchClass($el) {
+            var className = $el.$$touchClass || options.touchClass
+            className && $el.classList.add(className)
+        }
+
+        function removeTouchClass($el) {
+            var className = $el.$$touchClass || options.touchClass
+            className && $el.classList.remove(className)
+        }
+
+        Vue.directive('touch', {
+            bind: function ($el, binding) {
+
+                $el.$$touchObj = $el.$$touchObj || {
+                        // will change to true when `touchstart` event first trigger
+                        supportTouch: false,
+                        // an object contains all callbacks registered,
+                        // key is event name, value is an array
+                        callbacks: {},
+                        // prevent bind twice, set to true when event bound
+                        hasBindTouchEvents: false
+                    }
+
+
+                // register callback
+                var eventType = binding.arg || 'tap'
+                switch (eventType) {
+                    case 'swipe':
+                        var _m = binding.modifiers
+                        if (_m.left || _m.right || _m.top || _m.bottom) {
+                            for (var i in binding.modifiers) {
+                                if (['left', 'right', 'top', 'bottom'].indexOf(i) >= 0) {
+                                    var _e = 'swipe.' + i
+                                    $el.$$touchObj.callbacks[_e] = $el.$$touchObj.callbacks[_e] || []
+                                    $el.$$touchObj.callbacks[_e].push(binding)
+                                }
+                            }
+                        } else {
+                            $el.$$touchObj.callbacks.swipe = $el.$$touchObj.callbacks.swipe || []
+                            $el.$$touchObj.callbacks.swipe.push(binding)
+                        }
+                        break
+
+                    default:
+                        $el.$$touchObj.callbacks[eventType] = $el.$$touchObj.callbacks[eventType] || []
+                        $el.$$touchObj.callbacks[eventType].push(binding)
+                }
+
+                // prevent bind twice
+                if ($el.$$touchObj.hasBindTouchEvents) {
+                    return
+                }
+
+                var passiveOpt = isPassiveSupported ? { passive: true } : false;
+                $el.addEventListener('touchstart', touchStartEvent, passiveOpt)
+                $el.addEventListener('touchmove', touchMoveEvent, passiveOpt)
+                $el.addEventListener('touchcancel', touchCancelEvent)
+                $el.addEventListener('touchend', touchEndEvent)
+
+                if (!options.disableClick) {
+                    $el.addEventListener('click', clickEvent)
+                    $el.addEventListener('mouseenter', mouseEnterEvent)
+                    $el.addEventListener('mouseleave', mouseLeaveEvent)
+                }
+
+                // set bind mark to true
+                $el.$$touchObj.hasBindTouchEvents = true
+            },
+
+            unbind: function ($el) {
+                $el.removeEventListener('touchstart', touchStartEvent)
+                $el.removeEventListener('touchmove', touchMoveEvent)
+                $el.removeEventListener('touchcancel', touchCancelEvent)
+                $el.removeEventListener('touchend', touchEndEvent)
+
+                if (!options.disableClick) {
+                    $el.removeEventListener('click', clickEvent)
+                    $el.removeEventListener('mouseenter', mouseEnterEvent)
+                    $el.removeEventListener('mouseleave', mouseLeaveEvent)
+                }
+
+                // remove vars
+                delete $el.$$touchObj
+            }
+        })
+
+        Vue.directive('touch-class', {
+            bind: function ($el, binding) {
+                $el.$$touchClass = binding.value
+            },
+            unbind: function ($el) {
+                delete $el.$$touchClass
+            }
+        })
+    }
+}
+
+
+/*
+ * Exports
+ */
+if (true) {
+    module.exports = vueTouchEvents
+
+} else if (typeof define === 'function' && define.amd) {
+    define([], function () {
+        return vueTouchEvents
+    })
+} else if (window.Vue) {
+    window.vueTouchEvents = vueTouchEvents
+    Vue.use(vueTouchEvents)
+}
+
+
+/***/ }),
+/* 348 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
