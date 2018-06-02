@@ -36,25 +36,25 @@
 
 <script>
   export default {
-    data( ) {
+    data() {
       return {
         isClickItem: false,
         historylist: [
           {
-            name: "test1",
-            time: "time1"
+            name: "程式設計",
+            time: "190403"
           },
           {
-            name: "test2",
-            time: "time2"
+            name: "企業概論",
+            time: "190404"
           },
           {
-            name: "test3",
-            time: "time3"
+            name: "資訊管理導論",
+            time: "190405"
           },
           {
-            name: "test4",
-            time: "time4"
+            name: "計算機概論",
+            time: "190405"
           }
           
         ],
@@ -216,6 +216,8 @@
     width: 50%;
     height: 100%;
     float: left;
+    
+    font-size: 2.5em;
     background-color: rgba(103,213,181,.7);
   }
   .brieflist1{
