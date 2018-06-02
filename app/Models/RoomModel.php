@@ -26,13 +26,27 @@ class RoomModel extends Model
         return $queryRoom;
     }
 
-    public static function changeStatus($course_id, $status){
+    public static function changeStatus($course_id, $status)
+    {
         $queryRoom = self::where('course_id', $course_id)
-        ->where("status","<>", "close")
+        ->where("status", "<>", "close")
         ->first();
 
         if ($queryRoom != null) {
             $queryRoom->status = $status;
+            $queryRoom->save();
+        }
+        return $queryRoom;
+    }
+
+    public static function setMode($course_id, $mode)
+    {
+        $queryRoom = self::where('course_id', $course_id)
+        ->where("status", "<>", "close")
+        ->first();
+
+        if ($queryRoom != null) {
+            $queryRoom->mode = $mode;
             $queryRoom->save();
         }
         return $queryRoom;

@@ -29,7 +29,7 @@ class RoomController extends Controller
     {
         $rtn = array();
         $course_id = $request->input('course_id');
-        $room = RoomModel::changeStatus($course_id, "close");
+        $qroom = RoomModel::changeStatus($course_id, "close");
         
         if (isset($room)) {
             if ($room->status !== "close") {
@@ -44,15 +44,17 @@ class RoomController extends Controller
     {
         $rtn = array();
         $course_id = $request->input('course_id');
-        $room = RoomModel::changeStatus($course_id, "playing");
-
-        if (isset($room)) {
-            if ($room->status !== "playing") {
-                $rtn['errmsg'] = 'play failed';
-            }
-        }
-
-        return $rtn;
+        $mode = json_encode($request->input('mode'));
+        
+        $queryRoom = RoomModel::getRoom($course_id);
+        if ($queryRoom != null) {
+            $queryRoom->mode = $mode;
+            $queryRoom->status = "playing";
+            $queryRoom->save();
+        } else {
+            $rtn['errmsg'] = 'play failed';
+        }$rtn['errmsg'] =$mode;
+        return $mode;
     }
 
     public function joinRoom(Request $request)

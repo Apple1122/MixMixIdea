@@ -129,7 +129,9 @@ export default {
           .then(function(rtn) {
             if (!rtn.data.errmsg) {
               console.log(rtn.data);
-              self.$router.push({ path: "/gameroom_sixhat" });
+              self.$router.push({
+                path: "gameroom_sixhat"
+              });
             } else {
               console.log(rtn.data.errmsg);
             }

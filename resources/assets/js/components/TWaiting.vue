@@ -94,8 +94,7 @@ export default {
         this.$nextTick(function() {
           axios
             .post("/room/leave", {
-              course_id: self.course_id,
-              setting: JSON.stringify(self.setting)
+              course_id: self.course_id
             })
             .then(function(rtn) {
               if (!rtn.data.errmsg) {
@@ -110,7 +109,7 @@ export default {
             .catch(function(err) {
               console.log(err);
             });
-        });        
+        });
       }
     },
     changePage: function(data) {
@@ -130,13 +129,14 @@ export default {
       self.$nextTick(function() {
         axios
           .post("/room/gameStart", {
-            course_id: self.course_id
+            course_id: self.course_id,
+            mode: self.setting
           })
           .then(function(rtn) {
             if (!rtn.data.errmsg) {
               console.log(rtn.data);
-              self.socket.emit("gameStart", self.course_id);  
-              self.$router.push({ path: "/gameroom_sixhat" });            
+              //self.socket.emit("gameStart", self.course_id);
+              //self.$router.push({ path: "/gameroom_sixhat" });
             } else {
               console.log(rtn.data.errmsg);
             }
@@ -144,7 +144,7 @@ export default {
           .catch(function(err) {
             console.log(err);
           });
-      });      
+      });
     }
   },
 
@@ -153,6 +153,7 @@ export default {
     if (!isLogin) this.$router.push({ path: "/" });
   },
   mounted: function() {
+    console.log("para" + JSON.stringify(this.$route.params));
     let self = this;
     self.$nextTick(function() {
       axios
