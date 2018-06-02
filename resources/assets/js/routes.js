@@ -27,6 +27,10 @@ const routes = [{
     component: TWaiting
   },
   {
+    path: '/history',
+    component: History
+  },
+  {
     path: '/gameroom_sixhat',
     component: Gameroom_sixhat
   },
@@ -45,12 +49,7 @@ const routes = [{
   {
     path: '/groupfight',
     component: Groupfight
-  },
-  {
-    path: '/history',
-    component: history
   }
-
 
 ];
 
