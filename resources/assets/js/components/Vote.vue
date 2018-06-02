@@ -130,7 +130,7 @@
             groupid: 1,
             goodnum: 20,
             lovenum: 30,
-            hatID: 'blue',
+  @          hatID: 'blue',
             whichhat: '藍帽',
             content: '熊貓是熊',
             isvoted: false
