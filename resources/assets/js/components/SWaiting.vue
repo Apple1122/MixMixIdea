@@ -113,7 +113,6 @@ export default {
       self.chatting.push(msg);
     });
     self.socket.on("teacherLeave", function() {
-      let self = this;
       self.socket.emit("leaveRoom", self.course_id);
       sessionStorage.removeItem("room_course_id");
       self.$router.push({ path: "/courseList" });
@@ -130,7 +129,7 @@ export default {
             if (!rtn.data.errmsg) {
               console.log(rtn.data);
               self.$router.push({
-                path: "gameroom_sixhat"
+                path: "/gameroom"
               });
             } else {
               console.log(rtn.data.errmsg);

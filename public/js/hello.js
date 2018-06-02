@@ -73565,23 +73565,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   methods: {
     return_to_pre: function return_to_pre() {
       if (this.isChattingOpen) this.isChattingOpen = false;else if (this.isSettingOpen) this.isSettingOpen = false;else {
-        var self = this;
-        this.$nextTick(function () {
-          axios.post("/room/leave", {
-            course_id: self.course_id
-          }).then(function (rtn) {
-            if (!rtn.data.errmsg) {
-              console.log(rtn.data);
-              self.socket.emit("teacherLeave", self.course_id);
-              sessionStorage.removeItem("room_course_id");
-              self.$router.push({ path: "/courselist" });
-            } else {
-              console.log(rtn.data.errmsg);
-            }
-          }).catch(function (err) {
-            console.log(err);
-          });
-        });
+        this.$router.push({ path: "/courselist" });
       }
     },
     changePage: function changePage(data) {
@@ -73605,8 +73589,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         }).then(function (rtn) {
           if (!rtn.data.errmsg) {
             console.log(rtn.data);
-            //self.socket.emit("gameStart", self.course_id);
-            //self.$router.push({ path: "/gameroom_sixhat" });
+            self.socket.emit("gameStart", self.course_id);
+            self.$router.push({ path: "/gameroom" });
           } else {
             console.log(rtn.data.errmsg);
           }
@@ -73674,25 +73658,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     chatbox.scrollTop = chatbox.scrollHeight;
   },
   destroyed: function destroyed() {
-    // let self = this;
-    // self.$nextTick(function() {
-    //   axios
-    //     .post("/room/leave", {
-    //       course_id: self.course_id
-    //     })
-    //     .then(function(rtn) {
-    //       if (!rtn.data.errmsg) {
-    //         console.log(rtn.data);
-    //         self.socket.emit("teacherLeave", self.course_id);
-    //         sessionStorage.removeItem("room_course_id");
-    //       } else {
-    //         console.log(rtn.data.errmsg);
-    //       }
-    //     })
-    //     .catch(function(err) {
-    //       console.log(err);
-    //     });
-    // });
+    var self = this;
+    this.$nextTick(function () {
+      axios.post("/room/leave", {
+        course_id: self.course_id
+      }).then(function (rtn) {
+        if (!rtn.data.errmsg) {
+          console.log(rtn.data);
+          self.socket.emit("teacherLeave", self.course_id);
+          sessionStorage.removeItem("room_course_id");
+        } else {
+          console.log(rtn.data.errmsg);
+        }
+      }).catch(function (err) {
+        console.log(err);
+      });
+    });
   }
 });
 
@@ -74254,13 +74235,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["chatting", "socket"],
   data: function data() {
     return {
       input_text: "輸入想要傳送的訊息吧！",
-      isMyText: false
+      username: sessionStorage.getItem("username")
     };
   },
 
@@ -74278,10 +74261,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           text: this.input_text,
           time: now.getHours() + ":" + (now.getMinutes() < 10 ? "0" : "") + now.getMinutes()
         };
-
-        this.isMyText = true;
         this.chatting.push(chat);
-        // this.isMyText = false;
         this.input_text = "";
         this.socket.emit("sendMessage", chat);
       }
@@ -74311,30 +74291,40 @@ var render = function() {
       "div",
       { staticClass: "chatting-content" },
       _vm._l(_vm.chatting, function(chat) {
-        return _c(
-          "div",
-          { class: _vm.isMyText == true ? "others-message" : "myself-message" },
-          [
-            _c(
-              "div",
-              { class: _vm.isMyText == true ? "others-infro" : "myself-infro" },
-              [
-                _c("img", {
-                  staticClass: "image",
-                  attrs: { src: "/img/pass.png" }
-                }),
-                _vm._v(" "),
-                _c("div", { staticClass: "name" }, [_vm._v(_vm._s(chat.name))])
-              ]
-            ),
-            _vm._v(" "),
-            _c("div", { staticClass: "dialogbox" }, [
-              _vm._v(_vm._s(chat.text))
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "time" }, [_vm._v(_vm._s(chat.time))])
-          ]
-        )
+        return _c("div", [
+          _c(
+            "div",
+            {
+              class:
+                chat.name == _vm.username ? "others-message" : "myself-message"
+            },
+            [
+              _c(
+                "div",
+                {
+                  class:
+                    chat.name == _vm.username ? "others-infro" : "myself-infro"
+                },
+                [
+                  _c("img", {
+                    staticClass: "image",
+                    attrs: { src: "/img/pass.png" }
+                  }),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "name" }, [
+                    _vm._v(_vm._s(chat.name))
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c("div", { staticClass: "dialogbox" }, [
+                _vm._v(_vm._s(chat.text))
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "time" }, [_vm._v(_vm._s(chat.time))])
+            ]
+          )
+        ])
       })
     ),
     _vm._v(" "),
@@ -79832,7 +79822,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       self.chatting.push(msg);
     });
     self.socket.on("teacherLeave", function () {
-      var self = this;
       self.socket.emit("leaveRoom", self.course_id);
       sessionStorage.removeItem("room_course_id");
       self.$router.push({ path: "/courseList" });
@@ -79847,7 +79836,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
           if (!rtn.data.errmsg) {
             console.log(rtn.data);
             self.$router.push({
-              path: "gameroom_sixhat"
+              path: "/gameroom"
             });
           } else {
             console.log(rtn.data.errmsg);
@@ -80553,7 +80542,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.container[data-v-7c7e8384] {\r\n  position: fixed;\r\n  overflow: hidden;\r\n  padding: 0% 3%;\r\n  width: 100%;\r\n  height: 100%;\r\n  background: transparent url(\"/img/bg-img.png\") no-repeat center;\r\n  background-size: 90%;\n}\n.icon-4[data-v-7c7e8384] {\r\n  height: 4em;\r\n  width: 4em;\n}\n.header[data-v-7c7e8384] {\r\n  height: 4em;\n}\n.mode[data-v-7c7e8384] {\r\n  font-size: 1.5em;\n}\n.answer-group[data-v-7c7e8384] {\r\n  height: 20em;\r\n  background-color: #f9edbd;\r\n  -webkit-box-shadow: 4px 4px 20px 1px rgba(182, 182, 206, 0.5);\r\n          box-shadow: 4px 4px 20px 1px rgba(182, 182, 206, 0.5);\r\n  margin-left: 3em;\r\n  margin-right: 3em;\r\n  padding: 0.5em;\n}\n.chatting-page[data-v-7c7e8384] {\r\n  position: absolute;\r\n  top: 7%;\r\n  left: 0%;\r\n  z-index: 99;\r\n  width: 100%;\r\n  height: 93%;\r\n  padding: 0% 5%;\r\n  background: rgba(255, 255, 255, 0.9);\n}\n.chatting-content[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  width: 100%;\r\n  height: 70%;\r\n  overflow-y: scroll;\n}\n.chatting-title[data-v-7c7e8384] {\r\n  width: 100%;\r\n  height: 15%;\r\n  font-size: 6em;\r\n  text-align: center;\r\n  font-weight: bold;\r\n  color: #754f44;\r\n  background: transparent url(\"/img/setting_title.png\") no-repeat center center;\r\n  background-size: 70%;\r\n  text-shadow: 2px 2px 1px #34314c;\n}\n.chatting-bottom[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 100%;\r\n  height: 15%;\n}\n.inputbox[data-v-7c7e8384] {\r\n  width: 78%;\r\n  background-color: #fff1b9;\r\n  border-radius: 20px;\r\n  -webkit-box-shadow: 3px 3px 7px #f94e3f;\r\n          box-shadow: 3px 3px 7px #f94e3f;\r\n  margin-right: 2%;\n}\n.input[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 100%;\r\n  outline: none;\r\n  border: none;\r\n  background: transparent;\r\n  font-size: 2.2em;\n}\n.sendbox[data-v-7c7e8384] {\r\n  width: 20%;\n}\n.sent-btn[data-v-7c7e8384] {\r\n  width: 4em;\r\n  height: 4em;\r\n  border-radius: 99em;\r\n  background: #ff7473 url(/img/send-button.png) no-repeat center center;\r\n  -webkit-box-shadow: 3px 3px 7px #a6172d;\r\n          box-shadow: 3px 3px 7px #a6172d;\r\n  background-size: 50%;\n}\n.myself-message[data-v-7c7e8384],\r\n.others-message[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 1.5%;\r\n  position: relative;\r\n  left: 0;\r\n  width: 97%;\r\n  min-height: 10%;\r\n  -webkit-animation: fadeIn 1s;\r\n          animation: fadeIn 1s;\n}\n.myself-message .image[data-v-7c7e8384],\r\n.others-message .image[data-v-7c7e8384] {\r\n  float: left;\r\n  top: 28%;\r\n  left: 3%;\r\n  width: 8em;\r\n  height: 8em;\r\n  border-radius: 99em;\r\n  background-color: white;\r\n  -webkit-box-shadow: 1px 1px 1px $input-shadow;\r\n          box-shadow: 1px 1px 1px $input-shadow;\n}\n.myself-message .name[data-v-7c7e8384],\r\n.others-message .name[data-v-7c7e8384] {\r\n  float: left;\r\n  margin-top: 7%;\r\n  text-align: center;\r\n  width: 100%;\r\n  font-size: 2.3em;\n}\n.myself-message .dialogbox[data-v-7c7e8384],\r\n.others-message .dialogbox[data-v-7c7e8384] {\r\n  font-size: 3em;\r\n  display: inline-block;\r\n  width: 80%;\r\n  margin-top: 1%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  -webkit-box-shadow: 4px 4px 5px #7f9eb2;\r\n          box-shadow: 4px 4px 5px #7f9eb2;\r\n  padding: 2% 5% 2% 5%;\r\n  background: #fffff5;\r\n  word-break: break-all;\r\n  border-radius: 6px;\r\n  line-height: 200%;\n}\n.myself-message .dialogbox[data-v-7c7e8384]:after,\r\n.others-message .dialogbox[data-v-7c7e8384]:after {\r\n  content: \" \";\r\n  height: 0;\r\n  width: 0;\r\n  pointer-events: none;\r\n  border: solid transparent;\r\n  border-color: #fffff5;\r\n  border-width: 7px;\n}\n.myself-infro[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 1%;\r\n  position: absolute;\r\n  width: 17%;\r\n  height: 90%;\n}\n.others-infro[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 1%;\r\n  position: absolute;\r\n  right: 1%;\r\n  width: 17%;\r\n  height: 90%;\n}\n.myself-message .time[data-v-7c7e8384] {\r\n  position: relative;\r\n  margin-top: 2%;\r\n  left: 86%;\r\n  font-size: 2.2em;\n}\n.myself-message .dialogbox[data-v-7c7e8384] {\r\n  position: relative;\r\n  left: 20%;\r\n  top: 0%;\n}\n.myself-message .dialogbox[data-v-7c7e8384] :after {\r\n  position: absolute;\r\n  right: 99%;\r\n  top: 4%;\r\n  border-right-color: #fff;\n}\n.others-message .time[data-v-7c7e8384] {\r\n  position: relative;\r\n  margin-top: 2%;\n}\n.others-message .dialogbox[data-v-7c7e8384] {\r\n  position: relative;\r\n  left: 0%;\r\n  top: 0%;\n}\n.others-message .dialogbox[data-v-7c7e8384]:after {\r\n  position: absolute;\r\n  right: -6%;\r\n  top: 6%;\r\n  border-left-color: #fff;\n}\n.col-l[data-v-7c7e8384]{\r\n  width: 35%;\r\n  height: 100%;\r\n  background-color: #FBFFB9;\r\n  border-radius: 25px;\r\n  HEIGHT: 66%;\n}\n.col-time[data-v-7c7e8384]{\r\n  width: 55%;\r\n  height: 100%;\r\n  font-size: 3.7em;\r\n  color: #754F44;\n}\r\n", ""]);
+exports.push([module.i, "\n.container[data-v-7c7e8384] {\r\n  position: fixed;\r\n  overflow: hidden;\r\n  padding: 0% 3%;\r\n  width: 100%;\r\n  height: 100%;\r\n  background: transparent url(\"/img/bg-img.png\") no-repeat center;\r\n  background-size: 90%;\n}\n.icon-4[data-v-7c7e8384] {\r\n  height: 4em;\r\n  width: 4em;\n}\n.header[data-v-7c7e8384] {\r\n  height: 4em;\n}\n.mode[data-v-7c7e8384] {\r\n  font-size: 1.5em;\n}\n.answer-group[data-v-7c7e8384] {\r\n  height: 20em;\r\n  background-color: #f9edbd;\r\n  -webkit-box-shadow: 4px 4px 20px 1px rgba(182, 182, 206, 0.5);\r\n          box-shadow: 4px 4px 20px 1px rgba(182, 182, 206, 0.5);\r\n  margin-left: 3em;\r\n  margin-right: 3em;\r\n  padding: 0.5em;\n}\n.chatting-page[data-v-7c7e8384] {\r\n  position: absolute;\r\n  top: 7%;\r\n  left: 0%;\r\n  z-index: 99;\r\n  width: 100%;\r\n  height: 93%;\r\n  padding: 0% 5%;\r\n  background: rgba(255, 255, 255, 0.9);\n}\n.chatting-content[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 2%;\r\n  width: 100%;\r\n  height: 70%;\r\n  overflow-y: scroll;\n}\n.chatting-title[data-v-7c7e8384] {\r\n  width: 100%;\r\n  height: 15%;\r\n  font-size: 6em;\r\n  text-align: center;\r\n  font-weight: bold;\r\n  color: #754f44;\r\n  background: transparent url(\"/img/setting_title.png\") no-repeat center center;\r\n  background-size: 70%;\r\n  text-shadow: 2px 2px 1px #34314c;\n}\n.chatting-bottom[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 100%;\r\n  height: 15%;\n}\n.inputbox[data-v-7c7e8384] {\r\n  width: 78%;\r\n  background-color: #fff1b9;\r\n  border-radius: 20px;\r\n  -webkit-box-shadow: 3px 3px 7px #f94e3f;\r\n          box-shadow: 3px 3px 7px #f94e3f;\r\n  margin-right: 2%;\n}\n.input[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 3%;\r\n  width: 100%;\r\n  outline: none;\r\n  border: none;\r\n  background: transparent;\r\n  font-size: 2.2em;\n}\n.sendbox[data-v-7c7e8384] {\r\n  width: 20%;\n}\n.sent-btn[data-v-7c7e8384] {\r\n  width: 4em;\r\n  height: 4em;\r\n  border-radius: 99em;\r\n  background: #ff7473 url(/img/send-button.png) no-repeat center center;\r\n  -webkit-box-shadow: 3px 3px 7px #a6172d;\r\n          box-shadow: 3px 3px 7px #a6172d;\r\n  background-size: 50%;\n}\n.myself-message[data-v-7c7e8384],\r\n.others-message[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 1.5%;\r\n  position: relative;\r\n  left: 0;\r\n  width: 97%;\r\n  min-height: 10%;\r\n  -webkit-animation: fadeIn 1s;\r\n          animation: fadeIn 1s;\n}\n.myself-message .image[data-v-7c7e8384],\r\n.others-message .image[data-v-7c7e8384] {\r\n  float: left;\r\n  top: 28%;\r\n  left: 3%;\r\n  width: 8em;\r\n  height: 8em;\r\n  border-radius: 99em;\r\n  background-color: white;\r\n  -webkit-box-shadow: 1px 1px 1px $input-shadow;\r\n          box-shadow: 1px 1px 1px $input-shadow;\n}\n.myself-message .name[data-v-7c7e8384],\r\n.others-message .name[data-v-7c7e8384] {\r\n  float: left;\r\n  margin-top: 7%;\r\n  text-align: center;\r\n  width: 100%;\r\n  font-size: 2.3em;\n}\n.myself-message .dialogbox[data-v-7c7e8384],\r\n.others-message .dialogbox[data-v-7c7e8384] {\r\n  font-size: 3em;\r\n  display: inline-block;\r\n  width: 80%;\r\n  margin-top: 1%;\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  -webkit-box-shadow: 4px 4px 5px #7f9eb2;\r\n          box-shadow: 4px 4px 5px #7f9eb2;\r\n  padding: 2% 5% 2% 5%;\r\n  background: #fffff5;\r\n  word-break: break-all;\r\n  border-radius: 6px;\r\n  line-height: 200%;\n}\n.myself-message .dialogbox[data-v-7c7e8384]:after,\r\n.others-message .dialogbox[data-v-7c7e8384]:after {\r\n  content: \" \";\r\n  height: 0;\r\n  width: 0;\r\n  pointer-events: none;\r\n  border: solid transparent;\r\n  border-color: #fffff5;\r\n  border-width: 7px;\n}\n.myself-infro[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 1%;\r\n  position: absolute;\r\n  width: 17%;\r\n  height: 90%;\n}\n.others-infro[data-v-7c7e8384] {\r\n  -webkit-box-sizing: border-box;\r\n          box-sizing: border-box;\r\n  padding: 1%;\r\n  position: absolute;\r\n  right: 1%;\r\n  width: 17%;\r\n  height: 90%;\n}\n.myself-message .time[data-v-7c7e8384] {\r\n  position: relative;\r\n  margin-top: 2%;\r\n  left: 86%;\r\n  font-size: 2.2em;\n}\n.myself-message .dialogbox[data-v-7c7e8384] {\r\n  position: relative;\r\n  left: 20%;\r\n  top: 0%;\n}\n.myself-message .dialogbox[data-v-7c7e8384] :after {\r\n  position: absolute;\r\n  right: 99%;\r\n  top: 4%;\r\n  border-right-color: #fff;\n}\n.others-message .time[data-v-7c7e8384] {\r\n  position: relative;\r\n  margin-top: 2%;\n}\n.others-message .dialogbox[data-v-7c7e8384] {\r\n  position: relative;\r\n  left: 0%;\r\n  top: 0%;\n}\n.others-message .dialogbox[data-v-7c7e8384]:after {\r\n  position: absolute;\r\n  right: -6%;\r\n  top: 6%;\r\n  border-left-color: #fff;\n}\n.col-l[data-v-7c7e8384] {\r\n  width: 35%;\r\n  height: 100%;\r\n  background-color: #fbffb9;\r\n  border-radius: 25px;\r\n  height: 66%;\n}\n.col-time[data-v-7c7e8384] {\r\n  width: 55%;\r\n  height: 100%;\r\n  font-size: 3.7em;\r\n  color: #754f44;\n}\r\n", ""]);
 
 // exports
 
@@ -80611,7 +80600,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["chatting"],
+  props: ["chatting", "socket"],
   data: function data() {
     return {
       input_text: "輸入想要傳送的訊息吧！"
@@ -80634,6 +80623,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.chatting.push(chat);
       this.input_text = "";
     }
+  },
+  mounted: function mounted() {
+    console.log(this.socket);
   },
   destroyed: function destroyed() {
     var self = this;

@@ -12,13 +12,15 @@
             <div class="time">21:00</div>
         </div-->
       
-        <div v-for="chat in chatting"  :class="isMyText==true? 'others-message':'myself-message'">
-            <div :class="isMyText==true? 'others-infro':'myself-infro'">
+        <div v-for="chat in chatting">
+          <div :class="chat.name==username?'others-message':'myself-message'">
+            <div :class="chat.name==username?'others-infro':'myself-infro'">
                 <img class="image" src="/img/pass.png" />
                 <div class="name">{{chat.name}}</div>
             </div>
             <div class="dialogbox">{{chat.text}}</div>
             <div class="time">{{chat.time}}</div>
+          </div>
         </div>
       </div>
 
@@ -39,7 +41,7 @@ export default {
   data() {
     return {
       input_text: "輸入想要傳送的訊息吧！",
-      isMyText: false
+      username: sessionStorage.getItem("username")
     };
   },
   methods: {
@@ -60,10 +62,7 @@ export default {
             (now.getMinutes() < 10 ? "0" : "") +
             now.getMinutes()
         };
-
-        this.isMyText = true;
         this.chatting.push(chat);
-        // this.isMyText = false;
         this.input_text = "";
         this.socket.emit("sendMessage", chat);
       }

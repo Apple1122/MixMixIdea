@@ -45,7 +45,7 @@
 
 <script>
 export default {
-  props: ["chatting"],
+  props: ["chatting", "socket"],
   data() {
     return {
       input_text: "輸入想要傳送的訊息吧！"
@@ -71,6 +71,9 @@ export default {
       this.chatting.push(chat);
       this.input_text = "";
     }
+  },
+  mounted: function() {
+    console.log(this.socket);
   },
   destroyed: function() {
     let self = this;
@@ -295,18 +298,18 @@ export default {
   border-left-color: #fff;
 }
 
-.col-l{
+.col-l {
   width: 35%;
   height: 100%;
-  background-color: #FBFFB9;
+  background-color: #fbffb9;
   border-radius: 25px;
-  HEIGHT: 66%;
+  height: 66%;
 }
 
-.col-time{
+.col-time {
   width: 55%;
   height: 100%;
   font-size: 3.7em;
-  color: #754F44;
+  color: #754f44;
 }
 </style>
