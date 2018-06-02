@@ -36613,7 +36613,7 @@ module.exports = {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(175);
-module.exports = __webpack_require__(358);
+module.exports = __webpack_require__(357);
 
 
 /***/ }),
@@ -36628,10 +36628,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_chartjs_plugin_datalabels___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_chartjs_plugin_datalabels__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_chart_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_chart_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue2_touch_events__ = __webpack_require__(357);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_vue2_touch_events___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_vue2_touch_events__);
 __webpack_require__(176);
-
 
 
 
@@ -36645,8 +36642,6 @@ var router = new __WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]({
   routes: __WEBPACK_IMPORTED_MODULE_1__routes__["a" /* default */],
   mode: 'history'
 });
-
-Vue.use(__WEBPACK_IMPORTED_MODULE_4_vue2_touch_events___default.a);
 
 // New An Instance
 var vm = new Vue({
@@ -74264,7 +74259,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   props: ["chatting", "socket"],
   data: function data() {
     return {
-      input_text: "輸入想要傳送的訊息吧！"
+      input_text: "輸入想要傳送的訊息吧！",
+      isMyText: false
     };
   },
 
@@ -74278,11 +74274,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       if (this.input_text != "") {
         var now = new Date();
         var chat = {
-          name: sessionStorage.getItem('username'),
+          name: sessionStorage.getItem("username"),
           text: this.input_text,
           time: now.getHours() + ":" + (now.getMinutes() < 10 ? "0" : "") + now.getMinutes()
         };
+
+        this.isMyText = true;
         this.chatting.push(chat);
+        // this.isMyText = false;
         this.input_text = "";
         this.socket.emit("sendMessage", chat);
       }
@@ -74312,20 +74311,30 @@ var render = function() {
       "div",
       { staticClass: "chatting-content" },
       _vm._l(_vm.chatting, function(chat) {
-        return _c("div", { staticClass: "others-message" }, [
-          _c("div", { staticClass: "others-infro" }, [
-            _c("img", {
-              staticClass: "image",
-              attrs: { src: "/img/pass.png" }
-            }),
+        return _c(
+          "div",
+          { class: _vm.isMyText == true ? "others-message" : "myself-message" },
+          [
+            _c(
+              "div",
+              { class: _vm.isMyText == true ? "others-infro" : "myself-infro" },
+              [
+                _c("img", {
+                  staticClass: "image",
+                  attrs: { src: "/img/pass.png" }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "name" }, [_vm._v(_vm._s(chat.name))])
+              ]
+            ),
             _vm._v(" "),
-            _c("div", { staticClass: "name" }, [_vm._v(_vm._s(chat.name))])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "dialogbox" }, [_vm._v(_vm._s(chat.text))]),
-          _vm._v(" "),
-          _c("div", { staticClass: "time" }, [_vm._v(_vm._s(chat.time))])
-        ])
+            _c("div", { staticClass: "dialogbox" }, [
+              _vm._v(_vm._s(chat.text))
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "time" }, [_vm._v(_vm._s(chat.time))])
+          ]
+        )
       })
     ),
     _vm._v(" "),
@@ -80263,7 +80272,7 @@ exports = module.exports = __webpack_require__(4)(false);
 
 
 // module
-exports.push([module.i, "\n.container[data-v-2d53416d]{\n  width: 98%;\n  height: 100%;\n}\n.nav-bar[data-v-2d53416d]{\n  width: 106%;\n  height: 7%;\n  margin-left: -3%;\n  -webkit-box-shadow: 0px 5px 8px #9baec8;\n          box-shadow: 0px 5px 8px #9baec8; \n  font-size: 3em;\n}\n.nav-btn[data-v-2d53416d]{\n  float: left;\n  width: 12%;\n}\n.class-name[data-v-2d53416d]{\n  float: left;\n  width: 76%;\n  font-weight: bold;\n  font-size: 4.5em;\n}\n.head[data-v-2d53416d]{\n  width: 100%;\n  height: 15%;\n}\n.body[data-v-2d53416d]{\n  width: 100%;\n  height: 70%;\n}\n.choose-text[data-v-2d53416d]{\n  font-weight: bold;\n  width: 100%;\n  height: 12%;\n  color: #ff7473;\n  font-size: 3.5em;\n}\n.historylist[data-v-2d53416d]{\n  width: 100%;\n  height: 85%;\n}\n.history[data-v-2d53416d]{\n  height: 40%;\n  width: 90%;\n  border-radius: 50px;\n  margin: auto;\n  margin-bottom: 2.5%;\n}\n.history-title[data-v-2d53416d]{\n  width: 90%;\n  height: 20%;\n  border-radius: 50px;\n  margin:auto;\n  margin-bottom: 2.5%;\n  padding: 3%;\n}\n.history-infro[data-v-2d53416d]{\n  position: relative;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  width: 100%;\n  height: 100%;\n  background-color: #ffc952;\n  border-radius: 40px;\n}\n.course-name[data-v-2d53416d]{\n  width: 50%;\n  height: 100%;\n  font-size: 3em;\n  float: left;\n}\n.history-time[data-v-2d53416d]{\n  width: 50%;\n  height: 100%;\n  font-size: 3em;\n  float: left;\n}\n.history-brief[data-v-2d53416d]{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 2.5%;\n\n  margin-top: -2%;\n  width: 100%;\n  height: 80%;\n}\n.ranking[data-v-2d53416d]{\n  height: 100%;\n  width: 50%;\n  margin-bottom: 2.5%;\n  background-color: rgba(253,153,154,.7);\n  float: left;\n  font-size: 2em;\n}\n.actionClick[data-v-2d53416d]{\n  height: 100%;\n  width: 100;\n  background: rgba(255,255,255,.9);\n}\n.bottom[data-v-2d53416d]{\n  height: 14%;\n  width: 78%;\n  background-color: rgba(255,201,82,.8);\n  margin: auto;\n  border-radius: 99em;\n  margin: auto;\n  padding: -1%;\n  margin-bottom: 10%;\n  padding-bottom: 12px;\n}\n.btn[data-v-2d53416d]{\n  width: 60%;\n  height: 60%;\n  border-radius: 99em;\n  margin: 0 auto;\n  font-size: 5em;\n  background-size: 60%;\n  vertical-align: middle;\n  padding: 3%;\n  top: 20%;\n}\n.brief-infro[data-v-2d53416d]{\n  width: 50%;\n  height: 100%;\n  float: left;\n  background-color: rgba(103,213,181,.7);\n}\n.brieflist1[data-v-2d53416d]{\n  height: 20%;\n  width: 100%;\n  margin-bottom: 2.5%;\n  font-size: 2em;\n  border-radius: 99px;\n  padding: 2%;\n}\n", ""]);
+exports.push([module.i, "\n.container[data-v-2d53416d]{\n  width: 98%;\n  height: 100%;\n}\n.nav-bar[data-v-2d53416d]{\n  width: 106%;\n  height: 7%;\n  margin-left: -3%;\n  -webkit-box-shadow: 0px 5px 8px #9baec8;\n          box-shadow: 0px 5px 8px #9baec8; \n  font-size: 3em;\n}\n.nav-btn[data-v-2d53416d]{\n  float: left;\n  width: 12%;\n}\n.class-name[data-v-2d53416d]{\n  float: left;\n  width: 76%;\n  font-weight: bold;\n  font-size: 4.5em;\n}\n.head[data-v-2d53416d]{\n  width: 100%;\n  height: 15%;\n}\n.body[data-v-2d53416d]{\n  width: 100%;\n  height: 70%;\n}\n.choose-text[data-v-2d53416d]{\n  font-weight: bold;\n  width: 100%;\n  height: 12%;\n  color: #ff7473;\n  font-size: 3.5em;\n}\n.historylist[data-v-2d53416d]{\n  width: 100%;\n  height: 85%;\n}\n.history[data-v-2d53416d]{\n  height: 40%;\n  width: 90%;\n  border-radius: 50px;\n  margin: auto;\n  margin-bottom: 2.5%;\n}\n.history-title[data-v-2d53416d]{\n  width: 90%;\n  height: 20%;\n  border-radius: 50px;\n  margin:auto;\n  margin-bottom: 2.5%;\n  padding: 3%;\n}\n.history-infro[data-v-2d53416d]{\n  position: relative;\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 3%;\n  width: 100%;\n  height: 100%;\n  background-color: #ffc952;\n  border-radius: 40px;\n}\n.course-name[data-v-2d53416d]{\n  width: 50%;\n  height: 100%;\n  font-size: 3em;\n  float: left;\n}\n.history-time[data-v-2d53416d]{\n  width: 50%;\n  height: 100%;\n  font-size: 3em;\n  float: left;\n}\n.history-brief[data-v-2d53416d]{\n  -webkit-box-sizing: border-box;\n          box-sizing: border-box;\n  padding: 2.5%;\n\n  margin-top: -2%;\n  width: 100%;\n  height: 80%;\n}\n.ranking[data-v-2d53416d]{\n  height: 100%;\n  width: 50%;\n  margin-bottom: 2.5%;\n  background-color: rgba(253,153,154,.7);\n  float: left;\n  font-size: 2em;\n}\n.actionClick[data-v-2d53416d]{\n  height: 100%;\n  width: 100;\n  background: rgba(255,255,255,.9);\n}\n.bottom[data-v-2d53416d]{\n  height: 14%;\n  width: 78%;\n  background-color: rgba(255,201,82,.8);\n  margin: auto;\n  border-radius: 99em;\n  margin: auto;\n  padding: -1%;\n  margin-bottom: 10%;\n  padding-bottom: 12px;\n}\n.btn[data-v-2d53416d]{\n  width: 60%;\n  height: 60%;\n  border-radius: 99em;\n  margin: 0 auto;\n  font-size: 5em;\n  background-size: 60%;\n  vertical-align: middle;\n  padding: 3%;\n  top: 20%;\n}\n.brief-infro[data-v-2d53416d]{\n  width: 50%;\n  height: 100%;\n  float: left;\n  font-size: 2.5em;\n  background-color: rgba(103,213,181,.7);\n}\n.brieflist1[data-v-2d53416d]{\n  height: 20%;\n  width: 100%;\n  margin-bottom: 2.5%;\n  font-size: 2em;\n  border-radius: 99px;\n  padding: 2%;\n}\n", ""]);
 
 // exports
 
@@ -80316,17 +80325,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     return {
       isClickItem: false,
       historylist: [{
-        name: "test1",
-        time: "time1"
+        name: "程式設計",
+        time: "190403"
       }, {
-        name: "test2",
-        time: "time2"
+        name: "企業概論",
+        time: "190404"
       }, {
-        name: "test3",
-        time: "time3"
+        name: "資訊管理導論",
+        time: "190405"
       }, {
-        name: "test4",
-        time: "time4"
+        name: "計算機概論",
+        time: "190405"
       }],
 
       historyBrief: [{
@@ -96892,301 +96901,6 @@ Chart.plugins.register({
 
 /***/ }),
 /* 357 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/**
- *
- * @author    Jerry Bendy
- * @since     4/12/2017
- */
-
-function touchX(event) {
-    return event.touches[0].clientX;
-}
-
-function touchY(event) {
-    return event.touches[0].clientY;
-}
-
-var isPassiveSupported = (function() {
-    var supportsPassive = false;
-    try {
-        var opts = Object.defineProperty({}, 'passive', {
-            get: function() {
-                supportsPassive = true;
-            }
-        });
-        window.addEventListener('test', null, opts);
-    } catch (e) {}
-    return supportsPassive;
-})()
-
-
-var vueTouchEvents = {
-    install: function (Vue, options) {
-
-        // Set default options
-        options = Object.assign({}, {
-            disableClick: false,
-            tapTolerance: 10,
-            swipeTolerance: 30,
-            longTapTimeInterval: 400,
-            touchClass: ''
-        }, options || {})
-
-
-        function touchStartEvent(event) {
-            var $this = this.$$touchObj
-
-            $this.supportTouch = true
-
-            if ($this.touchStarted) {
-                return
-            }
-
-            addTouchClass(this)
-
-            $this.touchStarted = true
-
-            $this.touchMoved = false
-            $this.swipeOutBounded = false
-
-            $this.startX = touchX(event)
-            $this.startY = touchY(event)
-
-            $this.currentX = 0
-            $this.currentY = 0
-
-            $this.touchStartTime = event.timeStamp
-        }
-
-        function touchMoveEvent(event) {
-            var $this = this.$$touchObj
-
-            $this.currentX = touchX(event)
-            $this.currentY = touchY(event)
-
-            if (!$this.touchMoved) {
-                var tapTolerance = options.tapTolerance
-
-                $this.touchMoved = Math.abs($this.startX - $this.currentX) > tapTolerance ||
-                    Math.abs($this.startY - $this.currentY) > tapTolerance
-
-            } else if (!$this.swipeOutBounded) {
-                var swipeOutBounded = options.swipeTolerance
-
-                $this.swipeOutBounded = Math.abs($this.startX - $this.currentX) > swipeOutBounded &&
-                    Math.abs($this.startY - $this.currentY) > swipeOutBounded
-            }
-        }
-
-        function touchCancelEvent() {
-            var $this = this.$$touchObj
-
-            removeTouchClass(this)
-
-            $this.touchStarted = $this.touchMoved = false
-            $this.startX = $this.startY = 0
-        }
-
-        function touchEndEvent(event) {
-            var $this = this.$$touchObj
-
-            $this.touchStarted = false
-
-            removeTouchClass(this)
-
-            if (!$this.touchMoved) {
-                // detect if this is a longTap event or not
-                if ($this.callbacks.longtap && event.timeStamp - $this.touchStartTime > options.longTapTimeInterval) {
-                    event.preventDefault()
-                    triggerEvent(event, this, 'longtap')
-
-                } else {
-                    // emit tap event
-                    triggerEvent(event, this, 'tap')
-                }
-
-            } else if (!$this.swipeOutBounded) {
-                var swipeOutBounded = options.swipeTolerance, direction
-
-                if (Math.abs($this.startX - $this.currentX) < swipeOutBounded) {
-                    direction = $this.startY > $this.currentY ? "top" : "bottom"
-
-                } else {
-                    direction = $this.startX > $this.currentX ? "left" : "right"
-                }
-
-                // Only emit the specified event when it has modifiers
-                if ($this.callbacks['swipe.' + direction]) {
-                    triggerEvent(event, this, 'swipe.' + direction, direction)
-
-                } else {
-                    // Emit a common event when it has no any modifier
-                    triggerEvent(event, this, 'swipe', direction)
-                }
-            }
-        }
-
-        function clickEvent(event) {
-            var $this = this.$$touchObj
-
-            if (!$this.supportTouch && !options.disableClick) {
-                triggerEvent(event, this, 'tap')
-            }
-        }
-
-        function mouseEnterEvent() {
-            addTouchClass(this)
-        }
-
-        function mouseLeaveEvent() {
-            removeTouchClass(this)
-        }
-
-        function triggerEvent(e, $el, eventType, param) {
-            var $this = $el.$$touchObj
-
-            // get the callback list
-            var callbacks = $this.callbacks[eventType] || []
-            if (callbacks.length === 0) {
-                return null
-            }
-
-            for (var i = 0; i < callbacks.length; i++) {
-                var binding = callbacks[i]
-
-                // handle `self` modifier`
-                if (binding.modifiers.self && e.target !== e.currentTarget) {
-                    continue
-                }
-
-                if (typeof binding.value === 'function') {
-                    if (param) {
-                        binding.value(param, e)
-                    } else {
-                        binding.value(e)
-                    }
-                }
-            }
-        }
-
-        function addTouchClass($el) {
-            var className = $el.$$touchClass || options.touchClass
-            className && $el.classList.add(className)
-        }
-
-        function removeTouchClass($el) {
-            var className = $el.$$touchClass || options.touchClass
-            className && $el.classList.remove(className)
-        }
-
-        Vue.directive('touch', {
-            bind: function ($el, binding) {
-
-                $el.$$touchObj = $el.$$touchObj || {
-                        // will change to true when `touchstart` event first trigger
-                        supportTouch: false,
-                        // an object contains all callbacks registered,
-                        // key is event name, value is an array
-                        callbacks: {},
-                        // prevent bind twice, set to true when event bound
-                        hasBindTouchEvents: false
-                    }
-
-
-                // register callback
-                var eventType = binding.arg || 'tap'
-                switch (eventType) {
-                    case 'swipe':
-                        var _m = binding.modifiers
-                        if (_m.left || _m.right || _m.top || _m.bottom) {
-                            for (var i in binding.modifiers) {
-                                if (['left', 'right', 'top', 'bottom'].indexOf(i) >= 0) {
-                                    var _e = 'swipe.' + i
-                                    $el.$$touchObj.callbacks[_e] = $el.$$touchObj.callbacks[_e] || []
-                                    $el.$$touchObj.callbacks[_e].push(binding)
-                                }
-                            }
-                        } else {
-                            $el.$$touchObj.callbacks.swipe = $el.$$touchObj.callbacks.swipe || []
-                            $el.$$touchObj.callbacks.swipe.push(binding)
-                        }
-                        break
-
-                    default:
-                        $el.$$touchObj.callbacks[eventType] = $el.$$touchObj.callbacks[eventType] || []
-                        $el.$$touchObj.callbacks[eventType].push(binding)
-                }
-
-                // prevent bind twice
-                if ($el.$$touchObj.hasBindTouchEvents) {
-                    return
-                }
-
-                var passiveOpt = isPassiveSupported ? { passive: true } : false;
-                $el.addEventListener('touchstart', touchStartEvent, passiveOpt)
-                $el.addEventListener('touchmove', touchMoveEvent, passiveOpt)
-                $el.addEventListener('touchcancel', touchCancelEvent)
-                $el.addEventListener('touchend', touchEndEvent)
-
-                if (!options.disableClick) {
-                    $el.addEventListener('click', clickEvent)
-                    $el.addEventListener('mouseenter', mouseEnterEvent)
-                    $el.addEventListener('mouseleave', mouseLeaveEvent)
-                }
-
-                // set bind mark to true
-                $el.$$touchObj.hasBindTouchEvents = true
-            },
-
-            unbind: function ($el) {
-                $el.removeEventListener('touchstart', touchStartEvent)
-                $el.removeEventListener('touchmove', touchMoveEvent)
-                $el.removeEventListener('touchcancel', touchCancelEvent)
-                $el.removeEventListener('touchend', touchEndEvent)
-
-                if (!options.disableClick) {
-                    $el.removeEventListener('click', clickEvent)
-                    $el.removeEventListener('mouseenter', mouseEnterEvent)
-                    $el.removeEventListener('mouseleave', mouseLeaveEvent)
-                }
-
-                // remove vars
-                delete $el.$$touchObj
-            }
-        })
-
-        Vue.directive('touch-class', {
-            bind: function ($el, binding) {
-                $el.$$touchClass = binding.value
-            },
-            unbind: function ($el) {
-                delete $el.$$touchClass
-            }
-        })
-    }
-}
-
-
-/*
- * Exports
- */
-if (true) {
-    module.exports = vueTouchEvents
-
-} else if (typeof define === 'function' && define.amd) {
-    define([], function () {
-        return vueTouchEvents
-    })
-} else if (window.Vue) {
-    window.vueTouchEvents = vueTouchEvents
-    Vue.use(vueTouchEvents)
-}
-
-
-/***/ }),
-/* 358 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
