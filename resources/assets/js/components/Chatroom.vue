@@ -12,8 +12,8 @@
             <div class="time">21:00</div>
         </div-->
       
-        <div v-for="chat in chatting"  class="others-message">
-            <div class="others-infro">
+        <div v-for="chat in chatting"  :class="isMyText==true? 'others-message':'myself-message'">
+            <div :class="isMyText==true? 'others-infro':'myself-infro'">
                 <img class="image" src="/img/pass.png" />
                 <div class="name">{{chat.name}}</div>
             </div>
@@ -38,7 +38,8 @@ export default {
   props: ["chatting", "socket"],
   data() {
     return {
-      input_text: "輸入想要傳送的訊息吧！"
+      input_text: "輸入想要傳送的訊息吧！",
+      isMyText: false
     };
   },
   methods: {
@@ -51,7 +52,7 @@ export default {
       if (this.input_text != "") {
         let now = new Date();
         let chat = {
-          name: sessionStorage.getItem('username'),
+          name: sessionStorage.getItem("username"),
           text: this.input_text,
           time:
             now.getHours() +
@@ -59,15 +60,17 @@ export default {
             (now.getMinutes() < 10 ? "0" : "") +
             now.getMinutes()
         };
+
+        this.isMyText = true;
         this.chatting.push(chat);
-        this.input_text = "";        
+        // this.isMyText = false;
+        this.input_text = "";
         this.socket.emit("sendMessage", chat);
       }
     }
   },
   mounted: function() {
     var self = this;
-
   },
   updated: function() {
     let chatbox = this.$el.querySelector(".chatting-content");
